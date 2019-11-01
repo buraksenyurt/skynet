@@ -2,7 +2,11 @@
 
 Amacım Ruby kodlama ile docker container üzerinde host edilmiş bir Redis veritabanında basit işlemler yapabilmek. Redis, In-Memory NoSql veritabanı sistemlerinden birisidir. Tüm veriyi bellekte saklayıp buradan sorguladığından epeyce hızlıdır. Key-Value _(Tuple Store)_ tipinden bir veritabanı olup hash,list,set,sorted-set ve string [tiplerinden](https://redis.io/topics/data-types) oluşan zengin bir veri yapısına sahiptir. Dağıtılabilir caching stratejilerinde, otomatik tamamlama özelliklerine ait önerilerin hızla getirilmesinde, aktif kullanıcı oturumlarının takibinde, iş kuyruklarının modellenmesinde _(publisher/subscriber türevli)_ dağıtık bir NoSQL çözümü olarak kullanılabilir.
 
-Redis, CAP _(Consistency, Availability, Partition Tolerance)_ üçgeninin CP kenarında yer alır. Kısaca hatırlatmak gerekirse dağıtık bir sistemde Consistency ilkesine göre tüm istemciler verinin her zaman aynı görünümüne ulaşır. Pi'nin değeri bir istemci tarafından 3.14 olarak belirlenmişse diğer istemciler Pi'ye baktıklarında bu değeri görür. Availability ilkesi tüm istemcilerin dağıtık sistem üzerinden her zaman okuma ve yazma yapabiliyor olmasını öngörür. Partition ilkesine göre node'larda fiziki olarak kopma meydana gelse bile sistem kullanılabilir durumdadır. Tabii en önemli nokta şudur ki CAP teoremine göre dağıtık bir sistem bu üç unsuru aynı anda karşılayamaz. 
+Redis, CAP _(Consistency, Availability, Partition Tolerance)_ üçgeninin CP kenarında yer alır. Kısaca hatırlatmak gerekirse dağıtık bir sistemde Consistency ilkesine göre tüm istemciler verinin her zaman aynı görünümüne ulaşır. Pi'nin değeri bir istemci tarafından 3.14 olarak belirlenmişse diğer istemciler Pi'ye baktıklarında bu değeri görür. Availability ilkesi tüm istemcilerin dağıtık sistem üzerinden her zaman okuma ve yazma yapabiliyor olmasını öngörür. Partition ilkesine göre node'larda fiziki olarak kopma meydana gelse bile sistem kullanılabilir durumdadır. Tabii en önemli nokta şudur ki CAP teoremine göre dağıtık bir sistem bu üç unsuru aynı anda karşılayamaz.
+
+Çok sık gördüğümüz CAP üçgenini aklımızda kaldığı kadarıyla çizmeye çalışalım.
+
+![screenshot_5.png](./assets/screenshot_5.png)
 
 ## ilk Adımlar
 
@@ -31,7 +35,7 @@ Ruby tarafında redis ile konuşmak için _redis_ isimli gem paketinden yararlan
 ```
 mkdir src
 cd src
-touch main.rb publisher.rb subscriber.rb
+touch main.rb publisher.rb subscriber.rb dessert.rb
 
 sudo gem install redis
 ```
@@ -56,7 +60,7 @@ ruby main.rb
 
 ![screenshot_3.png](./assets/screenshot_3.png)
 
-### Ana Yemek
+### Ana Yemek
 
 İkinci örnek biraz daha kapsamlı olup publish/subscribe modelinin uyarlamasını ele almaktadır. publisher görevini üstlenen uygulama sembolik olarak belirli aralıklarla broadcast yayını yapar ve game-info-101 ve game-info-102 kodlu kannalar üzerinden mesajlar yollar. Bu kanalları dinleyen aboneler mesajları görür. En az 3 terminal açıp birinde publisher.rb dosyasını diğer ikisinde de subscriber.rb dosyalarını dinleyecekleri kanalları parametre olarak verip çalıştırmak yeterlidir.
 
@@ -70,19 +74,43 @@ ruby publisher.rb
 
 ### Tatlı
 
-Bu son örnekte SQL dünyasından Redis'e doğru bir bakış atmaya çalışacağız. Şema yapısı belli bir SQL tablosunu Redisce nasıl düşünebiliriz ve benzer sorguları nasıl atabiliriz bunu deneyimleyeceğiz.
+Bu son örnekte SQL dünyasından Redis'e doğru bir bakış atmaya çalışacağız. Şema yapısı belli bir SQL tablosunu Redisce nasıl düşünebiliriz ve benzer sorguları nasıl atabiliriz bunu deneyimleyeceğiz. Redisin resmi dokümanlarına göre aşağıdaki her iki dünya arasında aşağıdaki çizelgede görülen benzerliği kurmak mümkün.
 
->throw new NotImplementedException();
+![screenshot_6.png](./assets/screenshot_6.png)
+
+Bir tabloyu Hash olarak düşünmemiz mümkündür. Örneğin oyuncuların skorlarına göre sıralanacağı bir listeyi de Sorted Set nesnesi gibi düşünebiliriz. Son kod parçasını aşağıdaki terminal komutu ile çalıştırabiliriz.
+
+```
+ruby dessert.rb
+```
+
+![screenshot_7.png](./assets/screenshot_7.png)
+
+### Tamamlarken
+
+Eğer kullandığımız Redis Container'ı ile işimiz bittiyse durdurup kaldırmak isteyebiliriz. Bunun için aşağıdaki terminal komutlarını çalıştırmak yeterli olacaktır. _(Muhtemelen sizdeki Names değeri farklı olur)_
+
+```
+docker container ps -a
+docker stop interesting_nobel
+docker container rm interesting_nobel
+docker container ps -a
+```
+
+![screenshot_8.png](./assets/screenshot_8.png)
 
 ## Neler Öğrendim?
 
-- redis docker imajını MacOS üzerinde kullanmayı
-- redis gem'ini kullanarak yapılabilecek temel işlemleri
-- temel redis veri tiplerini
-- basit bir pub/sub kurgusunu işletmeyi
+- Redis docker imajını MacOS üzerinde kullanmayı
+- Redis'in CAP teoreminde hangi ikiliye yakın olduğunu
+- Redis gem'ini kullanarak yapılabilecek temel işlemleri
+- Temel redis veri tiplerini
+- Basit bir pub/sub kurgusunu işletmeyi
 - SQL stilinde bir tablonun Redisce oluşturulmasını
+- Bir hash içindeki tüm key değerlerini nasıl dolaşabileceğimi
 
-## Neler Eksik?
+## Eksikliği Hissedilen Konular
 
 - Publisher tarafında farklı kanalların birbirinden bağımsız asenkron olarak yayın yapmasını nasıl sağlayabilirim?
-- Sence subscribe.rb kodunda birden fazla kanala abone olabilir miyim?
+- Subscribe.rb içerisinde birden fazla kanala abone olabilir miyim?
+- Peki pub/sub senaryosunu Ruby on Rails tabanlı bir web projesinde nasıl kullanırım?
