@@ -1,4 +1,4 @@
-# MongoDB ile bir GO uygulamasını konuşturmak
+# MongoDB ile bir GO Uygulamasını Konuşturmak
 
 Elimizdeki malzemeleri sayalım. MongoDB için bir docker imajı, gRPC ve GoLang. Bu üçünü kullanarak CRUD operasyonlarını icra eden basit bir uygulama geliştirmek niyetindeyim. Bir önceki öğretide Redis docker container'dan yararlanmıştım. Ahch-To sistemini kirletmemek adına MongoDB için de benzer şekilde hareket edeceğim. Açıkçası GoLang bilgim epey paslanmış durumda ve sistemde yüklü olup olmadığını dahi bilmiyorum.
 
@@ -59,6 +59,14 @@ exit
 İlk komutla mongo imajı çekiliyor. İzleyen komut docker container'ını varsayılan portları ile sistemin kullanımına açmak için. Container listesinde göründüğüne göre sorun yok. MongoDB veritabanını container üzerinden test etmek amacıyla içerisine girmek lazım. 4ncü komutu bu işe yarıyor. Ardından mongo shell'e geçip bir kaç işlem gerçekleştirilebilir.
 
 Önce var olan veritabanlarını listeliyor sonra AdventureWorks isimli yeni bir tane oluşturuluyor. Ardından category isimli bir koleksiyona iki doküman ekleniyor ve tümünü güzel bir formatta listeliyoruz. Arka arkaya gelen iki exit komutunu fark etmişsinizdir. İlki mongo shell'den, ikincisi de container içinden çıkmak için.
+
+Ah çok önemli bir detayı unuttum. Örnekte gRPC protokolünü kullanacağız. Bu da bir proto dosyamız olacağı ve Golang için gerekli stub dosyasına derleme yapacağımız anlamına geliyor. Dolayısıyla sistemde protobuf ve go için gerekli derleyici eklentisine ihtiyacım var. brew ile bunları sisteme yüklemek oldukça kolay.
+
+```
+brew install protobuf
+protoc --version
+brew install protoc-gen-go
+```
 
 Kod tarafına geçmeye hazırız ama öncesinde ufak bir bilgi.
 
