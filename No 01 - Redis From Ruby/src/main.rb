@@ -79,4 +79,3 @@ puts ''
 puts redis.zrevrange('best-players-of-the-week',0,0) # en iyi skora sahip olanı getirir (rev hecesine dikkat)
 puts ''
 puts redis.zrangebyscore('best-players-of-the-week',20,30) # skorları 20 ile 30 arasında olanlar
-

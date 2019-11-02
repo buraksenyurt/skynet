@@ -22,7 +22,7 @@ docker stop london
 docker container rm 0793a
 ```
 
-İlk komut ile redis imajının son sürümünü indiriyoruz. Buradaki appendonly anahtarına verilen değer sebebiyle dataset üzerinde yapılan her değişiklik fiziki diskte kalıcılaştıracaktır. _([Persistance detayları için şuraya bakabiliriz](https://redis.io/topics/persistence))_ konusunda  İkinci komutla container'ı başlatıyoruz ve üçüncü komut ile redis-cli terminal aracını devreye alıp redis ortamına bağlanıyoruz. ping karşılığında PONG mesajını görmemiz redis'in çalıştığının işaretidir. Son komutlar opsiyonel olmakla birlikte Docker container'ını durdurmak ve kaldırmak için kullanılabilir.
+İlk komut ile redis imajının son sürümünü indiriyoruz. Buradaki appendonly anahtarına verilen değer sebebiyle dataset üzerinde yapılan her değişiklik fiziki diskte kalıcılaştıracaktır. _([Persistance detayları için şuraya bakabiliriz](https://redis.io/topics/persistence))_ İkinci komutla container'ı başlatıyoruz ve üçüncü komut ile redis-cli terminal aracını devreye alıp redis ortamına bağlanıyoruz. ping karşılığında PONG mesajını görmemiz redis'in çalıştığının işaretidir. Son komutlar opsiyonel olmakla birlikte Docker container'ını durdurmak ve kaldırmak için kullanılabilir.
 
 ![screenshot_1.png](./assets/screenshot_1.png)
 
