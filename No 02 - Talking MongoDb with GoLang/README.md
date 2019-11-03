@@ -70,7 +70,7 @@ brew install protoc-gen-go
 
 Kod tarafına geçmeye hazırız ama öncesinde ufak bir bilgi.
 
-## gRPC Hakkında Azcık Bilgi
+## gRPC Hakkında Azıcık Bilgi
 
 gRPC, HTTP2 bazlı modern bir iletişim protokolü ve JSON yerine ProtoBuffers olarak isimlendirilen kuvvetle türlendirilmiş bir ikili veri formatını kullanmakta _(strongly-typed binary data format)_ JSON özellikle REST tabanlı servislerde popüler bir format olmasına rağmen serileştirme sırasında CPU'yu yoran bir performans sergiliyor. HTTP/2 özelliklerini iyi kullanana gRPC ise 5 ile 25 kata kadar daha hızlı. Bu noktada hatırlamak için bile olsa gRPC ile REST'i kıyaslamakta yarar var. İşte karşılaştırma tablosu.
 
@@ -82,6 +82,26 @@ gRPC, HTTP2 bazlı modern bir iletişim protokolü ve JSON yerine ProtoBuffers o
 | HTTP Get,Post,Put,Delete  gibi fiil tabanlı         | RPC tabanlı, sunucu üzerinden  fonksiyon çağırabilme özelliği  |
 | Sadece Client->Server yönlü talepler                | Çift yönlü ve asenkron iletişim                                |
 | JSON kullanıyor (serileşme yavaş, daha büyük boyut) | Protobuffer kullanıyor (daha küçük boyutta ve serileşme hızlı) |
+
+## Kod Tarafında Yapılanlar
+
+Uygulamanın temel klasör yapısını aşağıdaki gibi oluşturabiliriz. Ben bu işlemleri $HOME\go\src\ altında yaptım.
+
+```
+mkdir gRPC-sample
+cd gRPC-sample
+mkdir playerserver
+mkdir clientapp
+mkdir proto
+```
+
+playerserver ve clientapp tahmin edileceği üzere sunucu ve istemci uygulama görevini üstleniyorlar. proto klasöründe yer alan player.proto, gRPC mesaj sözleşmesine ait tanımlamaları içermekte. Servis metodları, parametre tipleri ve içerikleri bu dosyada bildiriliyor. Bu içeriğin Go kodlarında kullanılabilmesi için derlenmesi gerekiyor. Derlemeyi aşağıdaki terminal komutu ile gerçekleştirebiliriz. _(proto dosyasını VS Code tarafında daha kolay düzenlemek için vscode-proto3 isimli extension'ı kullandım)_
+
+```
+protoc player.proto --go_out=plugins=grpc:.
+```
+
+>throw new NotCompletedException();
 
 ## Çalışma Zamanı
 
