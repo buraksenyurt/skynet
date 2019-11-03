@@ -9,6 +9,8 @@ import (
 
 	playerpb "gRPC-sample/proto"
 
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"google.golang.org/grpc"
 )
 
@@ -18,9 +20,11 @@ Bir nevi interface üzerinden enjekte işlemi yaptığımızı düşünebilir mi
 */
 type PlayerServiceServer struct{}
 
-func main() {
-	fmt.Println("Sunucu 5555 nolu porttan dinleme yapacak...")
+var db *mongo.Client
+var playerCollection *mongo.Collection
+var mongoContext context.Context
 
+func main() {
 	// TCP üzerinden 5555 nolu portu dinleyecek olan nesne oluşturuluyor
 	server, err := net.Listen("tcp", ":5555")
 	// Olası bir hata durumunu kontrol ediyoruz
@@ -29,13 +33,42 @@ func main() {
 	}
 
 	// gPRC sunucusu için kayıt(register) işlemleri
-	options := []grpc.ServerOption{}
+	grpcOptions := []grpc.ServerOption{}
 	// yeni bir grpc server oluşturulur
-	grpcServer := grpc.NewServer(options...)
+	grpcServer := grpc.NewServer(grpcOptions...)
 	// Bir PlayerService tipi oluşturulur
 	playerServiceType := &PlayerServiceServer{}
 	// servis sunucu ile birlikte kayıt edilir
 	playerpb.RegisterPlayerServiceServer(grpcServer, playerServiceType)
+
+	// mongoDB bağlantı işlemleri
+	fmt.Println("MongoDB sunucusuna bağlanılıyor")
+	mongoContext = context.Background()
+	// bağlantı deneniyor
+	db, err = mongo.Connect(mongoContext, options.Client().ApplyURI("mongodb://localhost:27017"))
+	// olası bir bağlantı hatası varsa
+	if err != nil {
+		fmt.Println(err)
+	}
+	// Klasik ping metodunu çağırıyoruz
+	err = db.Ping(mongoContext, nil)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		// çağrı başarılı olursa bağlandık demektir
+		fmt.Println("MongoDB ile bağlantı sağlandı")
+	}
+	// nba isimli veritabanındaki player koleksiyonuna ait bir nesne örnekliyoruz
+	// veritabanı ve koleksiyon yoksa oluşturulacaktır
+	playerCollection = db.Database("nba").Collection("player")
+
+	// gRPC sunucusunu aktif olan TCP sunucusu içerisinde bir child routine olarak başlatıyoruz
+	go func() {
+		if err := grpcServer.Serve(server); err != nil {
+			fmt.Println(err)
+		}
+	}()
+	fmt.Println("Sunucu 5555 nolu porttan gPRC tabanlı iletişime hazır.\nDurdurmak için CTRL+C.")
 
 	// CTRL+C ile başlayan kapatma operasyonu
 	cnl := make(chan os.Signal)      // işletim sisteminde sinyal alabilmek için bir kanal oluşturduk
@@ -43,13 +76,13 @@ func main() {
 	<-cnl
 
 	fmt.Println("Sunucu kapatılıyor...")
-	server.Close()
+	grpcServer.Stop() // gRPC sunucusunu durdur
+	server.Close()    // TCP dinleyicisini kapat
 	fmt.Println("GoodBye Crow")
 }
 
-/*
-PlayerServiceServer'ın uygulanması gereken metodlarını. Yani servis sözleşmesinin tüm operasyonları
-*/
+/* PlayerServiceServer'ın uygulanması gereken metodlarını. Yani servis sözleşmesinin tüm operasyonları
+ */
 func (srv *PlayerServiceServer) AddPlayer(ctx context.Context, req *playerpb.AddPlayerReq) (*playerpb.AddPlayerRes, error) {
 	return nil, nil
 }

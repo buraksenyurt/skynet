@@ -101,15 +101,13 @@ playerserver ve clientapp tahmin edileceği üzere sunucu ve istemci uygulama g�
 protoc player.proto --go_out=plugins=grpc:.
 ```
 
-Proto dosyasının tamamlanmasını takiben playerserver klasöründe main.go dosyası üretildi.
-
-main.go içerisinde yer alan bazı paketleri sisteme yüklemek gerekebilir. grpc için terminalden aşağıdaki komutu yazmak yeterli olacaktır.
+Proto dosyasının tamamlanmasını takiben playerserver klasöründe main.go dosyası üretildi. main.go içerisinde yer alan bazı paketleri sisteme yüklemek gerekebilir. Bir sebepten Ahch-to üstünde grpc paketi ile ilgili sorunlar yaşadım. Bunun üzerine terminalden manuel yüklemem gerekyir.
 
 ```
 sudo go get -u google.golang.org/grpc
 ```
 
->throw new NotCompletedException();
+>throw new NotCompletedException("Servis sözleşmesine ait metodların tamamlanması gerekiyor");
 
 ## Çalışma Zamanı
 
