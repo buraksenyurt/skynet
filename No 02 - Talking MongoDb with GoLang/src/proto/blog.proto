@@ -1,58 +1,61 @@
-syntax = "proto3";
+syntax="proto3"; //protobuffers v3 versiyonu kullaniliyor
 
-package blog;
+package player; // proto paketinin adi
+option go_package="playerpb"; // generate edilecek go paketinin adi
 
-option go_package = "blogpb";
-
-message Blog {
-    string id = 1;
-    string author_id = 2;
-    string title = 3;
-    string content= 4;
+// Player mesaj tipinin tanimi
+message Player{
+    string id=1;
+    string player_id=2;
+    string fullname=3;
+    string position=4;
+    string bio=5;
 }
 
-message CreateBlogReq {
-    Blog blog = 1; // Blog id blank
+// Operasyonlarin kullandigi request ve response mesajlarina ait tanimlamalar
+message AddPlayerReq{
+    Player plyr=1;
 }
 
-message CreateBlogRes {
-    Blog blog = 1; // Blog id filled in
+message AddPlayerRes{
+    Player plyr=1;
 }
 
-message ReadBlogReq {
-    string id = 1;
+message EditPlayerReq{
+    Player plyr=1;
 }
 
-message ReadBlogRes {
-    Blog blog = 1;
+message EditPlayerRes{
+    Player plyr=1;
 }
 
-message UpdateBlogReq {
-    Blog blog = 1;
+message RemovePlayerReq{
+    string player_id=1;
 }
 
-message UpdateBlogRes {
-    Blog blog = 1;
+message RemovePlayerRes{
+    bool removed=1;
 }
 
-message DeleteBlogReq {
-    string id = 1;
+message GetPlayerReq{
+    string player_id=1;
 }
 
-message DeleteBlogRes {
-    bool success = 1;
+message GetPlayerRes{
+    Player plyr=1;
 }
 
-message ListBlogsReq {}
+message GetPlayerListReq{}
 
-message ListBlogsRes {
-    Blog blog = 1;
+message GetPlayerListRes{
+    Player plyr=1;
 }
 
-service BlogService {
-    rpc CreateBlog(CreateBlogReq) returns (CreateBlogRes);
-    rpc ReadBlog(ReadBlogReq) returns (ReadBlogRes);
-    rpc UpdateBlog(UpdateBlogReq) returns (UpdateBlogRes);
-    rpc DeleteBlog(DeleteBlogReq) returns (DeleteBlogRes);
-    rpc ListBlogs(ListBlogsReq) returns (stream ListBlogsRes);
+// servis ve operasyon tanimlari
+service PlayerService{
+    rpc GetPlayer(GetPlayerReq) returns (GetPlayerRes);
+    rpc GetPlayerList(GetPlayerListReq) returns (GetPlayerListRes);
+    rpc AddPlayer(AddPlayerReq) returns (AddPlayerRes);
+    rpc EditPlayer(EditPlayerReq) returns (EditPlayerRes);
+    rpc RemovePlayer(RemovePlayerReq) returns (RemovePlayerRes);
 }
