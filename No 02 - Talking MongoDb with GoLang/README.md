@@ -101,22 +101,35 @@ playerserver ve clientapp tahmin edileceği üzere sunucu ve istemci uygulama g�
 protoc player.proto --go_out=plugins=grpc:.
 ```
 
-Proto dosyasının tamamlanmasını takiben playerserver klasöründe main.go dosyası üretildi. main.go içerisinde yer alan bazı paketleri sisteme yüklemek gerekebilir. Bir sebepten Ahch-to üstünde grpc paketi ile ilgili sorunlar yaşadım. Bunun üzerine terminalden manuel yüklemem gerekyir.
+Proto dosyasının tamamlanmasını takiben playerserver klasöründe main.go dosyası üretildi. Biraz uzun bir kod dosyası oldu ama sabırla yazmakta ve yorum satırlarını da okuyarak neler yaptığımızı anlamaya çalışmakta yarar var.
 
-```
-sudo go get -u google.golang.org/grpc
-```
+Sunucu tarafındaki kodlama tamamlandıktan sonra istemci tarafı için clientapp altında tester.go isimli bir başka dosya oluşturuldu. Burada komut satırından temel CRUD operasyonlarını icra edeceğiz. Yeni bir oyuncunun eklenmesi, bir oyuncunun bilgisinin çekilmesi, tüm oyuncuların listesinin alınması vb
 
->throw new NotCompletedException("Servis sözleşmesine ait metodların tamamlanması gerekiyor");
+>throw new NotCompletedException("AddPlayer dışındaki metodların tamamlanması lazım");
 
 ## Çalışma Zamanı
 
->throw new NotImplementedException();
+İlk gün çalışmasının meyveleri pek fena değil. server ve client tarafa ait go dosyalarını kendi klasörlerinde aşağıdaki terminal komutları ile derledikten sonra
+
+```
+go build main.go
+go build tester.go
+```
+
+önce sunucu ardından istemci tarafını çalıştırıp servis tarafındaki kodlaması ilk biten AddPlayer fonksiyonunu deneme şansı buldum. Birkaç oyuncu verisini girdikten sonra mongodb container'ına ait shell'e bağlanıp gerçekten de yeni dokümanların player koleksiyonuna eklenip eklenmediğine baktım. Sonuç tebessüm ettiriciydi :) İstemci uygulama gRPC üzerinden sunucuya mesaj göndermiş, sunucuya gelen içerik docker container üzerinde duran mongodb veritabanına yazılmıştı.
+
+![screenshot_4.png](./assets/screenshot_4.png)
+
+>throw new NotImplementedException("Get, GetAll gibi diğer operasyonlara ait çalışma zamanı çıktıları eksik");
 
 ## Neler Öğrendim?
 
->throw new NotImplementedException();
+- Bir protobuf dosyası nasıl hazırlanır ve Go tarafında kullanılabilmesi için nasıl derlenir
+- Go tarafından MongoDB ile nasıl haberleşilir
+- MongoDB docker container'ına ait shell üstünde nasıl çalışır
+- Temel mongodb komutları
+- 
 
 ## Eksikliği Hissedilen Konular
 
->throw new NotImplementedException();
+- İstemci tarafını Go tabanlı bir web client olarak geliştirmeyi deneyebiliriz. Terminalden hallice daha iyidir.

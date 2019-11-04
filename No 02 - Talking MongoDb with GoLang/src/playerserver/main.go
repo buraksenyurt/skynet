@@ -7,14 +7,18 @@ import (
 	"os"
 	"os/signal"
 
+	"go.mongodb.org/mongo-driver/bson/primitive"
+
 	playerpb "gRPC-sample/proto"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
-/* proto'dan otomatik üretilen player.pb.go içerisindeki RegisterPlayerServiceServer metoduna bir bakın.
+/* proto'dan otomatik üretilen player.pb.go içerisindeki RegisterPlayerServiceServer metoduna bakın.
 Pointer olarak gelen grpc server nesnesi ikinci parametre olarak gelen tipi register etmek için kullanılır.
 Bir nevi interface üzerinden enjekte işlemi yaptığımızı düşünebilir miyiz?
 */
@@ -81,10 +85,47 @@ func main() {
 	fmt.Println("GoodBye Crow")
 }
 
-/* PlayerServiceServer'ın uygulanması gereken metodlarını. Yani servis sözleşmesinin tüm operasyonları
- */
+/* Protobuf mesajlarında taşınan serileşmiş içeriği nesnel olarak ele alacağımız struct */
+type Player struct {
+	ID       primitive.ObjectID `bson:"_id,omitempty"` // MongoDB tarafındaki ObjectId değerini taşır
+	PlayerID string             `bson:"player_id"`
+	Fullname string             `bson:"fullname"`
+	Position string             `bson:"position"`
+	Bio      string             `bson:"bio"`
+}
+
+/*PlayerServiceServer'ın uygulanması gereken metodları. Yani servis sözleşmesinin tüm operasyonları*/
+
+// Yeni bir oyuncu eklemek için kullanacağımız fonksiyon
 func (srv *PlayerServiceServer) AddPlayer(ctx context.Context, req *playerpb.AddPlayerReq) (*playerpb.AddPlayerRes, error) {
-	return nil, nil
+	payload := req.GetPlyr() // GetPlyr (GetPlayer değil. O servis metodumuz) fonksiyonu ile request üzerinden gelen player içeriği çekilir
+
+	// İçerik ile gelen alan değerleri player struct nesnesini oluşturmak için kullanılır
+	// GetPlayer[Özellik Adı] metodları derlenmiş protobuff dosyasında yer alır. Bir kontrol edin.
+	player := Player{
+		PlayerID: payload.GetPlayerId(),
+		Fullname: payload.GetFullname(),
+		Position: payload.GetPosition(),
+		Bio:      payload.GetBio(),
+	}
+
+	// player nesnesi mongodb veritabanındaki koleksiyona eklenir
+	result, err := playerCollection.InsertOne(mongoContext, player)
+
+	// InsertOne operasyonunun sonucuna bakılır.
+	if err != nil {
+		// gRPC hatası varsa döndürülür
+		return nil, status.Errorf(
+			codes.Internal,
+			fmt.Sprintf("Bir hata oluştu : %v", err),
+		)
+	}
+
+	// Hata oluşmadıysa koleksiyona eklenen yeni doküman
+	// üretilen ObjectID değeri de atanarak geri döndürülür
+	objectID := result.InsertedID.(primitive.ObjectID)
+	payload.Id = objectID.Hex()
+	return &playerpb.AddPlayerRes{Plyr: payload}, nil
 }
 
 func (srv *PlayerServiceServer) EditPlayer(ctx context.Context, req *playerpb.EditPlayerReq) (*playerpb.EditPlayerRes, error) {
