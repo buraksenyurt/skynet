@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"fmt"
+	"io"
 	"os"
 	"strings"
 
@@ -12,14 +13,14 @@ import (
 	"google.golang.org/grpc"
 )
 
+var client playerpb.PlayerServiceClient
+var reqOptions grpc.DialOption
+
 func main() {
-	var client playerpb.PlayerServiceClient
-	var reqOptions grpc.DialOption
 
 	// HTTPS ayarları ile uğraşmak istemedim
 	reqOptions = grpc.WithInsecure()
 	// gRPC servisi ile el sıkışmaya çalışıyoruz
-	// Hatırlanacağı üzere sunucu 5555 nolu porttan hizmet veriyordu
 	connection, err := grpc.Dial("localhost:5555", reqOptions)
 	if err != nil {
 		fmt.Println(err)
@@ -28,6 +29,13 @@ func main() {
 	// proxy nesnesini ilgili bağlantıyı kullanacak şekilde örnekliyoruz
 	client = playerpb.NewPlayerServiceClient(connection)
 
+	// Oyuncu ekleyelim
+	// insertPlayer()
+	// tüm oyuncu listesini çekelim
+	getAllPlayerList()
+}
+
+func insertPlayer() {
 	// Yeni oyuncu eklenmesi için deneme kodu
 	// Veri ihlalleri örneğin basitliği açısından göz ardı edilmiştir
 	reader := bufio.NewReader(os.Stdin)
@@ -63,8 +71,32 @@ func main() {
 	)
 	if err != nil {
 		fmt.Println(err)
-	} else {
-		// Eğer bir hata oluşmadıysa MongoDB tarafından üretilen ID değerini ekranda görmemiz lazım
-		fmt.Printf("%s ile yeni oyuncu eklendi \n", res.Plyr.Id)
+		return
+	}
+	// Eğer bir hata oluşmamışsa MongoDB tarafından üretilen ID değerini ekranda görmemiz lazım
+	fmt.Printf("%s ile yeni oyuncu eklendi \n", res.Plyr.Id)
+}
+
+// Tüm oyuncu listesini çektiğimiz metod
+func getAllPlayerList() {
+
+	// önce request oluşturulur
+	req := &playerpb.GetPlayerListReq{}
+
+	// proxy nesnesi üzerinden servis metodu çağrılır
+	s, err := client.GetPlayerList(context.Background(), req)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// sunucu tarafından stream bazlı dönüş söz konusu
+	// yani kaç tane oyuncu varsa herbirisi için sunucudan istemciye
+	// cevap dönecek
+	for {
+		res, err := s.Recv() // Recv metodu player.pb.go içerisine otomatik üretilmiştir. İnceleyin ;)
+		if err != io.EOF {   // döngü sonlanmadığı sürece gelen cevaptaki oyuncu bilgisini ekrana yazdırır
+			fmt.Printf("%s - %s \n\n", res.Plyr.Fullname, res.Plyr.Bio)
+		}
 	}
 }
