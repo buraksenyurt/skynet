@@ -54,7 +54,7 @@ message GetPlayerListRes{
 // servis ve operasyon tanimlari
 service PlayerService{
     rpc GetPlayer(GetPlayerReq) returns (GetPlayerRes);
-    rpc GetPlayerList(GetPlayerListReq) returns (GetPlayerListRes);
+    rpc GetPlayerList(GetPlayerListReq) returns (stream GetPlayerListRes); //server bazlı streaming kullanacağımız için dönüş parametresi stream tipinden
     rpc AddPlayer(AddPlayerReq) returns (AddPlayerRes);
     rpc EditPlayer(EditPlayerReq) returns (EditPlayerRes);
     rpc RemovePlayer(RemovePlayerReq) returns (RemovePlayerRes);
