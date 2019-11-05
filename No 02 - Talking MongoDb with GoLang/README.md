@@ -6,7 +6,7 @@ Elimizdeki malzemeleri sayalım. MongoDB için bir docker imajı, gRPC ve GoLang
 go version
 ```
 
-terminal komutu da bana yüklü olmadığını söylüyor. Dolayısıyla ilk adım onu MacOS'a yüklemek.
+terminal komutu da bana yüklü olmadığını söylüyor. Dolayısıyla ilk adım onu MacOS'a kurmak.
 
 ## İlk Hazırlıklar (Go Kurulumu ve MongoDB)
 
@@ -120,6 +120,10 @@ go build tester.go
 
 ![screenshot_4.png](./assets/screenshot_4.png)
 
+İkinci gün tüm oyuncu listesini gRPC üzerinden istemciye döndüren süreci yazmaya çalıştım. İlk başta yaptığım bir hata nedeniyle epey vakit kaybettim. GetPlayerList metodunu protobuffer dosyasında stream döndürecek şekilde tasarlamamıştım. Büyük bir oyuncu listesini filtresiz olarak çekmek istediğimizde bu sorun olabilir. Oyuncuları sunucudan istemciye doğru bir stream üzerinden tek tek göndermek daha mantıklı. Sonunda servis sözleşmesini değiştirip gerekli düzenlemeleri yaptıktan sonra aşağıdaki ekran görüntüsünde yer alan mutlu sona ulaşmayı başardım.
+
+![screenshot_5.png](./assets/screenshot_5.png)
+
 >throw new NotImplementedException("Get, GetAll gibi diğer operasyonlara ait çalışma zamanı çıktıları eksik");
 
 ## Neler Öğrendim?
@@ -128,7 +132,7 @@ go build tester.go
 - Go tarafından MongoDB ile nasıl haberleşilir
 - MongoDB docker container'ına ait shell üstünde nasıl çalışır
 - Temel mongodb komutları
-- 
+- Sunucudan istemciye stream açarak tek tek mongo db dokümanını nasıl döndürebileceğimi _(main.go'daki GetPlayerList metoduna bakın)_
 
 ## Eksikliği Hissedilen Konular
 
