@@ -128,7 +128,9 @@ Devam eden gün biraz zorlu geçti. FindOne metodunu player_id değerine göre b
 
 ![screenshot_6.png](./assets/screenshot_6.png)
 
->throw new NotImplementedException("Get, GetAll gibi diğer operasyonlara ait çalışma zamanı çıktıları eksik");
+Silme operasyonuna ilişkin çalışmaya ait örnek bir ekran görüntüsü de aşağıdaki gibi.
+
+![screenshot_7.png](./assets/screenshot_7.png)
 
 ## Neler Öğrendim?
 
@@ -142,4 +144,9 @@ Devam eden gün biraz zorlu geçti. FindOne metodunu player_id değerine göre b
 ## Eksikliği Hissedilen Konular
 
 - İstemci tarafını Go tabanlı bir web client olarak geliştirmeyi deneyebiliriz. Terminalden hallice daha iyidir.
-- Bir çok sunucu metodunda hata kontrolü var ancak bunların çalışıp çalışmadığı test edilmedi
+- Bir çok sunucu metodunda hata kontrolü var ancak bunların çalışıp çalışmadığı test edilmedi.
+
+## Görev Listeniz
+
+- Select * from players where fullname like 'A%' gibi bir sorguya karşılık gelecek mongodb fonksiyonunu geliştirin
+- Güncelleme fonksiyonunu tamamlayın

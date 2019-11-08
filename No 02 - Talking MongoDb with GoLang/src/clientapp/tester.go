@@ -47,6 +47,9 @@ func main() {
 	fmt.Println("Silmek istediğiniz oyuncunun IDsini girin.")
 	playerID, _ := reader.ReadString('\n')
 	removePlayerByID(playerID)
+
+	// tüm oyuncu listesini çekelim
+	getAllPlayerList()
 }
 
 func insertPlayer() {
