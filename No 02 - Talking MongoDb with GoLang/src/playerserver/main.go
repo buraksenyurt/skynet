@@ -6,6 +6,7 @@ import (
 	"net"
 	"os"
 	"os/signal"
+	"strings"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 
@@ -124,8 +125,8 @@ func (srv *PlayerServiceServer) AddPlayer(ctx context.Context, req *playerpb.Add
 
 	// Hata oluşmadıysa koleksiyona eklenen yeni doküman
 	// üretilen ObjectID değeri de atanarak geri döndürülür
-	objectId := result.InsertedID.(primitive.ObjectID)
-	payload.Id = objectId.Hex()
+	objectID := result.InsertedID.(primitive.ObjectID)
+	payload.Id = objectID.Hex()
 	return &playerpb.AddPlayerRes{Plyr: payload}, nil
 }
 
@@ -137,8 +138,32 @@ func (srv *PlayerServiceServer) RemovePlayer(ctx context.Context, req *playerpb.
 	return nil, nil
 }
 
+// MongoDB'deki ID bazlı olarak oyuncu verisi döndüren metodumuz
 func (srv *PlayerServiceServer) GetPlayer(ctx context.Context, req *playerpb.GetPlayerReq) (*playerpb.GetPlayerRes, error) {
-	return nil, nil
+	// request ile gelen player_id bilgisini alıyoruz
+	// Trim işlemi önemli. İstemci terminalden değer girdiğinde alt satıra geçme işlemi söz konusu.
+	// Veri bu şekilde gelirse kayıt bulunamaz. Dolayısıyla bir Trim işlemi yapıyoruz
+	id := strings.Trim(req.GetPlayerId(), "\t \n")
+	// bson.M metoduna ilgili sorguyu ekleyerek oyuncuyu koleksiyonda arıyoruz
+	result := playerCollection.FindOne(ctx, bson.M{"player_id": id})
+
+	player := Player{}
+	if err := result.Decode(&player); err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, fmt.Sprintf("Sanırım aranan oyuncu bulunamadı %v", err))
+	}
+
+	// Decode işlemi başarılı olur ve koleksiyondan bulunan içerik player isimli değişkene ters serileşebilirse
+	// artık dönecek response nesne içeriğini hazırlayabiliriz
+	res := &playerpb.GetPlayerRes{
+		Plyr: &playerpb.Player{
+			Id:       player.ID.Hex(),
+			PlayerId: player.PlayerID,
+			Fullname: player.Fullname,
+			Position: player.Position,
+			Bio:      player.Bio,
+		},
+	}
+	return res, nil
 }
 
 // Tüm oyuncu listesini stream olarak dönen metod
