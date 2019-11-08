@@ -33,6 +33,14 @@ func main() {
 	// insertPlayer()
 	// tüm oyuncu listesini çekelim
 	getAllPlayerList()
+
+	// sembolik olarak ID bazlı 3 oyuncu aratalım
+	for i := 0; i < 3; i++ {
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Println("Oyuncu IDsini gir.")
+		playerID, _ := reader.ReadString('\n')
+		getByPlayerID(playerID)
+	}
 }
 
 func insertPlayer() {
@@ -96,7 +104,23 @@ func getAllPlayerList() {
 	for {
 		res, err := s.Recv() // Recv metodu player.pb.go içerisine otomatik üretilmiştir. İnceleyin ;)
 		if err != io.EOF {   // döngü sonlanmadığı sürece gelen cevaptaki oyuncu bilgisini ekrana yazdırır
-			fmt.Printf("%s - %s \n\n", res.Plyr.Fullname, res.Plyr.Bio)
+			fmt.Printf("[%s] %s - %s \n\n", res.Plyr.PlayerId, res.Plyr.Fullname, res.Plyr.Bio)
+		} else {
+			break
 		}
 	}
+}
+
+func getByPlayerID(playerID string) {
+	// parametre olarak gelen playerID değerinden bir request oluşturulur
+	req := &playerpb.GetPlayerReq{
+		PlayerId: playerID,
+	}
+	// GetPlayer servis metoduna talep gönderilir
+	res, err := client.GetPlayer(context.Background(), req)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(res.Plyr.Fullname)
 }
