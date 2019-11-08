@@ -124,6 +124,10 @@ go build tester.go
 
 ![screenshot_5.png](./assets/screenshot_5.png)
 
+Devam eden gün biraz zorlu geçti. FindOne metodunu player_id değerine göre bir türlü çalıştırmayı başaramadım. Neredeyse 4 pomodoro periyodu uğraştım. Sonunda sorunu anladım. İstemci aradığı ID değerini girip sunucuya çağrı yaptığında, servis metoduna gelen ID bilgisinin sonunda boşluk ve altsatıra geçme karakterleri de geliyormuş. Trim yaparak sonucu halledebildim ve örnek olarak aşağıdaki sonuçları elde ettim.
+
+![screenshot_6.png](./assets/screenshot_6.png)
+
 >throw new NotImplementedException("Get, GetAll gibi diğer operasyonlara ait çalışma zamanı çıktıları eksik");
 
 ## Neler Öğrendim?
@@ -133,7 +137,9 @@ go build tester.go
 - MongoDB docker container'ına ait shell üstünde nasıl çalışır
 - Temel mongodb komutları
 - Sunucudan istemciye stream açarak tek tek mongo db dokümanını nasıl döndürebileceğimi _(main.go'daki GetPlayerList metoduna bakın)_
+- Sunucu tarafındaki Get metodlarında gelen verinin sağında kalan boşluklar nedeniyle sorguların doğru çalışmadığını _(4 pomodoro turuma maloldu)_
 
 ## Eksikliği Hissedilen Konular
 
 - İstemci tarafını Go tabanlı bir web client olarak geliştirmeyi deneyebiliriz. Terminalden hallice daha iyidir.
+- Bir çok sunucu metodunda hata kontrolü var ancak bunların çalışıp çalışmadığı test edilmedi
