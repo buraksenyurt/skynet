@@ -135,7 +135,21 @@ func (srv *PlayerServiceServer) EditPlayer(ctx context.Context, req *playerpb.Ed
 }
 
 func (srv *PlayerServiceServer) RemovePlayer(ctx context.Context, req *playerpb.RemovePlayerReq) (*playerpb.RemovePlayerRes, error) {
-	return nil, nil
+	// önce silinmek istenen playerId bilgisi alınır
+	id := strings.Trim(req.GetPlayerId(), "\t \n")
+	fmt.Println(id)
+	// DeleteOne metodu ile silme operasyonu gerçekleştirilir
+	_, err := playerCollection.DeleteOne(ctx, bson.M{"player_id": id})
+
+	// hata kontrolü yapılıyor
+	if err != nil {
+		return nil, status.Errorf(codes.NotFound, fmt.Sprintf("Silinmek istenen oyuncu bulunamadı. %s", err))
+	}
+
+	// hata yoksa işlemin başarılı olduğuna dair sonuç dönülür
+	return &playerpb.RemovePlayerRes{
+		Removed: true,
+	}, nil
 }
 
 // MongoDB'deki ID bazlı olarak oyuncu verisi döndüren metodumuz
@@ -148,6 +162,7 @@ func (srv *PlayerServiceServer) GetPlayer(ctx context.Context, req *playerpb.Get
 	result := playerCollection.FindOne(ctx, bson.M{"player_id": id})
 
 	player := Player{}
+	// bulunan oyuncu decode metodu ile ters serileştirilip player değişkenine alınır
 	if err := result.Decode(&player); err != nil {
 		return nil, status.Errorf(codes.InvalidArgument, fmt.Sprintf("Sanırım aranan oyuncu bulunamadı %v", err))
 	}
