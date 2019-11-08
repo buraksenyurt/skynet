@@ -30,7 +30,7 @@ message EditPlayerRes{
 }
 
 message RemovePlayerReq{
-    string id=1;
+    string player_id=1;
 }
 
 message RemovePlayerRes{
@@ -38,7 +38,7 @@ message RemovePlayerRes{
 }
 
 message GetPlayerReq{
-    string id=1;
+    string player_id=1;
 }
 
 message GetPlayerRes{
