@@ -105,8 +105,6 @@ Proto dosyasının tamamlanmasını takiben playerserver klasöründe main.go do
 
 Sunucu tarafındaki kodlama tamamlandıktan sonra istemci tarafı için clientapp altında tester.go isimli bir başka dosya oluşturuldu. Burada komut satırından temel CRUD operasyonlarını icra edeceğiz. Yeni bir oyuncunun eklenmesi, bir oyuncunun bilgisinin çekilmesi, tüm oyuncuların listesinin alınması vb
 
->throw new NotCompletedException("AddPlayer dışındaki metodların tamamlanması lazım");
-
 ## Çalışma Zamanı
 
 İlk gün çalışmasının meyveleri pek fena değil. server ve client tarafa ait go dosyalarını kendi klasörlerinde aşağıdaki terminal komutları ile derledikten sonra
