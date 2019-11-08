@@ -30,7 +30,7 @@ func main() {
 	client = playerpb.NewPlayerServiceClient(connection)
 
 	// Oyuncu ekleyelim
-	// insertPlayer()
+	insertPlayer()
 	// tüm oyuncu listesini çekelim
 	getAllPlayerList()
 
@@ -41,6 +41,12 @@ func main() {
 		playerID, _ := reader.ReadString('\n')
 		getByPlayerID(playerID)
 	}
+
+	// Silme operasyonunu deniyoruz
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Silmek istediğiniz oyuncunun IDsini girin.")
+	playerID, _ := reader.ReadString('\n')
+	removePlayerByID(playerID)
 }
 
 func insertPlayer() {
@@ -111,6 +117,7 @@ func getAllPlayerList() {
 	}
 }
 
+// Oyuncuyu PlayerID değerinden bulan metodumuz
 func getByPlayerID(playerID string) {
 	// parametre olarak gelen playerID değerinden bir request oluşturulur
 	req := &playerpb.GetPlayerReq{
@@ -123,4 +130,19 @@ func getByPlayerID(playerID string) {
 		return
 	}
 	fmt.Println(res.Plyr.Fullname)
+}
+
+// Oyuncu silme fonksiyonumuz
+func removePlayerByID(playerID string) {
+	// RemovePlayer servis çağrısı için gerekli Request tipi hazırlanır
+	req := &playerpb.RemovePlayerReq{
+		PlayerId: playerID,
+	}
+	// servisi çağrısı yapılıp sonucu kontrol edilir
+	_, err := client.RemovePlayer(context.Background(), req)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println("Oyuncu silindi")
 }
