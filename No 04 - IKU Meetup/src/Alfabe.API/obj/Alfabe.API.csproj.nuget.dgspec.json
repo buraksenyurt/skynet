@@ -1,0 +1,153 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.API\\Alfabe.API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.API\\Alfabe.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.API\\Alfabe.API.csproj",
+        "projectName": "Alfabe.API",
+        "projectPath": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.API\\Alfabe.API.csproj",
+        "packagesPath": "C:\\Users\\BurakSelim.Senyurt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\BurakSelim.Senyurt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dtalm.pkgs.visualstudio.com/_packaging/Cobalt_Packages/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\Alfabe.Core.csproj": {
+                "projectPath": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\Alfabe.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\Alfabe.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\Alfabe.Core.csproj",
+        "projectName": "Alfabe.Core",
+        "projectPath": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\Alfabe.Core.csproj",
+        "packagesPath": "C:\\Users\\BurakSelim.Senyurt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\BurakSelim.Senyurt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dtalm.pkgs.visualstudio.com/_packaging/Cobalt_Packages/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.10.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

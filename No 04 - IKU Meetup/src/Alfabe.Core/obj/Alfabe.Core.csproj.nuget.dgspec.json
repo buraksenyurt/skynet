@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\Alfabe.Core.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\Alfabe.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\Alfabe.Core.csproj",
+        "projectName": "Alfabe.Core",
+        "projectPath": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\Alfabe.Core.csproj",
+        "packagesPath": "C:\\Users\\BurakSelim.Senyurt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\BurakSelim.Senyurt\\source\\repos\\MeetUpDemoV198\\Alfabe.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\BurakSelim.Senyurt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dtalm.pkgs.visualstudio.com/_packaging/Cobalt_Packages/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.10.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

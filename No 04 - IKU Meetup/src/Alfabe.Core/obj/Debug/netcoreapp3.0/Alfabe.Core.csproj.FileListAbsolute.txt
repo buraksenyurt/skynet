@@ -1,0 +1,8 @@
+C:\Users\BurakSelim.Senyurt\source\repos\MeetUpDemoV198\Alfabe.Core\bin\Debug\netcoreapp3.0\Alfabe.Core.deps.json
+C:\Users\BurakSelim.Senyurt\source\repos\MeetUpDemoV198\Alfabe.Core\bin\Debug\netcoreapp3.0\Alfabe.Core.dll
+C:\Users\BurakSelim.Senyurt\source\repos\MeetUpDemoV198\Alfabe.Core\bin\Debug\netcoreapp3.0\Alfabe.Core.pdb
+C:\Users\BurakSelim.Senyurt\source\repos\MeetUpDemoV198\Alfabe.Core\obj\Debug\netcoreapp3.0\Alfabe.Core.csprojAssemblyReference.cache
+C:\Users\BurakSelim.Senyurt\source\repos\MeetUpDemoV198\Alfabe.Core\obj\Debug\netcoreapp3.0\Alfabe.Core.AssemblyInfoInputs.cache
+C:\Users\BurakSelim.Senyurt\source\repos\MeetUpDemoV198\Alfabe.Core\obj\Debug\netcoreapp3.0\Alfabe.Core.AssemblyInfo.cs
+C:\Users\BurakSelim.Senyurt\source\repos\MeetUpDemoV198\Alfabe.Core\obj\Debug\netcoreapp3.0\Alfabe.Core.dll
+C:\Users\BurakSelim.Senyurt\source\repos\MeetUpDemoV198\Alfabe.Core\obj\Debug\netcoreapp3.0\Alfabe.Core.pdb
