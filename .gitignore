@@ -22,7 +22,42 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-bin/
-obj/
-Debug/
-Release/
+# Ignore folder named node_modules
+node_modules/
+bower_components/
+build/
+.vscode/
+.DS_Store
+
+package-lock.json
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.gpg
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+.vscode/settings.json
