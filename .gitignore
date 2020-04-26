@@ -21,3 +21,8 @@
 Network Trash Folder
 Temporary Items
 .apdisk
+
+bin/
+obj/
+Debug/
+Release/

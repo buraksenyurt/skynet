@@ -64,6 +64,12 @@ exit
 
 > Kaynak JSON dosyası için Assets klasöründeki [NBA Takımları](./assets/NBATeams.json) dosyasından yararlanılabilir.
 
+## Gerekli NuGet Paketi
+
+MongoDB Client kullanımı için gerekli NuGet paketi, Alfabe.Core projesine paket yöneticisi üzerinden eklenmiştir.
+
+![asset_07.png](./assets/asset_07.png)
+
 ## Testler
 
 Unit Test'ler haricinde Web API tarafı için Postman kullanılmıştır.
