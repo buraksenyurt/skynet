@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "NBA Teams";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Teams</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Popularity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var team in Model.Teams)
+            {
+                <tr>
+                    <td>@team.Name</td>
+                    <td>@team.Popularity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
