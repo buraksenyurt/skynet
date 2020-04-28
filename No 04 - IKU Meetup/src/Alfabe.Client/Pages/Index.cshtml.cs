@@ -12,28 +12,24 @@ namespace Alfabe.Client.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly HttpClient _client;
+        private readonly Proxy _client;
+
         public IList<Team> Teams { get; private set; }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
-            _client = new HttpClient();
+            _client = new Proxy();
         }
 
         public async Task OnGetAsync()
         {
-            var url = "http://localhost:5000/nba/api/teams";
-            HttpResponseMessage response = await _client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            var resp = await response.Content.ReadAsStringAsync();
-            Teams = JsonConvert.DeserializeObject<List<Team>>(resp);
+            Teams = await _client.GetAllAsync();            
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(string id)
         {
-            var url = $"http://localhost:5000/nba/api/teams/{id}";
-            HttpResponseMessage response = await _client.DeleteAsync(url);
+             await _client.DeleteAsync(id);
             return RedirectToPage();
         }
     }
