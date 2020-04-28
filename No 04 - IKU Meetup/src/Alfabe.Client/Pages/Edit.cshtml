@@ -1,0 +1,51 @@
+﻿@page
+@model Alfabe.Client.Pages.EditModel
+@{
+    ViewData["Title"] = $"Edit for {@Model.Team.Name}";
+}
+
+<h1>@Model.Team.Name (Edit)</h1>
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Team.Id" type="hidden" />
+    <div>
+        <label asp-for="Team.Name"></label>
+        <div>
+            <input asp-for="Team.Name" />
+            <span asp-validation-for="Team.Name"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="Team.Region"></label>
+        <div>
+            <input asp-for="Team.Region" />
+            <span asp-validation-for="Team.Region"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="Team.Abbrevation"></label>
+        <div>
+            <input asp-for="Team.Abbrevation" />
+            <span asp-validation-for="Team.Abbrevation"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="Team.Popularity"></label>
+        <div>
+            <input asp-for="Team.Popularity" />
+            <span asp-validation-for="Team.Popularity"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="Team.Logo"></label>
+        <div>
+            <input asp-for="Team.Logo" />
+            <span asp-validation-for="Team.Logo"></span>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" asp-route-id="@Model.Team.Id">Save</button>
+    </div>
+</form>
+
