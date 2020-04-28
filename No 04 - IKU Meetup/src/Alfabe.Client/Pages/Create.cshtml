@@ -1,0 +1,38 @@
+﻿@page
+@model Alfabe.Client.Pages.CreateModel
+@{
+    ViewData["Title"] = "New Team";
+}
+
+<h2>New Team Details</h2>
+
+<form method="post">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td> <input asp-for="Team.Name" /></td>
+        </tr>
+        <tr>
+            <td>Region</td>
+            <td> <input asp-for="Team.Region" /></td>
+        </tr>
+        <tr>
+            <td>Abbrevation</td>
+            <td> <input asp-for="Team.Abbrevation" /></td>
+        </tr>
+        <tr>
+            <td>Popularity</td>
+            <td> <input asp-for="Team.Popularity" /></td>
+        </tr>
+        <tr>
+            <td>Logo</td>
+            <td> <input asp-for="Team.Logo" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+</form>
+
