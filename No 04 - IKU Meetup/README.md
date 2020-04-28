@@ -135,6 +135,10 @@ Sonrasında Alfabe.API servisi komut satırından çalıştırılmalıdır. Bu u
 
 ![asset_08.png](./assets/asset_08.png)
 
+![asset_08.png](./assets/asset_09.png)
+
+![asset_08.png](./assets/asset_10.png)
+
 ## Postman Çalışma Zamanı Testlerinden Görüntüler
 
 ![asset_01.png](./assets/asset_01.png)
