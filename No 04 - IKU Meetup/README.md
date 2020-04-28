@@ -1,6 +1,6 @@
 # IKU Tarafından Düzenlenen Meetup Çalışması
 
-MongoDb ile çalışan bir Asp. Net Core Web API projesinin geliştirilmesi hedeflenmiştir. Servis tarafının kodları öncelikle Unit Test projesinde kodlanmıştır. MongoDB için Docker Container kullanılmıştır. Uygulama Visual Studio 2019 ile Windows 10 üstünde, Docker Desktop kurulu bir sistemde geliştirilmiştir.
+MongoDb ile çalışan bir Asp. Net Core Web API projesinin geliştirilmesi hedeflenmiştir. Servis tarafının kodları öncelikle Unit Test projesinde kodlanmıştır. MongoDB için Docker Container kullanılmıştır. Uygulama Visual Studio 2019 ile Windows 10 üstünde, Docker Desktop kurulu bir sistemde geliştirilmiştir. İlaveten Razor tipinden bir Asp.Net Core Web App eklenmiş ve CRUD operasyonları buraya alınmıştır.
 
 ## Kullanılan MongoDB Docker Komutları
 
@@ -70,7 +70,7 @@ MongoDB Client kullanımı için gerekli NuGet paketi, Alfabe.Core projesine pak
 
 ![asset_07.png](./assets/asset_07.png)
 
-## Testler
+## Testler(Postman-Web API)
 
 Unit Test'ler haricinde Web API tarafı için Postman kullanılmıştır.
 
@@ -123,7 +123,19 @@ HTTP Delete
 http://localhost:5000/nba/api/teams/5ea4907c3ac6f5590cd4c2c6
 ```
 
-## Çalışma Zamanından Görüntüler
+## Web Uygulamasının Çalıştırılması
+
+Öncelikle MongoLand isimli bu projeye özel MongoDB Container'ının çalışır olduğundan emin olunmalıdır. Servis durmuşsa çalıştırmak için aşağıdaki komut kullanılabilir.
+
+```
+docker start MongoLand
+```
+
+Sonrasında Alfabe.API servisi komut satırından çalıştırılmalıdır. Bu uygulama klasöründe _dotnet run_ demek yeterlidir. API'de başarılı bir şekilde ayağa kalkarsa Alfabe.Client yine terminalden _dotnet run_ komutu ile çalıştırılabilir.
+
+![asset_08.png](./assets/asset_08.png)
+
+## Postman Çalışma Zamanı Testlerinden Görüntüler
 
 ![asset_01.png](./assets/asset_01.png)
 
