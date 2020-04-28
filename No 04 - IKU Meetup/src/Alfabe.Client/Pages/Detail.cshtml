@@ -1,0 +1,30 @@
+﻿@page
+@model Alfabe.Client.Pages.DetailModel
+@{
+    ViewData["Title"] = $"{Model.Team.Name}'s Page";
+}
+
+<div>
+    <table class="table-light">
+        <tr>
+            <td colspan="2" class="font-weight-bold align-self-center">
+                @Html.DisplayFor(model => model.Team.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="@Html.DisplayFor(model => model.Team.Logo)" style="width:25%;height:25%" />
+                <hr/>
+                @Html.DisplayFor(model => model.Team.Region) ( @Html.DisplayFor(model => model.Team.Abbrevation) )
+                <hr />
+                @Html.DisplayFor(model => model.Team.Popularity)
+            </td>
+        </tr>
+
+    </table>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Team.Id">Edit</a> |
+    <a asp-page="./Index">All Teams</a>
+</div>
+
