@@ -20,4 +20,4 @@ Grpc.Tools
 
 Önce CookingAPI servisi çalıştırılır. Ayarlamalar gereği http://localhost:5555 üzerinden hizmet verecektir. Ardından Apprentice istemcileri yürütülebilir.
 
-![screenshot_01.png](./assets/screenshot_01.png)
+![asset_01.png](./assets/asset_01.png)
