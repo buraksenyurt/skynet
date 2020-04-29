@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "CookingAPI": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5555"
+    }
+  }
+}

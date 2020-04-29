@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookingAPI", "CookingAPI\CookingAPI.csproj", "{51F4E40E-5D86-44E9-8E59-7ABC270FC93E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apprentice", "Apprentice\Apprentice.csproj", "{EADA3D82-1257-4EDF-B0CD-1E010AB2E967}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51F4E40E-5D86-44E9-8E59-7ABC270FC93E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F4E40E-5D86-44E9-8E59-7ABC270FC93E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F4E40E-5D86-44E9-8E59-7ABC270FC93E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F4E40E-5D86-44E9-8E59-7ABC270FC93E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EADA3D82-1257-4EDF-B0CD-1E010AB2E967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EADA3D82-1257-4EDF-B0CD-1E010AB2E967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EADA3D82-1257-4EDF-B0CD-1E010AB2E967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EADA3D82-1257-4EDF-B0CD-1E010AB2E967}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02ACA27C-A383-4A2A-84C1-C50E06F5C4BE}
+	EndGlobalSection
+EndGlobal

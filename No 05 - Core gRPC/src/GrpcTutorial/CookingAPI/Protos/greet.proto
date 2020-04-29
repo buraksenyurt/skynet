@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "CookingAPI";
+
+package Recipe;
+
+// The greeting service definition.
+service Cook {
+  // Sends a greeting
+  rpc GetRecipe (GetRecipeRequest) returns (GetRecipeReply);
+}
+
+// The request message containing the user's name.
+message GetRecipeRequest {
+  string code = 1;
+}
+
+// The response message containing the greetings.
+message GetRecipeReply {
+  int32 id=1;
+  string name = 2;
+  string source=3;
+  int32 calories=4;
+  repeated string ingredients=5;
+  string instructions=6;
+}
