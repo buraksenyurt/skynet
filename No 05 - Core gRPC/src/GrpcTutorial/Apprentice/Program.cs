@@ -1,7 +1,6 @@
 ﻿using CookingAPI;
 using Grpc.Net.Client;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Apprentice
@@ -46,6 +45,10 @@ namespace Apprentice
 
             var recipe = await client.GetRecipeAsync(new GetRecipeRequest { RecipeId = 4 });
             Console.WriteLine($"{recipe.Name}\n{recipe.Calories} K\n{recipe.Instructions}");
+            foreach (var ingradient in recipe.Ingredients)
+            {
+                Console.WriteLine($"\t{ingradient}");
+            }
 
             Console.ReadLine();
         }

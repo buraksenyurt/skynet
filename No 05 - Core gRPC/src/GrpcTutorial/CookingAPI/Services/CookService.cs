@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Google.Protobuf.Collections;
+using Microsoft.EntityFrameworkCore;
 
 namespace CookingAPI
 {
@@ -42,7 +43,9 @@ namespace CookingAPI
 
         public override Task<GetRecipeResponse> GetRecipe(GetRecipeRequest request, ServerCallContext context)
         {
-            var recipe=_context.Recipes.Where(r => r.RecipeId == request.RecipeId).SingleOrDefault();
+            var recipe=_context.Recipes
+                .Include(r=>r.Ingradients)
+                .Where(r => r.RecipeId == request.RecipeId).SingleOrDefault();
 
             GetRecipeResponse response = new GetRecipeResponse
             {
@@ -52,6 +55,7 @@ namespace CookingAPI
                 Calories = recipe.Calories,
                 Instructions = recipe.Instructions
             };
+            response.Ingredients.AddRange(recipe.Ingradients.Select(i=>i.Description));
 
             return Task.FromResult(response);
         }
