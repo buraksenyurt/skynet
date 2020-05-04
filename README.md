@@ -5,11 +5,11 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 ~~Burada Ahch-To _(MacOS Mojave - Intel Core i5 1.4Ghz, 4 Gb 1600 Mhz DDR3)_ üzerinde geliştirmeye çalıştığım kişiel öğretilerim yer almaktadır.~~
 
 - No 01 : Ruby Tarafından Redis(Docker bazlı) Veritabanı ile Konuşmak _(=========-> %95)_
-- No 02 : MongoDB ile bir GO uygulamasını konuşturmak _(========> %85)_
+- No 02 : MongoDB ile bir GO uygulamasını konuşturmak _(========-> %85)_
 - ~~No 03 : Wails ve GO kullanarak bir desktop uygulaması yazmak _( > %0)_~~
-- No 03 : Razor Öğreniyorum _( > %0)_
+- No 03 : Razor Öğreniyorum _( ==-> %25)_
 - No 04 : IKU Meetup (MongoDB, Web API, Unit Test) _(Tamamlandı)_
-- No 05 : gRPC Tabanlı Basit Bir .Net Core Servisi Geliştirmek ve Kullanmak _( ==> %50)_
+- No 05 : gRPC Tabanlı Basit Bir .Net Core Servisi Geliştirmek ve Kullanmak _( =====> %50)_
 
 ## Çalışma Tekniğim
 
