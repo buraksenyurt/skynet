@@ -1,6 +1,6 @@
 # skynet
 
-Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına, internetten bulup çalıştığım bazı konuların örnek kodları yer alır. _(Asla bir Saturday Night Works olamayacak)_
+Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup çalıştığım bazı konuların örnek kodları yer alır. _(Asla bir Saturday Night Works olamayacak)_
 
 ~~Burada Ahch-To _(MacOS Mojave - Intel Core i5 1.4Ghz, 4 Gb 1600 Mhz DDR3)_ üzerinde geliştirmeye çalıştığım kişiel öğretilerim yer almaktadır.~~
 
@@ -9,7 +9,7 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına, internetten bulup
 - ~~No 03 : Wails ve GO kullanarak bir desktop uygulaması yazmak _( > %0)_~~
 - No 03 : Razor Öğreniyorum _( > %0)_
 - No 04 : IKU Meetup (MongoDB, Web API, Unit Test) _(Tamamlandı)_
-- No 05 : gRPC Tabanlı Basit Bir .Net Core Servisi Geliştirmek _( ==> %20)_
+- No 05 : gRPC Tabanlı Basit Bir .Net Core Servisi Geliştirmek ve Kullanmak _( ==> %50)_
 
 ## Çalışma Tekniğim
 
