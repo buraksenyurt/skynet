@@ -1,0 +1,24 @@
+﻿@page
+@model DeleteModel
+@{
+    ViewData["Title"] = "Artist Delete page";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Delete</h1>
+    <h3>Are you sure?</h3>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Artist.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Artist.Name)
+            </dd>
+        </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Artist.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to Artists</a>
+    </form>
+</div>
