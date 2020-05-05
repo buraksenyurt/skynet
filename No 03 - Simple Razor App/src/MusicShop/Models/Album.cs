@@ -5,5 +5,6 @@ namespace MusicShop.Models
         public string Title { get; set; }
         public int ArtistID { get; set; }
         public Artist Artist { get; set; }
+        public byte[] Cover { get; set; }
     }
 }

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Artists page";
 }
 
-<div class="text-center">
+<div class="text-left">
     <h1 class="display-4">Artist Management</h1>
 
     <p>
@@ -18,6 +18,9 @@
             <th>
                 Name
             </th>
+            <th>
+                Biography
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -29,8 +32,10 @@
                     @Html.DisplayFor(m => item.Name)
                 </td>
                 <td>
+                    @Html.DisplayFor(m => item.Biography)
+                </td>
+                <td>
                     <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                     <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
                 </td>
             </tr>
