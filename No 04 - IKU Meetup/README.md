@@ -4,14 +4,14 @@ MongoDb ile çalışan bir Asp. Net Core Web API projesinin geliştirilmesi hede
 
 ## Kullanılan MongoDB Docker Komutları
 
-```
+```bash
 docker run -d --name MongoLand -p 27017:27017 mongo:latest
 docker exec -it MongoLand bash
 ```
 
 ## Yararlı Olabilecek Diğer Docker Komutları
 
-```
+```bash
 docker images
 docker container ls -a
 docker stop container MongoLand
@@ -20,7 +20,7 @@ docker container rm MongoLand
 
 ## MongoDB Terminal Tarafında Yapılanlar
 
-```
+```bash
 show dbs
 
 use NBADatabase
@@ -75,13 +75,15 @@ MongoDB Client kullanımı için gerekli NuGet paketi, Alfabe.Core projesine pak
 Unit Test'ler haricinde Web API tarafı için Postman kullanılmıştır.
 
 Tüm takım listesini çekmek için
-```
+
+```text
 HTTP Get
 http://localhost:5000/nba/api/teams
 ```
 
 Yeni bir takım eklemek için
-```
+
+```text
 HTTP Post
 http://localhost:5000/nba/api/teams
 Raw Body, JSON
@@ -96,13 +98,15 @@ Raw Body, JSON
 ```
 
 Belli bir takımı çekmek için
-```
+
+```text
 HTTP Get
 http://localhost:5000/nba/api/teams/5ea4907c3ac6f5590cd4c2c6
 ```
 
 Bir takım bilgisini güncellemek için
-```
+
+```text
 HTTP Put
 http://localhost:5000/nba/api/teams/5ea4907c3ac6f5590cd4c2c6
 Raw Body, Json
@@ -118,7 +122,8 @@ Raw Body, Json
 ```
 
 Bir takımı silmek için
-```
+
+```text
 HTTP Delete
 http://localhost:5000/nba/api/teams/5ea4907c3ac6f5590cd4c2c6
 ```
@@ -127,7 +132,7 @@ http://localhost:5000/nba/api/teams/5ea4907c3ac6f5590cd4c2c6
 
 Öncelikle MongoLand isimli bu projeye özel MongoDB Container'ının çalışır olduğundan emin olunmalıdır. Servis durmuşsa çalıştırmak için aşağıdaki komut kullanılabilir.
 
-```
+```bash
 docker start MongoLand
 ```
 
