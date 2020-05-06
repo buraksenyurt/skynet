@@ -33,6 +33,16 @@ Add-Migration initial
 Update-Database
 ```
 
+## Olur ya...
+
+Olurda benim gibi yeni bir Linux makineye geçersiniz. Bu durumda Add-Migration ve Update-Database gibi komutlar bulunamayabilir.Böyle bir durumda EF CLI aracını yüklemek gerekir.
+
+```
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add initial
+dotnet ef database update
+```
+
 ## Client App için gerekli NuGet Paketleri
 
 ```
