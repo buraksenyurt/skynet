@@ -28,8 +28,8 @@ namespace MusicShop.Migrations
                     b.Property<byte[]>("Cover")
                         .HasColumnType("BLOB");
 
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("TEXT");
+                    b.Property<short>("ReleaseYear")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");

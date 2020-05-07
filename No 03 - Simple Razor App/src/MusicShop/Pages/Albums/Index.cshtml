@@ -22,6 +22,7 @@
                 Release Date
             </th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -29,14 +30,24 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(m => item.Title)
+                    @Html.DisplayFor(m => item.Title) (@Html.DisplayFor(m => item.Artist.Name))
                 </td>
                 <td>
-                    @Html.DisplayFor(m => item.ReleaseDate)
+                    @Html.DisplayFor(m => item.ReleaseYear)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    <form method="get">
+                        <button type="submit" class="btn btn-primary btn-m" asp-page="./Edit" asp-route-id="@item.ID">
+                            Update  
+                        </button>
+                    </form>                    
+                </td>
+                <td>
+                    <form method="post">
+                        <button type="submit" class="btn btn-danger bt-sm" asp-page-handler="delete" asp-route-id="@item.ID">
+                            Delete
+                        </button>
+                    </form>
                 </td>
             </tr>
         }

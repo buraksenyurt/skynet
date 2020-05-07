@@ -1,0 +1,29 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create New Album";
+}
+
+<div>
+    <h1>New Album</h1>
+    
+        <div class="col-md-8">
+            <form method="post">
+                <div class="form-group">
+                    <select asp-for="AlbumInstance.ArtistID" class="form-control"
+                            asp-items="@Model.ArtistList">
+                        <option value="">-- Kimin Albümü? --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input asp-for="AlbumInstance.Title" placeholder="albümün adı..." class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="AlbumInstance.ReleaseYear" class="form-control" placeholder="2005" />                   
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+</div>

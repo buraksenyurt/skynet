@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MusicShop.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class KickOff : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +13,8 @@ namespace MusicShop.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    Biography = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,7 +28,9 @@ namespace MusicShop.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(nullable: true),
-                    ArtistID = table.Column<int>(nullable: false)
+                    ArtistID = table.Column<int>(nullable: false),
+                    Cover = table.Column<byte[]>(nullable: true),
+                    ReleaseYear = table.Column<short>(nullable: false)
                 },
                 constraints: table =>
                 {

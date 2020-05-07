@@ -25,7 +25,18 @@ namespace MusicShop.Pages.Albums
 
         public async Task OnGetAsync()
         {
-            Albums=await _context.Album.ToListAsync();
+            Albums=await _context.Album.Include(a=>a.Artist).ToListAsync();
+        }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            var album=await _context.Album.FirstOrDefaultAsync(a=>a.ID==id);
+            if(album!=null)
+            {
+                _context.Album.Remove(album);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToPage("./index");
         }
     }
 }
