@@ -4,14 +4,13 @@
 
 ## To Do
 
-- Seed ekleyelim
 - Albüm silme de popup deneyelim
 - Albümlere standart boyutta kapak fotoğrafı ekleyelim
 - Ana sayfada günün albümü olsun. Rastgele gelsin.
 
 ## Platform
 
-Örnek uygulama Windows 10 üzerinde Visul Studio Code kullanılarak geliştirilmiştir, veri tabanı olarak SQLite kullanılmıştır.
+Örnek uygulama Visul Studio Code kullanılarak geliştirilmiştir, veri tabanı olarak SQLite kullanılmıştır.
 .Net Core 3.1 Runtime hedef alınmıştır.
 
 ## Uygulamanın İnşası
