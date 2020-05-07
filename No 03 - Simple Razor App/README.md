@@ -4,6 +4,8 @@
 
 ## To Do
 
+- Seed ekleyelim
+- Albüm silme de popup deneyelim
 - Albümlere standart boyutta kapak fotoğrafı ekleyelim
 - Ana sayfada günün albümü olsun. Rastgele gelsin.
 
