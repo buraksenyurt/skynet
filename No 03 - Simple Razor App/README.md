@@ -7,6 +7,7 @@
 - Albüm silme de popup deneyelim
 - Albümlere standart boyutta kapak fotoğrafı ekleyelim
 - Ana sayfada günün albümü olsun. Rastgele gelsin.
+- Artist sayfasında isme basınca artistin albümlerine gitsin
 
 ## Platform
 
@@ -42,8 +43,22 @@ dotnet ef database update
 dotnet run
 ```
 
+sonrasında localhost:5001 veya 5000 üstünden testlere başlanabilir.
+
 ![screenshot_1.png](./assets/screenshot_1.png)
 _Artistlerin görüntülendiği sayfa_
 
 ![screenshot_2.png](./assets/screenshot_2.png)
 _Yeni bir artist eklenirkenki kullanılan sayfa_
+
+![screenshot_5.png](./assets/screenshot_5.png)
+_Albüm ekleme sayfasının ilk hallerinden_
+
+![screenshot_6.png](./assets/screenshot_6.png)
+_Albüm eklendikten sonra gelinen albümler sayfasının ilk hallerinden_
+
+![screenshot_3.png](./assets/screenshot_3.png)
+_Artistler sayfasında albümlerine götüren link eklendiğinde_
+
+![screenshot_4.png](./assets/screenshot_4.png)
+_Artist sayfasından bir artist seçildiğinde gidilen albüm sayfası_

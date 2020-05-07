@@ -15,23 +15,30 @@ namespace MusicShop.Pages.Albums
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly MusicShopContext _context;
-        public IList<Album> Albums{get;set;}
+        public IList<Album> Albums { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger,MusicShopContext context)
+        public IndexModel(ILogger<IndexModel> logger, MusicShopContext context)
         {
             _logger = logger;
-            _context=context;
+            _context = context;
         }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? id)
         {
-            Albums=await _context.Album.Include(a=>a.Artist).ToListAsync();
+            if (id.HasValue)
+            {
+                Albums = await _context.Album.Include(a => a.Artist).Where(a => a.ArtistID == id).ToListAsync();
+            }
+            else
+            {
+                Albums = await _context.Album.Include(a => a.Artist).ToListAsync();
+            }
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            var album=await _context.Album.FirstOrDefaultAsync(a=>a.ID==id);
-            if(album!=null)
+            var album = await _context.Album.FirstOrDefaultAsync(a => a.ID == id);
+            if (album != null)
             {
                 _context.Album.Remove(album);
                 await _context.SaveChangesAsync();

@@ -29,7 +29,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(m => item.Name)
+                    <a asp-page="../Albums/Index" asp-route-id="@item.ID">@Html.DisplayFor(m => item.Name)</a>                    
                 </td>
                 <td>
                     @Html.DisplayFor(m => item.Biography)
