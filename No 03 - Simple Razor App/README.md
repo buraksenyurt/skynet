@@ -1,4 +1,4 @@
-# .Net Core 3.0 Tabanlı Basit Bir Razor Uygulaması
+# .Net Core 3 Tabanlı Basit Bir Razor Uygulaması
 
 Şu Razor'u gözü kapalı kavramam lazım. Başlangıç noktası olarak Microsoft'un resmi dokümanı pekala yeterli.
 
