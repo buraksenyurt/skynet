@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Albums";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Album Management</h1>
+
+    <p>
+        <a asp-page="Create">Add New Album</a>
+    </p>
+
+    <table class="table">
+
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Release Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Albums)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.ReleaseDate)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

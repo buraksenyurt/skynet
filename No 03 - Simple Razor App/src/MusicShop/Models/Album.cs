@@ -1,3 +1,5 @@
+using System;
+
 namespace MusicShop.Models
 {
     public class Album{
@@ -6,5 +8,6 @@ namespace MusicShop.Models
         public int ArtistID { get; set; }
         public Artist Artist { get; set; }
         public byte[] Cover { get; set; }
+        public DateTime ReleaseDate { get; set; }
     }
 }
