@@ -7,7 +7,7 @@
 - Albüm silme de popup deneyelim
 - Albümlere standart boyutta kapak fotoğrafı ekleyelim
 - Ana sayfada günün albümü olsun. Rastgele gelsin.
-- Artist sayfasında isme basınca artistin albümlerine gitsin
+- Albümlerde veya artistlerde arama seçeneği koyalım
 
 ## Platform
 
