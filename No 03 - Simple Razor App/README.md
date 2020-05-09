@@ -5,7 +5,7 @@
 ## To Do
 
 - Albüm silme de popup deneyelim
-- Albümlere standart boyutta kapak fotoğrafı ekleyelim
+- Albümlere kapak fotoğrafları için boyut küçültme gerekli
 - Ana sayfada günün albümü olsun. Rastgele gelsin.
 - Albümlerde veya artistlerde arama seçeneği koyalım
 
@@ -45,7 +45,7 @@ dotnet run
 
 sonrasında localhost:5001 veya 5000 üstünden testlere başlanabilir.
 
-![screenshot_1.png](./assets/screenshot_1.png)
+![screenshot_3.png](./assets/screenshot_3.png)
 
 **_Artistlerin görüntülendiği sayfa_**
 
@@ -53,18 +53,14 @@ sonrasında localhost:5001 veya 5000 üstünden testlere başlanabilir.
 
 **_Yeni bir artist eklenirkenki kullanılan sayfa_**
 
-![screenshot_5.png](./assets/screenshot_5.png)
+![screenshot_8.png](./assets/screenshot_8.png)
 
-**_Albüm ekleme sayfasının ilk hallerinden_**
+**_Albüm ekleme sayfası_**
 
-![screenshot_6.png](./assets/screenshot_6.png)
+![screenshot_7.png](./assets/screenshot_7.png)
 
-**_Albüm eklendikten sonra gelinen albümler sayfasının ilk hallerinden_**
+**_Albüm eklendikten sonra gelinen albümler sayfası_**
 
-![screenshot_3.png](./assets/screenshot_3.png)
-
-**_Artistler sayfasında albümlerine götüren link eklendiğinde_**
-
-![screenshot_4.png](./assets/screenshot_4.png)
+![screenshot_9.png](./assets/screenshot_9.png)
 
 **_Artist sayfasından bir artist seçildiğinde gidilen albüm sayfası_**
