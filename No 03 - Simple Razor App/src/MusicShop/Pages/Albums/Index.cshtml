@@ -15,12 +15,13 @@
 
     <thead>
         <tr>
+            <th></th>
             <th>
                 Title
             </th>
             <th>
                 Release Date
-            </th>
+            </th>            
             <th></th>
             <th></th>
         </tr>
@@ -29,6 +30,13 @@
         @foreach (var item in Model.Albums)
         {
             <tr>
+                <td>
+                    @{
+                        var base64 = Convert.ToBase64String(item.Cover);
+                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    }
+                    <img src="@imgSrc" alt="...">
+                </td>
                 <td>
                     @Html.DisplayFor(m => item.Title) (@Html.DisplayFor(m => item.Artist.Name))
                 </td>
