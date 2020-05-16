@@ -40,6 +40,12 @@ namespace MusicShop.Pages.Albums
 
         public async Task<IActionResult> OnPostAsync()
         {
+            if (!ModelState.IsValid)
+            {
+                OnGet(); //Validasyon hatası olursa Sanatçılar listesi içeriği tekrar yüklensin diye...
+                return Page();
+            }
+
             var newAlbum = new Album();
 
             _logger.Log(LogLevel.Warning, $"Uploaded file length {CoverPhotoFile.Length.ToString()} bytes");
