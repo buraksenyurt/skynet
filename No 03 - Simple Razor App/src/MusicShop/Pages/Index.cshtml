@@ -4,6 +4,17 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to My Music Shop</h1>
+<h3 class="display-4">Günün Albümü</h3>
+
+<div class="media">
+        @{
+        var base64 = Convert.ToBase64String(Model.RandomAlbum.Cover);
+        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+    }
+    <img class="align-self-start mr-3" src="@imgSrc" alt="..."></td>
+    <div class="media-body">
+        <h5 class="mt-0">@Html.DisplayFor(m => Model.RandomAlbum.Title) - @Html.DisplayFor(m => Model.RandomAlbum.ReleaseYear)</h5>
+        <h5 class="mt-0">@Html.DisplayFor(m => Model.RandomAlbum.Artist.Name)</h5>
+        <p>@Html.DisplayFor(m => Model.RandomAlbum.Artist.Biography)</p>
+    </div>
 </div>
