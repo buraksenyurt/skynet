@@ -7,7 +7,7 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 - No 01 : Ruby Tarafından Redis(Docker bazlı) Veritabanı ile Konuşmak _(=========-> %95)_
 - No 02 : MongoDB ile bir GO uygulamasını konuşturmak _(========-> %85)_
 - ~~No 03 : Wails ve GO kullanarak bir desktop uygulaması yazmak _( > %0)_~~
-- No 03 : Razor Öğreniyorum _( =====> %50)_
+- No 03 : Razor Öğreniyorum _( ========> %80)_
 - No 04 : IKU Meetup (MongoDB, Web API, Unit Test) _(Tamamlandı)_
 - No 05 : gRPC Tabanlı Basit Bir .Net Core Servisi Geliştirmek ve Kullanmak _( =====> %50)_
 - No 06 : DT-Training(.Net Core Eğitimi için Hazırlık) _( => %10)_
