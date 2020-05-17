@@ -2,12 +2,12 @@
 
 Şu Razor'u gözü kapalı kavramam lazım. Başlangıç noktası olarak Microsoft'un resmi dokümanı pekala yeterli.
 
-## To Do
+## To Do _(Yapılabilecekler)_
 
-- Albüm silme de popup deneyelim
-- Albümlere kapak fotoğrafları için boyut küçültme gerekli
-- Ana sayfada günün albümü olsun. Rastgele gelsin.
-- Albümlerde veya artistlerde arama seçeneği koyalım
+- Albüm silme de popup deneyebiliriz
+- Albümlere kapak fotoğrafları için özel doğrulama(Custom Validation) koyabiliriz
+- Albümlerde veya artistlerde arama seçeneği olabilir
+- Albümlerdeki parçaları içeren yeni bir entity sisteme kazandırılıp ana sayfada günü şarkısı gösterilebilir
 
 ## Platform
 
@@ -44,6 +44,10 @@ dotnet run
 ```
 
 sonrasında localhost:5001 veya 5000 üstünden testlere başlanabilir.
+
+![screenshot_10.png](./assets/screenshot_10.png)
+
+**_Ana sayfada rastgelen albüm getirilmesi sonrası_**
 
 ![screenshot_3.png](./assets/screenshot_3.png)
 
