@@ -27,6 +27,8 @@ mkdir data model controller route
 touch data/jokesdb.ts controller/jokescontroller.ts  model/joke.ts route/jokesrouter.ts
 ```
 
+>SQLite ve PostgreSQL gibi veri tabanı deneyimi için https://deno.land/x/denodb modülünü ele alabiliriz
+
 ## Çalışma Zamanı
 
 Uygulamayı çalıştırırken internetten indireceği modüller olması sebebiyle --allow-net ile erişime izin vermemiz gerekiyor.
