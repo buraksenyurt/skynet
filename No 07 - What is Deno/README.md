@@ -1,6 +1,6 @@
 # Sıkça Duyduğum Deno'ya Hello Demek İstedim
 
-Şu sıralar adını sıklıkla duyduğum ve NodeJs'in yerini alır mı almaz mı tartışmalarını okuduğum Deno'yu incelemek istedim. Javascript haricinde dahili olarak Typescript desteği de sunan, V8 üzerinde koşan ve Rust ile yazılmış bir çalışma zamanı olarak nitelendiriliyor. Ben nasıl bir geliştirme tecrübesi yaşatacak tatmak istiyorum. Klasik kurgu olarak REST tipinden bir servisin birkaç operasyonunu icra etsem yeterli. Örnek verileri almak için International Chuck Norris veritabanını kullanabilirim :D Biraz eğlence katmak lazım.
+Şu sıralar adını sıklıkla duyduğum ve NodeJs'in yerini alır mı almaz mı tartışmalarını(ki öyle bir şey yok) okuduğum Deno'yu incelemek istedim. Javascript haricinde dahili olarak Typescript desteği de sunan, V8 üzerinde koşan ve Rust ile yazılmış bir çalışma zamanı olarak nitelendiriliyor. Ben nasıl bir geliştirme tecrübesi yaşatacağını tatmak istiyorum. Klasik kurgu olarak REST tipinden bir servisin birkaç operasyonunu icra etsem yeterli. Örnek verileri almak için International Chuck Norris veritabanını kullanabilirim :D Biraz eğlence katmak lazım. Hatta verileri SQLite veritabanında tutmak da fena olmaz.
 
 ## Kurulum _(Aslında Pek de Değil)_
 
@@ -27,12 +27,18 @@ mkdir data model controller route
 touch data/jokesdb.ts controller/jokescontroller.ts  model/joke.ts route/jokesrouter.ts
 ```
 
->SQLite ve PostgreSQL gibi veri tabanı deneyimi için https://deno.land/x/denodb modülünü ele alabiliriz
-
 ## Çalışma Zamanı
 
-Uygulamayı çalıştırırken internetten indireceği modüller olması sebebiyle --allow-net ile erişime izin vermemiz gerekiyor.
+Uygulamayı çalıştırırken internetten indireceği modüller olması sebebiyle --allow-net ile erişime izin vermemiz gerekiyor. Ayrıca SQLite veritabanı için diske yazma ve diskten okuma izni de vermek lazım. Write ve read bunun için eklendi.
 
 ```bash
-deno run --allow-net main.ts
+deno run --allow-net --allow-write --allow-read main.ts
 ```
+
+![screenshot_1.png](./assets/screenshot_1.png)
+
+![screenshot_2.png](./assets/screenshot_2.png)
+
+![screenshot_3.png](./assets/screenshot_3.png)
+
+Chuck Norris artık mutlu :P
