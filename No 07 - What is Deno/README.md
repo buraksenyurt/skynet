@@ -2,9 +2,9 @@
 
 Şu sıralar adını sıklıkla duyduğum ve NodeJs'in yerini alır mı almaz mı tartışmalarını okuduğum Deno'yu incelemek istedim. Javascript haricinde dahili olarak Typescript desteği de sunan, V8 üzerinde koşan ve Rust ile yazılmış bir çalışma zamanı olarak nitelendiriliyor. Ben nasıl bir geliştirme tecrübesi yaşatacak tatmak istiyorum. Klasik kurgu olarak REST tipinden bir servisin birkaç operasyonunu icra etsem yeterli. Örnek verileri almak için International Chuck Norris veritabanını kullanabilirim :D Biraz eğlence katmak lazım.
 
-## Kurulum
+## Kurulum _(Aslında Pek de Değil)_
 
-Tabii önce deno çalışma zamanını sisteme kurmak lazım. [Resmi adresinde](https://deno.land/#installation) Adresinde detaylı kurulum mevcut. Ben şirket bilgisayarına(powershell üzerinden) ve evdeki linux sistemine aşağıdaki komutlarla kurulum yaptım. Windows tarafında tek bir exe geldi. Nefis.
+Tabii önce deno çalışma zamanını sisteme yüklemek lazım. [Resmi adresinde](https://deno.land/#installation) basit bir kılavuz mevcut. Ben şirket bilgisayarına(powershell üzerinden) ve evdeki linux sistemine aşağıdaki komutlarla kurulum yaptım. Windows tarafında tek bir exe geldi. Nefis ki zaten Deno'nun özelliği de buymuş. NodeJs gibi bir kurulum gerektirmiyor. Tek binary yeterli. İhtiyaç duyulan modüller https://deno.land/std ve benzeri deno adreslerinden import ile uygulamaya inebiliyor.
 
 ```powershell
 $env:DENO_INSTALL = "C:\Program Files\deno"
@@ -28,6 +28,8 @@ touch data/jokesdb.ts controller/jokescontroller.ts  model/joke.ts route/jokesro
 ```
 
 ## Çalışma Zamanı
+
+Uygulamayı çalıştırırken internetten indireceği modüller olması sebebiyle --allow-net ile erişime izin vermemiz gerekiyor.
 
 ```bash
 deno run --allow-net main.ts

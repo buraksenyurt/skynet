@@ -3,3 +3,4 @@ export default class joke {
     content: string = '';
     popularity: string = 'M';
 }
+// Kobay Entity sınıfımız olarak düşünebiliriz

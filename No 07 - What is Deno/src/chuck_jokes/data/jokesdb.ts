@@ -1,5 +1,6 @@
 import joke from '../model/joke.ts';
 
+// Örnek veri setimiz
 let allJokes:joke[]=[
     {
         id: 1,
