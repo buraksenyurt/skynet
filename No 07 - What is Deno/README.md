@@ -35,6 +35,10 @@ Uygulamayı çalıştırırken internetten indireceği modüller olması sebebiy
 deno run --allow-net --allow-write --allow-read main.ts
 ```
 
+Hem Heimdall _(Ubuntu 20.04)_ hem de şirket bilgisayarından _(Windows 10)_ birkaç görüntü.
+
+![screenshot_4.png](./assets/screenshot_4.png)
+
 ![screenshot_1.png](./assets/screenshot_1.png)
 
 ![screenshot_2.png](./assets/screenshot_2.png)
