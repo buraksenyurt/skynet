@@ -21,3 +21,36 @@ dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet ef migrations add initial
 dotnet ef database update
 ```
+
+## Bölüm Soruları
+
+_Hadi yine iyisiniz?_
+
+## Mini Lab Çalışması _(Süre: Bir sonraki güne ödev)_
+
+Çalışma odamdaki kütüphanede yer alan kitapları çok basit bir kurgu ile dijital ortamda takip etmek istiyorum. Kütüphanedeki bir kitabın adını, sayfa sayısını, yazarlarını ve okuyup okumadığımı hatırlamak benim için önemli. Ayrıca onların hangi rafta oldukları bilgisi ile hangi kategoride yer aldıklarını da kayıt altına almak istiyorum. Kütüphane tasarımını aşağıda bulabilirsin.
+6 katlı ve her katında 4er bölmeli bir kitaplık. Koordinat noktalarını istediğin şekilde tasarlayabilirsin.
+
+```text
+[-----][-----][-----][-----]
+[-----][-----][-----][-----]
+[-----][-----][-----][-----]
+[-----][-----][-----][-----]
+[-----][-----][-----][-----]
+[-----][-----][-----][-----]
+```
+
+Bunun için bana SQLite tabanlı Entity Framework kullanan bir Console uygulaması yazar mısın? Terminalden beklediğim işler şöyle.
+
+```text
+dotnet run
+
+Hoşgeldin!
+Ne yapmak istersin?
+1 - Kütüphaneme yeni bir kitap ekleyeceğim?
+2 - Şu kitabın hangi rafta olduğunu söyler misin?
+3 - Kütüphanemden rastgele 10 kitap listeler misin?
+4 - Arkadaşıma hediye ettiğim bir kitap var. Bunu kütükten çıkartır mısın?
+```
+
+başarılar :)
