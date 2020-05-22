@@ -1,4 +1,4 @@
-# ELK _(Elasticsearch Logstash Kibana)_ Üçlüsünü Hatırlamak
+# Yine Yeni Yeniden ELK _(Bu sefer E ve K için docker-compose işin içinde)_
 
 Amacım .Net Core 3.1 üstünden ELK düzeneğini kurgulayıp loglama, izleme işlerini tekrarlamak. Bu sefer  ElasticSearch Kibana containerları için docker compose aracını kullanmayı da öğrenmek istiyorum.
 
@@ -42,7 +42,7 @@ cd Readers
 dotnet run
 ```
 
-http://localhost:5000/book adresinden bir HTTP Get denenebilir. Get için de Information türünden bilgi dışında Error türünden hata logu da yazdırılmakta. Kibana'da Error seviyesini de görmek için sadece. Tabii ki pratikte exception oluştuğu durumlarda kullanmak lazım.
+http://localhost:5000/book adresinden bir HTTP Get denenebilir. Get içinde Information türünden bilgi dışında Error türünden hata logu da yazdırılmakta. Kibana'da Error seviyesini de görmek için sadece. Tabii ki pratikte exception oluştuğu durumlarda kullanmak lazım.
 
 Kibana'ya erişmek log'ları takip etmek için kafi ama yeterli değil. http://localhost:5601 adresine gittikten sonra Readers isimli web api için bir index eklemek gerekli.
 

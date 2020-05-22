@@ -12,6 +12,7 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 - No 05 : gRPC Tabanlı Basit Bir .Net Core Servisi Geliştirmek ve Kullanmak _( =====> %50)_
 - No 06 : DT-Training(.Net Core Eğitimi için Hazırlık) _( => %10)_
 - No 07 : Sıkça Duymaya Başladığım Deno'ya Minik Bir Merhaba _( ========> %80)_
+- No 08 : Yine Yeni Yeniden ELK(Bu sefer E ve K için docker-compose işin içinde) _(Tamamlandı)_
 
 ## Çalışma Tekniğim
 
