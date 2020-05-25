@@ -15,7 +15,7 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 - No 08 : Yine Yeni Yeniden ELK(Bu sefer E ve K için docker-compose işin içinde) _(Tamamlandı)_
 - No 09 : Distributed Cache Gerekiyorsa Elbette Redis _(Tamamlandı)_
 - No 10 : Python Tarafında ProtoBuf Serileştirme _(Tamamlandı)_
-- No 11 : İşlemci Bilgisini Çeken .Net Core Worker Servisi _( =========> %90)_
+- No 11 : Basit Bir .Net Core Worker Servisi _(Linux Daemon Olarak)_ _( =========> %90)_
 
 ## Çalışma Tekniğim
 
