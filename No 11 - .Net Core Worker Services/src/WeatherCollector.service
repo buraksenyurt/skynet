@@ -1,0 +1,9 @@
+[Unit]
+Description=Hava Durumu Servisi
+
+[Service]
+Type=notify
+ExecStart=/home/buraks/Documents/Services/artifact/WeatherCollector
+
+[Install]
+WantedBy=multi-user.target
