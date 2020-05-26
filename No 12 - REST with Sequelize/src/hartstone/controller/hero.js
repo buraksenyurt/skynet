@@ -3,7 +3,7 @@ const Hero = require('../models').Hero;
 module.exports = {
     async getAll(req, res) {
         try {
-            const heros = await Hero.find({});
+            const heros = await Hero.findAll({});
             res.status(201).send(heros);
         }
         catch (e) {

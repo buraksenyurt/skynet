@@ -4,12 +4,12 @@ const Card = require('../models').Card;
 module.exports = {
     async getAllByHero(req, res) {
         try {
-            const hero = await Hero.find({
+            const hero = await Hero.findOne({
                 id: req.params.heroId
             });
 
             if (hero) {
-                const cards = await Card.find({
+                const cards = await Card.findAll({
                     heroId: req.params.heroId
                 })
 
