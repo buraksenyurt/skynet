@@ -8,7 +8,7 @@ Verileri saklamak için Postgresql tercih ettim. Sisteme yüklemek yerine docker
 
 ```bash
 docker run --name London -e POSTGRES_PASSWORD=P@ssw0rd -p 5433:5432 -d postgres
-docker exce -it London bash
+docker exec -it London bash
 psql -U postgres
 
 Create Database GeniusRecipes;
