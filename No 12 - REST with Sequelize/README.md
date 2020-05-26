@@ -29,11 +29,14 @@ node_modules/.bin/sequelize init
 
 Bu işlemle üç klasör oluşur. Veritabanı ayarları config klasöründeki config.json dosyasında tanımlanır. Migration işlemlerinin bulunduğu kod dosyaları için migrations klasörü kullanılır. Entity modelleri ise models klasörüne konuşlandırılır. 
 
-## Yapılanlar _(Not Completed)_
+## Yapılanlar
 
 - config/config.json içeriği postgresql kullanılacak şekilde düzenlendi.
 - models klasöründe hero ve card isimli iki javascript dosyası eklendi.
 - migrations klasöründe hero-migration ve card-migration isimli javascript dosyaları oluşturuldu.
+- controller klasörü oluşturuldu ve içerisine hero, card, index javascript dosyaları eklendi.
+- routes klasörü oluşturuldu ve içerisine index.js eklendi
+- ana klasördeki index.js içeriği yazıldı
 
 Bu işlemler ardından db migration süreci başlatılabilir ve tabloların oluşup oluşmadığı kontrol edilebilir.
 
@@ -47,4 +50,35 @@ node_modules/.bin/sequelize db:migrate
 
 ## Çalışma Zamanı
 
-_Not Completed_
+Ana klasördeki index.js dosyasını çalıştırmak ve Postman ile 5555 portundan hizmet veren servise HTTP Get, Post talepleri göndermek yeterli.
+
+```bash
+node index.js
+```
+
+Örnek bir kahramanın oluşturulması.
+
+```text
+HTTP Post
+http://localhost:5555/game/api/hero
+
+JSON
+
+{
+    "name": "Paladin",
+    "info": "The. Paladin is one of the ten classes in Hearthstone, represented by Uther Lightbringer, Lightforged Uther, Lady Liadrin, Prince Arthas, and Sir Annoy-O."
+}
+```
+
+![Screenshot_2.png](./assets/Screenshot_2.png)
+
+Tüm kahramanların getirilmesi. _(http://localhost:5555/game/api/heros daha iyi durabilir)_
+
+```text
+HTTP Get
+http://localhost:5555/game/api/hero
+```
+
+![Screenshot_3.png](./assets/Screenshot_3.png)
+
+_Card oluşturma ve bir Hero altındaki kartların listelenmesine ait kodların çalışıp çalışmadığı kontrol edilmedi_
