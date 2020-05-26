@@ -16,6 +16,7 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 - No 09 : Distributed Cache Gerekiyorsa Elbette Redis _(Tamamlandı)_
 - No 10 : Python Tarafında ProtoBuf Serileştirme _(Tamamlandı)_
 - No 11 : Basit Bir .Net Core Worker Servisi _(Linux Daemon Olarak)_ _( =========> %90)_
+- No 12 : Sequelize Kullanılan Bir NodeJs Rest Servisi Geliştirmek _( ===== > %50 )_
 
 ## Çalışma Tekniğim
 
