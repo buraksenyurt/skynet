@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         description: DataTypes.STRING,
         attack: DataTypes.INTEGER,
         health: DataTypes.INTEGER,
-        speel: DataTypes.INTEGER
+        spell: DataTypes.INTEGER
     });
 
     Card.associate = function (models) {
