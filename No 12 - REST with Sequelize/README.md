@@ -81,4 +81,29 @@ http://localhost:5555/game/api/hero
 
 ![Screenshot_3.png](./assets/Screenshot_3.png)
 
-_Card oluşturma ve bir Hero altındaki kartların listelenmesine ait kodların çalışıp çalışmadığı kontrol edilmedi_
+Yeni bir Card oluşturmak için.
+
+```text
+HTTP Post
+http://localhost:5555/game/api/cad
+
+JSON
+
+{
+    "name": "Aviana",
+    "description": "Aviana is a Druid-only minion. This card was introduced with The Grand Tournament and can now only be obtained through crafting. Below the card images, you will find explanations to help you use the card optimally in every game mode of Hearthstone.",
+    "attack": 5,
+    "health": 5,
+    "spell": 10,
+    "heroId": 2
+}
+```
+
+Belli bir kahramana ait kartları çekmek için.
+
+```text
+HTTP Get
+http://localhost:5555/game/api/hero/2/cards
+```
+
+![Screenshot_4.png](./assets/Screenshot_4.png)
