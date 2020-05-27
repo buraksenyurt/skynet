@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Hero.associate = function (models) {
         Hero.hasMany(models.Card, {
-            foreignKey: 'cardId',
+            foreignKey: 'id',
             as: 'cards'
         });
     };
