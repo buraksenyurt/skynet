@@ -5,12 +5,17 @@ module.exports = {
     async getAllByHero(req, res) {
         try {
             const hero = await Hero.findOne({
-                id: req.params.heroId
+                where: {
+                    id: req.params.heroId
+                }
             });
+            console.log(hero.name);
 
             if (hero) {
                 const cards = await Card.findAll({
-                    heroId: req.params.heroId
+                    where: {
+                        heroId: req.params.heroId
+                    }
                 })
 
                 res.status(201).send(cards);
