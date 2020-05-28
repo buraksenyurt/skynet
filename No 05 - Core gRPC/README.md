@@ -54,7 +54,7 @@ dotnet ef database update
 ![screenshot_1.png](./assets/screenshot_1.png)
 _(Console uygulamasında örnek bir yemek tarifinin eklenmesi)_
 
-![screenshot_2.png](./assets/screenshot_2.png)s
+![screenshot_2.png](./assets/screenshot_2.png)
 _(Console uygulamasına örnek yemek tarifinin çekilmesi)_
 
 ![screenshot_3.png](./assets/screenshot_3.png)
