@@ -52,12 +52,15 @@ dotnet ef database update
 Önce CookingAPI servisi çalıştırılır. Ayarlamalar gereği <https://localhost:5555> üzerinden hizmet verecektir. Ardından Apprentice istemcileri yürütülebilir.
 
 ![screenshot_1.png](./assets/screenshot_1.png)
+
 _(Console uygulamasında örnek bir yemek tarifinin eklenmesi)_
 
 ![screenshot_2.png](./assets/screenshot_2.png)
+
 _(Console uygulamasına örnek yemek tarifinin çekilmesi)_
 
 ![screenshot_3.png](./assets/screenshot_3.png)
+
 _(Console uygulamasında Include ile malzeme listesinin de döndürülmesi)_
 
 ```bash
