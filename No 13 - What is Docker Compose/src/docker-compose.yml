@@ -1,0 +1,17 @@
+version: "3"
+services:
+    sportapi:
+        container_name: sport_container
+        build: ./SportApi
+        ports:
+            - "5555:80"
+    bookapi:
+        container_name: book_container
+        build: ./BookApi
+        ports:
+            - "5000:5000"
+    wordapi:
+        container_name: word_container
+        build: ./WordApi
+        ports:
+            - "4000:3000"
