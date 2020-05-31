@@ -17,6 +17,7 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 - No 10 : Python Tarafında ProtoBuf Serileştirme _(Tamamlandı)_
 - No 11 : Basit Bir .Net Core Worker Servisi _(Linux Daemon Olarak)_ _( =========> %90)_
 - No 12 : Sequelize Kullanılan Bir NodeJs Rest Servisi Geliştirmek _( ======== > %80 )_
+- No 13 : Bir .Net Core Web Api bir nodejs bir python servisi bir araya gelip docker-compose'a misafirliğe gitmişler. _( ======== > %80 )_
 
 ## Çalışma Tekniğim
 
