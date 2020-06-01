@@ -42,6 +42,8 @@ dotnet ef database update
 dotnet run
 ```
 
+>Bu arada kodun içerisinde belirli kısımlarda TODO[Homework] şeklinde ibareler var. Onları yapmaya çalışın ;)
+
 ## Testler
 
 Örnek birkaç curl sorgusu ve çalışma zamanına ait ekran görüntüleri şöyle.

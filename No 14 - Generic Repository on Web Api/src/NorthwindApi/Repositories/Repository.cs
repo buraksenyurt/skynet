@@ -13,6 +13,8 @@ namespace NorthwindApi.Repositories
     Çalışma zamanında bu nesne üretildiğinde T görülen her yer verilen Entity
     nesnesi ile çalışacak.
     */
+
+    //TODO[Homework]: ProductRepository'deki belli bir kritere göre arama işini generic hale getirip buraya alabilir misiniz?
     public class Repository<T>
         : IRepository<T>
         where T : Entity // T türü Entity türevli olmak zorunda. 
@@ -38,7 +40,7 @@ namespace NorthwindApi.Repositories
         public async Task<T> ReadAsync(int id) => await _entity.SingleOrDefaultAsync(e => e.Id == id);
         public Task UpdateAsync(T entity)
         {
-            throw new NotImplementedException(); // Ödev
+            throw new NotImplementedException(); //TODO[Homework]
         }
         public async Task<bool> DeleteAsync(int id)
         {

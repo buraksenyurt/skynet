@@ -10,7 +10,6 @@ namespace NorthwindApi.Controllers
 {
     /*
     Standart controller sınıfımız
-
     */
     [ApiController]
     [Route("northwind/api/[controller]")]
@@ -37,6 +36,7 @@ namespace NorthwindApi.Controllers
             return Ok(founded);
         }
 
+        //TODO[Homework] Bunun içinde HTTP 201 döndürmeye deneyebiliriz
         [HttpPost]
         public async Task Add([FromBody] Category category) => await _repository.CreateAsync(category);
 
