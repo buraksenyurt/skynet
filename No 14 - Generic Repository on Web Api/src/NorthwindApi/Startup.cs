@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using NorthwindApi.Context;
+using NorthwindApi.Repositories;
 
 namespace NorthwindApi
 {
@@ -25,6 +28,13 @@ namespace NorthwindApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // SQLite kullanacağımızı belirtiyoruz.             
+            // Connection String bilgisini appsettings.json'dan alıyoruz.
+            services.AddDbContext<NorthwindContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("NorthwinContext")));
+            // NorthwindContext repository sınıflarına DI tarafından bu bildirim sonrası otomatik geçecek (Constructor'lar üzerinden)
+            services.AddScoped<NorthwindContext>();
+            // Benzer şekilde IRepository kullanılan yerlere de Repository türleri otomatik geçece
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddControllers();
         }
 
