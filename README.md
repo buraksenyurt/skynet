@@ -28,7 +28,10 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 Örnekleri yaparken kendimce bir hashtag bilgilendirmesi de yapmaya çalışıyorum. Nelerden bashedilmiş sonradan hatırlayayım diye.
 
 ```text
-#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService #dameon #rest #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb
+#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService 
+#dameon #rest #redis #distributedCache #razor #ruby #go #express #python #flask 
+#postrgres #sqlite #migration #entityFramework #elasticSearch #kibana #logstash 
+#sequilize #protobuf #unitTest #xUnit #mongoDb
 ```
 
 ## Çalışma Tekniğim
