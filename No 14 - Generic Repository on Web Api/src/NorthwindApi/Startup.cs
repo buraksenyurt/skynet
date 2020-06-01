@@ -33,8 +33,10 @@ namespace NorthwindApi
             services.AddDbContext<NorthwindContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("NorthwinContext")));
             // NorthwindContext repository sınıflarına DI tarafından bu bildirim sonrası otomatik geçecek (Constructor'lar üzerinden)
             services.AddScoped<NorthwindContext>();
-            // Benzer şekilde IRepository kullanılan yerlere de Repository türleri otomatik geçece
+            // Benzer şekilde IRepository kullanılan yerlere de Repository türleri otomatik olarak geçecek.
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            // Aynı şekilde IProductRepository olan yerlere de DI mekanizması ProductRepository örneklerini bağlayacak.
+            services.AddScoped(typeof(IProductRepository), typeof(ProductRepository));
             services.AddControllers();
         }
 

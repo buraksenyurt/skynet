@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using NorthwindApi.Models;
 
 namespace NorthwindApi.Repositories
@@ -11,10 +12,10 @@ namespace NorthwindApi.Repositories
     public interface IRepository<T>
         where T : Entity //T tipi Entity türünden olmalı. Şu durumda Category ve Product olabilir
     {
-        void Create(T entity);
-        T Read(int id);
-        void Update(T entity);
-        void Delete(int id);
-        IEnumerable<T> ReadAll();
+        Task Create(T entity);
+        Task<T> Read(int id);
+        Task Update(T entity);
+        Task Delete(int id);
+        Task<IEnumerable<T>> ReadAll();
     }
 }

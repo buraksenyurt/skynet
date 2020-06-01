@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using NorthwindApi.Models;
 using NorthwindApi.Context;
+using System.Threading.Tasks;
 
 namespace NorthwindApi.Repositories
 {
@@ -16,7 +17,7 @@ namespace NorthwindApi.Repositories
         : IRepository<T>
         where T : Entity // T türü Entity türevli olmak zorunda. 
     {
-        private readonly NorthwindContext _context;
+        protected readonly NorthwindContext _context;
         private DbSet<T> _entity;
         // Entity Framework DbContext türevini Constructor üzerinden içeriye alıyoruz
         public Repository(NorthwindContext context)
@@ -24,27 +25,27 @@ namespace NorthwindApi.Repositories
             _context = context;
             _entity = context.Set<T>(); // Repository hangi Entity tipi ile çalışacaksa onu yüklüyoruz.
         }
-        public void Create(T entity)
+        public async Task Create(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException("Entity boş gelemez");
             }
 
-            _entity.Add(entity);
+            await _entity.AddAsync(entity);
             _context.SaveChanges();
         }
-        public T Read(int id) => _entity.SingleOrDefault(e => e.Id == id);
-        public void Update(T entity)
+        public async Task<T> Read(int id) => await _entity.SingleOrDefaultAsync(e => e.Id == id);
+        public Task Update(T entity)
         {
             throw new NotImplementedException(); // Ödev
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            T entity = _entity.SingleOrDefault(e => e.Id == id);
+            T entity = await _entity.SingleOrDefaultAsync(e => e.Id == id);
             _entity.Remove(entity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
-        public IEnumerable<T> ReadAll() => _entity.AsEnumerable();
+        public async Task<IEnumerable<T>> ReadAll() => await _entity.ToListAsync();
     }
 }
