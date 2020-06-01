@@ -21,7 +21,8 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 - No 10 : Python Tarafında ProtoBuf Serileştirme _(Tamamlandı)_ (S)
 - No 11 : Basit Bir .Net Core Worker Servisi _(Linux Daemon Olarak)_ _( =========> %90)_ (S)
 - No 12 : Sequelize Kullanılan Bir NodeJs Rest Servisi Geliştirmek _( ======== > %80 )_ (S)
-- No 13 : Bir .Net Core Web Api bir nodejs bir python servisi bir araya gelip docker-compose'a misafirliğe gitmişler. _(Tamamlandı)_ (XL)
+- No 13 : Bir .Net Core Web Api Bir Nodejs Bir Python Servisi Bir Araya Gelip docker-compose'a Misafirliğe Gitmişler _(Tamamlandı)_ (XL)
+- No 14 : Bir Asp.Net Core Web Api Projesinde Generic Repository Deseninin Kullanımı _( ==> %20 )_ (M)
 
 ## Hashtag
 
