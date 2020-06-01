@@ -11,6 +11,7 @@ dotnet new webapi -o NorthwindApi
 cd NorthwindApi
 
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Design
 
 mkdir Models
 touch Models/IEntity.cs
@@ -30,10 +31,19 @@ touch Controllers/ProductController.cs
 
 ## Çalışma Zamanı
 
+Tabii Entity Framework kullandığımızdan bir migration işlemi ile işe başlamak lazım ki SQlite veritabanı dosyamızda gerekli tablolar oluşsun. Sonrasında koşabiliriz.
+
+>ef aracı yoksa _dotnet tool install --global dotnet-ef_
+
 ```bash
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
 dotnet run
 ```
 
->Antrenman bitince kompozisyona dahil olan container'ları kaldırmak için _sudo docker-compose down_ komutu kullanılabilir.
+## Testler
+
+Örnek birkaç curl sorgusu ve çalışma zamanına ait ekran görüntüleri şöyle.
 
 ![Screenshot_1.png](./assets/Screenshot_1.png)

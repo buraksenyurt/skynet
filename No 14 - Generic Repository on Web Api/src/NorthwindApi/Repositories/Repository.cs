@@ -25,7 +25,7 @@ namespace NorthwindApi.Repositories
             _context = context;
             _entity = context.Set<T>(); // Repository hangi Entity tipi ile çalışacaksa onu yüklüyoruz.
         }
-        public async Task Create(T entity)
+        public async Task CreateAsync(T entity)
         {
             if (entity == null)
             {
@@ -35,17 +35,21 @@ namespace NorthwindApi.Repositories
             await _entity.AddAsync(entity);
             _context.SaveChanges();
         }
-        public async Task<T> Read(int id) => await _entity.SingleOrDefaultAsync(e => e.Id == id);
-        public Task Update(T entity)
+        public async Task<T> ReadAsync(int id) => await _entity.SingleOrDefaultAsync(e => e.Id == id);
+        public Task UpdateAsync(T entity)
         {
             throw new NotImplementedException(); // Ödev
         }
-        public async Task Delete(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
             T entity = await _entity.SingleOrDefaultAsync(e => e.Id == id);
+            if (entity == null)
+                return false;
+
             _entity.Remove(entity);
             await _context.SaveChangesAsync();
+            return true;
         }
-        public async Task<IEnumerable<T>> ReadAll() => await _entity.ToListAsync();
+        public async Task<IEnumerable<T>> ReadAllAsync() => await _entity.ToListAsync();
     }
 }

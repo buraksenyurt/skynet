@@ -30,7 +30,7 @@ namespace NorthwindApi
         {
             // SQLite kullanacağımızı belirtiyoruz.             
             // Connection String bilgisini appsettings.json'dan alıyoruz.
-            services.AddDbContext<NorthwindContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("NorthwinContext")));
+            services.AddDbContext<NorthwindContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("NorthwindContext")));
             // NorthwindContext repository sınıflarına DI tarafından bu bildirim sonrası otomatik geçecek (Constructor'lar üzerinden)
             services.AddScoped<NorthwindContext>();
             // Benzer şekilde IRepository kullanılan yerlere de Repository türleri otomatik olarak geçecek.

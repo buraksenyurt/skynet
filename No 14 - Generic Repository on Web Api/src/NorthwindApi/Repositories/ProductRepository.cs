@@ -14,7 +14,7 @@ namespace NorthwindApi.Repositories
             : base(context)
         {
         }
-        public async Task<List<Product>> GetLessThanStockValue(int stockLevel)
+        public async Task<List<Product>> GetLessThanStockValueAsync(int stockLevel)
         {
             // _context nesnesi protected işaretlendiği için base sınıftan erişilebilir durumda
             return await _context.Products.Where(p => p.UnitsInStock <= stockLevel).ToListAsync();

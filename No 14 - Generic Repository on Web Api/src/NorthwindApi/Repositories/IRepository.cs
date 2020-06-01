@@ -12,10 +12,10 @@ namespace NorthwindApi.Repositories
     public interface IRepository<T>
         where T : Entity //T tipi Entity türünden olmalı. Şu durumda Category ve Product olabilir
     {
-        Task Create(T entity);
-        Task<T> Read(int id);
-        Task Update(T entity);
-        Task Delete(int id);
-        Task<IEnumerable<T>> ReadAll();
+        Task CreateAsync(T entity);
+        Task<T> ReadAsync(int id);
+        Task UpdateAsync(T entity);
+        Task<bool> DeleteAsync(int id);
+        Task<IEnumerable<T>> ReadAllAsync();
     }
 }

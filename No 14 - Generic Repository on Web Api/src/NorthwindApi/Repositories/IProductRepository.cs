@@ -12,6 +12,6 @@ namespace NorthwindApi.Repositories
     public interface IProductRepository
         : IRepository<Product>
     {
-        Task<List<Product>> GetLessThanStockValue(int stockLevel);
+        Task<List<Product>> GetLessThanStockValueAsync(int stockLevel);
     }
 }
