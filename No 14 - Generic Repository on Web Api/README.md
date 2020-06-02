@@ -44,8 +44,41 @@ dotnet run
 
 >Bu arada kodun içerisinde belirli kısımlarda TODO[Homework] şeklinde ibareler var. Onları yapmaya çalışın ;)
 
+## Eksikler _(İsteyene Ödevler)_
+
+- Eyvah! Biri ProductController dosyasının içini silmiş. :[]
+- Category eklerken topluca ürün listesini de ekleyebilsek çok güzel olmaz mı? Ayrı bir HTTP Post'u bu şekilde tasarlayabiliriz belki.
+- Category'nin Update fonksiyonelliği eksik
+- Category'yi çekerken bağlı olan ürünleri de yükletmek istersek bunu nasıl sağlarız?
+
 ## Testler
 
 Örnek birkaç curl sorgusu ve çalışma zamanına ait ekran görüntüleri şöyle.
 
+```bash
+#Kategori eklemek ve listelemek için
+
+curl -k --request POST https://localhost:5001/northwind/api/category --header "Content-Type: application/json" --data '{"Name":"Enstrüman","Description":"Çeşitli türlerde müzik enstrümanları"}'
+
+curl -k https://localhost:5001/northwind/api/category
+```
+
 ![Screenshot_1.png](./assets/Screenshot_1.png)
+
+```bash
+#Belli bir kategori bilgisini çekmek için
+
+curl -k https://localhost:5001/northwind/api/category/1
+
+#HTTP 404 Not Found testi
+curl -k https://localhost:5001/northwind/api/category/8
+
+#Delete testi
+curl -k --request DELETE https://localhost:5001/northwind/api/category/2
+```
+
+![Screenshot_2.png](./assets/Screenshot_2.png)
+
+![Screenshot_3.png](./assets/Screenshot_3.png)
+
+![Screenshot_4.png](./assets/Screenshot_4.png)
