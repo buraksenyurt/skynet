@@ -4,14 +4,20 @@ Eski pratikleri de hatırlamak istiyorum. Çok eskiden .Net Framework tarafında
 
 ## Hazırlıklar
 
-Proje iskeletinin ve ek klasörlerin oluşturulması.
+Proje iskeletinin ve ek klasörlerin ve gerekli Nuget paketlerinin oluşturulması.
 
 ```bash
 dotnet new webapi -o NorthwindApi
 cd NorthwindApi
 
+# Sqlite ve EF Kullanımı için
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+
+# migrations için
 dotnet add package Microsoft.EntityFrameworkCore.Design
+
+# Console'a EF loglama yaptırmak için
+dotnet add package Microsoft.Extensions.Logging.Console
 
 mkdir Models
 touch Models/IEntity.cs
