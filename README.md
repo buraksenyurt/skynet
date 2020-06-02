@@ -22,17 +22,17 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 - No 11 : Basit Bir .Net Core Worker Servisi _(Linux Daemon Olarak)_ _( =========> %90)_ (S)
 - No 12 : Sequelize Kullanılan Bir NodeJs Rest Servisi Geliştirmek _( ======== > %80 )_ (S)
 - No 13 : Bir .Net Core Web Api Bir Nodejs Bir Python Servisi Bir Araya Gelip docker-compose'a Misafirliğe Gitmişler _(Tamamlandı)_ (XL)
-- No 14 : Bir Asp.Net Core Web Api Projesinde Generic Repository Deseninin Kullanımı _( ====== > %60 )_ (L)
+- No 14 : Bir Asp.Net Core Web Api Projesinde Generic Repository Deseninin Kullanımı _( =======- > %75 )_ (L)
 
 ## Hashtag
 
 Örnekleri yaparken kendimce bir hashtag bilgilendirmesi de yapmaya çalışıyorum. Nelerden bashedilmiş sonradan hatırlayayım diye.
 
 ```text
-#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService 
-#dameon #rest #redis #distributedCache #razor #ruby #go #express #python #flask 
-#postrgres #sqlite #migration #entityFramework #elasticSearch #kibana #logstash 
-#sequilize #protobuf #unitTest #xUnit #mongoDb
+#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService #dameon #rest 
+#redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration 
+#entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb 
+#repositoryPattern #genericRepository #dependencyInjection #async #await #curl
 ```
 
 ## Çalışma Tekniğim
