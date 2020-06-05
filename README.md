@@ -36,6 +36,11 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb 
 #repositoryPattern #genericRepository #dependencyInjection #async #await #curl
 ```
+## Kolay Klasör Açma
+
+Gerek saturday-night-works olsun gerek skynet, çok sık tekrar ettiğim işlerden birisi de örneğe ait klasörler _(genelde No ile başlayan ana klasör ile src ve assets ile ilgili alt dizinler)_ ile Readme dosyasını açmak. İşi biraz kolaylaştırmak adına easy_setup.sh isimli bash script dosyasını kullanmaya karar verdim. Şimdilik iş görüyor.
+
+![bash_screen.png](./bash_screen.png)
 
 ## Çalışma Tekniğim
 
