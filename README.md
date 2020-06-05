@@ -36,7 +36,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 #cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService #dameon #rest 
 #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration 
 #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb 
-#repositoryPattern #genericRepository #dependencyInjection #async #await #curl
+#repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub
 ```
 ## Kolay Klasör Açma
 
