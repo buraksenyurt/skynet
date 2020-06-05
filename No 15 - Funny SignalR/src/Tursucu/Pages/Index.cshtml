@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Sence Hangisi?";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h1 class="display-4">Sence Hangisi?</h1>
+            <hr />
+            Önce ismini söyle? <input type="text" id="participantName"/>
+            <!-- Katılcımıyı örneğin gmail login ile sistem nasıl alırız? -->
+            <hr />
+            Sence turşunun iyisi hangisiyle yapılır? :)
+            <br/>
+            <label id="lblResult"></label>
+            <input type="radio" name="voteOption" value="limon" />
+            <label>Limonla</label>
+            <br/>
+            <div class="progress" style="height: 30px;">
+                <div id="prgLemon" class="progress-bar bg-warning" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0</div>
+            </div>
+            <input type="radio" name="voteOption" value="sirke" />
+            <label>Sirkeyle</label>
+            <br/>
+            <div class="progress" style="height: 30px;">
+                <div id="prgVinegard" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0</div>
+            </div>
+            <hr/>
+            <input type="button" id="sendVote" value="Oyla" />
+            <ul class="list-group overflow-auto" id="voices"></ul>
+        </div>
+</div>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/votemngr.js"></script>
