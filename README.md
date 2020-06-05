@@ -4,27 +4,27 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 
 ## Konular
 
-~~Burada Ahch-To _(MacOS Mojave - Intel Core i5 1.4Ghz, 4 Gb 1600 Mhz DDR3)_ üzerinde geliştirmeye çalıştığım kişiel öğretilerim yer almaktadır.~~ Örnekleri bir süredir Heimdall isimli Ubuntu yüklü makinemde geliştiriyorum. Ancak ara sıra şirket bilgisayarındaki Windows'u da kullandığım oluyor. Ağırlık Heimdall tarafında. _(Heimdal = Ubuntu, Ahch-To = MacOs olarak düşünülebilir. T-Shirt Size ile projelerin kendime göre zorluk derecelerini belirtiyorum. Örneğin XL, o örnekte çok zorlandığım anlamına geliyor)_
+~~Burada Ahch-To _(MacOS Mojave - Intel Core i5 1.4Ghz, 4 Gb 1600 Mhz DDR3)_ üzerinde geliştirmeye çalıştığım kişiel öğretilerim yer almaktadır.~~ Örnekleri bir süredir Heimdall isimli Ubuntu yüklü makinemde geliştiriyorum. Ancak ara sıra şirket bilgisayarındaki Windows'u da kullandığım oluyor. Ağırlık Heimdall tarafında. _(Heimdal = Ubuntu, Ahch-To = MacOs olarak düşünülebilir. T-Shirt Size ile projelerin kendime göre zorluk derecelerini belirtiyorum. Örneğin XL, o örnekte çok zorlandığım anlamına geliyor)_ Bu arada sonradan örnekler içerisine bombalar koymaya karar verdim. Yani repoyu indirenler için sürpriz sonlu sorular var _(Uygulamaya Bırakılan Bomba! kısımların dikkat)_
 
-| No | Konu                                                                                                         | İlerleme           | Seviyesi |      İlk Ortamı     | Durum |
-|----|--------------------------------------------------------------------------------------------------------------|--------------------|:--------:|:-------------------:|------:|
-| 01 | Ruby Tarafından Redis _(Docker bazlı)_  Veritabanı ile Konuşmak                                              | _(=========->%95)_ |     M    |       Ahch-To       | Pasif |
-| 02 | MongoDB ile bir GO uygulamasını konuşturmak                                                                  | _(========->%85)_  |     L    |       Ahch-To       | Pasif |
-| 03 | Razor Öğreniyorum                                                                                            | _(========>%80)_   |     M    |      Windows 10     | Pasif |
-| 04 | IKU Meetup _(MongoDB, Web API, Unit Test)_                                                                   | _(Tamamlandı)_     |     L    |      Windows 10     | Pasif |
-| 05 | gRPC Tabanlı Basit Bir .Net Core Servisi  Geliştirmek ve Kullanmak                                           | _(=======>%70)_    |     M    |      Windows 10     | Pasif |
-| 06 | DT-Training _(.Net Core Eğitimi için Hazırlık)_                                                              | _(==>%20)_         |    XL    | Heimdall Windows 10 | Aktif |
-| 07 | Sıkça Duymaya Başladığım Deno'ya  Minik Bir Merhaba                                                          | _(========>%80)_   |     M    |       Heimdall      | Pasif |
-| 08 | Yine Yeni Yeniden ELK _(Bu sefer E ve K için docker-compose işin içinde)_                                    | Tamamlandı         |     M    |       Heimdall      | Pasif |
-| 09 | Distributed Cache Gerekiyorsa Elbette Redis                                                                  | Tamamlandı         |     S    |       Heimdall      | Pasif |
-| 10 | Python Tarafında ProtoBuf Serileştirme                                                                       | Tamamlandı         |     S    |       Heimdall      | Pasif |
-| 11 | Basit Bir .Net Core Worker Servisi  _(Linux Daemon Olarak)_                                                  | Tamamlandı         |     S    |       Heimdall      | Pasif |
-| 12 | Sequelize Kullanılan Bir NodeJs  Rest Servisi Geliştirmek                                                    | _(========>%80)_   |     S    |       Heimdall      | Pasif |
-| 13 | Bir .Net Core Web Api Bir Nodejs Bir Python  Servisi Bir Araya Gelip docker-compose'a  Misafirliğe Gitmişler | Tamamlandı         |    XL    |       Heimdall      | Pasif |
-| 14 | Bir Asp.Net Core Web Api Projesinde Generic Repository Deseninin Kullanımı                                   | _(=======->%75)_   |     L    |       Heimdall      | Pasif |
-| 15 |                                                                                                              |                    |          |                     |       |
-| 16 |                                                                                                              |                    |          |                     |       |
-| 17 |                                                                                                              |                    |          |                     |       |
+| No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba 	|
+|----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----:	|
+| 16 	|                                                                                                              	|            	|        	|                     	|       	|
+| 15 	| Eğlenceli SignalR _(Turşunun iyisi limonla mı yapılır yoksa sirkeyle mi?)_                                   	| %80        	|    M   	|       Heimdall      	|  Var  	|
+| 14 	| Bir Asp.Net Core Web Api Projesinde Generic Repository Deseninin Kullanımı                                   	| %75        	|    L   	|       Heimdall      	|       	|
+| 13 	| Bir .Net Core Web Api Bir Nodejs Bir Python  Servisi Bir Araya Gelip docker-compose'a  Misafirliğe Gitmişler 	| Tamamlandı 	|   XL   	|       Heimdall      	|       	|
+| 12 	| Sequelize Kullanılan Bir NodeJs  Rest Servisi Geliştirmek                                                    	| %80        	|    S   	|       Heimdall      	|       	|
+| 11 	| Basit Bir .Net Core Worker Servisi  _(Linux Daemon Olarak)_                                                  	| Tamamlandı 	|    S   	|       Heimdall      	|       	|
+| 10 	| Python Tarafında ProtoBuf Serileştirme                                                                       	| Tamamlandı 	|    S   	|       Heimdall      	|       	|
+| 09 	| Distributed Cache Gerekiyorsa Elbette Redis                                                                  	| Tamamlandı 	|    S   	|       Heimdall      	|       	|
+| 08 	| Yine Yeni Yeniden ELK _(Bu sefer E ve K için docker-compose işin içinde)_                                    	| Tamamlandı 	|    M   	|       Heimdall      	|       	|
+| 07 	| Sıkça Duymaya Başladığım Deno'ya  Minik Bir Merhaba                                                          	| %80        	|    M   	|       Heimdall      	|       	|
+| 06 	| DT-Training _(.Net Core Eğitimi için Hazırlık)_                                                              	| %20        	|   XL   	| Heimdall Windows 10 	|       	|
+| 05 	| gRPC Tabanlı Basit Bir .Net Core Servisi  Geliştirmek ve Kullanmak                                           	| %70        	|    M   	|      Windows 10     	|       	|
+| 04 	| IKU Meetup _(MongoDB, Web API, Unit Test)_                                                                   	| Tamamlandı 	|    L   	|      Windows 10     	|       	|
+| 03 	| Razor Öğreniyorum                                                                                            	| %80        	|    M   	|      Windows 10     	|       	|
+| 02 	| MongoDB ile Bir GO Uygulamasını Konuşturmak                                                                  	| %85        	|    L   	|       Ahch-To       	|       	|
+| 01 	| Ruby Tarafından Redis _(Docker bazlı)_  Veritabanı ile Konuşmak                                              	| %95        	|    M   	|       Ahch-To       	|       	|
+
 
 ## Hashtag
 
