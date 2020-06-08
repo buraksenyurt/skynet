@@ -104,3 +104,8 @@ Aşağıdaki gibi sonuçlar elde edebilmeniz gerekiyor.
 ## Uygulamaya Bırakılan Bomba!
 
 Evet bir şekilde Docker Container ayağa kalkı, reverse proxy olan Nginx görevini yerine getirdi ve gelen talepleri ilgili servislere iletti. Senaryomuza göre aynı servisin makine üstünde farklı portlardan çalıştırılan dört örneği var. Nginx sunucusundaki upstream ayarlarına göre 8080 üstünden gelen taleplerin bu servislere dağılıyor olması lazım. Gerçekten dağıldıklarını nasıl ispatlarsınız?
+
+## Ödev
+
+- Daha işe yarar bir servi kullanın. Mümkünse özlü sözler bir veritabanından _(mesela mongodb)_ gelsin.
+- Arka plan servisini de bir docker imajı olarak build edip ayağa kaldırın. Nginx Container'ı diğer servis Container'larını kullansın.
