@@ -6,7 +6,7 @@ var app = express();
 var qt = mqtt.connect("http://localhost:1883");
 
 // westSide isimli topic için abonelik başlatıyoruz
-qt.subscribe('#', { qos: 0 });
+qt.subscribe('west side', { qos: 0 });
 
 // Broker ile bağlantı sağlandığında
 qt.on('connect', () => {
