@@ -1,4 +1,4 @@
-# MQTT Protokolünün Kullanıldığı Basit Bir Publish/Subscribe Senaryosu
+# MQTT Protokolünün Kullanıldığı Basit Bir Publisher/Subscriber Senaryosu
 
 Yine bir yerlerde bir şeyleri araştırırken özellikle IoT ve M2M konseptinde yaygın olarak kullanılan MQTT _(Message Queuing Telemetry Transport)_ isimli bir mesajlaşma protokolüne rastladım. Düşük bant genişliklerinde, yüksek gecikme sürelerinin olduğu senaryolarda hafif bir mesajlaşma protokolü olarak karşımıza çıkıyor. En sık verilen senaryo bir IoT cihazının ısı sensöründen yayınlanan bir mesajın abone olan cep telefonu veya bilgisayarlar tarafından görülebilmesi. Elimde bir Raspberry PI vardı ama ısı sensörü yoktu. Dahası sensör alıp kurcalamaya üşendim diyelim. Hızlı bir antrenman için hayali şu senaryo geldi aklıma.
 
