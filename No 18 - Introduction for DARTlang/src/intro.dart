@@ -1,6 +1,7 @@
 // Basit bir sınıf tanımıyla işe başlayalım
 class Player {
-  // birkaç sınıf değişkeni. İlk etapta integer, string ve bool kullanabildim
+  // birkaç sınıf değişkeni. İlk etapta integer, string ve bool kullanabildim.
+  // ek olarak double, list gibi veri türleri de var.
   int id;
   String nickName;
   int level;
