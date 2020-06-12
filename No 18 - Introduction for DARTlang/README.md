@@ -1,4 +1,4 @@
-# DART Programlama Dilini Az Biraz Tanımak
+# DART Programlama Diliyle Az Biraz Uğraşmak
 
 Çok duydum. Çok bahsedildi. Hep Flutter arkasında kaldı. Aslında yıllardır vardı. Birazcık bakmamın zamanı gelip de geçmişti. Haydi dedim o zaman. Önce onu Heimdall'a yüklemem gerekiyordu tabii. (Bu adresteki talimatları)[https://dart.dev/get-dart] takip ederek kurulumu gerçekleştirdim ve birkaç örnek kod parçasını bol yorum satırları ile buraya bırakmaya karar verdim.
 
@@ -25,4 +25,28 @@ Dilin temel özelliklerini öğrenmeye çalıştığım program kodlarını çal
 dart intro.dart
 ```
 
-demek yeterli :)
+demek yeterli.
+
+![Screenshot_1.png](./assets/Screenshot_1.png)
+
+![Screenshot_2.png](./assets/Screenshot_2.png)
+
+![Screenshot_3.png](./assets/Screenshot_3.png)
+
+![Screenshot_4.png](./assets/Screenshot_4.png)
+
+>To Be Continued!
+
+## Uygulamanın Bomba Soruları
+
+- Terminalden _dart intro3.dart z_ çalıştırıldığında alınan exception'ın sebebi nedir? Nasıl düzeltilebilir?
+
+>To Be Continued!
+
+## Ödevler
+
+- Dart ile en az iki tasarım kalıbını uygulamaya çalışınız
+- Komut satırından çalışan basit dört işlem yapan hesap makinesi yazınız _(hesaplama komutları ayrı bir kütüphanede olsun)_
+- Basit çalışan bilgilerini barındıran bir sınıfa ait nesne dizisini JSON formatından nasıl serileştiririz.
+
+>To Be Continued!
