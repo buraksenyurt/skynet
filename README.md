@@ -45,6 +45,10 @@ Gerek saturday-night-works olsun gerek skynet, çok sık tekrar ettiğim işlerd
 
 ![bash_screen.png](./bash_screen.png)
 
-## Çalışma Tekniğim
+## Nasıl Çalışmalı?
+
+Buradaki öğretileri çalışmak isteyenlerin en önemli destekçileri klasörlerdeki README.md dokümanları ve kodlardaki yorum satırlarıdır. Örneklerin amacı README giriş kısımlarında kısaca ifade edilmektedir _(Samimi bir dil kullanılmaya özen gösterdim)_ Çalışırken bu kılavuzdan yararlanarak örneği/örnekleri en başından itibaren kendi sisteminizde yapmaya çalışmak çok daha yararlı olur. İster Windows ister Linux ister MacOS olsun, örneğin oluşturulması için gerekli ortamı kurgularken karşılaşacağınız sorunları çözmek bile size önemli bir tecrübe kazandıracaktır. Bazı örneklerdeki eksik kısımları tamamlamaya çalışmak da aynı şekilde.
+
+~~## Çalışma Tekniğim~~
 
 ~~Ahch-To üzerindeki Skynet çalışmalarımda pomodoro tekniğini kullanıyorum. Buna göre genelde 22:00 sularında masa başına geçiyorum ve 4x25 dakikalık çalışma periyotları uyguluyorum. Her pomodoro arasında standart olarak 5 dakikalık dinlenme molası veriyorum. Zamanlayıcı için [tomato-timer](https://tomato-timer.com/) sitesinden yararlanıyorum.~~
