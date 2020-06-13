@@ -3,6 +3,7 @@
   Dart dilinde Concurrency konusu da desteklenir.
   Yani birden çok işin eş zamanlı olarak başlatılması sağlanabilir.
   Üstelik her biri gerçekten de kendi bellek bölgesinde ve thread'i içinde çalışır.
+  Yani tam bağımsız çalışan işçilerdir. Aralarında mesajlaşarak haberleşebilirler. Bu açıdan Javascrip tarafındaki Web Worker'lara benzetilirler.
 
   Bunun için isolate kütüphanesindeki Isolate sınıfı kullanılır.
 
