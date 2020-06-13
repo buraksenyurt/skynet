@@ -17,6 +17,21 @@ Adettendir dil ile ilgili sözü geçen genel özellikleri de paylaşalım.
 - Denilene göre TIOBE endeksinde ilk yirmide bile değil ancak diyoruz ya; önce dart sonra flutter. Hem sıralamada değil de öğrenme merakımıza da ket mi vuralım!? :)
 - Öğrenilmesi kolay bir dildir ve "hangi dille programlamaya başlayayım?" konusunda iyi bir alternatif olabilir
 
+## Uygulamanın Bomba Soruları
+
+- Terminalden _dart intro3.dart z_ çalıştırıldığında alınan exception'ın sebebi nedir? Nasıl düzeltilebilir?
+- Bir sınıf metodunun başka library'ler tarafından kullanılmasını istemezsek ne yapabiliriz?
+
+>To Be Continued!
+
+## Ödevler
+
+- Dart ile en az iki tasarım kalıbını uygulamaya çalışınız
+- Komut satırından çalışan basit dört işlem yapan hesap makinesi yazınız _(hesaplama komutları ayrı bir kütüphanede olsun)_
+- Basit çalışan bilgilerini barındıran bir sınıfa ait nesne dizisini JSON formatından nasıl serileştiririz.
+
+>To Be Continued!
+
 ## Çalışma Zamanı
 
 Dilin temel özelliklerini öğrenmeye çalıştığım program kodlarını çalıştırmak oldukça kolay.
@@ -25,7 +40,7 @@ Dilin temel özelliklerini öğrenmeye çalıştığım program kodlarını çal
 dart intro.dart
 ```
 
-demek yeterli.
+demek yeterli. Aşağıdaki görsellerde Heimdall üzerindeki çıktılar yer alıyor. Hangisinin hangi örneğe ait olduğunu anlamak için örnekteki kodları yazıp çalıştırmanız yerinde bir antrenman olabilir. Doğrudan kopyalamayın, üşenmeyin, yazın ;)
 
 ![Screenshot_1.png](./assets/Screenshot_1.png)
 
@@ -37,18 +52,8 @@ demek yeterli.
 
 ![Screenshot_5.png](./assets/Screenshot_5.png)
 
->To Be Continued!
+![Screenshot_6.png](./assets/Screenshot_6.png)
 
-## Uygulamanın Bomba Soruları
-
-- Terminalden _dart intro3.dart z_ çalıştırıldığında alınan exception'ın sebebi nedir? Nasıl düzeltilebilir?
-
->To Be Continued!
-
-## Ödevler
-
-- Dart ile en az iki tasarım kalıbını uygulamaya çalışınız
-- Komut satırından çalışan basit dört işlem yapan hesap makinesi yazınız _(hesaplama komutları ayrı bir kütüphanede olsun)_
-- Basit çalışan bilgilerini barındıran bir sınıfa ait nesne dizisini JSON formatından nasıl serileştiririz.
+![Screenshot_7.png](./assets/Screenshot_7.png)
 
 >To Be Continued!
