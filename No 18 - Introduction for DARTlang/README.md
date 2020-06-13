@@ -1,6 +1,6 @@
 # DART Programlama Diliyle Az Biraz Uğraşmak
 
-Çok duydum. Çok bahsedildi. Hep Flutter arkasında kaldı. Aslında yıllardır vardı. Birazcık bakmamın zamanı gelip de geçmişti. Haydi dedim o zaman. Önce onu Heimdall'a yüklemem gerekiyordu tabii. (Bu adresteki talimatları)[https://dart.dev/get-dart] takip ederek kurulumu gerçekleştirdim ve birkaç örnek kod parçasını bol yorum satırları ile buraya bırakmaya karar verdim.
+Çok duydum. Çok bahsedildi. Hep Flutter arkasında kaldı. Aslında yıllardır vardı. Birazcık bakmamın zamanı gelip de geçmişti. Haydi dedim o zaman. Önce onu Heimdall'a yüklemem gerekiyordu tabii. [Bu adresteki talimatları](https://dart.dev/get-dart) takip ederek kurulumu gerçekleştirdim ve birkaç örnek kod parçasını bol yorum satırları ile buraya bırakmaya karar verdim.
 
 >Java veya C# kökenliyseniz DART diline alışmanız çok zor değil.
 
