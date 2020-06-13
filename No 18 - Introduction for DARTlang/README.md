@@ -21,6 +21,7 @@ Adettendir dil ile ilgili sözü geçen genel özellikleri de paylaşalım.
 
 - Terminalden _dart intro3.dart z_ çalıştırıldığında alınan exception'ın sebebi nedir? Nasıl düzeltilebilir?
 - Bir sınıf metodunun başka library'ler tarafından kullanılmasını istemezsek ne yapabiliriz?
+- Dart dilinde asenkron programlama denince aklınıza gelen ilk 3 keyword hangileridir? Ne işe yaradıklarını açıklayınız.
 
 >To Be Continued!
 
@@ -28,7 +29,7 @@ Adettendir dil ile ilgili sözü geçen genel özellikleri de paylaşalım.
 
 - Dart ile en az iki tasarım kalıbını uygulamaya çalışınız
 - Komut satırından çalışan basit dört işlem yapan hesap makinesi yazınız _(hesaplama komutları ayrı bir kütüphanede olsun)_
-- Basit çalışan bilgilerini barındıran bir sınıfa ait nesne dizisini JSON formatından nasıl serileştiririz.
+- Bir şirket çalışanına ait bilgileri içeren bir sınıfa ait nesne dizisini JSON formatından nasıl serileştiririz.
 
 >To Be Continued!
 
