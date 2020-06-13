@@ -35,6 +35,8 @@ demek yeterli.
 
 ![Screenshot_4.png](./assets/Screenshot_4.png)
 
+![Screenshot_5.png](./assets/Screenshot_5.png)
+
 >To Be Continued!
 
 ## Uygulamanın Bomba Soruları
