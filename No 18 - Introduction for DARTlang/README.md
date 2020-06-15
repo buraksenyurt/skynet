@@ -30,8 +30,9 @@ Adettendir dil ile ilgili sözü geçen genel özellikleri de paylaşalım.
 - Dart ile en az iki tasarım kalıbını uygulamaya çalışınız
 - Komut satırından çalışan basit dört işlem yapan hesap makinesi yazınız _(hesaplama komutları ayrı bir kütüphanede olsun)_
 - Bir şirket çalışanına ait bilgileri içeren bir sınıfa ait nesne dizisini JSON formatından nasıl serileştiririz.
+- intro9 örneğinden ilham alarak sadece HTTP Get ve Post operasyonlarını içeren JSON içerikle çalışan basit bir REST Api sunucusu geliştirebilir misiniz?
 
->To Be Continued!
+>Dart'ın da bir paket yöneticisi varmış. Adı pub. Ne var ki Heimdall üstünde dart kurulu olmasına rağmen pub aracını terminalden bir türlü çalıştıramadım. Ta ki dart ile pub'un sistemdeki lokasyonları arasında bir bağ kurana kadar. _sudo ln -s /usr/lib/dart/bin/pub /usr/bin/pub_ ile.
 
 ## Çalışma Zamanı
 
@@ -58,5 +59,9 @@ demek yeterli. Aşağıdaki görsellerde Heimdall üzerindeki çıktılar yer al
 ![Screenshot_7.png](./assets/Screenshot_7.png)
 
 ![Screenshot_8.png](./assets/Screenshot_8.png)
+
+![Screenshot_9.png](./assets/Screenshot_9.png)
+
+![Screenshot_10.png](./assets/Screenshot_10.png)
 
 >To Be Continued!
