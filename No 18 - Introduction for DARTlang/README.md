@@ -64,4 +64,6 @@ demek yeterli. Aşağıdaki görsellerde Heimdall üzerindeki çıktılar yer al
 
 ![Screenshot_10.png](./assets/Screenshot_10.png)
 
+![Screenshot_11.png](./assets/Screenshot_11.png)
+
 >To Be Continued!
