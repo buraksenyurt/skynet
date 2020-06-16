@@ -39,6 +39,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan
 #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream
 #repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer
+#dart #future #asyncFor #pub
 ```
 ## Kolay Klasör Açma
 
