@@ -1,0 +1,6 @@
+name: heroes_api
+version : 1.0.0 #Dört haneli klasik versiyonlamayı beğenmiyor
+description: A simple REST Api with dartlang and Angel.
+homepage: https://www.buraksenyurt.com #Reklam :P
+dependencies:
+    angel_framework: ^2.0.0 
