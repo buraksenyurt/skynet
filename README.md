@@ -10,7 +10,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 20 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 21 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 20 	| Bir Web API Hizmetinde Request'ler ile CQ Arasında Mediator Kullanmak                                        	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 19 	| Daha Kolay REST Api Yazmak için Angel Paketini Kullanmak                                                     	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 18 	| DART Programlama Diliyle Az Biraz Uğraşmak                                                                   	| %50        	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 17 	| MQTT Protokolünün Kullanıldığı Basit Bir Publisher/Subscriber Senaryosu                                      	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
@@ -40,7 +41,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan
 #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream
 #repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer
-#dart #future #asyncFor #pub
+#dart #future #asyncFor #pub #angelFramework #MediatR #CQRS
 ```
 ## Kolay Klasör Açma
 
