@@ -19,7 +19,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 Sisteme tekrak giriş yaptıktan sonra yüklenmiş go sürümüne baktım.
 
-![Screenshot_01.png](./assets/Screenshot_01.png)
+![Screenshot1.png](./assets/Screenshot1.png)
 
 Her şey yolundaydı ve kodlamaya geçebilirdim.
 
@@ -34,14 +34,14 @@ go build IHateHelloWorld.go
 ./IHateHelloWorld
 ```
 
-![Screenshot_02.png](./assets/Screenshot_02.png)
+![Screenshot2.png](./assets/Screenshot2.png)
 
 ```bash
 go build AFewMethods.go
 ./AFewMethods
 ```
 
-![Screenshot_03.png](./assets/Screenshot_03.png)
+![Screenshot3.png](./assets/Screenshot3.png)
 
 >To Be Continued
 
