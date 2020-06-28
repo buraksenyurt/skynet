@@ -11,7 +11,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
 | 23 	|                                                                                                              	|            	|        	|                     	|             	|       	|
-| 22 	| Go Dilinin Temellerini Hatırlamak                                                                            	| %20        	|    M   	|       Heimdall      	|             	|  Var  	|
+| 22 	| Go Dilinin Temellerini Hatırlamak                                                                            	| %40        	|    M   	|       Heimdall      	|             	|  Var  	|
 | 21 	| .Net Core Üzerinde Roslyn Pratikleri Yapmak                                                                  	| %50        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 20 	| Bir Web API Hizmetinde Request'ler ile CQ Arasında Mediator Kullanmak                                        	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 19 	| Daha Kolay REST Api Yazmak için Angel Paketini Kullanmak                                                     	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
@@ -43,7 +43,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan
 #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream
 #repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer
-#dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script
+#dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer
 ```
 ## Kolay Klasör Açma
 
