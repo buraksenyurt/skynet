@@ -27,6 +27,10 @@ func main() {
 	t, b, c, f := calculate(math.Pi, math.E)
 	fmt.Println("Sum=", t, "Div=", b, "Mul=", c, "Dif=", f)
 
+	// variadic fonksiyonun kullanımı
+	total := sumofall(1, 1, 2, 3, 5, 8, 13, 21)
+	println(total)
+
 	justsayit()
 }
 
@@ -64,4 +68,19 @@ func justsayit() {
 			break // for döngüsünden çıkartır
 		}
 	}
+}
+
+/*
+	Variadic fonksiyon örneği. numbers tanımından sonra gelen
+	... operatörü, fonksiyona istenen sayıda int tipini gönderebileceğimizi ifade eder.
+	... operatörünün bir diğer kullanım şekli append ile slice'a yeni değerler eklenmesinde
+	karşımıza çıkmaktadır
+*/
+func sumofall(numbers ...int) (result int) {
+
+	for _, n := range numbers {
+		result += n
+	}
+
+	return // metodun dönüş parametresini isimlendirdiğimizde sadece return diyebiliriz
 }
