@@ -43,6 +43,15 @@ go build AFewMethods.go
 
 ![Screenshot3.png](./assets/Screenshot3.png)
 
+Temel veri türlerinin ele alındığı örnek.
+
+```bash
+go build boaringtypes.go
+./boaringtypes
+```
+
+![Screenshot4.png](./assets/Screenshot4.png)
+
 >To Be Continued
 
 ## Bölümün Bomba Soruları
@@ -52,5 +61,7 @@ go build AFewMethods.go
 ## Ödevler
 
 - Kullanıcının terminalden gireceği komutlara göre şu senaryoyu işleyecek kodu yazın._Kullanıcı "types" yazdığında go'da kullanılan temel tipler ekrana yazdırılsın. "rand" yazdığında ekrana rastgele bir sayı yazsın."today" yazdığından günün tarihini ve hangi günde olduğumuzu yazsın. "alan dikdortgen 4 5" yazdığında dikdortgenin alanını hesaplayıp yazsın ve hatta 5X4 lük + işaretlerinden oluşan dikdörtgeni terminale çizsin. "quit" dediğinde programdan çıksın_
+- AFewMethods.go boringtypes.go örneklerinden kullanılan sumofall fonksiyonunu ortak bir go paketinden kullandırınız.
+- ... operatörünün kullanıldığı 4 yeri _(3 değil)_ örnekleyiniz.
 
 >To Be Continued
