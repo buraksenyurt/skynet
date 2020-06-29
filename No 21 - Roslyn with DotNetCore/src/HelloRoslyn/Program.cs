@@ -136,7 +136,8 @@ namespace HelloRoslyn
             {
                 // Metodun adını ve parametre sayısını yazdırıyoruz.
                 Console.WriteLine($"{p.Identifier} metodu {p.ParameterList.Parameters.Count} parametre alıyor.");
-                // Daha iyi bir yolunu bulmam lazım ama tahmini kod satır sayısını bulmaya çalışıyorum.
+                // Daha iyi bir yolunu bulmam lazım. Burada tahmini kod satır sayısını bulmaya çalışıyorum.
+                // Ancak sizin de fark edeceğiniz üzere satır sayıları fazla çıkıyor.
                 Console.WriteLine($"Yaklaşık {p.GetText().Lines.Count()} satır kod içeriyor.");
 
                 // foreach(TextLine l in p.GetText().Lines)
