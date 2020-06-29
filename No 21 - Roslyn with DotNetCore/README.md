@@ -2,7 +2,7 @@
 
 Amacım uzun süredir _(Tanıtıldığı Ekim 2011 yılından bu yana)_ hayatımızda olan .Net Compiler Platform'unu _(Kod adı Roslyn)_ pratik kod parçaları ile tanımak. Roslyn ile çalışma zamanında kod çalıştırmak ve hatta kodu analiz etmek mümkün. Özellikle kod satır sayısı çok yüksek olan uygulamalarda clean code pratiklerinin uygulanması gibi durumlarda epey kullanışlı. Hatta şöyle de düşünülebilir. C# bilgimiz var ve .Net Framework kütüphanesine hakimiz. Bazı otomatize sistem işleri için Powershell veya Bash script öğrenmek yerine C#'ı script dili olarak kullanabilmemiz mümkün. .Net Core desteği olması da bunu Cross Platform yapabilmemize izin veriyor. Bu sebepten çalışmadaki amaçlarımdan birisi de dotnet-script komut satırı aracını kullanarak içerisine C# script kodları içeren csx uzantılı kodları çalıştırmak. Bu CSX uzantılı _(CSharp Script dosyası anlamına geliyor)_ dosyalar Powershell veya bash için yazılmış script dosyaları gibi düşünülebilir.
 
-## Birinci Önrek için Ön Hazırlıklar ve Çalıştırma
+## Birinci Örnek için Ön Hazırlıklar ve Çalıştırma
 
 Heimdall _(Ubuntu 20.04)_ üzerindeki pratikler için uygulamaya Microsoft.CodeAnalysis.CSharp.Scripting paketinin eklenmesi lazım.
 
