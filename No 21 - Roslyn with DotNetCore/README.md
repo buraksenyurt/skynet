@@ -4,7 +4,7 @@ Amacım uzun süredir _(Tanıtıldığı Ekim 2011 yılından bu yana)_ hayatım
 
 Roslyn, C#'ı script dili olarak kullandırma noktasında da avantajlar sunuyor. Şöyle düşünelim; C# bilgimiz var ve .Net Framework kütüphanesine hakimiz. Bazı otomatize sistem işleri için Powershell veya Bash script öğrenmek yerine C#'ı script dili olarak kullanabilmemiz mümkün. .Net Core desteği olması da bunu Cross Platform yapabilmemize izin veriyor. Çalışmadaki amaçlarımdan birisi de dotnet-script komut satırı aracını kullanarak içerisinde C# script kodları içeren csx uzantılı kodları çalıştırmak. Bu CSX uzantılı _(CSharp Script dosyası anlamına geliyor)_ dosyalar Powershell veya bash için yazılmış script dosyaları gibi düşünülebilir.
 
-## Birinci Önrek için Ön Hazırlıklar ve Çalıştırma
+## Birinci Örnek için Ön Hazırlıklar ve Çalıştırma
 
 Heimdall _(Ubuntu 20.04)_ üzerindeki pratikler için uygulamaya Microsoft.CodeAnalysis.CSharp.Scripting paketinin eklenmesi lazım.
 
