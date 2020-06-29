@@ -1,6 +1,8 @@
 # .Net Core Üzerinde Roslyn Pratikleri Yapmak
 
-Amacım uzun süredir _(Tanıtıldığı Ekim 2011 yılından bu yana)_ hayatımızda olan .Net Compiler Platform'unu _(Kod adı Roslyn)_ pratik kod parçaları ile tanımak. Roslyn ile çalışma zamanında kod çalıştırmak ve hatta kodu analiz etmek mümkün. Özellikle kod satır sayısı çok yüksek olan uygulamalarda clean code pratiklerinin uygulanması gibi durumlarda epey kullanışlı. Hatta şöyle de düşünülebilir. C# bilgimiz var ve .Net Framework kütüphanesine hakimiz. Bazı otomatize sistem işleri için Powershell veya Bash script öğrenmek yerine C#'ı script dili olarak kullanabilmemiz mümkün. .Net Core desteği olması da bunu Cross Platform yapabilmemize izin veriyor. Bu sebepten çalışmadaki amaçlarımdan birisi de dotnet-script komut satırı aracını kullanarak içerisine C# script kodları içeren csx uzantılı kodları çalıştırmak. Bu CSX uzantılı _(CSharp Script dosyası anlamına geliyor)_ dosyalar Powershell veya bash için yazılmış script dosyaları gibi düşünülebilir.
+Amacım uzun süredir _(Tanıtıldığı Ekim 2011 yılından bu yana)_ hayatımızda olan .Net Compiler Platform'unu _(Kod adı Roslyn)_ pratik kod parçaları ile tanımak. Roslyn ile çalışma zamanında kod çalıştırmak, statik kod analizi yapmak mümkün. Özellikle kod satır sayısı çok yüksek olan uygulamalarda clean code pratiklerinin işletilmesi gibi durumlarda epey kullanışlı. Text tabanlı kodun çalışma zamanına yüklemeden ağaç yapısının _(syntax tree)_ çıkartılması ve içeriğinin analiz edilmesi çok kolay. Yani üzerinde çalıştığımız .Net projelerinin içeriklerini onları çalıştırmaya gerek kalmadan pek güzelce analiz edebiliyoruz.
+
+Roslyn, C#'ı script dili olarak kullandırma noktasında da avantajlar sunuyor. Şöyle düşünelim; C# bilgimiz var ve .Net Framework kütüphanesine hakimiz. Bazı otomatize sistem işleri için Powershell veya Bash script öğrenmek yerine C#'ı script dili olarak kullanabilmemiz mümkün. .Net Core desteği olması da bunu Cross Platform yapabilmemize izin veriyor. Çalışmadaki amaçlarımdan birisi de dotnet-script komut satırı aracını kullanarak içerisinde C# script kodları içeren csx uzantılı kodları çalıştırmak. Bu CSX uzantılı _(CSharp Script dosyası anlamına geliyor)_ dosyalar Powershell veya bash için yazılmış script dosyaları gibi düşünülebilir.
 
 ## Birinci Önrek için Ön Hazırlıklar ve Çalıştırma
 
@@ -26,9 +28,13 @@ Region3 çalışmasına ait örnek ekran görüntüsü,
 
 ![Screenshot_03.png](./assets/Screenshot_03.png)
 
+Region3 Syntax Tree Mevzusu
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
+
 ## İkinci Örnek için Ön Hazırlıklar ve Çalıştırma
 
-İlk örneklerde C# kodlarının dinamik olarak yine bir C# uygulaması içerisinden çalıştırılması söz konusu. Bu sefer Nuget paket desteği de sunan dotnet-script ile script dosyalarının çalıştırılması gündemde.
+İlk örneklerde C# kodlarının dinamik olarak yine bir C# uygulaması içerisinden çalıştırılması ve temel seviyede statik kod analizi işlemleri söz konusu. Bu sefer Nuget paket desteği de sunan dotnet-script ile script dosyalarının nasıl yürütülebileceği inceleniyor.
 
 ```bash
 # Önce gerekli komus satırı aracı yüklenir
@@ -56,3 +62,4 @@ dotnet script dirwatcher.csx
 
 - Bir web sayfasında Multiline TextBox kontrolüm olsun. İçine yazdığım basit C# kodlarının sonucunu anında başka bir kutucukta görebileyim. Web'deki pencerede C# script'leri yazdığımızı düşünelim.
 - dotnet-script init komutunu deneyip ne işe yaradığını anlamaya çalışın.
+- Program.cs'teki Syntax Tree Mevzusu kısmından yararlanarak kendi kodlarınızda if bloklarının kullanıldığı metotları bulmaya çalışın. _(Buradan Cognitive Complexity problemlerini bulmaya giden yolun kapısını açabiliriz)_
