@@ -64,6 +64,15 @@ go build OfCoursePointers.go
 
 ![Screenshot5.png](./assets/Screenshot5.png)
 
+### Temel Flow Control İfadelerine Ait Örnek Çıktıları
+
+```bash
+go build UnfortunatelyFlows.go
+./UnfortunatelyFlows.go
+```
+
+![Screenshot56.png](./assets/Screenshot6.png)
+
 >To Be Continued
 
 ## Bölümün Bomba Soruları
