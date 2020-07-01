@@ -15,7 +15,46 @@ import (
 */
 
 func main() {
-	GuessTheNumber()
+	//GuessTheNumber()
+	HowManyStoryPoint()
+}
+
+//HowManyStoryPoint metotunda temel bir switch case kullanımı söz konusudur
+func HowManyStoryPoint() {
+
+	println("İzleme ekranında sunucuların işlemci ve ram kullanımlarını grafiksel olarak görmek istiyorum.")
+	println("Sence bu hikaye kaç story point eder? (1,3,5,8,13,20,100)")
+
+	// Kullanıcının tahminini istedik
+	reader := bufio.NewReader(os.Stdin)
+	input, _ := reader.ReadString('\n')
+	input = strings.Replace(input, "\n", "", -1)
+
+	// int'e çevrilebilir olması önemli
+	point, err := strconv.Atoi(input)
+	if err != nil {
+		println("Bir sayı girmeliydin :(")
+	} else {
+
+		// işte switch bloğu
+		switch point {
+		case 1, 3, 5: // 1,3,5 değerleri için aynı case geçerli
+			println("Oldukça makul")
+			break
+		case 8:
+			println("Biraz zorlayacak gibi")
+			break
+		case 13, 20:
+			println("Konuyu biraz daha detaylandırmak lazım.")
+			break
+		case 100:
+			println("Oooo...Epik bir konu bu. Parçalamak gerekiyor")
+		default: // Üstteki case'lerin tamamı atlanırsa varsayılan blok çalışacak
+			println("Büyük ihtimalle izin verilen sayılardan birisini girmedin")
+			break
+		}
+	}
+
 }
 
 //GuessTheNumber sayı tahmin oyunu için kullanılan basit bir fonksiyondur
