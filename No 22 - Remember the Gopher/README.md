@@ -71,7 +71,9 @@ go build UnfortunatelyFlows.go
 ./UnfortunatelyFlows.go
 ```
 
-![Screenshot56.png](./assets/Screenshot6.png)
+![Screenshot6.png](./assets/Screenshot6.png)
+
+![Screenshot7.png](./assets/Screenshot7.png)
 
 >To Be Continued
 
