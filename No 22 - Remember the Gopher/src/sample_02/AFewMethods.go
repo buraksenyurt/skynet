@@ -86,6 +86,22 @@ func main() {
 	tf := timeFactory("Cuma")
 	println(tf("Perşembe", "Cumartesi"))
 
+	/*
+		Şimdi type olarak tanımladığımız appendSymbol fonksiyonunu kullanalım.
+		appendUnderscore ve appendDot isimli değişkenler appendSymbol tipinden birer fonksiyondur.
+		İşleyiş şekilleri geliştiriciye bırakılmış haldedir.
+	*/
+	var appendUnderscore appendSymbol = func(word string) string {
+		return "__" + word + "__"
+	}
+
+	var appendDot appendSymbol = func(w string) string {
+		return "." + w + "."
+	}
+
+	println(appendUnderscore("AdventureWorks"))
+	println(appendDot("AdventureWorks"))
+
 	justsayit()
 }
 
@@ -163,3 +179,13 @@ func sumofall(numbers ...int) (result int) {
 
 	return // metodun dönüş parametresini isimlendirdiğimizde sadece return diyebiliriz
 }
+
+/*
+User Defined Functions
+
+Fonksiyonları birer tip olarak tanımlayabiliriz de.
+appendSymbol string parametre alıp geriye yine string döndüren bir fonksiyonun tip olarak tanımlanmış halidir.
+Kodda appendSymbol tipinden değişkenler tanımlayabiliriz. Bu değişkenler birer fonksiyon olarak davranış gösterecektir.
+Değişken olarak tanımlı fonksiyonun ne iş yapacağı ise geliştiriciye kalmıştır.
+*/
+type appendSymbol func(source string) string
