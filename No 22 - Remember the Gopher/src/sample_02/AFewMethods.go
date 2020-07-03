@@ -31,6 +31,41 @@ func main() {
 	total := sumofall(1, 1, 2, 3, 5, 8, 13, 21)
 	println(total)
 
+	/*
+		Aşağıda bir isimsiz fonskiyon örneği yer alıyor.
+		Bu isimsiz fonksiyon Sum isimli değişkene atanmış durumda.
+		Fonksiyon kod bloğu içerisindeki x değişkeni ile kendisine parametre olarak gelen y değişkenini kullanıyor.
+		Fonksiyonun blok içerisindeki bir değişkene (x) erişmesi onu Closure olarak da niteliklendiriyor.
+		Bu isimsiz fonksiyonu kullanmanın tek yolu sum değişkenini çağırmak. println içindeki kullanımı çok alışılmadık değil.
+		İsimsiz fonksiyoları ifade içerisinde tanımlayıp kullanabiliriz de. 56ncı satırdaki kullanıma dikkat edelim.
+	*/
+	x := 0
+
+	sum := func(y int) (total int) {
+		total = x + y
+		return
+	}
+	fmt.Printf("sum değişkeninin tipi %T", sum)
+	println()
+	x = 1
+	println("1+2=", sum(2))
+	x = 4
+	println("4+5=", sum(5))
+
+	// Fonksiyon tanımını ve kullanımını ifade içerisinde gerçekleştirdik. Bu da isimsiz bir fonksiyon kullanımı örneği aslında.
+	println("1...10 arasındaki sayıların toplamı=", func(a, b int) int {
+		ttl := 0
+		for i := a; i < b; i++ {
+			ttl += i
+		}
+		return ttl
+	}(1, 10), "şeklindedir.")
+
+	/*
+		Higher Order Functions...
+		Bir fonksiyonu başka bir fonksiyona parametre olarak atamak
+	*/
+
 	justsayit()
 }
 
