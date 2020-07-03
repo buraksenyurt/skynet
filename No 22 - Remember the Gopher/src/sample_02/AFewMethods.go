@@ -35,7 +35,7 @@ func main() {
 		Aşağıda bir isimsiz fonskiyon örneği yer alıyor.
 		Bu isimsiz fonksiyon Sum isimli değişkene atanmış durumda.
 		Fonksiyon kod bloğu içerisindeki x değişkeni ile kendisine parametre olarak gelen y değişkenini kullanıyor.
-		Fonksiyonun blok içerisindeki bir değişkene (x) erişmesi onu Closure olarak da niteliklendiriyor.
+		Fonksiyonun kendi kod bloğu dışındaki bir değişkene (x) eriştiğini de görüyoruz. Bu Closure olarak isimlendirilen durum.
 		Bu isimsiz fonksiyonu kullanmanın tek yolu sum değişkenini çağırmak. println içindeki kullanımı çok alışılmadık değil.
 		İsimsiz fonksiyoları ifade içerisinde tanımlayıp kullanabiliriz de. 56ncı satırdaki kullanıma dikkat edelim.
 	*/
@@ -52,7 +52,7 @@ func main() {
 	x = 4
 	println("4+5=", sum(5))
 
-	// Fonksiyon tanımını ve kullanımını ifade içerisinde gerçekleştirdik. Bu da isimsiz bir fonksiyon kullanımı örneği aslında.
+	// Fonksiyon tanımını ve kullanımını ifade içerisinde gerçekleştirdik. Bu da isimsiz(Anonymous) bir fonksiyon kullanımı örneği aslında.
 	println("1...10 arasındaki sayıların toplamı=", func(a, b int) int {
 		ttl := 0
 		for i := a; i < b; i++ {
@@ -78,6 +78,13 @@ func main() {
 		return strings.ContainsAny(word, "W")
 	}
 	searchAny([]string{"Practial Go, Addison Wesley Publishing", "C# Cookbook", "Wild Wild West", "Shrek"}, isContainGo)
+
+	/*
+		Bu sefer geriye fonksiyon döndüren bir fonksiyon kullanıyoruz.
+		Bu da High Order Function özelliğidir.
+	*/
+	tf := timeFactory("Cuma")
+	println(tf("Perşembe", "Cumartesi"))
 
 	justsayit()
 }
@@ -106,6 +113,18 @@ func beautify(word string) (result string) {
 	}
 
 	return newWord
+}
+
+/*
+timeFactory isimli fonksiyon da bir Higher Order Function olarak nitelendirilebilir.
+Nitekim geriye fonksiyon döndürmektedir.
+Fonksiyon imzasında dönüş fonksiyonunun nasıl olacağı belirtilir
+Blok içerisinde dikkat edileceği üzere func ile dönüş fonksiyonu yazılmaktadır.
+*/
+func timeFactory(currentDay string) func(before, after string) string {
+	return func(before, after string) string {
+		return fmt.Sprintf("%s %s %s", before, currentDay, after)
+	}
 }
 
 // Bu da birden fazla değer döndürebilen fonksiyonlara güzel bir örnek
