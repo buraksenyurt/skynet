@@ -44,7 +44,7 @@ go build AFewMethods.go
 ./AFewMethods
 ```
 
-![Screenshot3.png](./assets/Screenshot3.png)
+![Screenshot3n.png](./assets/Screenshot3n.png)
 
 ### Temel Veri Türlerinin Ele Alındığı Örnek
 
@@ -80,11 +80,15 @@ go build UnfortunatelyFlows.go
 ## Bölümün Bomba Soruları
 
 - Bir tamsayı değişkeninin bellek adresinden yararlanarak bir sonraki bellek adresindeki içeriği öğrenebilir miyim?
+- İsimsiz bir fonksiyonu bir ifade içerisinde tanımlayıp kullanabildiğimizi gördük _(Bknz: AFewMethods.go)_ Sizce bu nerelerde işimize yarar?
+- Bir fonksiyonu değişkene atayabildiğimizi de gördük. Peki ya bu hangi hallerde işimize yarar?
+- Ya bir fonksiyonu başka bir fonksiyona parametre olarak geçebiliyor olmamıza hatta fonksiyondan fonksiyon dönebiliyor olmamıza ne demeli... _(Higher Order Functions)_ Bu kullanım şekli nerelerde işimize yarar?
 
 ## Ödevler
 
 - Kullanıcının terminalden gireceği komutlara göre şu senaryoyu işleyecek kodu yazın._Kullanıcı "types" yazdığında go'da kullanılan temel tipler ekrana yazdırılsın. "rand" yazdığında ekrana rastgele bir sayı yazsın."today" yazdığından günün tarihini ve hangi günde olduğumuzu yazsın. "alan dikdortgen 4 5" yazdığında dikdortgenin alanını hesaplayıp yazsın ve hatta 5X4 lük + işaretlerinden oluşan dikdörtgeni terminale çizsin. "quit" dediğinde programdan çıksın_
 - AFewMethods.go boringtypes.go örneklerinden kullanılan sumofall fonksiyonunu ortak bir go paketinden kullandırınız.
 - ... operatörünün kullanıldığı 4 yeri _(3 değil)_ örnekleyiniz. 
+- Bir struct listesindeki elemanlarda bizim yolladığımız fonksiyonu parametre olarak alıp çalıştıracak bir başka fonksiyon yazınız.
 
 >To Be Continued
