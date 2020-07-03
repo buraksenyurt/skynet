@@ -63,10 +63,35 @@ func main() {
 
 	/*
 		Higher Order Functions...
-		Bir fonksiyonu başka bir fonksiyona parametre olarak atamak
+		Bir fonksiyonu başka bir fonksiyonu parametre olarak atayabilir ve
+		hatta fonksiyondan fonksiyon döndürebiliriz.
+		Aşağıdaki isContainH ve isContainGo fonksiyonları, searchAny fonksiyonuna parametre olarak atanıyorlar.
+		searchAny fonksiyonuna parametre olarak gelen string slice içerisindeki her bir eleman için,
+		f isimli fonksiyon tetikleniyor.
 	*/
+	isContainH := func(word string) bool {
+		return strings.ContainsAny(word, "H")
+	}
+	searchAny([]string{"Die Hard III", "Rambo II", "Hobbits I", "Specialist"}, isContainH)
+
+	isContainGo := func(word string) bool {
+		return strings.ContainsAny(word, "W")
+	}
+	searchAny([]string{"Practial Go, Addison Wesley Publishing", "C# Cookbook", "Wild Wild West", "Shrek"}, isContainGo)
 
 	justsayit()
+}
+
+/*searchAny fonksiyonu ilk parametre olarak string türünden bir slice alıyor.
+İkinci parametre ise isimsiz bir fonksiyon. values içerisindeki herbir string değeri bu isimsiz fonksiyona parametre olarak gönderiyoruz.
+*/
+func searchAny(values []string, f func(wrd string) bool) {
+	for _, v := range values {
+		result := f(v)
+		if result {
+			println(v, "-> Aranan kritere uygun")
+		}
+	}
 }
 
 // word isimli string türde paramtre alıp string türden çıktı veren bir fonksiyon
