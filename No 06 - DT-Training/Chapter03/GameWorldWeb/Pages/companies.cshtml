@@ -1,0 +1,21 @@
+@page
+@model GameWorldWeb.Pages.CompaniesModel
+
+<div class="row">
+    <h1 class="display-2">Oyun Üreticileri</h1>
+    <table class="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Firma</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(string name in Model.Companies)
+            {
+                <tr>
+                    <td>@name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

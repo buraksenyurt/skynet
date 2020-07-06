@@ -6,8 +6,8 @@ namespace NorthwindLib
     public class Northwind
         : DbContext
     {
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Game> Games { get; set; }
 
         public Northwind(DbContextOptions<Northwind> options)
         : base(options)
@@ -17,23 +17,23 @@ namespace NorthwindLib
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Category>()
-            .Property(c => c.CategoryName)
+            modelBuilder.Entity<Company>()
+            .Property(c => c.Name)
             .IsRequired()
             .HasMaxLength(20);
 
-            modelBuilder.Entity<Category>()
-            .HasMany(c => c.Products)
-            .WithOne(p => p.Category);
+            modelBuilder.Entity<Company>()
+            .HasMany(c => c.Games)
+            .WithOne(p => p.Company);
 
-            modelBuilder.Entity<Product>()
-            .Property(c => c.ProductName)
+            modelBuilder.Entity<Game>()
+            .Property(c => c.Title)
             .IsRequired()
-            .HasMaxLength(40);
+            .HasMaxLength(100);
 
-            modelBuilder.Entity<Product>()
-            .HasOne(p => p.Category)
-            .WithMany(c => c.Products);
+            modelBuilder.Entity<Game>()
+            .HasOne(p => p.Company)
+            .WithMany(c => c.Games);
         }
     }
 }
