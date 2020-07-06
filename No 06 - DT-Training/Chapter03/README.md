@@ -53,11 +53,6 @@ dotnet ef migrations add initial
 dotnet ef database update
 ```
 
-### Yapılanlar
-
-- Program.cs Configure metodunda HSTS ve HTTPS tanımı eklendi
-
-
 ## MVC Uygulamasının İnşası
 
 Uygulamayı oluşturmak için aşağıdaki terminal komutu ile işe başlayailiriz.
@@ -91,17 +86,13 @@ Yukarıdaki gibi uygulamanın oluşturulması tamamlandıktan sonra _dotnet run_
 | /Games/Detail/791           | Games      |  Detail  |     791     |
 | /Games/Blizzard/Hearthstone | Games      | Blizzard | Hearthstone |
 
-
-
-### Yapılanlar
-
 ### Çalışma Zamanı
 
 ```bash
 dotnet run
 ```
 
-Ardından http://localhost:5000 adresine gidilir.
+Ardından <http://localhost:5000> adresine gidilir.
 
 ## Bölüm Soruları
 
