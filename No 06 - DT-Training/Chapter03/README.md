@@ -86,7 +86,9 @@ Yukarıdaki gibi uygulamanın oluşturulması tamamlandıktan sonra _dotnet run_
 | /Games/Detail/791           | Games      |  Detail  |     791     |
 | /Games/Blizzard/Hearthstone | Games      | Blizzard | Hearthstone |
 
-### Çalışma Zamanı
+>NotCompletedException();
+
+### Çalışma Zamanı _(Her İki Uygulama İçin)_
 
 ```bash
 dotnet run
@@ -96,4 +98,16 @@ Ardından <http://localhost:5000> adresine gidilir.
 
 ## Bölüm Soruları
 
+- Razor ve MVC projelerindeki Startup sınıfının görevi nedir?
+- Projeleri SQLite yerine SQLServer ile çalışacak şekilde ayarlamak için nerelerde nasıl ayarlamalar yaparsınız?
+- Companies Razor sayfası backend tarafına nasıl bağlanabildi?
+- HSTS'in kullanım amacı nedir?
+
+>NotCompletedException();
+
 ## MiniLab Çalışması
+
+- Razor projesinde yeni oyun ekleyebileceğimiz _(eklerken yapımcıyı da seçebileceğimiz)_ bir cshtml sayfası geliştiriniz.
+- Razor projesinin anasayfasında rastgele günün oyun firması ve oyunlarını gösterecek geliştirmeleri yapınız.
+
+>NotCompletedException();
