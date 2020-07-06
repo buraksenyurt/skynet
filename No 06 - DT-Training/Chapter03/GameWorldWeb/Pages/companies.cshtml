@@ -1,5 +1,6 @@
 @page
 @model GameWorldWeb.Pages.CompaniesModel
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 
 <div class="row">
     <h1 class="display-2">Oyun Üreticileri</h1>
@@ -18,4 +19,13 @@
             }
         </tbody>
     </table>
+</div>
+
+<div class="row">
+    <p>Oyun firması bilgileriniz giriniz</p>
+    <form method="POST">
+        <div><input asp-for="Company.Name"/></div>
+        <div><input asp-for="Company.Description"/></div>
+        <input class="btn btn-primary" type="submit"/>
+    </form>
 </div>
