@@ -12,6 +12,8 @@ using GamerMVC.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO; //Eklendi
+using NorthwindLib; //Eklendi
 
 namespace GamerMVC
 {
@@ -27,6 +29,11 @@ namespace GamerMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // NorthwindGameCatalog isimli SQLite veritabanını kullanabilmek için
+            // path ve DbContext ayarlamaları eklendi
+            string dbPath=Path.Combine("..","NorthwindGameCatalog.db");
+            services.AddDbContext<Northwind>(options=>options.UseSqlite($"Data Source={dbPath}"));
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));

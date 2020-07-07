@@ -59,6 +59,16 @@ Uygulamayı oluşturmak için aşağıdaki terminal komutu ile işe başlayailir
 
 ```bash
 dotnet new mvc --auth Individual -o GamerMVC
+
+# NorthwindLib isimli Entity Projesini Kullanacağımız için Referans Ekleme
+cd GamerMVC
+dotnet add reference ../NorthwindLib/NorthwindLib.csproj
+
+# {Controller}{Action}{ViewModel} şeklinde bir isimlendirme standardına göre model sınıfı oluşturulur
+touch Models/HomeIndexViewModel.cs
+
+# Firma adına basılınca açılacak olan View sayfası
+touch Views/Home/CompanyGamesDetail.cshtml
 ```
 
 Yukarıdaki gibi uygulamanın oluşturulması tamamlandıktan sonra _dotnet run_ komutu ile çalıştırıp kişisel e-posta adresimiz ile sisteme kayıt olabiliriz. Bu Membership tipi --auth Individual parametresi ile eklenmiştir. Porjenin ilk çalıştırılmasından sonra bir güzel sağı solu detaylıca anlatılır. Örneğin temel klasör yapısı ile başlanı Dependency Injection'dan çıkılabilir.
@@ -102,6 +112,7 @@ Ardından <http://localhost:5000> adresine gidilir.
 - Projeleri SQLite yerine SQLServer ile çalışacak şekilde ayarlamak için nerelerde nasıl ayarlamalar yaparsınız?
 - Companies Razor sayfası backend tarafına nasıl bağlanabildi?
 - HSTS'in kullanım amacı nedir?
+- MVC örneğinde, View üstünden gelen bir action talebi kod tarafında nasıl karşılanır? Bir arkadaşınıza anlatın.
 
 >NotCompletedException();
 
@@ -109,5 +120,8 @@ Ardından <http://localhost:5000> adresine gidilir.
 
 - Razor projesinde yeni oyun ekleyebileceğimiz _(eklerken yapımcıyı da seçebileceğimiz)_ bir cshtml sayfası geliştiriniz.
 - Razor projesinin anasayfasında rastgele günün oyun firması ve oyunlarını gösterecek geliştirmeleri yapınız.
+- Game tablosundaki Popuplarity alan adını Popularity olarak düzenleyin.
+- CompanyGamesDetail.cshtml sayfasında, oyunların sahibi olan firma adının da çıkmasını sağlayın.
+- Game tablosunda oyuna ait özet bilgiyi tutabileceğimiz bir Description alanı ekleyip CompanyGamesDetail.cshtml sayfasında görünmesini sağlayın.
 
 >NotCompletedException();

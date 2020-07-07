@@ -1,8 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@* model ile View'un hangi model ile çalışacağını söylüyoruz *@
+
+@model GamerMVC.Models.HomeIndexViewModel
+@{
+    ViewData["Title"] = "Northwind Retro Game Kataloğu - Giriş Sayfası";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="companies">
+    <ol>
+        @foreach(var company in Model.Companies){
+            <li>
+                @* 
+                Linke basıldığında, HomeController sınıfı içerisinde 
+                yer alan CompanyGamesDetail isimli action çağırılacaktır.
+
+                Parametre olarak seçili olan şirketin ID bilgisi,
+                asp-route-id isimli tag-helper yardımıyla gönderilir.
+                *@
+                <a asp-controller="Home"
+                asp-action="CompanyGamesDetail"
+                asp-route-id="@company.CompanyID">
+                @company.Name 
+                </a>
+                (@company.Description)
+            </li>
+        }
+    </ol>
 </div>

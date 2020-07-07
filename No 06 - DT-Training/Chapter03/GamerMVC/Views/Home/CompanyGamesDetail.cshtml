@@ -1,0 +1,21 @@
+@model List<NorthwindLib.Game>
+@{
+    ViewData["Title"]="Firmanın Oyunları";
+}
+
+<h1>Firma Adı</h1>
+<hr/>
+<div class="row">
+    @foreach(var g in @Model)
+    {
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">@g.Title</h5>
+        <p class="card-text">@g.Year tarihinde çıkan bu oyunun popülerlik puanı @g.Popuplarity olarak belirlenmiştir.</p>
+        <a href="#" class="btn btn-primary">Sipariş Et</a>
+      </div>
+    </div>
+  </div>
+    }
+</div>
