@@ -69,6 +69,12 @@ touch Models/HomeIndexViewModel.cs
 
 # Firma adına basılınca açılacak olan View sayfası
 touch Views/Home/CompanyGamesDetail.cshtml
+
+# Yeni oyun firması eklemek için kullanılacak model tipi ve view
+# CompanyGameModel'de amaç bir firma eklerken ilk ürettikleri oyunu da modelden almak
+touch Models/CompanyGameModel.cs
+touch Views/Home/CreateCompany.cshtml
+
 ```
 
 Yukarıdaki gibi uygulamanın oluşturulması tamamlandıktan sonra _dotnet run_ komutu ile çalıştırıp kişisel e-posta adresimiz ile sisteme kayıt olabiliriz. Bu Membership tipi --auth Individual parametresi ile eklenmiştir. Porjenin ilk çalıştırılmasından sonra bir güzel sağı solu detaylıca anlatılır. Örneğin temel klasör yapısı ile başlanı Dependency Injection'dan çıkılabilir.
