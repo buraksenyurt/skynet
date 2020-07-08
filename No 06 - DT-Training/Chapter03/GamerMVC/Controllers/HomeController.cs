@@ -77,6 +77,39 @@ namespace GamerMVC.Controllers
             return NotFound("Bir ID girilmeli");
         }
 
+        /*
+            Yeni bir oyun firması eklerken devreye giren action metodu
+        */
+        [HttpPost] // Yeni bilgiler POST metodu ile gönderileceği için
+        public IActionResult CreateCompany(CompanyGameModel data)
+        {
+            Company company=new Company{
+                Name=data.Name,
+                Description=data.Description
+            };
+            _db.Companies.Add(company);
+            _db.SaveChanges();
+
+            Game game=new Game{
+                Title=data.GameTitle,
+                Year=data.GameYear,
+                Popuplarity=data.GamePopularity,
+                Discontinued=data.GameIsContinued,
+                CompanyID=company.CompanyID
+            };
+            _db.Games.Add(game);
+            _db.SaveChanges();           
+
+            return View(data);
+        }
+
+        /*
+            CreateCompany.cshtml view'unu döndüren action metodumuz
+        */
+        public IActionResult CreateCompany()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
