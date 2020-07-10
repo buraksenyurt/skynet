@@ -77,7 +77,7 @@ touch Views/Home/CreateCompany.cshtml
 
 ```
 
-Yukarıdaki gibi uygulamanın oluşturulması tamamlandıktan sonra _dotnet run_ komutu ile çalıştırıp kişisel e-posta adresimiz ile sisteme kayıt olabiliriz. Bu Membership tipi --auth Individual parametresi ile eklenmiştir. Porjenin ilk çalıştırılmasından sonra bir güzel sağı solu detaylıca anlatılır. Örneğin temel klasör yapısı ile başlanı Dependency Injection'dan çıkılabilir.
+Yukarıdaki gibi uygulamanın oluşturulması tamamlandıktan sonra _dotnet run_ komutu ile çalıştırıp kişisel e-posta adresimiz ile sisteme kayıt olabiliriz. Bu Membership tipi --auth Individual parametresi ile eklenmiştir. Porjenin ilk çalıştırılmasından sonra bir güzel sağı solu detaylıca anlatılır. Örneğin temel klasör yapısı ile başlanıp Dependency Injection'dan çıkılabilir.
 
 - Areas klasöründe AspNet Core Identity için gerekli dosyalar durur.
 - Bin klasöründe uygulamanın derlenmiş kütüphaneleri yer alır.
@@ -118,7 +118,8 @@ Ardından <http://localhost:5000> adresine gidilir.
 - Projeleri SQLite yerine SQLServer ile çalışacak şekilde ayarlamak için nerelerde nasıl ayarlamalar yaparsınız?
 - Companies Razor sayfası backend tarafına nasıl bağlanabildi?
 - HSTS'in kullanım amacı nedir?
-- MVC örneğinde, View üstünden gelen bir action talebi kod tarafında nasıl karşılanır? Bir arkadaşınıza anlatın.
+- GamerMVC örneğinde, View üstünden gelen bir action talebi kod tarafında nasıl karşılanır? Bir arkadaşınıza anlatın.
+- GamerMVC örneğinde, Yeni Firma eklerken doğrulama kontrollerine takıldığımızda hata mesajlar ekran görünmesine rağmen son girilen veriler kontrollerden kayboluyorlar. Bunun sebebi nedir, nasıl çözümlenir?
 
 >NotCompletedException();
 
