@@ -4,7 +4,7 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 
 ## Konular
 
-~~Burada Ahch-To _(MacOS Mojave - Intel Core i5 1.4Ghz, 4 Gb 1600 Mhz DDR3)_ üzerinde geliştirmeye çalıştığım kişiel öğretilerim yer almaktadır.~~ Örnekleri bir süredir Heimdall isimli Ubuntu yüklü makinede geliştiriyorum. Ancak ara sıra şirket bilgisayarındaki Windows'u da kullandığım oluyor. Heimdall üstünde 64 bit Ubuntu yüklü. 16GB Ram kapasitesine sahip. 4 çekirdekli Intel i5 işlemcisi ve GeForce GTX 1050 ekran kartı var. Bir masaüstü oyun bilgisayarı ama onu Linux üstünde bir şeyler öğrenmek için kullanıyorum. Ahch-To kod adlı sistem ise bir MacOS. 4GB Ram'i olduğu için oldukça yavaş. Bu nedenle çok sık uğramıyorum. 
+~~Burada Ahch-To _(MacOS Mojave - Intel Core i5 1.4Ghz, 4 Gb 1600 Mhz DDR3)_ üzerinde geliştirmeye çalıştığım kişiel öğretilerim yer almaktadır.~~ Örnekleri bir süredir Heimdall isimli Ubuntu yüklü makinede geliştiriyorum. Ancak ara sıra şirket bilgisayarındaki Windows'u da kullandığım oluyor. Heimdall üstünde 64 bit Ubuntu yüklü. 16GB Ram kapasitesine sahip. 4 çekirdekli Intel i5 işlemcisi ve GeForce GTX 1050 ekran kartı var. Bir masaüstü oyun bilgisayarı ama onu Linux üstünde bir şeyler öğrenmek için kullanıyorum. Ahch-To kod adlı sistem ise bir MacOS. 4GB Ram'i olduğu için oldukça yavaş. Bu nedenle çok sık uğramıyorum.
 
 Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni ne kadar zorladıklarını az çok anlayabiliyorum. Örneğin XL, o örnekte çok zorlandığım anlamına geliyor. 15nci örnekle birlikte uygulamalar içerisine bombalar _(zararlı değil eksik kodlama veya strateji)_ koymaya karar verdim. Yani örnek çalışıyor ama önemli bir eksiği var. İyice test edilince ortaya çıkan ve repoyu indiren tarafından çözülmesi beklenen._(<b>Uygulamaya Bırakılan Bomba!</b> kısımlarına dikkat)_
 
@@ -27,7 +27,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 | 09 	| Distributed Cache Gerekiyorsa Elbette Redis                                                                  	| Tamamlandı 	|    S   	|       Heimdall      	|             	|       	|
 | 08 	| Yine Yeni Yeniden ELK _(Bu sefer E ve K için docker-compose işin içinde)_                                    	| Tamamlandı 	|    M   	|       Heimdall      	|             	|       	|
 | 07 	| Sıkça Duymaya Başladığım Deno'ya  Minik Bir Merhaba                                                          	| %80        	|    M   	|       Heimdall      	|             	|       	|
-| 06 	| DT-Training _(.Net Core Eğitimi için Hazırlık)_                                                              	| %40        	|   XL   	| Heimdall Windows 10 	|     Var     	|  Var  	|
+| 06 	| DT-Training _(.Net Core Eğitimi için Hazırlık)_                                                              	| %43        	|   XL   	| Heimdall Windows 10 	|     Var     	|  Var  	|
 | 05 	| gRPC Tabanlı Basit Bir .Net Core Servisi  Geliştirmek ve Kullanmak                                           	| %70        	|    M   	|      Windows 10     	|             	|       	|
 | 04 	| IKU Meetup _(MongoDB, Web API, Unit Test)_                                                                   	| Tamamlandı 	|    L   	|      Windows 10     	|             	|       	|
 | 03 	| Razor Öğreniyorum                                                                                            	| %80        	|    M   	|      Windows 10     	|             	|       	|
