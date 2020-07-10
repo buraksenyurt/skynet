@@ -83,22 +83,34 @@ namespace GamerMVC.Controllers
         [HttpPost] // Yeni bilgiler POST metodu ile gönderileceği için
         public IActionResult CreateCompany(CompanyGameModel data)
         {
-            Company company=new Company{
-                Name=data.Name,
-                Description=data.Description
+            // Eğer model veri doğrulama kuralı ihlalleri içeriyorsa
+            if (!ModelState.IsValid)
+            {
+                // Hatalı olduğunu ve hata mesajlarını doldurup View'a döndürüyoruz.
+                // View'da bu hatalar ekrana bastırılıyor.
+                data.HasErrors = true;
+                data.ValidationErrors = ModelState.Values.SelectMany(s => s.Errors).Select(e => e.ErrorMessage);
+                return View(data);
+            }
+
+            Company company = new Company
+            {
+                Name = data.Name,
+                Description = data.Description
             };
             _db.Companies.Add(company);
             _db.SaveChanges();
 
-            Game game=new Game{
-                Title=data.GameTitle,
-                Year=data.GameYear,
-                Popuplarity=data.GamePopularity,
-                Discontinued=data.GameIsContinued,
-                CompanyID=company.CompanyID
+            Game game = new Game
+            {
+                Title = data.GameTitle,
+                Year = data.GameYear,
+                Popuplarity = data.GamePopularity,
+                Discontinued = data.GameIsContinued,
+                CompanyID = company.CompanyID
             };
             _db.Games.Add(game);
-            _db.SaveChanges();           
+            _db.SaveChanges();
 
             return View(data);
         }

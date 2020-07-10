@@ -55,9 +55,27 @@ hangi metodun çağırılacağı form elementinin action niteliğinde belirtilir
 
 @if(Model!=null)
 {
-    <h2>İşlem Başarılı</h2>
-    <hr/>
-    <div>
-        @Model.Name, @Model.Description ve ilk oyunları da @Model.GameTitle
-    </div>
+    @* 
+    Eğer modelin HasErrors özelliği true ise bir takım doğrulama kurallarına takılmışızdır.
+    Bu doğrulama hatalarını tuttuğumuz string listesinde dönüp ekrana basıyoruz.
+    *@
+    @if(Model.HasErrors)
+    {
+        <div>
+            @foreach (var err in Model.ValidationErrors)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @err
+                </div>
+            }
+        </div>
+    }
+    else{ @* Hata yoksa aşağıdaki blok çalışır. Kayıt işlemi gerçekleşmiş demektir.*@
+        <h2>İşlem Başarılı</h2>
+        <hr/>
+        <div>
+            @Model.Name, @Model.Description ve ilk oyunları da @Model.GameTitle
+        </div>
+    }
 }
+
