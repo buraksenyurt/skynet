@@ -75,6 +75,11 @@ touch Views/Home/CompanyGamesDetail.cshtml
 touch Models/CompanyGameModel.cs
 touch Views/Home/CreateCompany.cshtml
 
+# Yeni bir View ve Controller ikilisi ekliyoruz. Oyunları göstereceğiz. Hatta birde model koyalım.
+mkdir Views/Game
+touch Views/Game/Index.cshtml
+touch Controllers/GameController.cs
+touch Models/GameIndexViewModel.cs
 ```
 
 Yukarıdaki gibi uygulamanın oluşturulması tamamlandıktan sonra _dotnet run_ komutu ile çalıştırıp kişisel e-posta adresimiz ile sisteme kayıt olabiliriz. Bu Membership tipi --auth Individual parametresi ile eklenmiştir. Porjenin ilk çalıştırılmasından sonra bir güzel sağı solu detaylıca anlatılır. Örneğin temel klasör yapısı ile başlanıp Dependency Injection'dan çıkılabilir.
@@ -120,6 +125,7 @@ Ardından <http://localhost:5000> adresine gidilir.
 - HSTS'in kullanım amacı nedir?
 - GamerMVC örneğinde, View üstünden gelen bir action talebi kod tarafında nasıl karşılanır? Bir arkadaşınıza anlatın.
 - GamerMVC örneğinde, Yeni Firma eklerken doğrulama kontrollerine takıldığımızda hata mesajlar ekran görünmesine rağmen son girilen veriler kontrollerden kayboluyorlar. Bunun sebebi nedir, nasıl çözümlenir?
+- GamerMVC örneğinde Game View'undaki ana sayfada oyun şirketinin adını görünmüyor. Bunu göstermek için ne yapmak gerekiyor? Bulup uygulayınız. Sonrasında sonuçları arkadaşlarınıza gösterip hava atınız. 
 
 >NotCompletedException();
 
@@ -130,5 +136,6 @@ Ardından <http://localhost:5000> adresine gidilir.
 - Game tablosundaki Popuplarity alan adını Popularity olarak düzenleyin.
 - CompanyGamesDetail.cshtml sayfasında, oyunların sahibi olan firma adının da çıkmasını sağlayın.
 - Game tablosunda oyuna ait özet bilgiyi tutabileceğimiz bir Description alanı ekleyip CompanyGamesDetail.cshtml sayfasında görünmesini sağlayın.
+- GamerMVC örneğindeki Index sayfasında yılların gösterildiğini görüyorsunuz. Bir yıla bastığımda o yıla ait oyunları gösterecek geliştirmeyi yapınız.
 
 >NotCompletedException();
