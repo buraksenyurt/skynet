@@ -1,0 +1,33 @@
+@model GameIndexViewModel
+@{
+    ViewData["Title"] = "Northwind Retro Game Kataloğu - Tüm Oyunlar";
+}
+
+<h2>
+    Şu an kataloğumuzda @ViewData["TotalGamesCount"] klasik oyun var.
+</h2>
+<div>
+    <ul class="list-group list-group-horizontal">
+        @foreach (var y in Model.Years)
+        {
+            <li class="list-group-item">@y</li>
+        }
+    </ul>
+    <hr/>
+    <table class="table">
+        <tr>
+            <th>Oyunun Adı</th>
+            <th>Çıkış Yılı</th>
+            <th>Üretici</th>
+            <th>Popülerlik Puanı</th>
+        </tr>
+        @foreach(var g in Model.Games){
+            <tr>
+                <td>@Html.DisplayFor(m=>g.Title)</td>
+                <td>@Html.DisplayFor(m=>g.Year)</td>
+                <td>@Html.DisplayFor(m=>g.Company.Name)</td>
+                <td>@Html.DisplayFor(m=>g.Popuplarity)</td>
+            </tr>
+        }
+    </table>
+</div>
