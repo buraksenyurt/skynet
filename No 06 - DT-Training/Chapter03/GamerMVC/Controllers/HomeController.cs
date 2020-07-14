@@ -5,8 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using GamerMVC.Models;
+using GamerMVC.Models; //Eklendi
 using NorthwindLib; //Eklendi
+using Microsoft.EntityFrameworkCore; //Eklendi (await dbSet operasyonları için)
 
 namespace GamerMVC.Controllers
 {
@@ -37,13 +38,16 @@ namespace GamerMVC.Controllers
             View altındaki Home klasöründe yer alan Index.cshtml dosyası.
 
             Dolayısıyla buradaki model nesnelerini Index.cshtml'de ele alabiliriz.
+
+            Örneği terk etmeden önce Controller metotlarını(Index, CompanyGamesDetail, CreateCompany) asenkron çağrıları kullanabilir hale getirdik.
+            await ile kullanılabilir metotlar dikkat edileceği üzere ToListAsync ile bitenler.
         */
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var rModel = new HomeIndexViewModel()
             {
-                Companies = _db.Companies.ToList(),
-                Games = _db.Games.ToList()
+                Companies = await _db.Companies.ToListAsync(),
+                Games = await _db.Games.ToListAsync()
             };
 
             return View(rModel);
@@ -53,7 +57,7 @@ namespace GamerMVC.Controllers
         /*
             Home.cshtml'de firma ismine tıklanınca çalışan action metodumuz
         */
-        public IActionResult CompanyGamesDetail(int? id)
+        public async Task<IActionResult> CompanyGamesDetail(int? id)
         {
             /*
             asp-route-id ile gönderilen companyID değişkeni
@@ -62,9 +66,9 @@ namespace GamerMVC.Controllers
             if (id.HasValue) //Eğer bir değere sahipse
             {
                 // LINQ sorgusu ile bu firmanın oyunlarının çekelim
-                var games = (from g in _db.Games
+                var games = await (from g in _db.Games
                              where g.CompanyID == id.Value
-                             select g).ToList();
+                             select g).ToListAsync();
 
                 // Hiçbir sonuç yoksa HTTP 404 NotFound dönebiliriz
                 if (games.Count() == 0)
@@ -81,7 +85,7 @@ namespace GamerMVC.Controllers
             Yeni bir oyun firması eklerken devreye giren action metodu
         */
         [HttpPost] // Yeni bilgiler POST metodu ile gönderileceği için
-        public IActionResult CreateCompany(CompanyGameModel data)
+        public async Task<IActionResult> CreateCompany(CompanyGameModel data)
         {
             // Eğer model veri doğrulama kuralı ihlalleri içeriyorsa
             if (!ModelState.IsValid)
@@ -99,7 +103,7 @@ namespace GamerMVC.Controllers
                 Description = data.Description
             };
             _db.Companies.Add(company);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
 
             Game game = new Game
             {
@@ -110,7 +114,7 @@ namespace GamerMVC.Controllers
                 CompanyID = company.CompanyID
             };
             _db.Games.Add(game);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
 
             return View(data);
         }

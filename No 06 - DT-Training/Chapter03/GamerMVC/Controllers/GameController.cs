@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using GamerMVC.Models;
 using NorthwindLib;
+using Microsoft.EntityFrameworkCore;
 
 namespace GamerMVC.Controllers
 {
@@ -20,18 +21,18 @@ namespace GamerMVC.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             // Geriye döndüreceğimiz Model nesnesini örnekliyoruz.
             // İçinde tüm oyunları, çıkış tarihlerine ait bir listeyi ve toplam oyun sayısını döndürüyoruz.
             // Aslında Index.cshtml için gerekli olan temel verilerimizi içeren bir model tasarladık diyebiliriz.
             GameIndexViewModel data = new GameIndexViewModel();
-            data.Games = _db.Games.ToList();
-            data.Years = _db.Games.Select(g => g.Year).Distinct().OrderBy(g => g).ToList<short?>();
+            data.Games = await _db.Games.ToListAsync();
+            data.Years = await _db.Games.Select(g => g.Year).Distinct().OrderBy(g => g).ToListAsync<short?>();
 
             // ViewData üstünden de View katmanına veri taşımamız mümkündür.
             // Örneğin toplam oyun sayısını View'a taşıyabiliriz.
-            ViewData["TotalGamesCount"] = _db.Games.Count();
+            ViewData["TotalGamesCount"] = await _db.Games.CountAsync();
             return View(data);
         }
     }
