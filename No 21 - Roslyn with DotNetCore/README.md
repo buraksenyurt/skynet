@@ -32,6 +32,10 @@ Region3 Syntax Tree Mevzusu
 
 ![Screenshot_05.png](./assets/Screenshot_05.png)
 
+Region4 Code Walker Mevzusu
+
+>Heimdall'a geçince eklenecek
+
 ## İkinci Örnek için Ön Hazırlıklar ve Çalıştırma
 
 İlk örneklerde C# kodlarının dinamik olarak yine bir C# uygulaması içerisinden çalıştırılması ve temel seviyede statik kod analizi işlemleri söz konusu. Bu sefer Nuget paket desteği de sunan dotnet-script ile script dosyalarının nasıl yürütülebileceği inceleniyor.
@@ -63,3 +67,4 @@ dotnet script dirwatcher.csx
 - Bir web sayfasında Multiline TextBox kontrolüm olsun. İçine yazdığım basit C# kodlarının sonucunu anında başka bir kutucukta görebileyim. Web'deki pencerede C# script'leri yazdığımızı düşünelim.
 - dotnet-script init komutunu deneyip ne işe yaradığını anlamaya çalışın.
 - Program.cs'teki Syntax Tree Mevzusu kısmından yararlanarak kendi kodlarınızda if bloklarının kullanıldığı metotları bulmaya çalışın. _(Buradan Cognitive Complexity problemlerini bulmaya giden yolun kapısını açabiliriz)_
+- Program.cs'te kullanılan Walker sınıfının bir benzerini yazarak Utility'nin tüm Node'larını dolaşıp ekrana yazdırmayı deneyiniz?
