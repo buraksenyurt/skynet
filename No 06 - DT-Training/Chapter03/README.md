@@ -128,7 +128,15 @@ touch Controllers/CompanyController.cs
 #Repository desenini tercih ettik. Bu nedenle bir klasör oluşturuyoruz ve içerisine dosya açıyoruz
 mkdir Repository
 touch Repository/ICompanyRepository.cs Repository/CompanyRepository.cs
+
+#REST Client testleri için klasör oluşturup içerisine test dosyaları atıyoruz
+mkdir RestTests
+touch RestTests/get-companies.http RestTests/create-company.http RestTests/delete-company.http
 ```
+
+>WebAPI Uygulamasında testler için humao.rest-client isimli bir Extension kullanılmıştır. Test klasöründeki http uzantılı dosyalara dikkat edin. WebAPI projesi çalışır haldeyken bu dosyalar içerisindeki Send Request linklerine basıp çağrı sonuçlarını VS Code üzerinden de görebiliriz.
+
+![Screenshot_1.png](./assets/Screenshot_1.png)
 
 ### Çalışma Zamanı _(Tüm Örnekler İçin Kendi Klasörlerinde)_
 
@@ -158,5 +166,7 @@ yazmak yeterlidir. Ardından genellikle <https://localhost:5001> adresine gidili
 - CompanyGamesDetail.cshtml sayfasında, oyunların sahibi olan firma adının da çıkmasını sağlayın.
 - Game tablosunda oyuna ait özet bilgiyi tutabileceğimiz bir Description alanı ekleyip CompanyGamesDetail.cshtml sayfasında görünmesini sağlayın.
 - GamerMVC örneğindeki Index sayfasında yılların gösterildiğini görüyorsunuz. Bir yıla bastığımda o yıla ait oyunları gösterecek geliştirmeyi yapınız.
+- WebApi projesinde CompanyController'da eskik kalan Update operasyonunu tamamlayınız.
+- Yine WebApi projesinde oyun kataloğundaki Game nesnelerinin yönetimi için Repository ve Controller sınıflarını siz yazıp geliştirmeye çalışınız. _(Yazarken Company nesnesi için yapılanlardan yardım alabilirsiniz)_
 
 >NotCompletedException();
