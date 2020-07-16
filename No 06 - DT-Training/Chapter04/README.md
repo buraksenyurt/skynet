@@ -1,6 +1,6 @@
 # Basit Bir .Net Core Web API Servisinin Docker Container Haline Getirilmesi
 
-Amaç bir .Net Core Web API servisinin docker container haline getirmek. Öğrenilmesi istenen şey docker container'ının hazırlanması olduğu için,hazır web api şablonu ile uğraşılmamıştır.
+Amaç bir .Net Core Web API servisini docker container haline getirmek. Öğrenilmesi istenen şey docker container'ının hazırlanması olduğu için, hazır web api şablonu ile uğraşılmamıştır.
 
 ## Hazırlıklar
 

@@ -130,13 +130,13 @@ mkdir Repository
 touch Repository/ICompanyRepository.cs Repository/CompanyRepository.cs
 ```
 
-### Çalışma Zamanı _(Her İki Uygulama İçin)_
+### Çalışma Zamanı _(Tüm Örnekler İçin Kendi Klasörlerinde)_
 
 ```bash
 dotnet run
 ```
 
-Ardından <http://localhost:5000> adresine gidilir.
+yazmak yeterlidir. Ardından genellikle <http://localhost:5000> adresine gidilir.
 
 ## Bölüm Soruları
 
