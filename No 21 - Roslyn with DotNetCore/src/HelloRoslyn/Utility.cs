@@ -35,6 +35,20 @@ namespace AdventureWorks.Common
 
             var mailDate = DateTime.Today;
         }
+
+        public void ApplyTransactionToAllConnectedDevices()
+        {
+
+        }
+        public void WakeAllDisconnectedRobotBotsOnRemoteDevices()
+        {
+
+        }
+
+        public void GetDiscountedProductsFromRepositoryWithBrandCode(string brandCode,DateTime startDate,DateTime endDate,double limitRate)
+        {
+
+        }
     }
 
     public class Helper
