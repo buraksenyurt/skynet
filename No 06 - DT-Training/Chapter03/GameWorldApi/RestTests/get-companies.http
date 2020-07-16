@@ -1,0 +1,6 @@
+###
+GET https://localhost:5551/api/company/ HTTP/1.1
+###
+GET https://localhost:5551/api/company/11 HTTP/1.1
+###
+GET https://localhost:5551/api/company/9999 HTTP/1.1

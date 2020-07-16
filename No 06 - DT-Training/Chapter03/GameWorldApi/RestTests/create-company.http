@@ -1,0 +1,8 @@
+POST https://localhost:5551/api/company/ HTTP/1.1
+Content-Type: application/json
+Content-Length: 152
+
+{
+    "name":"Buraks Games",
+    "description":"Sadece terminal ekranlarından oynanan kullanıcılarını ekrana kitleyen oyun geliştiricisi firmadır."
+}
