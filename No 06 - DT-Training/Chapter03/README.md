@@ -136,7 +136,7 @@ touch Repository/ICompanyRepository.cs Repository/CompanyRepository.cs
 dotnet run
 ```
 
-yazmak yeterlidir. Ardından genellikle <http://localhost:5000> adresine gidilir.
+yazmak yeterlidir. Ardından genellikle <https://localhost:5001> adresine gidilir. Web Api uygulaması için <https://localhost:5551/api/> üstünden denemeler yapılabilir.
 
 ## Bölüm Soruları
 
