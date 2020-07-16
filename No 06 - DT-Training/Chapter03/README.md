@@ -1,6 +1,6 @@
 # Şu Web Dedikleri Şey de Neymiş
 
-.Net Core ile Web uygulamalarını birkaç şekilde geliştirebiliriz. Asp.Net Core Razor Pages ve MVC _(Model View Controller)_ temelli web siteleri en çok kullanılanlar arasındadır. İzleyen örneklerde çok temel seviyede Razor ve MVC uygulamaları oluşturulmaktadır.
+.Net Core ile Web uygulamalarını birkaç şekilde geliştirebiliriz. Asp.Net Core Razor Pages ve MVC _(Model View Controller)_ temelli web siteleri en çok kullanılanlar arasındadır. İzleyen örneklerde çok temel seviyede Razor ve MVC uygulamaları oluşturulmaktadır. İlaveten konunun bütünlüğünü sağlamak amacıyla bir Web API projesi de eklenmiştir.
 
 ## Gerekli Northwind EF Uygulamasının İnşası
 
@@ -108,6 +108,27 @@ Yukarıdaki gibi uygulamanın oluşturulması tamamlandıktan sonra _dotnet run_
 | /Games/Blizzard/Hearthstone | Games      | Blizzard | Hearthstone |
 
 >NotCompletedException();
+
+## Web API Uygulamasının Geliştirilmesi
+
+Konu bütünlüğü için eklediğimiz Web API projesini oluşturmak için aşağıdaki adımları takip edebiliriz. Bu örnekte de NorthwindGameCatalog isimli SQLite veritabanı kullanılmaktadır.
+
+```bash
+dotnet new webapi -o GameWorldApi
+cd GameWorldApi
+
+#Kullanacağımız Entity kütüphanesini ekledik
+dotnet add reference ../NorthwindLib/NorthwindLib.csproj
+
+#Şablonda varsayılan olarak gelen Controller sınıfını ve tipi çıkartıp kendi Controller sınıfımızı ekliyoruz
+rm WeatherForecast.cs
+rm Controllers/WeatherForecastController.cs
+touch Controllers/CompanyController.cs
+
+#Repository desenini tercih ettik. Bu nedenle bir klasör oluşturuyoruz ve içerisine dosya açıyoruz
+mkdir Repository
+touch Repository/ICompanyRepository.cs Repository/CompanyRepository.cs
+```
 
 ### Çalışma Zamanı _(Her İki Uygulama İçin)_
 
