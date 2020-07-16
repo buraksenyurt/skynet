@@ -44,5 +44,39 @@ namespace GameWorldApi.Controllers
                 return NotFound(); //Arana firma bulunamadıysa HTTP 404 Not Found mesajı döndürürlür
             }
         }
+
+        // HTTP Post talebi gelir ve gövdede JSON formatında Company içeriği olursa ekleme işlemini gerçekleştiririz
+        [HttpPost]
+        public async Task<IActionResult> AddCompany([FromBody] Company company)
+        {
+            if (company == null)
+            {
+                return BadRequest();
+            }
+            var added = await _repository.CreateCompanyAsync(company);
+            return Ok(added);
+        }
+
+        // Silme operasyonumuz. HTTP Delete talebi gelirse, ID değeri üstünden gerçekleştirilir
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Remove(int id)
+        {
+            var founded = await _repository.GetAsync(id);
+            if (founded == null)
+            {
+                return NotFound();
+            }
+            bool? deleted = await _repository.DeleteAsync(id);
+            if (deleted.HasValue && deleted.Value)
+            {
+                return new NoContentResult();
+            }
+            else
+            {
+                return BadRequest($"{id} numaralı bir firma bulunamadığı için silme işlemi gerçekleşmedi.");
+            }
+        }
+
+        //TODO Update operasyonu yazılıp test edilmeli
     }
 }
