@@ -132,9 +132,12 @@ touch Repository/ICompanyRepository.cs Repository/CompanyRepository.cs
 #REST Client testleri için klasör oluşturup içerisine test dosyaları atıyoruz
 mkdir RestTests
 touch RestTests/get-companies.http RestTests/create-company.http RestTests/delete-company.http
+
+#WebAPI serisine dokümantasyon ve test desteği için Swagger'ı Kullanabiliriz.
+dotnet add package Swashbuckle.AspNetCore
 ```
 
->WebAPI Uygulamasında testler için humao.rest-client isimli bir Extension kullanılmıştır. Test klasöründeki http uzantılı dosyalara dikkat edin. WebAPI projesi çalışır haldeyken bu dosyalar içerisindeki Send Request linklerine basıp çağrı sonuçlarını VS Code üzerinden de görebiliriz.
+>WebAPI Uygulamasında testler için humao.rest-client isimli bir Extension kullanılmıştır. Test klasöründeki http uzantılı dosyalara dikkat edin. WebAPI projesi çalışır haldeyken bu dosyalar içerisindeki Send Request linklerine basıp çağrı sonuçlarını VS Code üzerinden de görebiliriz. Diğer yandan, servisin Swagger API dokümantasyon adresine ulaşmak ve canlı testler yapmak için <https://localhost:5551/swagger> linkini kullanmamız yeterli.
 
 ![Screenshot_1.png](./assets/Screenshot_1.png)
 
@@ -154,7 +157,7 @@ yazmak yeterlidir. Ardından genellikle <https://localhost:5001> adresine gidili
 - HSTS'in kullanım amacı nedir?
 - GamerMVC örneğinde, View üstünden gelen bir action talebi kod tarafında nasıl karşılanır? Bir arkadaşınıza anlatın.
 - GamerMVC örneğinde, Yeni Firma eklerken doğrulama kontrollerine takıldığımızda hata mesajlar ekran görünmesine rağmen son girilen veriler kontrollerden kayboluyorlar. Bunun sebebi nedir, nasıl çözümlenir?
-- GamerMVC örneğinde Game View'undaki ana sayfada oyun şirketinin adını görünmüyor. Bunu göstermek için ne yapmak gerekiyor? Bulup uygulayınız. Sonrasında sonuçları arkadaşlarınıza gösterip hava atınız. 
+- GamerMVC örneğinde Game View'undaki ana sayfada oyun şirketinin adını görünmüyor. Bunu göstermek için ne yapmak gerekiyor? Bulup uygulayınız. Sonrasında sonuçları arkadaşlarınıza gösterip hava atınız.
 
 >NotCompletedException();
 
