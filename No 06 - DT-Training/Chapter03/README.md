@@ -162,6 +162,7 @@ Web API projesi geliştirildikten sonra MVC uygulamasından bu servisin tüketim
 - GamerMVC örneğinde, View üstünden gelen bir action talebi kod tarafında nasıl karşılanır? Bir arkadaşınıza anlatın.
 - GamerMVC örneğinde, Yeni Firma eklerken doğrulama kontrollerine takıldığımızda hata mesajlar ekran görünmesine rağmen son girilen veriler kontrollerden kayboluyorlar. Bunun sebebi nedir, nasıl çözümlenir?
 - GamerMVC örneğinde Game View'undaki ana sayfada oyun şirketinin adını görünmüyor. Bunu göstermek için ne yapmak gerekiyor? Bulup uygulayınız. Sonrasında sonuçları arkadaşlarınıza gösterip hava atınız.
+- GamerMVC uygulamasında kullanılan GameWorldApi servis adresini konfigurasyon dosyasından Startup'a nasıl alabiliriz?
 
 >NotCompletedException();
 
