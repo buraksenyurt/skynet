@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using GamerMVC.Models; //Eklendi
 using NorthwindLib; //Eklendi
 using Microsoft.EntityFrameworkCore; //Eklendi (await dbSet operasyonları için)
+using System.Net.Http; // Web API çağrısını yapacağımız HttpClientFactory kullanımı için eklendi
+using Newtonsoft.Json; // Web API servisinden dönen JSON içeriğin Parse işlemleri için eklendi
 
 namespace GamerMVC.Controllers
 {
@@ -21,10 +23,16 @@ namespace GamerMVC.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private Northwind _db;
-        public HomeController(ILogger<HomeController> logger, Northwind db)
+        private readonly IHttpClientFactory _clientFactory;
+        /*
+            Bu Constructor tanımı oldukça değerli. Uygulama ayağa kalkarden Startup sınıfındaki ConfigureServices metodunda 
+            kayıt ettirdiğimiz nesneler Constructor Injection tekniği ile bu Controller nesnesine aktarılıyorlar.
+        */
+        public HomeController(ILogger<HomeController> logger, Northwind db, IHttpClientFactory clientFactory)
         {
             _logger = logger;
             _db = db;
+            _clientFactory = clientFactory;
         }
 
         /*
@@ -44,9 +52,21 @@ namespace GamerMVC.Controllers
         */
         public async Task<IActionResult> Index()
         {
+            /*
+                Bu kısım MVC uygulamasından, Web API çağrısının nasıl yapılabileceğini göstermek için eklenmiştir.
+            */
+
+            string uri = "api/company"; // Örnekte https://localhost:5551/api/company ile şirket bilgilerini çektiğimiz adres
+            var client = _clientFactory.CreateClient(name: "GameWorldService"); // Factory üstünden HttpClient nesnesini örnekliyoruz.
+            var request = new HttpRequestMessage(method: HttpMethod.Get, requestUri: uri); // HTTP Get talebimizi hazırlıyoruz
+            HttpResponseMessage response = await client.SendAsync(request); // HTTP Talebini gönderiyor ve cevabını alıyoruz
+            var data = await response.Content.ReadAsStringAsync(); // Gelen içeriği önce String olarak okuyoruz
+            var companies = JsonConvert.DeserializeObject<IEnumerable<Company>>(data).ToList(); // ve Json formatında ters serileştirip Company türünden listeye alıyoruz
+
             var rModel = new HomeIndexViewModel()
             {
-                Companies = await _db.Companies.ToListAsync(),
+                Companies = companies,
+                //Companies = await _db.Companies.ToListAsync(), // Web API servisi üzerinden çekildiği için bu örnekte kapatıldı.
                 Games = await _db.Games.ToListAsync()
             };
 
@@ -67,8 +87,8 @@ namespace GamerMVC.Controllers
             {
                 // LINQ sorgusu ile bu firmanın oyunlarının çekelim
                 var games = await (from g in _db.Games
-                             where g.CompanyID == id.Value
-                             select g).ToListAsync();
+                                   where g.CompanyID == id.Value
+                                   select g).ToListAsync();
 
                 // Hiçbir sonuç yoksa HTTP 404 NotFound dönebiliriz
                 if (games.Count() == 0)

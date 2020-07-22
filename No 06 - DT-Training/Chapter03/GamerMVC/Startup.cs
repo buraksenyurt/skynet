@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO; //Eklendi
 using NorthwindLib; //Eklendi
+using System.Net.Http.Headers; // Eklendi (Web API kullanımı için)
 
 namespace GamerMVC
 {
@@ -31,8 +32,8 @@ namespace GamerMVC
         {
             // NorthwindGameCatalog isimli SQLite veritabanını kullanabilmek için
             // path ve DbContext ayarlamaları eklendi
-            string dbPath=Path.Combine("..","NorthwindGameCatalog.db");
-            services.AddDbContext<Northwind>(options=>options.UseSqlite($"Data Source={dbPath}"));
+            string dbPath = Path.Combine("..", "NorthwindGameCatalog.db");
+            services.AddDbContext<Northwind>(options => options.UseSqlite($"Data Source={dbPath}"));
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
@@ -40,9 +41,18 @@ namespace GamerMVC
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-           services.AddRazorPages();
-        }
+            services.AddRazorPages();
 
+            /*
+                Aşağıdaki kısım GameWorldAPI isimli Web API projesini bu MVC uygulamasında kullanabilmek için eklenmiştir.
+                Böylece bir Controller'a IHttpClientFactory üzerinden Web API servisini tüketecek nesneyi aktarabiliriz. 
+            */
+            services.AddHttpClient(name: "GameWorldService", configureClient: options =>
+            {
+                options.BaseAddress = new Uri("https://localhost:5551"); // Kullanacağımız web api'nin adresini tanımladık
+                options.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json", 1.0)); //Varsayılan olarak Request Header içeriği JSON 1.0 standardında olacak
+            });
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
