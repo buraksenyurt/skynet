@@ -149,6 +149,10 @@ dotnet run
 
 yazmak yeterlidir. Ardından genellikle <https://localhost:5001> adresine gidilir. Web Api uygulaması için <https://localhost:5551/api/> üstünden denemeler yapılabilir.
 
+## Web API Uygulamasının Geliştirilmesi Sonrası MVC Projesinde Değişiklik
+
+Web API projesi geliştirildikten sonra MVC uygulamasından bu servisin tüketimine ait bir geliştirme yapıldı. Amaç HttpClientFactory kullanarak, firma bilgilerini MVC uygulamasındaki modele GameWorldApi servisinden _(<https://localhost:5551/api/company> adresinden)_ getirtmek. Bu deneme için MVC uygulamasından önce Web API servisinin ayakta olması gerekiyor.
+
 ## Bölüm Soruları
 
 - Razor ve MVC projelerindeki Startup sınıfının görevi nedir?
@@ -171,5 +175,6 @@ yazmak yeterlidir. Ardından genellikle <https://localhost:5001> adresine gidili
 - GamerMVC örneğindeki Index sayfasında yılların gösterildiğini görüyorsunuz. Bir yıla bastığımda o yıla ait oyunları gösterecek geliştirmeyi yapınız.
 - WebApi projesinde CompanyController'da eskik kalan Update operasyonunu tamamlayınız.
 - Yine WebApi projesinde oyun kataloğundaki Game nesnelerinin yönetimi için Repository ve Controller sınıflarını siz yazıp geliştirmeye çalışınız. _(Yazarken Company nesnesi için yapılanlardan yardım alabilirsiniz)_
+- MVC uygulamasında yer alan GameController içerisindeki Index operasyonundaki işleri yerine getirecek bir servis fonksiyonelliğini GameWorldApi'ye ekleyip, GamerMVC'de kullandırınız.
 
 >NotCompletedException();
