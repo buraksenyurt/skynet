@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 // Roslyn için gerekli namespace bildirimleri
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Scripting;
 using Microsoft.CodeAnalysis.Text;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
@@ -21,7 +22,7 @@ namespace HelloRoslyn
         */
         static async Task Main(string[] args)
         {
-            #region Çalışma zamanında kod yürütme
+            #region Çalışma zamanında kod işletmek
 
             // while (true) // sonsuz döngü
             // {
@@ -47,7 +48,7 @@ namespace HelloRoslyn
             //     }
             // }
 
-            #endregion Çalışma zamanında kod yürütme
+            #endregion Çalışma zamanında kod işletmek
 
             #region Birden fazla satırı alma
 
@@ -162,16 +163,35 @@ namespace HelloRoslyn
                 MethodCollector sınıfını örnek olarak inceleyebiliriz.
             */
 
-            var tree = CSharpSyntaxTree.ParseText(File.ReadAllText("Utility.cs"));
-            var walker = new MethodAnalyzer(); //Walker nesnesini örnekledik
-            walker.Visit(tree.GetRoot()); // ve kod ağacını ziyaret ederek dallarında dolaşmasını sağladık
-            Console.WriteLine($"Kaynak kod dosyasında adı 15 karakterden fazla olan {walker.Methods.Count} metot bulunmuştur");
-            foreach (var m in walker.Methods)
-            {
-                Console.WriteLine(m.Identifier);
-            }
+            // var tree = CSharpSyntaxTree.ParseText(File.ReadAllText("Utility.cs"));
+            // var walker = new MethodAnalyzer(); //Walker nesnesini örnekledik
+            // walker.Visit(tree.GetRoot()); // ve kod ağacını ziyaret ederek dallarında dolaşmasını sağladık
+            // Console.WriteLine($"Kaynak kod dosyasında adı 15 karakterden fazla olan {walker.Methods.Count} metot bulunmuştur");
+            // foreach (var m in walker.Methods)
+            // {
+            //     Console.WriteLine(m.Identifier);
+            // }
 
             #endregion Code Walker Mevzusu
+
+            #region Syntax Rewriter Mevzusu
+
+            /*
+                Roslyn için kod ağacı (syntax tree) değişmezdir (Immutable). Ancak kodda bir şeyleri Roslyn yardımıyla değiştirmek istiyorsak
+                CSharpSyntaxRewriter sınıfından türeyen bir gezgini kullanabiliriz. Örnekteki WSATAttributeCharger bu amaçla kullanılıyor
+                ve BLLInvoice.cs içerisinde istediğimiz Attribute'ları bulup özelliklerini değiştiriyor.
+            */
+
+            // Bu örnek için BLLInvoice.cs isimli kobay dosyayı kullanıyoruz.
+            var tree = CSharpSyntaxTree.ParseText(File.ReadAllText("BLLInvoice.cs"));
+            // Attribute'u yeniden yazacak sınıfı örnekliyoruz
+            var attributeRewriter = new WSATAttributeChanger();
+            // Sonrasında Visit metodu ile bu yeni sınıfın okuduğumuz dosyadaki kod ağacını dolaşmasını istiyoruz
+            var result = attributeRewriter.Visit(tree.GetRoot());
+            // Sonuçta WSATEnable(Active=true,Target="MSDTC") niteliklerinin WSATEnable(Active=false,Target="MQ") olarak değişmesi bekleniyor
+            Console.WriteLine(result.ToFullString());
+
+            #endregion Syntax Rewriter Mevzusu
         }
     }
 
@@ -208,9 +228,53 @@ namespace HelloRoslyn
             {
                 Methods.Add(methodNode);
                 // Burada ilgili metodun parametre sayısını yakalıyoruz. Belki parametre sayısı ihlalleri olan metodların bulunmasını denerken işinize yarar.
-                Console.WriteLine($"{methodNode.Identifier} için parametre sayısı {methodNode.ParameterList.Parameters.Count}"); 
+                Console.WriteLine($"{methodNode.Identifier} için parametre sayısı {methodNode.ParameterList.Parameters.Count}");
             }
             base.VisitMethodDeclaration(methodNode);
+        }
+    }
+
+
+    /*
+        Kod ağacında değişiklik yapmamızı sağlayan örnek bir sınıf.
+        CSharpSyntaxRewriter'dan türetilmiş durumda.
+        VisitAttributeList haricinde override edilebilecek birçok fonksiyon mevcut.
+        Genel listeyi https://docs.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.csharp.csharpsyntaxrewriter?view=roslyn-dotnet adresinden görebiliriz.
+
+        Bizim örneğmizde [WSATEnable(true)] şeklindeki niteliklerin [WSATEnable(false)] olarak değiştirilmesi işi gerçekleştiriliyor.
+    */
+    public class WSATAttributeChanger
+        : CSharpSyntaxRewriter
+    {
+        public override SyntaxNode VisitAttributeList(AttributeListSyntax node)
+        {
+            // Override ettiğimi fonksiyon içerisinde Metotlara uygulanan Attribute'ları dolaşıyoruz.
+            if (node.Parent is MethodDeclarationSyntax && node.Attributes.Any(attr => attr.Name.GetText().ToString() == "WSATEnable"))
+            {
+                /*
+                    Aşağıdaki kod parçasında WSATEnable niteliği için yeni bir argüman listesi oluşturuyoruz.
+                    Buna göre Niteliğin adı yine WSATEnable.
+                    Diğer yandan Active parametresini false,
+                    Target parametresini de MQ olarak değiştirmekteyiz.
+                */
+                return SyntaxFactory.AttributeList(
+                                SyntaxFactory.SingletonSeparatedList(
+                                SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("WSATEnable"),
+                                    SyntaxFactory.AttributeArgumentList(
+                                        SyntaxFactory.SeparatedList(new[]
+                                        {
+                                            SyntaxFactory.AttributeArgument(
+                                                nameEquals: SyntaxFactory.NameEquals("Active"),
+                                                nameColon: null,
+                                                SyntaxFactory.LiteralExpression(SyntaxKind.FalseLiteralExpression)),
+                                            SyntaxFactory.AttributeArgument(
+                                                nameEquals: SyntaxFactory.NameEquals("Target"),
+                                                nameColon: null,
+                                                SyntaxFactory.LiteralExpression(SyntaxKind.StringLiteralExpression, SyntaxFactory.Literal(@"MQ")))
+                                        })))));
+            }
+            // Tabii if koşuluna uymayan bir ifade ile karşılaştıysak yolumuza devam ediyoruz
+            return base.VisitAttributeList(node);
         }
     }
 }
