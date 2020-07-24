@@ -135,9 +135,12 @@ touch RestTests/get-companies.http RestTests/create-company.http RestTests/delet
 
 #WebAPI serisine dokümantasyon ve test desteği için Swagger'ı Kullanabiliriz.
 dotnet add package Swashbuckle.AspNetCore
+
+#Basit Health Check senaryosu için aşağıdaki paket eklendi.
+dotnet add package Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore
 ```
 
->WebAPI Uygulamasında testler için humao.rest-client isimli bir Extension kullanılmıştır. Test klasöründeki http uzantılı dosyalara dikkat edin. WebAPI projesi çalışır haldeyken bu dosyalar içerisindeki Send Request linklerine basıp çağrı sonuçlarını VS Code üzerinden de görebiliriz. Diğer yandan, servisin Swagger API dokümantasyon adresine ulaşmak ve canlı testler yapmak için <https://localhost:5551/swagger> linkini kullanmamız yeterli.
+>WebAPI Uygulamasında testler için humao.rest-client isimli bir Extension kullanılmıştır. Test klasöründeki http uzantılı dosyalara dikkat edin. WebAPI projesi çalışır haldeyken bu dosyalar içerisindeki Send Request linklerine basıp çağrı sonuçlarını VS Code üzerinden de görebiliriz.Diğer yandan, servisin Swagger API dokümantasyon adresine ulaşmak ve canlı testler yapmak için <https://localhost:5551/swagger> linkini kullanmamız yeterli.
 
 ![Screenshot_1.png](./assets/Screenshot_1.png)
 
@@ -149,9 +152,11 @@ dotnet run
 
 yazmak yeterlidir. Ardından genellikle <https://localhost:5001> adresine gidilir. Web Api uygulaması için <https://localhost:5551/api/> üstünden denemeler yapılabilir.
 
+GameWorldApi servisine eklenen ve EF Veritabanı bağlantısının sağlığını kontrol eden Health Check adresi için <https://localhost:5551/api/isefonline> adresi kullanılabilir.
+
 ## Web API Uygulamasının Geliştirilmesi Sonrası MVC Projesinde Değişiklik
 
-Web API projesi geliştirildikten sonra MVC uygulamasından bu servisin tüketimine ait bir geliştirme yapıldı. Amaç HttpClientFactory kullanarak, firma bilgilerini MVC uygulamasındaki modele GameWorldApi servisinden _(<https://localhost:5551/api/company> adresinden)_ getirtmek. Bu deneme için MVC uygulamasından önce Web API servisinin ayakta olması gerekiyor.
+Web API projesi geliştirildikten sonra MVC uygulamasından bu servisin tüketimine ait bir geliştirme yapıldı. Amaç HttpClientFactory kullanarak firma bilgilerini MVC uygulamasındaki modele GameWorldApi servisinden _(<https://localhost:5551/api/company> adresinden)_ getirtmek. Bu deneme için MVC uygulamasından önce Web API servisinin ayakta olması gerektiğini hatırlatmak isterim.
 
 ## Bölüm Soruları
 
