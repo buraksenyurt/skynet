@@ -14,25 +14,30 @@ dotnet add package Microsoft.CodeAnalysis.CSharp.Scripting
 
 dotnet watch run
 ```
+
 >Kodun çalışması ile ilgili bilgiler yorum satırlarında mevcut ;)
 
-Region1 çalışmasına ait örnek ekran görüntüsü,
+Region1 çalışmasına ait örnek ekran görüntüsü (Çalışma zamanında kod işletmek)
 
 ![Screenshot_01.png](./assets/Screenshot_01.png)
 
-Region2 çalışmasına ait örnek ekran görüntüsü,
+Region2 çalışmasına ait örnek ekran görüntüsü (Çalışma zamanında birden fazla satırı alıp işletmek)
 
 ![Screenshot_02.png](./assets/Screenshot_02.png)
 
-Region3 çalışmasına ait örnek ekran görüntüsü,
+Region3 çalışmasına ait örnek ekran görüntüsü (Bir text dosyasındaki C# kodunun yüklenip çalıştırılması)
 
 ![Screenshot_03.png](./assets/Screenshot_03.png)
 
-Region3 Syntax Tree Mevzusu
+Region3 Syntax Tree Mevzusu (Kod ağacını dolaştığımız örnek)
 
 ![Screenshot_05.png](./assets/Screenshot_05.png)
 
-Region4 Code Walker Mevzusu
+Region4 Code Walker Mevzusu (Kodu dolaşan nesne)
+
+>Heimdall'a geçince eklenecek
+
+Region5 Syntax Rewriter Mevzusu (Kod dolaşan ve değişiklik yapıp yeni halini sunan örnek)
 
 >Heimdall'a geçince eklenecek
 
@@ -61,6 +66,7 @@ dotnet script dirwatcher.csx
 - Console uygulamasının kodunun ikinci region bloğunda yer alan kod çalışma zamanında hangi durumlarda exception vererek sonlanır _(Kısaca Patlar)_
 - CSX örneği ilk çalıştırıldığında cevap vermesi neden çok uzun sürmüştür.
 - CSX örneğindeki Nuget paketi sizce nereye inmiştir?
+- BLLInvoice sınıfındaki WSATEnable niteliğini dönüştürdüğümüz örnek kod çıktısında, nitelik bittikten sonra kod aşağı satıra inmiyor. Bunun sebebi ne olabilir ve tabii ki nasıl çözümlenebilir?
 
 ## Ödevler
 
