@@ -271,8 +271,10 @@ namespace HelloRoslyn
                                                 nameEquals: SyntaxFactory.NameEquals("Target"),
                                                 nameColon: null,
                                                 SyntaxFactory.LiteralExpression(SyntaxKind.StringLiteralExpression, SyntaxFactory.Literal(@"MQ")))
-                                        })))));
+                                        }))))).WithTrailingTrivia(SyntaxFactory.ElasticCarriageReturnLineFeed);
+                                        // ElasticCarriageReturnLineFeed ile alt satır inilmesini sağladık. Aksi durumda class ile attribute aynı satırda oluyordu.
             }
+            
             // Tabii if koşuluna uymayan bir ifade ile karşılaştıysak yolumuza devam ediyoruz
             return base.VisitAttributeList(node);
         }

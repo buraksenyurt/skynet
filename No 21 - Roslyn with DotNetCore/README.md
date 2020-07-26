@@ -15,7 +15,7 @@ dotnet add package Microsoft.CodeAnalysis.CSharp.Scripting
 dotnet watch run
 ```
 
->Kodun çalışması ile ilgili bilgiler yorum satırlarında mevcut ;)
+>Kodun çalışması ile ilgili bilgiler yorum satırlarında mevcut ;) Region içerisindeki kodları blok blok işletirseniz anlamanız daha kolay olur.
 
 Region1 çalışmasına ait örnek ekran görüntüsü (Çalışma zamanında kod işletmek)
 
@@ -35,11 +35,11 @@ Region3 Syntax Tree Mevzusu (Kod ağacını dolaştığımız örnek)
 
 Region4 Code Walker Mevzusu (Kodu dolaşan nesne)
 
->Heimdall'a geçince eklenecek
+![Screenshot_06.png](./assets/Screenshot_06.png)
 
 Region5 Syntax Rewriter Mevzusu (Kod dolaşan ve değişiklik yapıp yeni halini sunan örnek)
 
->Heimdall'a geçince eklenecek
+![Screenshot_07.png](./assets/Screenshot_07.png)
 
 ## İkinci Örnek için Ön Hazırlıklar ve Çalıştırma
 
@@ -66,7 +66,7 @@ dotnet script dirwatcher.csx
 - Console uygulamasının kodunun ikinci region bloğunda yer alan kod çalışma zamanında hangi durumlarda exception vererek sonlanır _(Kısaca Patlar)_
 - CSX örneği ilk çalıştırıldığında cevap vermesi neden çok uzun sürmüştür.
 - CSX örneğindeki Nuget paketi sizce nereye inmiştir?
-- BLLInvoice sınıfındaki WSATEnable niteliğini dönüştürdüğümüz örnek kod çıktısında, nitelik bittikten sonra kod aşağı satıra inmiyor. Bunun sebebi ne olabilir ve tabii ki nasıl çözümlenebilir?
+- BLLInvoice sınıfındaki WSATEnable niteliğini dönüştürdüğümüz örnek kod çıktısında niteliğin başındaki tab'lar kaybolmuş durumda. Yani format bozuk. Buraya tab'ları nasıl koyabiliriz?
 
 ## Ödevler
 
