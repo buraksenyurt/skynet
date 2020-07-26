@@ -75,6 +75,15 @@ go build UnfortunatelyFlows.go
 
 ![Screenshot7.png](./assets/Screenshot7.png)
 
+### Basit Interface tipi Kullanımının Örnek Çıktısı
+
+```bash
+go build UsingInterface.go
+./UsingInterface.go
+```
+
+![Screenshot8.png](./assets/Screenshot8.png)
+
 >To Be Continued
 
 ## Bölümün Bomba Soruları
