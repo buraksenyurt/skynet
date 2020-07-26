@@ -84,6 +84,15 @@ go build UsingInterface.go
 
 ![Screenshot8.png](./assets/Screenshot8.png)
 
+### Kendi error nesnemizin kullanımına ait örnek Çıktı
+
+```bash
+go build errorHandling.go
+./errorHandling.go
+```
+
+![Screenshot8.png](./assets/Screenshot9.png)
+
 >To Be Continued
 
 ## Bölümün Bomba Soruları
