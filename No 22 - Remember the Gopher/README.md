@@ -93,6 +93,15 @@ go build errorHandling.go
 
 ![Screenshot8.png](./assets/Screenshot9.png)
 
+### Concurrency kullanımına ait örnek çıktı
+
+```bash
+go build concurrency.go
+./concurrency.go
+```
+
+![Screenshot10.png](./assets/Screenshot10.png)
+
 >To Be Continued
 
 ## Bölümün Bomba Soruları
