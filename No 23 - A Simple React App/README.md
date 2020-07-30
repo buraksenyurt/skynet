@@ -68,14 +68,53 @@ docker run -d -p 27017-27019:27017-27019 --name gondor mongo
 
 ### İstemci Tarafı(React) Uygulamasının İnşaası
 
->throw NotStarted();
+İstemci bir React uygulaması olacak ancak yine Typescript kullanacağız.
+
+```bash
+#npx aracını kullanarak typescript kullanacak şekilde template'imizi açıyoruz
+npx create-react-app gamer-client --template typescript
+
+cd gamer-client
+
+# Sunucu uygulama ile haberleşmek için axios paketini dahil ediyoruz
+yard add axios
+
+# Player tipinin React tarafındaki eş nesnelerini tutan dosya
+touch src/types.d.ts
+
+# API Nesnesi (Servisle iletişim kuran)
+touch src/proxy.ts
+
+#bileşenler için bir klasör
+mkdir src/components
+
+# Oyuncu eklemek için kullanılacak bileşenin oluşturulması
+touch src/components/player-add-view.tsx
+
+#Bir oyuncu kartını gösteren bileşenin oluşturulması
+touch src/components/player-item-view.tsx
+```
 
 ## Çalışma Zamanı
 
-Önce sunufu tarafını çalıştırmamız gerekiyor. gamer klasöründeyken terminalden _yarn start_ dememiz yeterli. Bu aşamada eğer istemci uygulamayı henüz yazmadıysanız _curl_ veya _postman_ ile sunucuyu kullanarak get, add, delete testlerini yapabilirsiniz.
+Önce sunufu tarafını çalıştırmamız gerekiyor. gamer klasöründeyken terminalden _yarn start_ dememiz yeterli. Benzer şekilde istemci tarafını da farklı bir terminal penceresindeyken yine _yarn start_ ile çalıştırabiliriz.
 
-![Screenshot1.png](./assets/Screenshot1.png)
+![Screenshot_4.png](./assets/Screenshot_4.png)
+
+### Sunucu Tarafı Testleri
+
+Uygulamanın yazımı oldukça uzun sürüyor. Bu nedenle istemci tarafına geçmeden önce sunucuyu test etmek isteyebilirsiniz. Örneği çalıştığım tarih itibariyle Post metodunda karşılaştığım bir sorun oldu. bodyParser paketini kullanmazsam, Http Post ile gelen body nesnesini yakalayamadım. Sunucu tarafını Postman veya curl aracı ile kolayca test edebilirsiniz.
+
+![Screenshot_1.png](./assets/Screenshot_1.png)
+
+![Screenshot_2.png](./assets/Screenshot_2.png)
+
+![Screenshot_3.png](./assets/Screenshot_3.png)
 
 ## Bölümün Bomba Sorusu
 
+- Sunucu uygulamasında cors paketinin kullanmazsak ne gibi sonuçlarla karşılaşırız?
+
 ## Ödevler
+
+- Eksik olan oyuncu güncelleme işlevselliğini hem sunucu hem de istemci tarafında geliştiriniz.
