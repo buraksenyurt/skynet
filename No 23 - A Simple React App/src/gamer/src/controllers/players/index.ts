@@ -20,7 +20,6 @@ const getPlayers = async (req: Request, res: Response): Promise<void> => {
 const addPlayer = async (req: Request, res: Response): Promise<void> => {
     try {
 
-    console.log(req.body)
         // HTTP talebine ait gövdeden gerekli parametre değerleri IPlayer arayüzüne okunur
       const body = req.body as Pick<IPlayer, 'nickname' | 'country' | 'level'>
   
