@@ -23,7 +23,7 @@ const App: React.FC = () => {
     if (status !== 201) {
       throw new Error('Kaydetme işleminde hata oluştu.')
     }
-    setPlayers(data.players)
+    fetchPlayers()
   })
   .catch((err) => console.log(err))
 }
@@ -34,7 +34,7 @@ const App: React.FC = () => {
         if (status !== 200) {
           throw new Error('Beklenmedik bir hata oluştu.')
         }
-        setPlayers(data.players)
+        fetchPlayers()
       })
       .catch((err) => console.log(err))
   }
