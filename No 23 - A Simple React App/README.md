@@ -1,4 +1,4 @@
-# Basit Bir React Uygulaması Geliştirmek(Typescript, NodeJs ve MongoDB ile)
+# Basit Bir React Uygulaması Geliştirmek _(Typescript, NodeJs, Express ve MongoDB ile)_
 
 Başlıktan da anlaşılacağı üzere konumuz Typescript _(Hem sunucu hem istemci tarafında kullanacağız)_ , NodeJs ve MongoDb kullanan bir React uygulaması geliştirmek.
 
