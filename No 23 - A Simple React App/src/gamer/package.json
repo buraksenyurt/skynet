@@ -1,0 +1,26 @@
+{
+  "name": "gamer",
+  "version": "1.0.0",
+  "description": "A simple react application experience",
+  "main": "app.js",
+  "author": "Burak Selim Şenyurt",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.26",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.7",
+    "@types/mongoose": "^5.7.34",
+    "@types/node": "^14.0.27",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
+  }
+}
