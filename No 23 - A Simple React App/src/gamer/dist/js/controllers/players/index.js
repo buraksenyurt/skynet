@@ -28,7 +28,6 @@ exports.getPlayers = getPlayers;
 // Yeni bir oyuncu eklemek için kullanılır
 const addPlayer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log(req.body);
         // HTTP talebine ait gövdeden gerekli parametre değerleri IPlayer arayüzüne okunur
         const body = req.body;
         // Bu değerlerden yararlanarak yeni bir Player nesnesi örneklenir
