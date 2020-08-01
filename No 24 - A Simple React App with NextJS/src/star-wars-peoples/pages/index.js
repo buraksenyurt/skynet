@@ -1,7 +1,33 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+const url=`https://swapi.dev/api/people/`; // Kullanacağımız servis adresini bir sabit değişkene aldık
+
+/*
+  üstte tanımladığımızı adresi kullanarak tüm JSON verisini çeken asenkron fonksiyonumuz.
+  getServerSideProps, nextjs'in veri çeken fonksiyonlarından birisidir.
+  Farklı isimle kullanmaya çalıştığımızda çağırılmadığını görürürüz. 
+*/
+export async function getServerSideProps(){
+  const response=await fetch(url); // HTTP Get talebini gönderdik
+  const peoples=await response.json(); // Çekilen veri JSON formatında olduğu için, dönüştürdük
+  /*
+    component üzerinde verinin kullanılabilmesi için,
+    properties içerisine ekledik. Bunu Home bileşeninde kullanmak için
+    parametre olarak eklediğimize dikkat edelim.
+  */
+  return{
+    props:{
+      peoples
+    }
+  }
+}
+
+export default function Home({peoples}) { //props ile gelen peoples parametre olarak eklendiği için içeride kullanılabilecek
+  
+  // İlk denemede verinin gelip gelmediğini tespit etmek için kullanabiliriz.
+  console.log('starwars-peoples',peoples); //F12 ile console penceresinden bakılabilir
+  
   return (
     <div className={styles.container}>
       <Head>
