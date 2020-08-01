@@ -10,7 +10,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 24 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 25 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 24 	| NextJS ile Web API Tüketen bir React Uygulaması Geliştirmek                                                  	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 23 	| Basit Bir React Uygulaması Geliştirmek _(Typescript, NodeJs, Express ve MongoDB ile)_                        	| Tamamlandı 	|    L   	|       Heimdall      	|     Var     	|  Var  	|
 | 22 	| Go Dilinin Temellerini Hatırlamak                                                                            	| %30        	|    M   	|       Heimdall      	|             	|  Var  	|
 | 21 	| .Net Core Üzerinde Roslyn Pratikleri Yapmak                                                                  	| %50        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
@@ -44,7 +45,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan
 #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream
 #repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer
-#dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer
+#dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon
+#reactHooks
 ```
 ## Kolay Klasör Açma
 
