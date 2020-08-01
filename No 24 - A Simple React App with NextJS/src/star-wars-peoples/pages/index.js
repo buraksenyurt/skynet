@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import {Card,ListGroup} from 'react-bootstrap'; // Bootstrap elemanlarını kullanabilmek için ekledik
 
 const url=`https://swapi.dev/api/people/`; // Kullanacağımız servis adresini bir sabit değişkene aldık
 
@@ -26,13 +27,17 @@ export async function getServerSideProps(){
 export default function Home({peoples}) { //props ile gelen peoples parametre olarak eklendiği için içeride kullanılabilecek
   
   // İlk denemede verinin gelip gelmediğini tespit etmek için kullanabiliriz.
-  console.log('starwars-peoples',peoples); //F12 ile console penceresinden bakılabilir
+  // console.log('starwars-peoples',peoples); //F12 ile console penceresinden bakılabilir
   
+  // İstediğimiz bilgiler JSON verisindeki results altında duruyor. Bunları bir diziye aldık.
+  // Gir kontrolünün içeriğini doldururken bir array'den yararlanıyoruz.
+  const results=[]=peoples.results;
+  //console.log(results);
+
   return (
     <div className={styles.container}>
       <Head>
         <title>Star Wars İnsanları</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
@@ -44,7 +49,23 @@ export default function Home({peoples}) { //props ile gelen peoples parametre ol
           Star Wars evrenindeki tüm karaktelerin temel bilgilerini bu listede bulabilirsiniz;)
         </p>
 
-        
+        <ListGroup>
+          {results.map(r=>{
+            const {name,birth_year,height}=r;
+            return(
+              <Card styles={{width:'18rem'}}>
+                <Card.Body>
+                  <Card.Title>
+                    {name}
+                  </Card.Title>
+                  <Card.Text>
+                    {name}, {birth_year} yılında doğmuştur. Boyu {height} cm'dir.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            )
+          })}
+        </ListGroup>
       </main>
 
       <footer className={styles.footer}>
