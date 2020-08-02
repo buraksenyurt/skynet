@@ -1,4 +1,4 @@
-# GO'da Minik Bir CRUD Servisini Gin-Gonic ile Geliştirmek
+# GO Ortamında Minik Bir CRUD Servisini Gin-Gonic ile Geliştirmek
 
 Gin-Gonic hafif siklet sayılan ama yüksek performansı ile öne çıkan _(muadili sayılan martini'den çok daha hızlı olduğu ifade ediliyor)_ bir web framework. Elbette açık kaynak. Middleware tarafında _(Yani Request ve Response'lar arasında)_ Recover ve Log desteği sunuyor. Tabii kendi middleware bileşenimizi yazıp ekleyebiliriz de. Recovery modülü en başından beri ekli olduğundan paniklemeyen bir framework :) Yani Go çalışma zamanında HTTP request'leri ile ilgili olarak bir panic oluştuğunda uygun bir 500 cevabı verebiliyor. Söylentilere göre bu özelliği sayesinde söz konusu servis her an ayakta ve çalışır durumda kalıyor. Bunlara ilaveten yönlendirmeleri _(routes)_ gruplandırabiliyoruz ki bu da örneğin versiyonlamayı kolaylaştırıyor. Bu kısa notlar yeterli. Sahada deneyimlemek lazım. Amacım mongodb üzerinde basit crud işlemlerini yaparken gin-gonic üstüne kurulmuş golang tabanlı bir servis geliştirmek. _(MongoDB için docker imajı kullanacağım)_
 
@@ -83,6 +83,8 @@ curl http://localhost:5003/api/v1/quote/
 ![Screenshot_2.png](./assets/Screenshot_2.png)
 
 ## Bölümün Bomba Sorusu
+
+- Nil
 
 ## Ödevler
 
