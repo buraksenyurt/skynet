@@ -10,7 +10,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 25 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 26 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 25 	| GO Ortamında Minik Bir CRUD Servisini Gin-Gonic ile Geliştirmek                                              	| %80        	|    M   	|       Heimdall      	|             	|  Var  	|
 | 24 	| NextJS ile Web API Tüketen bir React Uygulaması Geliştirmek                                                  	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 23 	| Basit Bir React Uygulaması Geliştirmek _(Typescript, NodeJs, Express ve MongoDB ile)_                        	| Tamamlandı 	|    L   	|       Heimdall      	|     Var     	|  Var  	|
 | 22 	| Go Dilinin Temellerini Hatırlamak                                                                            	| %30        	|    M   	|       Heimdall      	|             	|  Var  	|
@@ -46,7 +47,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream
 #repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer
 #dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon
-#reactHooks
+#reactHooks #gin-gonic
 ```
 ## Kolay Klasör Açma
 
