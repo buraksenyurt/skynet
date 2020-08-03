@@ -44,6 +44,8 @@ go build
 ./book-worm-api
 ```
 
+>Örneği çalıştırırken mongo docker container'ının da çalışır olduğundan emin olun
+
 İlk testler için aşağıdaki curl komutlarını kullanabiliriz
 
 ```bash
@@ -82,10 +84,34 @@ curl http://localhost:5003/api/v1/quote/
 
 ![Screenshot_2.png](./assets/Screenshot_2.png)
 
+## Swagger Entegrasyonu
+
+Günümüz servislerinin olmazsa olmaz parçası standartlaşmış özellikleri ile Swagger. Bu servis ne yapıyor, hangi operasyonları nasıl test ederim şeklinde soruların karşılığı olan dokümantasyonu örneğe eklemek için aşağıdaki adımları takip edebiliriz. 
+
+```bash
+# Servis metotlarındaki annotation bildirimlerinin Swagger 2.0 destekli olarak dokümante edilmesi için gerekli modül
+go get -u github.com/swaggo/swag/cmd/swag
+
+# main.go içerisindeki annotation bölümleri tamamlandıktan sonra dokümanın üretilmesi için
+swag init _ "book-worm-api/docs"
+
+# Bu işlem sonrası docs klasörünün oluşması gerekiyor. Buradaki swagger.json ve yaml içeriklerini inceleyin derim ;)
+```
+
+Swagger implementasyonu sonrası çalışma zamanına ait birkaç ekran görüntüsü.
+
+![Screenshot_3.png](./assets/Screenshot_3.png)
+
+![Screenshot_4.png](./assets/Screenshot_4.png)
+
+![Screenshot_5.png](./assets/Screenshot_5.png)
+
+![Screenshot_6.png](./assets/Screenshot_6.png)
+
 ## Bölümün Bomba Sorusu
 
-- Nil
+- nil
 
 ## Ödevler
 
-- Lütfen Update ve Delete operasyonlarını da örneğe ekleyin
+- Lütfen Update ve Delete operasyonlarını da örneğe ekleyin. Ayrıca swagger içeriklerini de tamamlayın.
