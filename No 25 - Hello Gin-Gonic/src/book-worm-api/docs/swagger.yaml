@@ -1,0 +1,56 @@
+basePath: /api/v1
+definitions:
+  main.quote:
+    properties:
+      book:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      writer:
+        type: string
+    type: object
+host: localhost:5003
+info:
+  contact:
+    email: selim@buraksenyurt.com
+    name: Burak Selim Şenyurt
+    url: https://www.buraksenyurt.com
+  description: Servis kullanım rehberidir
+  license: {}
+  termsOfService: http://swagger.io/terms/
+  title: BookWorm Swagger API
+  version: "1.0"
+paths:
+  /quote/:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.quote'
+            type: array
+        "500": {}
+      summary: Tüm kitap alıntılarını döndürür
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Alıntı Bilgileri
+        in: body
+        name: quote
+        required: true
+        schema:
+          $ref: '#/definitions/main.quote'
+      produces:
+      - application/json
+      responses:
+        "200": {}
+        "400": {}
+        "500": {}
+      summary: Yeni bir kitap alıntısı ekler
+swagger: "2.0"

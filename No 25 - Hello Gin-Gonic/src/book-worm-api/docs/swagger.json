@@ -1,0 +1,83 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Servis kullanım rehberidir",
+        "title": "BookWorm Swagger API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Burak Selim Şenyurt",
+            "url": "https://www.buraksenyurt.com",
+            "email": "selim@buraksenyurt.com"
+        },
+        "license": {},
+        "version": "1.0"
+    },
+    "host": "localhost:5003",
+    "basePath": "/api/v1",
+    "paths": {
+        "/quote/": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Tüm kitap alıntılarını döndürür",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.quote"
+                            }
+                        }
+                    },
+                    "500": {}
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Yeni bir kitap alıntısı ekler",
+                "parameters": [
+                    {
+                        "description": "Alıntı Bilgileri",
+                        "name": "quote",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/main.quote"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {},
+                    "400": {},
+                    "500": {}
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.quote": {
+            "type": "object",
+            "properties": {
+                "book": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "writer": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
