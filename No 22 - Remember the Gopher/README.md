@@ -27,7 +27,7 @@ Her şey yolundaydı ve kodlamaya geçebilirdim.
 
 Örnekler birden fazla dosyadan oluşuyor. Sırasıyla örneklerin build ve çalışma zamanı görüntüleri aşağıdaki gibidir.
 
-### Go'ya Merhaba Dediğimiz Örnek
+### Go'ya Merhaba Dediğimiz Örnek _(intro klasörü)_
 
 ```bash
 #Build işlemi
@@ -38,7 +38,7 @@ go build IHateHelloWorld.go
 
 ![Screenshot2.png](./assets/Screenshot2.png)
 
-### Birkaç Fonksiyon Kullanımının Ele Alındığı Örnek
+### Birkaç Fonksiyon Kullanımının Ele Alındığı Örnek _(functions)_
 ```bash
 go build AFewMethods.go
 ./AFewMethods
@@ -46,7 +46,7 @@ go build AFewMethods.go
 
 ![Screenshot3n.png](./assets/Screenshot3n.png)
 
-### Temel Veri Türlerinin Ele Alındığı Örnek
+### Temel Veri Türlerinin Ele Alındığı Örnek _(datatypes)_
 
 ```bash
 go build boaringtypes.go
@@ -55,7 +55,7 @@ go build boaringtypes.go
 
 ![Screenshot4.png](./assets/Screenshot4.png)
 
-### Pointer Türünün Ele Alındığı Örnek
+### Pointer Türünün Ele Alındığı Örnek _(pointertype)_
 
 ```bash
 go build OfCoursePointers.go
@@ -64,7 +64,7 @@ go build OfCoursePointers.go
 
 ![Screenshot5.png](./assets/Screenshot5.png)
 
-### Temel Flow Control İfadelerine Ait Örnek Çıktıları
+### Temel Flow Control İfadelerine Ait Örnek Çıktıları _(flowcontrols)_
 
 ```bash
 go build UnfortunatelyFlows.go
@@ -75,7 +75,7 @@ go build UnfortunatelyFlows.go
 
 ![Screenshot7.png](./assets/Screenshot7.png)
 
-### Basit Interface tipi Kullanımının Örnek Çıktısı
+### Basit Interface tipi Kullanımının Örnek Çıktısı _(interfacetype)_
 
 ```bash
 go build UsingInterface.go
@@ -84,7 +84,7 @@ go build UsingInterface.go
 
 ![Screenshot8.png](./assets/Screenshot8.png)
 
-### Kendi error nesnemizin kullanımına ait örnek Çıktı
+### Kendi error nesnemizin kullanımına ait örnek Çıktı _(customerrors)_
 
 ```bash
 go build errorHandling.go
@@ -93,7 +93,7 @@ go build errorHandling.go
 
 ![Screenshot8.png](./assets/Screenshot9.png)
 
-### Concurrency kullanımına ait örnek çıktı
+### Concurrency kullanımına ait örnek çıktı _(concurrentworks)_
 
 ```bash
 go build concurrency.go
@@ -102,7 +102,24 @@ go build concurrency.go
 
 ![Screenshot10.png](./assets/Screenshot10.png)
 
->To Be Continued
+### Kendi modülümüzü kullandığımız örneğe ait çıktı _(custompackages)_
+
+```bash
+# modüller için gerekli başlangıç işlemi (go.mod oluşur)
+go mod init custompackages
+
+touch main.go
+
+# custompackages isimli modül içerisinde kullanacağımız örnek paketin hazırlanması
+mkdir einstein
+touch einstein/einstein.go
+
+# örneği windows ortamında hazırladığım için exe oluştu
+go build
+custompackages.exe
+```
+
+![Screenshot11.png](./assets/Screenshot11.png)
 
 ## Bölümün Bomba Soruları
 
@@ -115,7 +132,8 @@ go build concurrency.go
 
 - Kullanıcının terminalden gireceği komutlara göre şu senaryoyu işleyecek kodu yazın._Kullanıcı "types" yazdığında go'da kullanılan temel tipler ekrana yazdırılsın. "rand" yazdığında ekrana rastgele bir sayı yazsın."today" yazdığından günün tarihini ve hangi günde olduğumuzu yazsın. "alan dikdortgen 4 5" yazdığında dikdortgenin alanını hesaplayıp yazsın ve hatta 5X4 lük + işaretlerinden oluşan dikdörtgeni terminale çizsin. "quit" dediğinde programdan çıksın_
 - AFewMethods.go boringtypes.go örneklerinden kullanılan sumofall fonksiyonunu ortak bir go paketinden kullandırınız.
-- ... operatörünün kullanıldığı 4 yeri _(3 değil)_ örnekleyiniz. 
+- ... operatörünün kullanıldığı 4 yeri _(3 değil)_ örnekleyiniz.
 - Bir struct listesindeki elemanlarda bizim yolladığımız fonksiyonu parametre olarak alıp çalıştıracak bir başka fonksiyon yazınız.
+- En az iki paket içerip onları kullanan örnek bir Go modülü geliştiriniz
 
 >To Be Continued
