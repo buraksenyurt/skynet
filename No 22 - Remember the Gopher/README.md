@@ -121,6 +121,14 @@ custompackages.exe
 
 ![Screenshot11.png](./assets/Screenshot11.png)
 
+### İlkel Web Server koduna ait çıktı _(lighthttpserver)_
+
+```bash
+go run main.go
+```
+
+![Screenshot12.png](./assets/Screenshot12.png)
+
 ## Bölümün Bomba Soruları
 
 - Bir tamsayı değişkeninin bellek adresinden yararlanarak bir sonraki bellek adresindeki içeriği öğrenebilir miyim?
