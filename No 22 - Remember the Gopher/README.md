@@ -129,6 +129,14 @@ go run main.go
 
 ![Screenshot12.png](./assets/Screenshot12.png)
 
+### Multiplexer yapısını kullanan web server örneğine ait çıktı _(multiplexerserver)_
+
+```bash
+go run main.go
+```
+
+![Screenshot13.png](./assets/Screenshot13.png)
+
 ## Bölümün Bomba Soruları
 
 - Bir tamsayı değişkeninin bellek adresinden yararlanarak bir sonraki bellek adresindeki içeriği öğrenebilir miyim?
