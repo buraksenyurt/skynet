@@ -16,6 +16,8 @@ dotnet tool install -g mlnet
 
 ## Çalışma Zamanı
 
+### Console Uygulaması
+
 Classification klasöründeki örnek Wikipedia'nın örnek kullanıcı yorumlarını içeren bir dataset'tir. TSV formatındadır. Lakin ML.Net tsv formatı dışında csv,parquet, generic IEnumerable, file set gibi formatları da destekler. Örnekte kullanılan dataset içerisinde yorumların wikipedia'ca zehirli olup olmadığı bilgisi yer almaktadır. Sentiment kolonundaki değerin 1 veya 0 olması takip eden kolondaki yorumun zararlı olup olmadığını işaret eder. 1 ise zararlı. Console uygulması gelen yorumun zararlı olup olmadığını tahminlemektedir.
 
 ```bash
@@ -32,6 +34,33 @@ Model eğitimi tamamlanınca hangi algoritmaların daha başarılı olduğu da g
 
 ![Screenshot_02.png](./assets/Screenshot_02.png)
 
+### Öğretilen Modelin Web Uygulamasında Kullanılması
+
+İlk örnekte gerçekleştirilen modelin bir web uygulamasında kullanılması.
+
+```bash
+# SampleClassification klasörü içerisinde oluşturabiliriz
+dotnet new webapp -o ClientApp
+cd ClientApp
+
+# ML.Net kullanabilmek için gerekli nuget paketi
+dotnet add package Microsoft.Extensions.ML
+
+# Önceki örnekte yer alan modeli kullanacağımız için o projeyi de referans ediyoruz
+dotnet add reference ../SampleClassification.Model/SampleClassification.Model.csproj
+
+# Bu Razor Web projesini de önceki bölümde üretilen solution'a ekleyebiliriz
+cd ..
+dotnet sln add ClientApp/ClientApp.csproj
+
+# Kodlama tamamlandıktan sonra
+dotnet watch run
+```
+
+![Screenshot_03.png](./assets/Screenshot_03.png)
+
+![Screenshot_04.png](./assets/Screenshot_04.png)
+
 ## Bölüm Soruları
 
 _Hadi yine iyisiniz?_
@@ -39,3 +68,4 @@ _Hadi yine iyisiniz?_
 ## Mini Lab Çalışması _(Süre: Bir sonraki güne ödev)_
 
 - Örnek bir tsv veya csv veriseti bulup üzerinde Classification denemesi yapın ve tahminlemede bulunun.
+- İlk örnekte geliştirdiğimiz modeli bir Web App arayüzünde kullandık. Bu modeli bir Web API üzerinden kullanıma açmaya çalışın.

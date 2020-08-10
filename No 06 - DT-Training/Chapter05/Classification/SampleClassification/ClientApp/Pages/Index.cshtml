@@ -1,0 +1,14 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Basit ML Örneği";
+}
+
+<div class="text-center">
+    <h3>Olumlu/Olumsuz Yorum Tahminleme</h3>
+    <form method="post">
+        <p><textarea name="Comment" cols="60" placeholder="Yorumunuzu yazın (İngilizce :( )">@Model.IncomingComment</textarea></p>
+        <button class="btn btn-primary">Sonucu Öğren</button>
+        <p><h4>@Model.Result</h4></p>
+    </form>
+</div>
