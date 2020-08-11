@@ -61,6 +61,20 @@ dotnet watch run
 
 ![Screenshot_04.png](./assets/Screenshot_04.png)
 
+## Taksi Ücreti Tahminleme Senaryosu
+
+Senaryomuzda New York şehrinde belli mesafelerde yolcu sayılarına göre de gerçekleşen ücretlendirmelerden yola çıkarak fiyat tahminlemesinde bulunmaya çalışıyoruz. Örnekte regresyon analizi söz konusu. Veri seti olarak [şu adresteki](https://raw.githubusercontent.com/dotnet/machinelearning/master/test/data/taxi-fare-train.csv) CSV dosyasını kullanacağız. Bu verisetindeki kolonları incelediğimizde fare__amount aslında tahmin etmek istediğim kolondur _(Label olarak ele alınacak)_ Diğer kolonlar ise tahminlemenin girdileridir. Bu nedenle --label-col olarak fare__amount alanı kullanılmıştır.
+
+```bash
+# mlnet CLI aracından yararlanarak SampleRegression isimli çözümün oluşturulmasnı sağlıyoruz
+mlnet regression --dataset "taxi-fare-train.csv" --label-col "fare_amount" --train-time 60
+
+cd SampleRegression/SampleRegression.Console/
+dotnet run
+```
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
+
 ## Bölüm Soruları
 
 _Hadi yine iyisiniz?_
