@@ -1,0 +1,43 @@
+@model HomeCartViewModel
+@{
+    ViewData["Title"] = "Alışveriş Sepeti";
+}
+<h1>@ViewData["Title"]</h1>
+<table class="table table-bordered">
+    @foreach (CartItem item in Model.Cart.Items)
+    {
+        <tr>
+            <td>@item.ProductID</td>
+            <td>@item.ProductName</td>
+        </tr>
+    }
+</table>
+<h3>Sepetinizdeki ürünleri alan müşteriler ayrıca şu ürünleri de aldı!</h3>
+@if (Model.Recommendations.Count() == 0)
+{
+    <div><p>Üzgünüm :( Şimdilik önerim yok. Belki modelinizi eğitmeniz gerekebilir.</p></div>
+}
+else
+{
+<table class="table table-bordered">
+    <tr>
+        <th></th>
+        <th>İlişkili Ürün</th>
+        <th>Puanı</th>
+    </tr>
+@foreach (EnrichedRecommendation rec in Model.Recommendations)
+{
+    <tr>
+    <td>
+        <a asp-controller="Home" asp-action="Cart" asp-route-id="@rec.RelatedProductID" class="btn btn-primary">Sepete At</a>
+    </td>
+    <td>
+        @rec.ProductName
+    </td>
+    <td>
+        @rec.Score
+    </td>
+    </tr>
+}
+</table>
+}

@@ -1,0 +1,32 @@
+﻿@model HomeIndexViewModel
+@{
+  ViewData["Title"] = "Ürün Listesi";
+}
+<h1 class="display-8">@ViewData["Title"]</h1>
+<p class="lead">
+  <ol>
+    <li>İlk adım, <a asp-controller="Home" asp-action="GenerateDataSets">Veri Setlerini Oluştur</a>.</li>
+    <li>İkinci olarak, <a asp-controller="Home" asp-action="TrainModels">modelleri eğit</a>.</li>
+    <li>Şimdi sepete birkaç ürün ekle.<a asp-controller="Home" asp-action="Cart">Ürün Kartı</a>.</li>
+  </ol>
+</p>
+<hr />
+@foreach (Category category in Model.Categories)
+{
+  <h3>@category.CategoryName <small>@category.Description</small></h3>
+  <table>
+  @foreach (Product product in category.Products)
+  {
+      <tr>
+        <td>
+          <a asp-controller="Home" asp-action="Cart" 
+            asp-route-id="@product.ProductID"
+            class="btn btn-success">Sepete At</a>
+        </td>
+        <td>
+          @product.ProductName <i>($ @product.UnitPrice)</i>
+        </td>
+      </tr>
+  }
+  </table>
+}
