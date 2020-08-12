@@ -58,7 +58,7 @@ dotnet run
 
 ## Bölümün Bomba Sorusu
 
-- Sepete ürün ekledikçe bazen aynı ürün yine öneriler kısmında görünüyor. Bunu engellemek için ne yapılabilir? 
+- Sepete ürün ekledikçe bazen aynı ürün yine öneriler kısmında görünüyor. Bunu engellemek için ne yapılabilir?
 
 ## Ödevler
 
