@@ -8,7 +8,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /*
     MongoRepository türünü genişleten bir interface söz konusu.
-    İçinde seviyeye göre oyuncu listesi döndüren ek bir fonksiyonellik tanımı da var.
+    İçinde etkin olup olmama durumuna göre oyuncu listesi döndüren bir metodumuz da var.
     path ile bu repository için API EndPoint'ini tanımlamış olduk
 */
 
