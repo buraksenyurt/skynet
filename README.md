@@ -10,12 +10,13 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 27 	|                                                                                                              	|            	|        	|                     	|             	|       	|
-| 26 	| Microsoft MLNet Kullanarak Basit Bir Öneri Tahminleme Uygulaması Geliştirmek                                                                                                             | Tamamlandı    |    L      |      Windows 10       |     Var       |  Var  	   |
+| 28 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 27 	| Spring ile MongoDb Kullanan Bir Rest Servisinin Geliştirilmesi                                               	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
+| 26 	| Microsoft MLNet Kullanarak Basit Bir Öneri Tahminleme Uygulaması Geliştirmek                                 	| Tamamlandı 	|    L   	|      Windows 10     	|     Var     	|  Var  	|
 | 25 	| GO Ortamında Minik Bir CRUD Servisini Gin-Gonic ile Geliştirmek                                              	| Tamamlandı 	|    M   	|       Heimdall      	|             	|  Var  	|
 | 24 	| NextJS ile Web API Tüketen bir React Uygulaması Geliştirmek                                                  	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 23 	| Basit Bir React Uygulaması Geliştirmek _(Typescript, NodeJs, Express ve MongoDB ile)_                        	| Tamamlandı 	|    L   	|       Heimdall      	|     Var     	|  Var  	|
-| 22 	| Go Dilinin Temellerini Hatırlamak                                                                            	| %60        	|    M   	|  Heimdall Windows 10	|             	|  Var  	|
+| 22 	| Go Dilinin Temellerini Hatırlamak                                                                            	| %60        	|    M   	|       Heimdall      	|             	|  Var  	|
 | 21 	| .Net Core Üzerinde Roslyn Pratikleri Yapmak                                                                  	| %50        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 20 	| Bir Web API Hizmetinde Request'ler ile CQ Arasında Mediator Kullanmak                                        	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 19 	| Daha Kolay REST Api Yazmak için Angel Paketini Kullanmak                                                     	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
@@ -43,12 +44,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 Örnekleri yaparken kendimce bir hashtag bilgilendirmesi de yapmaya çalışıyorum. Nelerden bashedilmiş sonradan hatırlayayım diye.
 
 ```text
-#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService #dameon #rest #nginx #pm2
-#redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan
-#entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream
-#repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer
-#dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon
-#reactHooks #gin-gonic
+#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService #dameon #rest #nginx #pm2 #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream #repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer #dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon #reactHooks #gin-gonic #java #apacheMaven #spring
 ```
 ## Kolay Klasör Açma
 
