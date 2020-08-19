@@ -13,7 +13,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 */
 
 @RepositoryRestResource(collectionResourceRel = "player", path = "player")
-public interface PlayerRepository extends MongoRepository<Player, Integer> {
+public interface PlayerRepository extends MongoRepository<Player, String> {
     /*
         Geriye Player türünden bir liste döndürecek.
         Parametremiz level isminde ve integer.        
