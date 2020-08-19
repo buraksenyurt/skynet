@@ -16,7 +16,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface PlayerRepository extends MongoRepository<Player, String> {
     /*
         Geriye Player türünden bir liste döndürecek.
-        Parametremiz level isminde ve integer.        
+        Amaç isActive değerine göre etkin olan veya olmayan oyuncu listesini çekmek
+        _isActive.
+        Bu arada metot adının getBy_isActive olması tesadüf değil. Player sınıfındakinda isActive field'ını bu şekilde isimlendirdiğimiz için.
+        Aksi durumda build sırasında hata alırız. Kod derlenmez. Test çıktısı da fail olur.
     */
-    List<Player> findByLevel(@Param("level") Integer level);
+    List<Player> getBy_isActive(@Param("active") Boolean isActive);
 }
