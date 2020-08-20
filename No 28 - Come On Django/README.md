@@ -65,6 +65,8 @@ Kaldığımız yerden devam edelim.
 python manage.py createsuperuser
 ```
 
+>NotCompletedException();
+
 ## Çalışma Zamanı
 
 quoteworld web uygulaması sunucu çalıştırma şeklimiz gereği http://localhost:65001/quoteworld adresi üzerinden hizmet verecektir. 
@@ -73,6 +75,8 @@ quoteworld web uygulaması sunucu çalıştırma şeklimiz gereği http://localh
 # manage.py ile aynı yerdeyken
 python manage.py runserver 65001
 ```
+
+>NotCompletedException();
 
 ## Bomba Sorular
 
@@ -83,4 +87,4 @@ python manage.py runserver 65001
 
 ## Ödevler
 
-- 
+>NotCompletedException();
