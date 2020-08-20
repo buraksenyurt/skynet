@@ -62,3 +62,6 @@ bld/
 *.nuget.props
 *.nuget.targets
 .vscode/settings.json
+
+*__pycache__*
+*.pyc
