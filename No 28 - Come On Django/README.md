@@ -55,7 +55,14 @@ python manage.py shell
 Kaldığımız yerden devam edelim.
 
 ```bash
-
+# Migration işlemi sadece quoteworld model sınıfları için tablolar oluşturmaz.
+# Varsayılan olarak gelen kullanıcı, grup sistemi ve diğer yönetsel işler (session management vs) için de gerekli tabloları üretir.
+# Söz gelimi http://localhost:65001/admin sayfasına gidildiğinde bir login ekranı ile karşılaşırız.
+# Buradan giriş yapacak bir super user QuoteWorld uygulamamızdaki tablolarda CRUD işlemleri de yapabilir. 
+# Aşağıdaki komut ile admin sayfasına giriş yapacak superuser yetkisinde bir kullanıcı oluşturabiliriz.
+# Ben scoth isimli bir kullanıcı oluşturdum. Şifresi de tiger2020. ;)
+# Bu noktada birde bomba sorumuz var. Lütfen o kısma da bakın.
+python manage.py createsuperuser
 ```
 
 ## Çalışma Zamanı
@@ -67,11 +74,12 @@ quoteworld web uygulaması sunucu çalıştırma şeklimiz gereği http://localh
 python manage.py runserver 65001
 ```
 
-![Screenshot_02.png](./assets/Screenshot_02.png)
-
 ## Bomba Sorular
 
 - Varsayılan olarak gelen Sqlite desteğine istinaden db.sqlite3 isimli bir dosya veriliyor. Lakin benim örneğimde bu veritabanının adı BigKahunaClub.sqlite3. Sizce migrate işleminin bu veritabanını kullanacağını nerede belirtmiş olabilirim?
+- Admin sayfasında, superuser tarafından quoteworld uygulamasındaki Category ve Quote verilerinin yönetilebilmesini sağlamak için nereye ne eklenmiştir? _(Yani aşağıdaki görüntüyü elde etmek için)_
+
+![Screenshot_02.png](./assets/Screenshot_02.png)
 
 ## Ödevler
 
