@@ -20,7 +20,7 @@ django-admin startproject worldsite
 # manage.py dosyası özellikle django işleri için kullanacağımız komut satırı programıdır
 # ki örneği bu haliyle belli bir porttan çalıştırmak için onu aşağıdaki gibi kullanmak yeterlidir.
 # Port bilgisi girilmezse 8000 portu kullanılır.
-# Aşağıdaki işlem sonrası komut satırında migration tarafının tamamlanmadığı uyarısı ile birlikte http://localhost:65001 adresinde uzaya doğru hareket eden bir roket figürü görülmelidir ;)
+# Aşağıdaki işlem sonrası komut satırında migration tarafının tamamlanmadığı(model oluşturduktan sonra migrate yaparız) uyarısı ile birlikte http://localhost:65001 adresinde uzaya doğru hareket eden bir roket figürü görülmelidir ;)
 cd worldsite
 python manage.py runserver 65001
 
@@ -34,21 +34,45 @@ touch views.py
 # Ayrıca url map tanımları için birde urls.py dosyası eklenir.
 touch urls.py
 
+# Örnekte kullanılacak veri modelleri için models.py isimli bir modül oluşturuyoruz.
+touch models.py
 
-
-
-
-# Gerekli düzenlemelerden sonra tekrar website sebiyesinde sunucuyu çalıştırıyoruz
+# Model sınıfları da oluşturulduktan sonra migration işlemi yapılabilir
+# Migration işleminin quoteworld uygulaması için de çalışması için settings.py'de bildirim yapılmıştır.
+# Migration tamamlandıktan sonra oluşan 0001_initial.py dosyasına bakmayı ve BigKahunaClub.sqlite3 veri tabanını incelmeyi unutmayın.
 cd ..
-python manage.py runserver 65001
+python manage.py makemigrations quoteworld
+python manage.py migrate
+
+# Migrate işlemi başarılı olduysa terminali kullanarak veri üzerinde işlemler yapabiliriz de
+# shell'i açmak için aşağıdaki komut kullanılır
+# Örnek çalışma için aşağıdaki ekran görüntüsüne bakabiliriz
+python manage.py shell
+```
+
+![Screenshot_01.png](./assets/Screenshot_01.png)
+
+Kaldığımız yerden devam edelim.
+
+```bash
+
 ```
 
 ## Çalışma Zamanı
 
 quoteworld web uygulaması sunucu çalıştırma şeklimiz gereği http://localhost:65001/quoteworld adresi üzerinden hizmet verecektir. 
 
-![Screenshot_01.png](./assets/Screenshot_01.png)
+```bash
+# manage.py ile aynı yerdeyken
+python manage.py runserver 65001
+```
+
+![Screenshot_02.png](./assets/Screenshot_02.png)
 
 ## Bomba Sorular
 
+- Varsayılan olarak gelen Sqlite desteğine istinaden db.sqlite3 isimli bir dosya veriliyor. Lakin benim örneğimde bu veritabanının adı BigKahunaClub.sqlite3. Sizce migrate işleminin bu veritabanını kullanacağını nerede belirtmiş olabilirim?
+
 ## Ödevler
+
+- 
