@@ -8,43 +8,43 @@ Kodlama tarafında pas tutmamak ve iyi vakit geçirmek adına internetten bulup 
 
 Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni ne kadar zorladıklarını az çok anlayabiliyorum. Örneğin XL, o örnekte çok zorlandığım anlamına geliyor. 15nci örnekle birlikte uygulamalar içerisine bombalar _(zararlı değil eksik kodlama veya strateji)_ koymaya karar verdim. Yani örnek çalışıyor ama önemli bir eksiği var. İyice test edilince ortaya çıkan ve repoyu indiren tarafından çözülmesi beklenen._(<b>Uygulamaya Bırakılan Bomba!</b> kısımlarına dikkat)_
 
-| No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
-|----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 28 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| No 	| Konu                                                                                                         	|  İlerleme  	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
+|----	|--------------------------------------------------------------------------------------------------------------	|:----------:	|:------:	|:-------------------:	|:-----------:	|:-----:	|
+| 29 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 28 	| Django ile Bir Web Uygulaması Geliştirmek                                                                    	|     %25    	|   XL   	|       Heimdall      	|     Var     	|       	|
 | 27 	| Spring ile MongoDb Kullanan Bir Rest Servisinin Geliştirilmesi                                               	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 26 	| Microsoft MLNet Kullanarak Basit Bir Öneri Tahminleme Uygulaması Geliştirmek                                 	| Tamamlandı 	|    L   	|      Windows 10     	|     Var     	|  Var  	|
 | 25 	| GO Ortamında Minik Bir CRUD Servisini Gin-Gonic ile Geliştirmek                                              	| Tamamlandı 	|    M   	|       Heimdall      	|             	|  Var  	|
 | 24 	| NextJS ile Web API Tüketen bir React Uygulaması Geliştirmek                                                  	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 23 	| Basit Bir React Uygulaması Geliştirmek _(Typescript, NodeJs, Express ve MongoDB ile)_                        	| Tamamlandı 	|    L   	|       Heimdall      	|     Var     	|  Var  	|
-| 22 	| Go Dilinin Temellerini Hatırlamak                                                                            	| %60        	|    M   	|       Heimdall      	|             	|  Var  	|
-| 21 	| .Net Core Üzerinde Roslyn Pratikleri Yapmak                                                                  	| %50        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
+| 22 	| Go Dilinin Temellerini Hatırlamak                                                                            	|     %60    	|    M   	|       Heimdall      	|             	|  Var  	|
+| 21 	| .Net Core Üzerinde Roslyn Pratikleri Yapmak                                                                  	|     %50    	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 20 	| Bir Web API Hizmetinde Request'ler ile CQ Arasında Mediator Kullanmak                                        	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 19 	| Daha Kolay REST Api Yazmak için Angel Paketini Kullanmak                                                     	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
-| 18 	| DART Programlama Diliyle Az Biraz Uğraşmak                                                                   	| %50        	|    M   	|       Heimdall      	|     Var     	|  Var  	|
+| 18 	| DART Programlama Diliyle Az Biraz Uğraşmak                                                                   	|     %50    	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 17 	| MQTT Protokolünün Kullanıldığı Basit Bir Publisher/Subscriber Senaryosu                                      	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
-| 16 	| Bir Nginx Container'ını Load Balancer Yetkinliğiyle Kullanmak                                                	| %90        	|    L   	|       Heimdall      	|     Var     	|  Var  	|
-| 15 	| Eğlenceli SignalR _(Turşunun iyisi limonla mı yapılır yoksa sirkeyle mi?)_                                   	| %80        	|    M   	|       Heimdall      	|     Var     	|       	|
-| 14 	| Bir Asp.Net Core Web Api Projesinde Generic Repository Deseninin Kullanımı                                   	| %75        	|    L   	|       Heimdall      	|             	|       	|
+| 16 	| Bir Nginx Container'ını Load Balancer Yetkinliğiyle Kullanmak                                                	|     %90    	|    L   	|       Heimdall      	|     Var     	|  Var  	|
+| 15 	| Eğlenceli SignalR _(Turşunun iyisi limonla mı yapılır yoksa sirkeyle mi?)_                                   	|     %80    	|    M   	|       Heimdall      	|     Var     	|       	|
+| 14 	| Bir Asp.Net Core Web Api Projesinde Generic Repository Deseninin Kullanımı                                   	|     %75    	|    L   	|       Heimdall      	|             	|       	|
 | 13 	| Bir .Net Core Web Api Bir Nodejs Bir Python  Servisi Bir Araya Gelip docker-compose'a  Misafirliğe Gitmişler 	| Tamamlandı 	|   XL   	|       Heimdall      	|             	|       	|
-| 12 	| Sequelize Kullanılan Bir NodeJs  Rest Servisi Geliştirmek                                                    	| %80        	|    S   	|       Heimdall      	|             	|       	|
+| 12 	| Sequelize Kullanılan Bir NodeJs  Rest Servisi Geliştirmek                                                    	|     %80    	|    S   	|       Heimdall      	|             	|       	|
 | 11 	| Basit Bir .Net Core Worker Servisi  _(Linux Daemon Olarak)_                                                  	| Tamamlandı 	|    S   	|       Heimdall      	|             	|       	|
 | 10 	| Python Tarafında ProtoBuf Serileştirme                                                                       	| Tamamlandı 	|    S   	|       Heimdall      	|             	|       	|
 | 09 	| Distributed Cache Gerekiyorsa Elbette Redis                                                                  	| Tamamlandı 	|    S   	|       Heimdall      	|             	|       	|
 | 08 	| Yine Yeni Yeniden ELK _(Bu sefer E ve K için docker-compose işin içinde)_                                    	| Tamamlandı 	|    M   	|       Heimdall      	|             	|       	|
-| 07 	| Sıkça Duymaya Başladığım Deno'ya  Minik Bir Merhaba                                                          	| %80        	|    M   	|       Heimdall      	|             	|       	|
-| 06 	| DT-Training _(.Net Core Eğitimi için Hazırlık)_                                                              	| %55        	|   XXL  	| Heimdall Windows 10 	|     Var     	|  Var  	|
-| 05 	| gRPC Tabanlı Basit Bir .Net Core Servisi  Geliştirmek ve Kullanmak                                           	| %70        	|    M   	|      Windows 10     	|             	|       	|
+| 07 	| Sıkça Duymaya Başladığım Deno'ya  Minik Bir Merhaba                                                          	|     %80    	|    M   	|       Heimdall      	|             	|       	|
+| 06 	| DT-Training _(.Net Core Eğitimi için Hazırlık)_                                                              	|     %55    	|   XXL  	| Heimdall Windows 10 	|     Var     	|  Var  	|
+| 05 	| gRPC Tabanlı Basit Bir .Net Core Servisi  Geliştirmek ve Kullanmak                                           	|     %70    	|    M   	|      Windows 10     	|             	|       	|
 | 04 	| IKU Meetup _(MongoDB, Web API, Unit Test)_                                                                   	| Tamamlandı 	|    L   	|      Windows 10     	|             	|       	|
-| 03 	| Razor Öğreniyorum                                                                                            	| %80        	|    M   	|      Windows 10     	|             	|       	|
-| 02 	| MongoDB ile Bir GO Uygulamasını Konuşturmak                                                                  	| %85        	|    L   	|       Ahch-To       	|             	|       	|
-| 01 	| Ruby Tarafından Redis _(Docker bazlı)_  Veritabanı ile Konuşmak                                              	| %95        	|    M   	|       Ahch-To       	|             	|       	|
-
+| 03 	| Razor Öğreniyorum                                                                                            	|     %80    	|    M   	|      Windows 10     	|             	|       	|
+| 02 	| MongoDB ile Bir GO Uygulamasını Konuşturmak                                                                  	|     %85    	|    L   	|       Ahch-To       	|             	|       	|
+| 01 	| Ruby Tarafından Redis _(Docker bazlı)_  Veritabanı ile Konuşmak                                              	|     %95    	|    M   	|       Ahch-To       	|             	|       	|
 ## Hashtag
 
 Örnekleri yaparken kendimce bir hashtag bilgilendirmesi de yapmaya çalışıyorum. Nelerden bashedilmiş sonradan hatırlayayım diye.
 
 ```text
-#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService #dameon #rest #nginx #pm2 #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream #repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer #dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon #reactHooks #gin-gonic #java #apacheMaven #spring
+#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService #dameon #rest #nginx #pm2 #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream #repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer #dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon #reactHooks #gin-gonic #java #apacheMaven #spring #django
 ```
 ## Kolay Klasör Açma
 
