@@ -1,0 +1,36 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-secondary">Yeni bir şey ekle</h2>
+    </div>
+    <div class="card-body">
+        <form action="/quoteworld/addQuote/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <form method="POST">{% csrf_token %}
+                    <table class="table">
+                        <tr>
+                            <td>Kategori</td>
+                            <td>{{ form.category }}</td>
+                        </tr>
+                        <tr>
+                            <td>İçerik</td>
+                            <td>{{ form.content }}</td>
+                        </tr>
+                        <tr>
+                            <td>Yazar</td>
+                            <td>{{ form.author }}</td>
+                        </tr>
+                        <tr>
+                            <td>Popülerlik Puanı</td>
+                            <td>{{ form.popularity_point }}</td>
+                        </tr>
+                    </table>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </form>
+    </div>
+</div>

@@ -8,7 +8,11 @@ urlpatterns = [
     # / yani root adrese gelen talepler index isimli view fonksiyonuna yönlenecek
     path('', views.index, name='index'),
     # quoteworld/category/5 benzeri bir talep gelirse, views modülünde quotesByCategory fonksiyonu tarafından ele alınacak
-    path('/category/<int:category_id>/', views.quotesByCategory, name='quotelist')
+    path('/category/<int:category_id>/',
+         views.quotesByCategory, name='quotelist'),
+    # Yeni bir quote eklemek için kullanılan yol
+    # Views içerisinde addQuote action'ının çağırır
+    path('/addQuote/', views.addQuote, name='addQuote')
 ]
 
 

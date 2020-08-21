@@ -3,9 +3,9 @@
 
 <div class="card">
     <div class="card-header">
-        <h2 class="text-primary">{{ categoryName }}</h2>
+        <h2 class="text-primary">{{ category.title }}</h2>
     </div>
-    <div class="body">
+    <div class="card-body">
         {% for q in quotes %}
                 <blockquote class="blockquote mb-0">
                     <p>{{ q.content }} ({{ q.popularity_point}})</p>
