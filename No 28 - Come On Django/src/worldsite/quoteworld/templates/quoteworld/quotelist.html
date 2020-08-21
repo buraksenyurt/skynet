@@ -1,0 +1,10 @@
+<h2>{{ categoryName }}</h2>
+
+<div>
+    {% for q in quotes %}
+        <p>            
+            <i>{{ q.content }} ({{ q.popularity_point}})</i>
+            <h4>{{ q.author }}</h4>
+        </p>
+    {% endfor %}
+</div>

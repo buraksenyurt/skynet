@@ -5,8 +5,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index') # / yani root adrese gelen talepler index isimli view fonksiyonuna yönlenecek
+    # / yani root adrese gelen talepler index isimli view fonksiyonuna yönlenecek
+    path('', views.index, name='index'),
+    # quoteworld/category/5 benzeri bir talep gelirse, views modülünde quotesByCategory fonksiyonu tarafından ele alınacak
+    path('/category/<int:category_id>/', views.quotesByCategory, name='quotelist')
 ]
 
 
-# Bu atama yeterli değil. Ayrıca worldsite içerisindeki urls.py içerisine de web uygulamasına ait yönlendirme için bu modülün kullanılacağını bildirmemiz lazım
+# Buradaki url map atamaları yeterli değil. Ayrıca worldsite içerisindeki urls.py dosyasında da web uygulamasına ait yönlendirme için bu modülün kullanılacağını bildirmemiz lazım
