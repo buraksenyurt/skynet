@@ -5,7 +5,7 @@
 {% if category_list %}
     <ul>
         {% for c in category_list %}
-            <li><a href="/quoteworld/{{c.id }}/">{{ c.title }}</a></li>
+            <li><a href="/quoteworld/category/{{ c.id }}/">{{ c.title }}</a></li>
         {% endfor %}
     </ul>
 {% else %}
