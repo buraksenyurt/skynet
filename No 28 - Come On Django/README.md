@@ -1,6 +1,6 @@
 # Django ile Bir Web Uygulaması Geliştirmek
 
-Bir zamanlar IoT cihazlarda uygulama geliştirmek için Python programlama dilini öğrenmeye çalışmıştım. O vakitler Flask ile basit REST Servisleri deneyimleme fırsatım da olmuştu ama Django ile etraflıca uğraşmamış bir web sitesi/uygulaması geliştirmeyi denememiştim. İşte rövanş zamanı. Amacım Django'nun resmi dokümanlarını takip ederek basit bir web uygulaması geliştirme deneyimini yaşamak. Örneği favori dostum Heimdall _(Ubuntu 20.04)_ ile birlikte geliştireceğim.
+Bir zamanlar IoT cihazlarda uygulama geliştirmek için Python programlama dilini öğrenmeye çalışmıştım. O vakitler Flask ile basit REST Servisleri deneyimleme fırsatım da olmuştu ama Django ile etraflıca uğraşmamış bir web sitesi/uygulaması geliştirmeyi denememiştim. İşte rövanş zamanı. Amacım Django'nun resmi dokümanlarını takip ederek basit bir web uygulaması geliştirme deneyimini yaşamak. Örneği favori dostum Heimdall _(Ubuntu 20.04)_ ile birlikte geliştireceğim. Örnek uygulamada kateogilere göre ayrılmış kitap alıntılarını/özlü sözleri bir parça yönetmek istiyorum. En azından belli kategorilere bir alıntı ekleyebileyim, kategorileri ve içerisindeki özlü sözleri listeleyebileyim, yeterli. 
 
 ## Yapılanlar
 
@@ -101,10 +101,16 @@ quoteworld web uygulaması sunucu çalıştırma şeklimiz gereği http://localh
 
 ```bash
 # manage.py ile aynı yerdeyken
-python manage.py runserver 65001
+python manage.py runserver 65002
 ```
 
->NotCompletedException();
+ve işte çalışma zamanında birkaç ekran görüntüsü.
+
+![Screenshot_03.png](./assets/Screenshot_03.png)
+
+![Screenshot_04.png](./assets/Screenshot_04.png)
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
 
 ## Bomba Sorular
 
@@ -117,5 +123,5 @@ python manage.py runserver 65001
 
 ## Ödevler
 
-- Alıntılarda önemli bir eksik var. Yazar bilgisini giriyoruz ama hangi kitaptan olduğu veya anonim olup olmadığını bilmiyoruz. Quote modeline book isimli bir alan ekleyin. Bunun sonucunda migration işlemi de yapmanız gerekecek. Ayrıca bu bilgiyi uygulamada ilgili sayfalara yerleştirmelisiniz de.
+- Alıntılarda önemli bir eksik var. Yazar bilgisini giriyoruz ama hangi kitaptan olduğu veya anonim olup olmadığını bilmiyoruz. Quote modeline book isimli bir alan ekleyin. Bunun sonucunda migration işlemi de yapmanız gerekecek. Ayrıca bu bilgiyi uygulamada ilgili sayfalara yerleştirmelisiniz.
 - Alıntıları silme ve güncelleme için gerekli ilaveleri yapınız.
