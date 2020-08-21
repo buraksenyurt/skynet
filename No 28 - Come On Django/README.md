@@ -63,9 +63,37 @@ Kaldığımız yerden devam edelim.
 # Ben scoth isimli bir kullanıcı oluşturdum. Şifresi de tiger2020. ;)
 # Bu noktada birde bomba sorumuz var. Lütfen o kısma da bakın.
 python manage.py createsuperuser
+
+# Şimdi kategori listesini göstereceğimiz ana sayfayı tasarlayalım
+# Bunun için bir template yolu oluşturacağız ve içerisine index.html ekleyeceğiz
+# views.py içerisindeki index action'ı bu html içeriği ile birlikte çalışacak
+cd quoteworld
+mkdir templates
+# Varsayılan olarak çalışma zamanı templates altına bakar
+# Aynı sitede farklı uygulamaların aynı isimli template'lerinin karışmaması için
+# quoteworld şeklinde yeni bir alt klasör daha söz konusudur
+mkdir templates/quoteworld
+touch templates/quoteworld/index.html
+
+# Kategoriye tıklandığında bu kategorideki alıntıların gösterimi içinde aşağıdaki sayfayı kullanacağız
+touch templates/quoteworld/qutoelist.html
+
+# Yeni bir alıntının eklenmesinde kullanacağımız Form tipi için forms.py dosyasını kullanacağız
+touch forms.py
+
+# Yeni altının ekleneceği html sayfamız ise bu
+touch templates/quoteworld/addQuote.html
 ```
 
->NotCompletedException();
+## Bootstrap Desteği
+
+Elbette üretilen standart HTML sayfaları son kullanıcı için oldukça yetersiz. Bu nedenle bootstrap kullanmayı düşündüm. Kurulum gayet basit.
+
+```bash
+pip install django-bootstrap4
+```
+
+Tabii bootstrap'i uygulamada kullanabilmek için INSTALLED_APPS kısmında bildirimini yapmak lazım. Bulun bakalım nerede?
 
 ## Çalışma Zamanı
 
@@ -82,9 +110,12 @@ python manage.py runserver 65001
 
 - Varsayılan olarak gelen Sqlite desteğine istinaden db.sqlite3 isimli bir dosya veriliyor. Lakin benim örneğimde bu veritabanının adı BigKahunaClub.sqlite3. Sizce migrate işleminin bu veritabanını kullanacağını nerede belirtmiş olabilirim?
 - Admin sayfasında, superuser tarafından quoteworld uygulamasındaki Category ve Quote verilerinin yönetilebilmesini sağlamak için nereye ne eklenmiştir? _(Yani aşağıdaki görüntüyü elde etmek için)_
+- csrf_token hangi amaçla kullanılmaktadır
+- Yeni bir alıntı eklediğimiz sayfadaki Formumuz, model ile otomatik ilişkilendirilmiştir. Peki örneğin content alanını multiline text haline nasıl getirebiliriz? Yani QuotePostForm'a bağlanan model alanları üzerinde özelleştirme işlemlerini nasıl yapabiliriz?
 
 ![Screenshot_02.png](./assets/Screenshot_02.png)
 
 ## Ödevler
 
->NotCompletedException();
+- Alıntılarda önemli bir eksik var. Yazar bilgisini giriyoruz ama hangi kitaptan olduğu veya anonim olup olmadığını bilmiyoruz. Quote modeline book isimli bir alan ekleyin. Bunun sonucunda migration işlemi de yapmanız gerekecek. Ayrıca bu bilgiyi uygulamada ilgili sayfalara yerleştirmelisiniz de.
+- Alıntıları silme ve güncelleme için gerekli ilaveleri yapınız.
