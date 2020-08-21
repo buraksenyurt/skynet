@@ -1,0 +1,13 @@
+<h1>Kategori Listesi</h1>
+
+<p>Bu listeden ilgili kategoride yer alan kitap alıntılarına gidebilirsiniz.</p>
+
+{% if category_list %}
+    <ul>
+        {% for c in category_list %}
+            <li><a href="/quoteworld/{{c.id }}/">{{ c.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Sanırım hiçbir kategori eklenmiş değil.</p>
+{% endif %}
