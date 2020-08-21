@@ -1,10 +1,16 @@
-<h2>{{ categoryName }}</h2>
+{% load bootstrap4 %}
+{% bootstrap_css %}
 
-<div>
-    {% for q in quotes %}
-        <p>            
-            <i>{{ q.content }} ({{ q.popularity_point}})</i>
-            <h4>{{ q.author }}</h4>
-        </p>
-    {% endfor %}
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-primary">{{ categoryName }}</h2>
+    </div>
+    <div class="body">
+        {% for q in quotes %}
+                <blockquote class="blockquote mb-0">
+                    <p>{{ q.content }} ({{ q.popularity_point}})</p>
+                    <footer class="blockquote-footer">{{ q.author }}</footer>
+                </blockquote>
+        {% endfor %}
+    </div> 
 </div>

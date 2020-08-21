@@ -1,13 +1,20 @@
-<h1>Kategori Listesi</h1>
+{% load bootstrap4 %}
+{% bootstrap_css %}
 
-<p>Bu listeden ilgili kategoride yer alan kitap alıntılarına gidebilirsiniz.</p>
-
-{% if category_list %}
-    <ul>
-        {% for c in category_list %}
-            <li><a href="/quoteworld/category/{{ c.id }}/">{{ c.title }}</a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Sanırım hiçbir kategori eklenmiş değil.</p>
-{% endif %}
+<div class="card">
+    <div class="card-header">
+        <h1>Kategori Listesi</h1>
+        <p>Bu listeden ilgili kategoride yer alan kitap alıntılarına gidebilirsiniz.</p>
+    </div>
+    {% if category_list %}
+        <div class="card-body" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                {% for c in category_list %}
+                    <li class="list-group-item"><a href="/quoteworld/category/{{ c.id }}/">{{ c.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>Sanırım hiçbir kategori eklenmiş değil.</p>
+    {% endif %}
+</div>

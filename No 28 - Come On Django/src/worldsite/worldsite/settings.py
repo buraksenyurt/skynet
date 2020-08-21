@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4', # Bootstrap ile HTML tarafında daha güzel bir görünüm sağlamak için ekledik
 ]
 
 MIDDLEWARE = [
