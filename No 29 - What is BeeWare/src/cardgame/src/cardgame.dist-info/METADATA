@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Briefcase-Version: 0.3.3
+Name: cardgame
+Formal-Name: Card Game
+App-ID: com.heimdall.cardgame
+Version: 0.0.1
+Home-page: https://heimdall.com/cardgame
+Author: Burak Selim Senyurt
+Author-email: burak@heimdall.com
+Summary: A simple desktop application on Ubuntu
