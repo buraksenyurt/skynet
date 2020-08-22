@@ -22,18 +22,58 @@ briefcase new
 # Sorulan sorulara verdiğim cevaplar doğrultusunda cardgame isimli bir proje oluştu. 
 # Carg Game isimli projenin GUI framework olarak Toga'yı seçtim. 
 # Buna göre projenin Linux, macOS, Windows dağıtımlarındaki gereksinimleri ile birlikte
-# diğer sorduğu sorulara() verdiğim cevaplar pyproject.toml içerisine yazıldı.
+# diğer sorduğu sorulara() verdiğim cevaplar pyproject.toml (toml = Tom's Obvious Minimal Language) içerisine yazıldı.
 # Bu dosyayı incelemekte yarar var.
 ```
 
+_Kurulum aşamasından örnek ekran görüntüsü_
+
+![Screenshot_01.png](./assets/Screenshot_01.png)
+
 ## Çalışma Zamanı
 
+linux, macOS, Windows... Hepsinde aşağıdaki terminal komutları ile uygulamayı çalıştırabiliriz.
+
 ```bash
-# linux, macOS, Windows... Hepsinde aşağıdaki şekilde.
 cd cardgame
 briefcase dev
 ```
 
+_İlk çalışma sırasında üzerinde olduğumuz platforma göre gerekli bağımlılıklar indirilir. Toga paketleri gibi._
+
+![Screenshot_02.png](./assets/Screenshot_02.png)
+
+_Örnek bir çalışma zamanı görüntüsü_
+
+![Screenshot_03.png](./assets/Screenshot_03.png)
+
+## Dağıtım _(Deployment)_
+
+Uygulama şu ana kadar development modda çalıştı. Ancak bunu paket haline getirip ilgili platformlara dağıtmak için bir dizi işlemden geçirmek gerekiyor. Normalde Linux için bir dağıtım paketi oluşturmayı düşünüyordum ancak bu uygulamayı Android'e paketleyebilir miyim diye de merak ettim. İşte uygulamanın android sürümüne dönüştürülmesi için yapılanlar.
+
+```bash
+# Uygulama klasöründeyken create ile android app oluşturulur (dakikalarca sürebiliyor)
+briefcase create android
+# ve build komutu ile de apk dosyası üretilir. Card Game/app/build/outputs/apk/debug/app-debug.apk altında oluşur. (Gerekli SDK, NDK paketlerini indirdiği için ilk seferinde dakikalarca sürebiliyor)
+briefcase build android
+
+# Kontrol amaçlı olarak build edilen sürümü aşağıdaki gibi çalıştırılabilir
+# Burada sanal bir emülator'den yararlanılabileceği gibi gerçek bir Android cihazda kullanılabilir
+# Ben Create a new Android Emulator seçeneğini kullandım.
+briefcase run android
+```
+
+_Geliştirdiğimiz uygulamanın Android için çalışan sürümünden bir görüntü_
+
+![Screenshot_03.png](./assets/Screenshot_03.png)
+
+> Bu örnek için andorid klasörü tüm bağımlılıkları ile birlikte 500 megabyte'tan fazla yer tuttu. APK dosyası ise 50 Mb'den biraz fazlaydı. Bana epeyce büyük geldi.
+
 ## Bomba Soru
 
+> throw new ICantFindAnyQuestionException();
+
 ## Ödevler
+
+- Uygulamadan girilen verileri SQLite veritabanına aktarmayı deneyin. Doğrudan bağlantı ile veya bir REST servis aracılığıyla olabilir.
+- macOS üzerinden çalışıyorsanız iOS sürümünü üretmeyi deneyebilirsiniz.
