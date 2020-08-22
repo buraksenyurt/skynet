@@ -65,7 +65,7 @@ briefcase run android
 
 _Geliştirdiğimiz uygulamanın Android için çalışan sürümünden bir görüntü_
 
-![Screenshot_03.png](./assets/Screenshot_03.png)
+![Screenshot_04.png](./assets/Screenshot_04.png)
 
 > Bu örnek için andorid klasörü tüm bağımlılıkları ile birlikte 500 megabyte'tan fazla yer tuttu. APK dosyası ise 50 Mb'den biraz fazlaydı. Bana epeyce büyük geldi.
 
