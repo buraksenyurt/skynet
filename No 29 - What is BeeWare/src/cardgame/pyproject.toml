@@ -1,0 +1,49 @@
+[tool.briefcase]
+project_name = "Card Game"
+bundle = "com.heimdall"
+version = "0.0.1"
+url = "https://heimdall.com/cardgame"
+license = "BSD license"
+author = 'Burak Selim Senyurt'
+author_email = "burak@heimdall.com"
+
+[tool.briefcase.app.cardgame]
+formal_name = "Card Game"
+description = "A simple desktop application on Ubuntu"
+icon = "src/cardgame/resources/cardgame"
+sources = ['src/cardgame']
+requires = []
+
+
+[tool.briefcase.app.cardgame.macOS]
+requires = [
+    'toga-cocoa>=0.3.0.dev20',
+]
+
+[tool.briefcase.app.cardgame.linux]
+requires = [
+    'toga-gtk>=0.3.0.dev20',
+]
+system_requires = [
+    'libgirepository1.0-dev',
+    'libcairo2-dev',
+    'libpango1.0-dev',
+    'libwebkitgtk-3.0-0',
+    'gir1.2-webkit-3.0',
+]
+
+[tool.briefcase.app.cardgame.windows]
+requires = [
+    'toga-winforms>=0.3.0.dev20',
+]
+
+# Mobile deployments
+[tool.briefcase.app.cardgame.iOS]
+requires = [
+    'toga-iOS>=0.3.0.dev20',
+]
+
+[tool.briefcase.app.cardgame.android]
+requires = [
+    'toga-android>=0.3.0.dev20',
+]
