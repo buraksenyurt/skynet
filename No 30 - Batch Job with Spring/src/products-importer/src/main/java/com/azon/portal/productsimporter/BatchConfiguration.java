@@ -1,5 +1,7 @@
 package com.azon.portal.productsimporter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -30,6 +32,8 @@ import org.springframework.core.io.Resource;
 @EnableBatchProcessing
 public class BatchConfiguration {
 
+    // private static final Logger logger = LoggerFactory.getLogger(ProductItemConvertor.class); // Gerekiyorsa bir Loglama işlemi konabilir
+    
     @Autowired
     public JobBuilderFactory jobBuilderFactory;
 
