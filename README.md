@@ -10,7 +10,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 30 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 31 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 30 	| Birden Fazla CSV İçeriğini Tek Bir JSON Dosyasına Alan İşi Spring ile Geliştirmek                            	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 29 	| BeeWare ile Linux Platformunda Desktop Uygulaması Geliştirmek ve Android Sürümünü Oluşturmak                 	| Tamamlandı 	|    S   	|       Heimdall      	|             	|  Var  	|
 | 28 	| Django ile Bir Web Uygulaması Geliştirmek                                                                    	| %80        	|   XL   	|       Heimdall      	|     Var     	|  Var  	|
 | 27 	| Spring ile MongoDb Kullanan Bir Rest Servisinin Geliştirilmesi                                               	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
