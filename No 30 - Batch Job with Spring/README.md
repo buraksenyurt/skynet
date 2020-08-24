@@ -1,4 +1,4 @@
-# CSV İçeriğini Veritabanına Alan Bir İşi Spring ile Geliştirmek
+# Birden Fazla CSV İçeriğini Tek Bir JSON Dosyasına Alan İşi Spring ile Geliştirmek
 
 Text tabanlı dosyalardan farklı ortamlara veri transferleri halen daha popüler. Bir zamanlar bunun için SQL Server Integration Services(SSIS) paketleri ile epey haşırneşir olmuştum. En sık uyguladığımız yöntemlerin başında belli sistemlerin ürettiği CSV içeriklerinin çeşitli kurallardan geçerek veritabanına aktarılmasıydı. Benim merak ettiğim bu tip bir yığın veri işini Spring ile nasıl kolaylaştırdıkları. Sanırım 27 numaralı örneğin etkisinde kaldım :) Spring'ten faydalanıp Java ile bir şeyler yapmak hoşuma gitti. Bu çalışmadaki amacım ise en az iki adet CSV içeriğini alıp arka arkaya birleştirmek ve çıktısını tek bir JSON dosyasında sunmak. Temel prensipleri ve iş akışının temellerini anlamak niyetindeyim. Hatta işi planlı hale getirmek ve örneğin söz konusu akışın 5 dakikada bir çalıştırılmasını da sağlamak istiyorum.
 
