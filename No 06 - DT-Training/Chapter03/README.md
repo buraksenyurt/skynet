@@ -142,7 +142,7 @@ dotnet add package Microsoft.Extensions.Diagnostics.HealthChecks.EntityFramework
 
 >WebAPI Uygulamasında testler için humao.rest-client isimli bir Extension kullanılmıştır. Test klasöründeki http uzantılı dosyalara dikkat edin. WebAPI projesi çalışır haldeyken bu dosyalar içerisindeki Send Request linklerine basıp çağrı sonuçlarını VS Code üzerinden de görebiliriz.Diğer yandan, servisin Swagger API dokümantasyon adresine ulaşmak ve canlı testler yapmak için <https://localhost:5551/swagger> linkini kullanmamız yeterli.
 
-![Screenshot_1.png](./assets/Screenshot_1.png)
+![screenshot_1.png](./assets/screenshot_1.png)
 
 ### Çalışma Zamanı _(Tüm Örnekler İçin Kendi Klasörlerinde)_
 
