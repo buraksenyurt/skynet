@@ -65,3 +65,4 @@ bld/
 
 *__pycache__*
 *.pyc
+*.log
