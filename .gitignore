@@ -66,5 +66,3 @@ bld/
 *__pycache__*
 *.pyc
 *.log
-
-*.java linguist-detectable=true
