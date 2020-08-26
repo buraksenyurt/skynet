@@ -1,6 +1,6 @@
-# Spring ile MongoDb Kullanan Bir Rest Servisinin Geliştirilmesi
+# Spring Boot ile MongoDb Kullanan Bir Rest Servisinin Geliştirilmesi
 
-Spring, Java ile programlamayı _(Hatta Kotlin ve Groovy ile de kullanılabiliyor)_ oldukça kolaylaştıran bir çatı _(Framework)_. Dahili DI mekanizması ve zengin paket desteği sayesinde otonom araçlardan akıllı televizyonlara, elektronik ticaretten bulut uygulamalara kadar birçok alanda Java'yı oldukça etkin kullanabilmemize olanak sağlıyor. Benim bu örnekteki amacım resmi dokümanından yararlanıp, MongoDb kullanan basit bir REST servisini geliştirmek. Spring hayatı o kadar kolaylaştırmış ki, onunla geliştirilen bir API servisi pek çok standardı otomatik olarak sağlıyor.
+Spring Boot, Java ile uygulama geliştirmeyi _(Hatta Kotlin ve Groovy ile de kullanılabiliyor)_ oldukça kolaylaştıran Spring üzerine kurulmuş bir çatı _(Framework)_. Dahili DI mekanizması ve zengin paket desteği sayesinde otonom araçlardan akıllı televizyonlara, elektronik ticaretten bulut uygulamalara kadar birçok alanda Java'yı oldukça etkin kullanabilmemize olanak sağlıyor. Benim bu örnekteki amacım resmi dokümanından yararlanıp, MongoDb kullanan basit bir REST servisini geliştirmek. Spring hayatı o kadar kolaylaştırmış ki, onunla geliştirilen bir API servisi pek çok standardı otomatik olarak sağlıyor.
 
 ## Ön Gereksinimler
 
