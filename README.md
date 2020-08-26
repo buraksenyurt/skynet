@@ -14,7 +14,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 | 30 	| Birden Fazla CSV İçeriğini Tek Bir JSON Dosyasına Alan İşi Spring ile Geliştirmek                            	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 29 	| BeeWare ile Linux Platformunda Desktop Uygulaması Geliştirmek ve Android Sürümünü Oluşturmak                 	| Tamamlandı 	|    S   	|       Heimdall      	|             	|  Var  	|
 | 28 	| Django ile Bir Web Uygulaması Geliştirmek                                                                    	| %80        	|   XL   	|       Heimdall      	|     Var     	|  Var  	|
-| 27 	| Spring ile MongoDb Kullanan Bir Rest Servisinin Geliştirilmesi                                               	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
+| 27 	| Spring Boot ile MongoDb Kullanan Bir Rest Servisinin Geliştirilmesi                                           | Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 26 	| Microsoft MLNet Kullanarak Basit Bir Öneri Tahminleme Uygulaması Geliştirmek                                 	| Tamamlandı 	|    L   	|      Windows 10     	|     Var     	|  Var  	|
 | 25 	| GO Ortamında Minik Bir CRUD Servisini Gin-Gonic ile Geliştirmek                                              	| Tamamlandı 	|    M   	|       Heimdall      	|             	|  Var  	|
 | 24 	| NextJS ile Web API Tüketen bir React Uygulaması Geliştirmek                                                  	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
