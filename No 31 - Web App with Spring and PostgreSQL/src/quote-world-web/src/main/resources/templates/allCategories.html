@@ -4,22 +4,23 @@
     </head>
 
     <body>
-        <h2>Kategoriler</h2>
-
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Başlık</th>
-                <th>Alıntı Sayısı</th>
-            </tr>
-            <tr th:each="c : ${categoryList}">
-                <td th:text="${c.id}">Id</td>
-                <td th:text="${c.title}">Başlık</td>
-                <td th:text="${c.quotecount}">Alıntı Sayısı</td>
-            </tr>
-        </table>
-        <p>
-            <a href="/">Ana sayfa</a>
-        </p>
+        <div>
+            <h2>Kategoriler</h2>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Başlık</th>
+                    <th>Alıntı Sayısı</th>
+                </tr>
+                <tr th:each="c : ${categoryList}">
+                    <td th:text="${c.id}">Id</td>
+                    <td th:text="${c.title}">Başlık</td>
+                    <td th:text="${c.quotecount}">Alıntı Sayısı</td>
+                </tr>
+            </table>
+            <p>
+                <a href="/">Ana sayfa</a>
+            </p>
+     </div>
     </body>
 </html>
