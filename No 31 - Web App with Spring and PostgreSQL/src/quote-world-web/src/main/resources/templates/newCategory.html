@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Yeni Kategori</title>
+    </head>
+    <body>
+        <div>
+            <h2>Yeni Kategori</h2>
+            <form th:action="@{addCategory}" th:object="${category}" method="POST">
+                <table>
+                    <tr>
+                        <td>Başlık</td>
+                        <td><input type="text" th:field="*{title}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Alıntı Sayısı</td>
+                        <td><input type="text" th:field="*{quotecount}" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Kaydet"/></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
