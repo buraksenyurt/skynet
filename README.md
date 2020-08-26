@@ -10,11 +10,12 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 31 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 32 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 31 	| Spring Boot ile PostgreSQL Kullanan Basit Bir Web Uygulaması Geliştirmek                                     	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 30 	| Birden Fazla CSV İçeriğini Tek Bir JSON Dosyasına Alan İşi Spring ile Geliştirmek                            	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 29 	| BeeWare ile Linux Platformunda Desktop Uygulaması Geliştirmek ve Android Sürümünü Oluşturmak                 	| Tamamlandı 	|    S   	|       Heimdall      	|             	|  Var  	|
 | 28 	| Django ile Bir Web Uygulaması Geliştirmek                                                                    	| %80        	|   XL   	|       Heimdall      	|     Var     	|  Var  	|
-| 27 	| Spring Boot ile MongoDb Kullanan Bir Rest Servisinin Geliştirilmesi                                           | Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
+| 27 	| Spring Boot ile MongoDb Kullanan Bir Rest Servisinin Geliştirilmesi                                          	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 26 	| Microsoft MLNet Kullanarak Basit Bir Öneri Tahminleme Uygulaması Geliştirmek                                 	| Tamamlandı 	|    L   	|      Windows 10     	|     Var     	|  Var  	|
 | 25 	| GO Ortamında Minik Bir CRUD Servisini Gin-Gonic ile Geliştirmek                                              	| Tamamlandı 	|    M   	|       Heimdall      	|             	|  Var  	|
 | 24 	| NextJS ile Web API Tüketen bir React Uygulaması Geliştirmek                                                  	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
@@ -47,7 +48,12 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 Örnekleri yaparken kendimce bir hashtag bilgilendirmesi de yapmaya çalışıyorum. Nelerden bashedilmiş sonradan hatırlayayım diye.
 
 ```
-#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService #dameon #rest #nginx #pm2 #redis #distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan #entityFramework #elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream #repositoryPattern #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer #dart #future #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon #reactHooks #gin-gonic #java #apacheMaven #spring #django #beeWare #android #crossPlatform
+#cSharp #dotNetCore #docker #dockerCompose #nodejs #deno #gRPC #workerService #dameon #rest #nginx #pm2 #redis 
+#distributedCache #razor #ruby #go #express #python #flask #postrgres #sqlite #migration #morgan #entityFramework 
+#elasticSearch #kibana #logstash #sequilize #protobuf #unitTest #xUnit #mongoDb #upstream #repositoryPattern 
+#genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer #dart #future 
+#asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon 
+#reactHooks #gin-gonic #java #apacheMaven #spring #django #beeWare #android #crossPlatform #Thymeleaf
 ```
 ## Kolay Klasör Açma
 
