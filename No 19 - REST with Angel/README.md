@@ -45,7 +45,7 @@ Burağın bir süperkahraman olmadığının ispatı olan GET talebi :D
 
 ## Uygulamanın Bomba Soruları
 
-- Hero sınıfı içerisinde yer alan 
+- 
 
 ## Ödevler
 
