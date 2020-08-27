@@ -1,0 +1,3 @@
+*.java linguist-detectable=true
+*.html linguist-detectable=false
+*.xml linguist-detectable=false
