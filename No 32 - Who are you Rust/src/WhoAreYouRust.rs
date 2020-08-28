@@ -1,5 +1,5 @@
-fn // fonksiyon bildirimi anlamına gelir
-main(){ // Tahmin edileceği üzere programın giriş noktası. Önceden tanımlı fonksiyondur
+// fonksiyon bildirimi anlamına gelir
+fn main(){ // Tahmin edileceği üzere programın giriş noktası. Önceden tanımlı fonksiyondur
     println!("I hate hello world!"); // Sondaki ünlem işareti println'in bir macro olduğu ifade eder.
 
     /*
