@@ -22,6 +22,20 @@ curl https://sh.rustup.rs -sSf | sh
 touch WhoAreYouRust.rs
 ```
 
+## Örneklerden Anahtar Notlar
+
+- factorial; 
+    - mutable değişken tanımlama,
+    - recursive metot parametresi için match kullanımı,
+    - kütüphane bildiriminin nasıl yapıldığı
+    - ekran girdisinin parse edilmesi
+- lucky_number;
+    - harici kütüphane nasıl bildirilir _(toml)_,
+    - for döngüsünde aralık bildirimi,
+    - parse sonucunun match ile ele alınması,
+    - continue, break kullanımı,
+    - compare işlem sonucunun match ile ele alınması,
+
 ## Çalışma Zamanı
 
 ```bash
@@ -30,10 +44,48 @@ rustc WhoAreYouRust.rs
 
 # Çalıştırmak içinse
 ./WhoAreYouRust
+
+# Cargo'dan bahsetmiştik (Kargo grubu geldi aklıma. Ne dinlerdim ama?)
+# Cargo ile derleme, paket yönetimi ve daha bir çok işlem yapılabiliyor.
+# Örnekleri Cargo ile geliştireceksek
+# Klasör yapısını inceleyin ve toml dosyasına bakın. Projenin genel özellikleri ile bağımlı olduğu diğer paketler burada yer alacak.
+# Kodlar src altındaki main.rs'tedir.
+cargo new factorial
+cd factorial
+
+# Cargo üstünde build için
+cargo build
+# ve çalıştırmak için
+cargo run
+
+# Derleme yapmadan kodu kontrol etmek için
+cargo check
+
+# Release almak için
+cargo build --release
+
+# factorial örneğinde rand isimli rastgele sayı üretme kütüphanesinin kullanımı için toml dosyasında değişiklik yapıldı. (Bul bakalım)
+# rand kütüphanesinin 0.5.3 sürümünü kullandık. Ek kütüphaneler cargo build komutu ile indirilir. Güncellenmeleri gerektiğinde cargo update komutu kullanılabilir.
 ```
+
+> factorial sonrası geliştirilen diğer örneklerde cargo aracından yararlanılmıştır
+
+_factorial programına ait örnek ekran çıktısı_
 
 ![Screenshot_01.png](./assets/Screenshot_01.png)
 
+_lucky _ number isimli sayı tahmin oyunundan iki görüntü_
+
+![Screenshot_02.png](./assets/Screenshot_02.png)
+
+![Screenshot_03.png](./assets/Screenshot_03.png)
+
 ## Bomba Sorular
 
+- Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
+- factorial örneğindeki expect fonksiyonları hangi hallerde devreye girer? panic durumları bu kod parçasında nasıl ele alınır?
+- lucky_number örneğindeki match kullanımlarının ne işe yaradığını bir arkadaşınıza anlatınız?
+
 ## Ödevler
+
+- lucky_number örneğindeki cpm işlem sonucunu match yerine if blokları ile tesis ediniz.
