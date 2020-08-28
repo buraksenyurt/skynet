@@ -66,3 +66,7 @@ bld/
 *__pycache__*
 *.pyc
 *.log
+
+# Rust
+*.TAG
+Cargo.lock
