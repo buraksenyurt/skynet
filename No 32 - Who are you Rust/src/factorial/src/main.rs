@@ -22,7 +22,7 @@ fn main() {
 
     x = input_x
         .trim()
-        .parse::<u32>()
+        .parse()
         .expect("Dönüştürme işleminde hata"); // ekrandan alınan bilgi 32bit integer'a dönüştürüyoruz.
 
     /*
