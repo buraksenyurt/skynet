@@ -23,7 +23,11 @@ fn main() {
     x = input_x
         .trim()
         .parse::<u32>()
-        .expect("Dönüştürme işleminde hata"); // ekrandan alınan bilgi 32bit integer'a dönüştürüyoruz
+        .expect("Dönüştürme işleminde hata"); // ekrandan alınan bilgi 32bit integer'a dönüştürüyoruz.
+
+    /*
+        expect fonksiyonları, bir önceki işlemde bir panic havası eserse ilgili mesajı veriyor. Panic'ler nasıl ele alınıyor ilerde öğrenelim.
+    */
 
     let y = calculate(x); // hesaplama fonksiyonunu çağırıyoruz
     println!("x! = {}", y); // Sonucu ekrana basıyoruz
