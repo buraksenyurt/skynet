@@ -49,6 +49,7 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - fonksiyonlarda match kullanımı,
     - for döngülerinde iter ve rev ile ileri geri hareket edebilme,
     - loop döngüsü,
+    - slice veri türü,
 - ownership
     - String tipleri arasında yapılan atama sonrası atanan tipin scope dışında kalması _(move)_ ,
     - Metot parametre ve dönüşlerinde sahipliğin _(ownership)_ değişmesi,
