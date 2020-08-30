@@ -50,12 +50,15 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - for döngülerinde iter ve rev ile ileri geri hareket edebilme,
     - loop döngüsü,
     - slice veri türü,
-- ownership
+- ownership;
     - String tipleri arasında yapılan atama sonrası atanan tipin scope dışında kalması _(move)_ ,
     - Metot parametre ve dönüşlerinde sahipliğin _(ownership)_ değişmesi,
     - & referencing ve * deReferencing operatörleridir,
     - borrowing,
     - aynı scope içinde birden fazla mutable referans atamasına izin yok, _(Data Race kısıtı)_ ,
+- structs;
+    - struct update syntax,
+    - tuple görünümlü struct kullanımı,
 
 ## Çalışma Zamanı
 
@@ -119,6 +122,7 @@ _ownership örneğindeki barrowed move olayı_
 - Ne zaman array ne zaman vector kullanmak uygun olur?
 - C# dilinde String atama ve metotlara parametre olarak geçme davranışları ile Rust tarafındakileri karşılaştırın.
 - ownership uygulamasının aldığı derleme zamanı hatasının sebebi nedir?
+- Hiçbir alan _(field)_ içeren bir struct tanımlanabilir mi? Buna izin veriliyorsa amaç ne olabilir?
 
 ## Ödevler
 
