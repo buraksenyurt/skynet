@@ -49,6 +49,9 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - fonksiyonlarda match kullanımı,
     - for döngülerinde iter ve rev ile ileri geri hareket edebilme,
     - loop döngüsü,
+- ownership
+    - String tipleri atama sonrası atanan tipin scope dışında kalması _(move)_
+    - 
 
 ## Çalışma Zamanı
 
@@ -98,6 +101,10 @@ _fundamentals isimli örnekte immutable atam ihlaline ait çalışma zamanı hat
 
 ![Screenshot_04.png](./assets/Screenshot_04.png)
 
+_ownership örneğindeki barrowed move olayı_
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -106,6 +113,7 @@ _fundamentals isimli örnekte immutable atam ihlaline ait çalışma zamanı hat
 - Büyük veri yapısına sahip bir tipi mutable mı kullanmak uygundur, immutable olarak mı? Yoksa duruma göre değişir mi?
 - shadowing hangi durumlarda mantıklı olabilir?
 - Ne zaman array ne zaman vector kullanmak uygun olur?
+- C# dilinde String atama ve metotlara parametre olarak geçme davranışları ile Rust tarafındakileri karşılaştırın.
 
 ## Ödevler
 
