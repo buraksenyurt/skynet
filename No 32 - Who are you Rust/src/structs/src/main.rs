@@ -15,7 +15,8 @@ fn main() {
     };
     write_to_console(mouse); //Ekrana bilgilerini yazıracağımı bir metot kullanayım dedim
 
-    // mouse.company = String::from("New Company"); // mouse değişkeni mutable tanımlanmadığı için hata verir
+    // println!("{}", mouse.title);
+    // mouse.company = String::from("New Company"); // mouse değişkeni mutable tanımlanmadığı için mümkün değildir lakin mutable olsa da kod hata verecektir
 
     let monitor = create_product(
         String::from("Filips 24 inch monitor"),
