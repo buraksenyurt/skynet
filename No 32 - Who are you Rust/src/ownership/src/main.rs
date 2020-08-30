@@ -71,6 +71,36 @@ fn main() {
     let my_lucky_number = 32;
     process_number(my_lucky_number); // my_luck_number, fonksiyona kopyalanarak geçti. Yani stack'teki konumu halen daha geçerli
     println!("{}", my_lucky_number); // bu nedenle my_lucky_number scope'taki konumunu korumaya devam ediyor
+
+    /*
+        O zaman soru geliyor.
+        Örneğin bir String değişkeni bir metoda ille de referans olarak geçirmek istersem ne yapacağım?
+
+        find_world_length metodundaki word, atama sonrası quote değişkeninin stack'teki adres alanını referans eden bir değere sahip olur.
+        sadece adres bilgisini taşır, quote üstünde bir sahipliği yoktur.
+    */
+    let quote =
+        String::from("Zaman su misali akıyor.Engel tanımadan, duraksamdan, geriye dönmeden");
+    let l = find_word_length(&quote);
+    println!("'{}' cümlesinin uzunluğu {} karekterdir", quote, l); // referans türünden taşıma nedeniyle quote hala oyunun içinde(scope dahilinde yani)
+
+    /*
+        Referanslı değişkenlerin mutable olarak kullanılmasında dikkat edilmesi gereken bir nokta var.
+        Bir referansı mut kelimesi ile mutable yapabiliyoruz ancak aynı scope içinde sadece bir kere yapılabiliyor.
+        Yani aşağıdaki kor parçası geçersiz.
+
+        your_quote referansını aynı scope içinde mutable olarak iki değişkene almamız kısıtlanmıştır.
+        Amaç çalışma zamanında birden fazla pointer'ın aynı bellek adresine erişmesine müsaade etmemektir.
+        Data Races adı verilen bu durum uygulamanın çalışma zamanında beklenmedik davranışlar sergilemesine neden olur.
+        Rust bunu henüz derleme aşamasında engellemek ister. O nedenle aşağıdaki kod build olmaz.
+        Elbette farklı scope'lar kullanarak bu durum aşılabilir.
+
+        Diğer yandan aynı scope'da bir mutable ve n sayıda immutable referansa izin verilmektedir
+    */
+    let mut your_quote = String::from("Hımm...");
+    let s1 = &mut your_quote;
+    let s2 = &mut your_quote;
+    println!("{} {}", s1, s2);
 }
 
 fn process_word(word: String) {
@@ -80,3 +110,11 @@ fn process_word(word: String) {
 fn process_number(number: i32) {
     println!("{}", number);
 }
+
+// parametrenin referans olarak taşınması
+// word & bildirimi ile bir sahiplik değil referans beklediğini söyler
+// Rust dilinde fonksiyonların referans tipinden parametre almasına Borrowing deniliyor
+fn find_word_length(word: &String) -> usize {
+    // word.push_str(" - Anonim"); // borrowing durumlarında bu kullanıma izin verilmez. Derleme zamanı hatası alınır. Ancak bir istinsa var. word parametresi mutable hale getirilir. (word: &mut String) şeklinde
+    word.len()
+} // scope dışına çıktığımız yer. word bir sahiplik taşımadığı için metodun çağırıldığı yerdeki quote değişkeni oyunda kalmaya devam eder
