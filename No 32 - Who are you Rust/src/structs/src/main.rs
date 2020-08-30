@@ -23,8 +23,27 @@ fn main() {
         340.50,
         45,
     );
-    write_to_console(monitor);
+
+    // Bir struct'ı diğer bir struct içeriğinden yararlanarak oluşturmak da mümkün (struct update sytnax)
+    let monitor2 = Product {
+        title: String::from("Soni viewsonic monitor"),
+        ..monitor // Dikkat! Bu noktada monitor oyun dışı kalıyor(scope dışında). Neden?
+    };
+
+    write_to_console(monitor2);
+
+    // Burada da tuple struct kullanımı söz konusu
+    let persival = Player(String::from("Ready"), String::from("Player One"), 95);
+    println!("{} {} {}", persival.0, persival.1, persival.2);
 }
+
+struct Who {} // Yandaki gibi hiçbir alan içermeyen türden strcut ta tanımlanabiliyor. Trait konusunda önem kazanıyormuş. Henüz amacını anlayamadım
+              /*
+                  Birde tuple struct diye bir mevzu var.
+                  Alan adları(field names) yok dikkat edileceği üzere.
+                  Bu nedenle alan adlarına 0,1,2 gibi isimler üzerinden erişebiliyoruz.
+              */
+struct Player(String, String, i16);
 
 // Parametrelerden yararlanarak geriye Product örneği döndüren fonksiyonumuz
 fn create_product(title: String, company: String, unit_price: f32, stock_level: i16) -> Product {
