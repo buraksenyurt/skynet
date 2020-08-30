@@ -50,8 +50,11 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - for döngülerinde iter ve rev ile ileri geri hareket edebilme,
     - loop döngüsü,
 - ownership
-    - String tipleri atama sonrası atanan tipin scope dışında kalması _(move)_
-    - 
+    - String tipleri arasında yapılan atama sonrası atanan tipin scope dışında kalması _(move)_ ,
+    - Metot parametre ve dönüşlerinde sahipliğin _(ownership)_ değişmesi,
+    - & referencing ve * deReferencing operatörleridir,
+    - borrowing,
+    - aynı scope içinde birden fazla mutable referans atamasına izin yok, _(Data Race kısıtı)_ ,
 
 ## Çalışma Zamanı
 
@@ -114,6 +117,7 @@ _ownership örneğindeki barrowed move olayı_
 - shadowing hangi durumlarda mantıklı olabilir?
 - Ne zaman array ne zaman vector kullanmak uygun olur?
 - C# dilinde String atama ve metotlara parametre olarak geçme davranışları ile Rust tarafındakileri karşılaştırın.
+- ownership uygulamasının aldığı derleme zamanı hatasının sebebi nedir?
 
 ## Ödevler
 
