@@ -92,6 +92,26 @@ fn main() {
     // let column = columns[11]; //11 numaralı indis olmadığı için derleme hatası oluşur. Hatta VS Code IDE'sinde bile altı kırmızı olarak çizilir
 
     /*
+        SLICES
+
+        Veri yapılarından birisi de slice türüdür. Ownership özelliği yoktur.
+        Bir nesne dizisinden bir dilimin referans eden veri türü gibi düşünülebilir.
+    */
+
+    let song = String::from("Uzun ince bir yoldayım. Gidiyorum gündüz gece");
+    let slice1 = &song[..5]; // baştan itibaren 5 karakterlik bir dilimi işaret eden bir slice
+    println!("{}", song);
+    println!("{}", slice1);
+    let slice2 = &song[5..17]; // bu sefer 5nci karakterden itibaren 16ncıya kadarlık bir kısmı dilimleyip başlangıç adresini işaret eden bir slice değişkeni oluşturduk
+    println!("{}", slice2);
+
+    let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16];
+    let slice3 = &numbers[10..]; //10ncu eleman sonrasında itibaren son eleman kadar olan kısmı dilimledik
+    for n in slice3 {
+        println!("{}", n);
+    }
+
+    /*
 
         FUNCTIONS
 
