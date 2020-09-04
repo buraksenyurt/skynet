@@ -36,6 +36,18 @@ fn main() {
     // Burada da tuple struct kullanımı söz konusu
     let persival = Player(String::from("Ready"), String::from("Player One"), 95);
     println!("{} {} {}", persival.0, persival.1, persival.2);
+
+    /*
+        Bir struct için tanımlanan metot kullanım örneği.
+        struct yapısından değişkenler tanımladıktan sonra o değişken kapsamına dahil olan ilgili metotları çağırabiliriz.
+    */
+    let gudyonsen = Gamer {
+        play_count: 17,
+        penalty_point: 12,
+        ability_rate: 3,
+    };
+    println!("{}", gudyonsen.get_level());
+    println!("{}",gudyonsen.calc_reward());
 }
 
 struct Who {} // Yandaki gibi hiçbir alan içermeyen türden strcut ta tanımlanabiliyor. Trait konusunda önem kazanıyormuş. Henüz amacını anlayamadım
@@ -79,4 +91,27 @@ struct Product {
     unit_price: f32,
     stock_level: i16,
     is_usable: bool,
+}
+
+/*
+    Struct veri yapısı için metotlarda tanımlanabilir.
+    Ancak tanımlanma şekilleri fonksiyonlardan biraz farklıdır.
+    Struct metotları, struct'ın kendi kapsamı içinde tanımlanır.
+    Aşağıda Gamer struct'ı için iki metodun nasıl tanımlandığı gösterilmekte.
+*/
+struct Gamer {
+    play_count: i16,
+    ability_rate: i16,
+    penalty_point: i16,
+}
+
+impl Gamer {
+    fn get_level(&self) -> i16 {
+        // self ile metodu imlpemente ettiğimiz veri yapısının çalışma zamanındaki örneğini işaret ederiz ki struct metotları &self referansı ile başlamak zorundadır
+        return ((self.play_count * 10) - self.penalty_point) + self.ability_rate;
+        // çalışma zamanındaki değişken değerlerine erişmek için de self. notasyonu üstünden ilerleriz.
+    }
+    fn calc_reward(&self) -> String {
+        return String::from("Müthiş bir ödül kazandın");
+    }
 }
