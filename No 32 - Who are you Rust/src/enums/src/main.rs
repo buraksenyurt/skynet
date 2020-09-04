@@ -153,8 +153,15 @@ fn main() {
     23 olma haline Some(23) ile kontrol edebiliriz. Diğer haller içinse _ operatörü kullanılır
 */
 fn is_your_luck_day(number: Option<i16>) {
-    match number {
-        Some(23) => println!("Şanslı günündesin"),
-        _ => println!("{:?} Büyük talihsizlik", number), // Option ile gelen değeri yazdırmak için :? söz dizimini kullandım
+    // match number {
+    //     Some(23) => println!("Şanslı günündesin"),
+    //     _ => println!("{:?} Büyük talihsizlik", number), // Option ile gelen değeri yazdırmak için :? söz dizimini kullandım
+    // }
+
+    // Bu arada yukarıdaki ifade şu şekilde de yazılabilir
+    if let Some(23) = number {
+        println!("Şanslı günündesin")
+    } else {
+        println!("{:?} Büyük talihsizlik", number)
     }
 }
