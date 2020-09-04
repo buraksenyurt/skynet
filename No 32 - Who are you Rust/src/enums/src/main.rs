@@ -78,6 +78,18 @@ fn process(event: VehicleEvent) {
     }
 }
 
+/*
+    Option<T> enum veri yapısı ile etkili pattern matching kodları yazabiliriz.
+    Aşağıdaki fonksiyon i16 türünden Option değişkeni alıyor. Option enum veri yapısı için değer vardır veya yoktur(None) durumu söz konusu.
+    Buna göre herhangibir i16 için karesini alacak.
+*/
+fn square(number: Option<i16>) -> Option<i16> {
+    match number {
+        Some(n) => Some(n * n),
+        None => None,
+    }
+}
+
 fn main() {
     // Enum içindeki bir değişken aşağıdaki gibi atanabilir
     let small = TaskSize::Small;
@@ -124,4 +136,10 @@ fn main() {
     process(fire_somewhere);
     let engine_of = VehicleEvent::StopEngine;
     process(engine_of);
+
+    /*
+        Option<T> ile enum sabiti kullanımı
+    */
+    let result = square(Some(10)); // Option<i16> türünden bir değer gönderdik
+    let none_result = square(None); // Bu durumda square fonksiyonundaki match bloğundaki none koşulu icra olur
 }
