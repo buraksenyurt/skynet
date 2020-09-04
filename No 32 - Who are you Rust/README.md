@@ -65,6 +65,14 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - Null tipi yok ama Option<T> üstünden None tanımlanabilir,
     - enum veri yapısı ile pattern matching kullanılabilir,
     - Option<T> ile match kullanımı,
+- mercury; _(bir module örneği)_
+    - modül öğeleri varsayılan olarak private nitelik taşır _(yani modül dışında kullanılamaz)_,
+    - modül içi struct veri yapıları da varsayılan olarak private özelliklidir ve hatta alanları da,
+    - crate _(sandık)_ içerisindeki bir enstürmana _(örneğin bir struct)_ nasıl erişiriz _(:: notasyonu)_,
+    - pub ile modül üyesini public kullanıma açarız,
+    - super ile bir üst katmandaki elemanlara ulaşabiliriz _(bulunduğum modülden bir üst modüldeki bir elemana ulaşmak gibi)_,
+    - use ile modüle elemanlarına daha kolay ulaşabiliriz,
+    - modüller dosya/klasör hiyerarşisine göre kullanılabilirler _(azon örneğine bakın)_
 
 ## Çalışma Zamanı
 
@@ -96,6 +104,23 @@ cargo build --release
 
 # factorial örneğinde rand isimli rastgele sayı üretme kütüphanesinin kullanımı için toml dosyasında değişiklik yapıldı. (Bul bakalım)
 # rand kütüphanesinin 0.5.3 sürümünü kullandık. Ek kütüphaneler cargo build komutu ile indirilir. Güncellenmeleri gerektiğinde cargo update komutu kullanılabilir.
+
+# Elbette benzer işleri yapan fonksiyonellikleri bir arada tutmak vb işlerde module, package ve crate gibi yapılar kullanılıyor
+# Yeni bir modül oluşturmak için aşağıdaki gibi bir komutu kullanabiliriz
+cargo new --lib mercury
+
+# Dosyalara bölünmüş modül kullanımı örneği için aşağıdaki yolu izleyebiliriz
+# azon altındaki client.rs main fonksiyonunu içerir ve libraries içerisindeki modülü kullanmaktadır
+# client.rs'in libraries klasöründeki modülü kullanabilmesi için modül adının mod.rs olması gerekiyor
+mkdir azon
+cd azon
+touch client.rs
+mkdir libraries
+touch libraries/mod.rs
+# derleme için aşağıdaki komutu kullanmak yeterli
+rustc client.rs && ./libraries/
+# sonrasında şu komutla uygulamayı çalıştırabiliriz
+./client
 ```
 
 > factorial sonrası geliştirilen diğer örneklerde cargo aracından yararlanılmıştır.
@@ -138,3 +163,4 @@ _ownership örneğindeki barrowed move olayı_
 - lucky_number örneğindeki cpm işlem sonucunu match yerine if blokları ile tesis ediniz.
 - luck_number örneğinde loop döngüsü kullanmayı deneyiniz
 - Bir kitabı birkaç özelliği ile ifade eden bir struct yazıp, bu kitabın fiyatına belirtilen oranda indirim uygulayan metodu geliştiriniz _(Metot, impl bloğu ile tanımlanmalı)_
+- mercury isimli kütüphaneyi başka bir rust uygulamasında kullanabilir misiniz? Nasıl?
