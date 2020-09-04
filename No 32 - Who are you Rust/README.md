@@ -59,6 +59,12 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
 - structs;
     - struct update syntax,
     - tuple görünümlü struct kullanımı,
+    - impl blokları ile struct veri yapısına kendi çalışma zamanı örneği ile çalışacak metotlar eklenebilir
+- enums;
+    - enum değişkenleri farklı türde ve sayıda veri yapısını parametre olarak kullanabiliyor,
+    - Null tipi yok ama Option<T> üstünden None tanımlanabilir,
+    - enum veri yapısı ile pattern matching kullanılabilir,
+    - Option<T> ile match kullanımı,
 
 ## Çalışma Zamanı
 
@@ -124,9 +130,11 @@ _ownership örneğindeki barrowed move olayı_
 - ownership uygulamasının aldığı derleme zamanı hatasının sebebi nedir?
 - Hiçbir alan _(field)_ içeren bir struct tanımlanabilir mi? Buna izin veriliyorsa amaç ne olabilir?
 - structs örneğinde yer alan println!("{}", mouse.title); kod parçası açılırsa neden derlenmez? _(Line: 18)_
-- yine structs örneğinde 19ncu satırdaki kod, mouse değişkeni mut ile mutable yapılsa dahi derleme hatasına neden olacaktır. Neden?
+- Yine structs örneğinde 19ncu satırdaki kod, mouse değişkeni mut ile mutable yapılsa dahi derleme hatasına neden olacaktır. Neden?
+- Bir enum yapısındaki değişkenler başka enum değişkenlerini de içerebilir mi?
 
 ## Ödevler
 
 - lucky_number örneğindeki cpm işlem sonucunu match yerine if blokları ile tesis ediniz.
 - luck_number örneğinde loop döngüsü kullanmayı deneyiniz
+- Bir kitabı birkaç özelliği ile ifade eden bir struct yazıp, bu kitabın fiyatına belirtilen oranda indirim uygulayan metodu geliştiriniz _(Metot, impl bloğu ile tanımlanmalı)_
