@@ -138,8 +138,23 @@ fn main() {
     process(engine_of);
 
     /*
-        Option<T> ile enum sabiti kullanımı
+        Option<T> ile enum sabiti kullanımı örnekleri.
     */
     let result = square(Some(10)); // Option<i16> türünden bir değer gönderdik
     let none_result = square(None); // Bu durumda square fonksiyonundaki match bloğundaki none koşulu icra olur
+
+    let myNum = Some(5);
+    is_your_luck_day(myNum);
+    is_your_luck_day(Some(23));
+    is_your_luck_day(None);
+}
+/*
+    Mesela kullanıcı 23 girerse şanslı günündedir. Diğer sayılar içinse değildir.
+    23 olma haline Some(23) ile kontrol edebiliriz. Diğer haller içinse _ operatörü kullanılır
+*/
+fn is_your_luck_day(number: Option<i16>) {
+    match number {
+        Some(23) => println!("Şanslı günündesin"),
+        _ => println!("{:?} Büyük talihsizlik", number), // Option ile gelen değeri yazdırmak için :? söz dizimini kullandım
+    }
 }
