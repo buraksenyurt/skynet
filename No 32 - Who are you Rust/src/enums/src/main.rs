@@ -1,7 +1,9 @@
 /*
     Pek çok programlama dilinde enum tipi mevcut.
     Sayısal olarak ifade edilen sabitleri isimlendirerek kullandığımız tipler olarak düşünebiliriz.
-    Rust dilinde de enum desteği var ama bazen struct'lar yerine de tercih edilebiliyorlar. Öyle ki enum içindeki değişkenler başka veri türlerini ele alarak kullanılabiliyorlar. Enteresan değil mi?
+    Rust dilinde de enum desteği var ama bazen struct'lar yerine de tercih edilebiliyorlar.
+    Öyle ki enum içindeki değişkenler başka veri türlerini ele alarak kullanılabiliyorlar. Enteresan değil mi?
+    Yani bir başka deyişle enum'u sadece sayıları isimler veren bir tür olarak değil bir veri yapısı şeklinde tanımlayıp kullanabiliyoruz.
 */
 
 // Önce örnek bir enum nasıl tanımlanıyor bakalım
