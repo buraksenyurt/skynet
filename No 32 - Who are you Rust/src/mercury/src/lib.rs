@@ -41,12 +41,14 @@ mod visitor_manager {
 
     mod flight_opt {
 
-        /* 
+        /*
             use ile flight_opt içerisinde kullanmak istediğimiz modül elemanlarını bir kere tanımlayıp
             yola devam edebiliriz. Yani SpaceLOcation kullanmak istediğimiz her yerde
             Absoulte path veya relative path ya da super kullanarak uzun formatta bildirim yapmak zorunda değiliz.
+            Hatta as ile takma ad(alias) da verebiliriz. 
+            Mesela send_spaceship metodundaki target parametresi için SpaceLocation yerine location ifadesi kullanılabilir.
         */
-        use crate::visitor_manager::entity::SpaceLocation;
+        use crate::visitor_manager::entity::SpaceLocation as location;
 
         fn save_visitor(name: String, ticket: String) {
             let v = super::entity::Visitor {
@@ -65,7 +67,7 @@ mod visitor_manager {
             )
         }
 
-        fn send_spaceship(name: String, no: i32, capacity: i8, target: SpaceLocation) {}
+        fn send_spaceship(name: String, no: i32, capacity: i8, target: location) {}
     }
 
     mod reports {
