@@ -77,6 +77,10 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - 3 temel koleksiyon var; vector _(Depicable Me'deki gru'nun rakibi olan değil)_ , string ve hash map,
     - vector türünde dikkat çeken fonksiyon ve operatörler pop, push, iter, iter_mut, * _(dereference)_, & , 
     - vector ile enum veri yapısı da kullanılabilir,
+    - String, UTF-8 kodlamasını kullanır,
+    - String'lere push_str veya push ile ekleme yapılabilir,
+    - Çok fazla String'in birleştirilmesi gerektiğinde + yerine format! makrosu tercih edilmelidir,
+    - Bir String'in uzunluğu hiç de beklediğimiz sayı olmayabilir,
 
 ## Çalışma Zamanı
 
@@ -162,6 +166,8 @@ _ownership örneğindeki barrowed move olayı_
 - Yine structs örneğinde 19ncu satırdaki kod, mouse değişkeni mut ile mutable yapılsa dahi derleme hatasına neden olacaktır. Neden?
 - Bir enum yapısındaki değişkenler başka enum değişkenlerini de içerebilir mi?
 - Bir vector koleksiyonunda farklı tipten elemanlar tutmak istersek ne yaparız?
+- String'leri + operatörü ile birleştirirken neden & ile referans adresi kullanırız?
+- collections örneğinde a_bit_off_word değişkenine siyah isimli metindeki ilk karakteri almak ve panic durumunun oluşmasını engellemek için ne yapılabilir?
 
 ## Ödevler
 
@@ -169,3 +175,4 @@ _ownership örneğindeki barrowed move olayı_
 - luck_number örneğinde loop döngüsü kullanmayı deneyiniz
 - Bir kitabı birkaç özelliği ile ifade eden bir struct yazıp, bu kitabın fiyatına belirtilen oranda indirim uygulayan metodu geliştiriniz _(Metot, impl bloğu ile tanımlanmalı)_
 - mercury isimli kütüphaneyi başka bir rust uygulamasında kullanabilir misiniz? Nasıl?
+- Bir String içeriğini tersten yazdıracak fonksiyonu geliştiriniz? _(rev kullanmak yasak)_
