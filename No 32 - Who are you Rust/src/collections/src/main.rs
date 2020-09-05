@@ -9,6 +9,8 @@
     karakter katarı koleksiyonu olan string ve key-value düzeninde çalışan hash map'tir.
 */
 
+use std::collections::HashMap; // HashMap kullanabilmek için eklendi
+
 fn main() {
     /*
         vector tipi ile başlayalım.
@@ -175,6 +177,48 @@ fn main() {
     for c in char_vector {
         println!("`{}` ", c);
     }
+
+    /*
+        Biraz da key:value mantığında çalışan Hash Maps türüne bakalım.
+        HashMap<Key,Value> şeklinde bir generic tip olarak düşünebiliriz sanırım.
+    */
+
+    let mut agent_codes = HashMap::new();
+    agent_codes.insert(7, String::from("James Bond"));
+    agent_codes.insert(23, String::from("Jean Claude Van Damme"));
+    agent_codes.insert(66, String::from("Lord Vather"));
+
+    // key değeri 7 olan value içeriğini almak için aşağıdaki gibi ilerleyebiliriz
+    let key7 = 7;
+    let bond = agent_codes.get(&key7); // Option<T> döndürür
+    println!("{:?}", bond);
+
+    // HashMap içindeki key:value çiftlerine aşağıdaki gibi erişebiliriz
+    // Bu arada liste hashcode değerlerine göre sıralanır
+    for (k, v) in agent_codes {
+        println!("{} {}", k, v);
+    }
+
+    /* 
+        Bir HashMap'in key:value değerleri vector'lerden de oluşturulabilir.
+        Aşağıdaki stat ve beğeni oranlarının tutulduğu HashMap nesnesi,
+        iki farklı vector ile oluşturulmuştur.
+    */
+    let stads = vec![
+        String::from("Jüseeppe Meyaza"),
+        String::from("Vodafon Park"),
+        String::from("Noy Kamp"),
+        String::from("Stat dö fırans"),
+    ];
+    let fun_scores = vec![58, 90, 95, 72];
+
+    let stad_fun_scores: HashMap<_, _> = stads.into_iter().zip(fun_scores.into_iter()).collect();
+
+    for (stad, score) in stad_fun_scores {
+        println!("{}:{}", stad, score);
+    }
+
+    // println!("{:?}", stad_fun_scores); // Yukarıda for döngüsünde kullandığımız için stad_fun_scores artık scope dışında kaldı. Dolayısıyla bu satır derleme zamanı hatası verir
 }
 
 enum Product {

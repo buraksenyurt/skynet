@@ -81,6 +81,8 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - String'lere push_str veya push ile ekleme yapılabilir,
     - Çok fazla String'in birleştirilmesi gerektiğinde + yerine format! makrosu tercih edilmelidir,
     - Bir String'in uzunluğu hiç de beklediğimiz sayı olmayabilir,
+    - Key:Value çiftlerinden oluşan koleksiyonlar için HashMap,
+    - Bir HashMap'in key ve value dizileri vector koleksiyonlarından oluşturulabilir,
 
 ## Çalışma Zamanı
 
