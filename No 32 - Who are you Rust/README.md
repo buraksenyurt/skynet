@@ -73,6 +73,10 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - super ile bir üst katmandaki elemanlara ulaşabiliriz _(bulunduğum modülden bir üst modüldeki bir elemana ulaşmak gibi)_,
     - use ile modüle elemanlarına daha kolay ulaşabiliriz,
     - modüller dosya/klasör hiyerarşisine göre kullanılabilirler _(azon örneğine bakın)_
+- collections;
+    - 3 temel koleksiyon var; vector _(Depicable Me'deki gru'nun rakibi olan değil)_ , string ve hash map,
+    - vector türünde dikkat çeken fonksiyon ve operatörler pop, push, iter, iter_mut, * _(dereference)_, & , 
+    - vector ile enum veri yapısı da kullanılabilir,
 
 ## Çalışma Zamanı
 
@@ -157,6 +161,7 @@ _ownership örneğindeki barrowed move olayı_
 - structs örneğinde yer alan println!("{}", mouse.title); kod parçası açılırsa neden derlenmez? _(Line: 18)_
 - Yine structs örneğinde 19ncu satırdaki kod, mouse değişkeni mut ile mutable yapılsa dahi derleme hatasına neden olacaktır. Neden?
 - Bir enum yapısındaki değişkenler başka enum değişkenlerini de içerebilir mi?
+- Bir vector koleksiyonunda farklı tipten elemanlar tutmak istersek ne yaparız?
 
 ## Ödevler
 
