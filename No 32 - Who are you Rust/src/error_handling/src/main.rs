@@ -63,6 +63,8 @@ fn main() {
 /*
     Fonksiyon, parametre olarak gelen dosyası açıp içeriğini geri döndürmek istemekte.
     Ancak sistemde olmayan bir dosya da söz konusu olabilir.
+    Burada early return adı verilen hata kontrol senaryosu ele alınıyor. Yani bir hata oluştuğunda bunun bilgisi çağıran yere döndürülüyor.
+    panic! çağrısı yerine hata mesajını object user'a veriyoruz.
 */
 fn load_file(file_name: String) -> Result<String, io::Error> {
     let f = File::open(file_name); // dosyayı açmaya çalışıyoruz
