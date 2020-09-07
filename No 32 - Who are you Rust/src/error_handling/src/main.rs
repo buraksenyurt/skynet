@@ -54,10 +54,24 @@ fn main() {
         unwrap, işlem başarılı ise Ok içinde ne dönmesi gerekiyorsa onu döner ve bir hata durumunda otomatik panic! makrosunu tetikletir.
         match deseni ile uğraşmaya gerek kalmaz.
     */
-    let cargo_file = File::open("./Cargo.toml").unwrap(); // eğer dosya varsa File nesnesini döndürür.
-    let unknown_file =
-        File::open("olmayan.txt").expect("Bu dosya sistemde yok veya bozulmuş olabilir.");
-    // panic! makrosu çalışması halinde burada yazdığımız mesaj trace içeriğine alınacaktır.
+    // let cargo_file = File::open("./Cargo.toml").unwrap(); // eğer dosya varsa File nesnesini döndürür.
+    // let unknown_file =
+    //     File::open("olmayan.txt").expect("Bu dosya sistemde yok veya bozulmuş olabilir.");
+    // // panic! makrosu çalışması halinde burada yazdığımız mesaj trace içeriğine alınacaktır.
+
+    // #5 Minik kod kırıntıları
+    let number = String::from("123"); // string değerin kullanıcıdan geldiğini düşünelim
+    let numeric = number.parse::<i32>().unwrap(); // number i32'ye dönüştürülebiliyorsa numeric'e gelir, aksi durumda panic! çalıştırılır
+    println!("{}", numeric * 3);
+
+    let levels = vec!["100", "200", "300", "Dörtyüz", "500", "Altıyüz"]; // Şimdi bu vector içeriğini i32'ye parse etmek istediğimizi düşünelim (Dörtyüze ve Altıyüze dikkat)
+                                                                         // hataya neden olan kısımları dışarıda bırakıyoruz
+    let numeric_levels: Vec<_> = levels
+        .into_iter() //vector için bir iterasyon çektik
+        .map(|s| s.parse::<i32>()) // değerlerin her biri parser fonksiyonu ile i32'ye dönüştürülmeye çalışıyor
+        .filter_map(Result::ok) // bazı dönüşümler Error verecektir. Sadece Result<T,E> den Ok dönenleri
+        .collect(); // topluyoruz
+    println!("Results: {:?}", numeric_levels); // ve ekrana basıyoruz
 }
 
 /*
