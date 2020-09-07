@@ -83,6 +83,14 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - Bir String'in uzunluğu hiç de beklediğimiz sayı olmayabilir,
     - Key:Value çiftlerinden oluşan koleksiyonlar için HashMap,
     - Bir HashMap'in key ve value dizileri vector koleksiyonlarından oluşturulabilir,
+- error_handling;
+    - iki tür hata kategorisi var: Kurtarılabilir olanlar(recoverable) ve tabii ki kurtarılabilir olmayanlar(unrecoverable)
+    - panic! makrosu kurtarılabilir olmayan senaryolarda söz konusu,
+    - Result<T,E> tipi,
+    - Winding ve Unwinding,
+    - RUST_BACKTRACE=1 cargo run ile stacktrace benzeri hata detayına ulaşılabilir,
+    - Error propagating, unwrap, expect,
+    - ? operatörü ile Result<T,E> çıktılarını ele almak,
 
 ## Çalışma Zamanı
 
@@ -153,6 +161,14 @@ _ownership örneğindeki barrowed move olayı_
 
 ![Screenshot_05.png](./assets/Screenshot_05.png)
 
+_errorhandling örneğinden bir kuple panic! havası_
+
+![Screenshot_06.png](./assets/Screenshot_06.png)
+
+_errorhandling örneğinden Result<T,E> ile olayı kontrol altında tutmaya çalışma_
+
+![Screenshot_07.png](./assets/Screenshot_07.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -170,6 +186,7 @@ _ownership örneğindeki barrowed move olayı_
 - Bir vector koleksiyonunda farklı tipten elemanlar tutmak istersek ne yaparız?
 - String'leri + operatörü ile birleştirirken neden & ile referans adresi kullanırız?
 - collections örneğinde a_bit_off_word değişkenine siyah isimli metindeki ilk karakteri almak ve panic durumunun oluşmasını engellemek için ne yapılabilir?
+- Unwinding kabiliyeti nasıl etkinleştirilir?
 
 ## Ödevler
 
