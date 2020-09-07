@@ -181,12 +181,20 @@ fn main() {
     /*
         Biraz da key:value mantığında çalışan Hash Maps türüne bakalım.
         HashMap<Key,Value> şeklinde bir generic tip olarak düşünebiliriz sanırım.
+
+        Yeni elemanlar eklemek için insert fonksiyonunu kullanabiliriz.
+        Bir key'in karşılığı olan value içeriğini değiştirmek için de yine insert fonksiyonu kullanılabilir.
     */
 
     let mut agent_codes = HashMap::new();
     agent_codes.insert(7, String::from("James Bond"));
     agent_codes.insert(23, String::from("Jean Claude Van Damme"));
     agent_codes.insert(66, String::from("Lord Vather"));
+    agent_codes.insert(32, String::from("Larry Bird"));
+
+    agent_codes.insert(32, String::from("Ervin Magic Jhonson")); // Aynı key üstüne yeni değeri yazdık
+
+    // agent_codes.remove(&7); // key:7 olan satırı HashMap'ten çıkartmış olduk
 
     // key değeri 7 olan value içeriğini almak için aşağıdaki gibi ilerleyebiliriz
     let key7 = 7;
@@ -199,7 +207,7 @@ fn main() {
         println!("{} {}", k, v);
     }
 
-    /* 
+    /*
         Bir HashMap'in key:value değerleri vector'lerden de oluşturulabilir.
         Aşağıdaki stat ve beğeni oranlarının tutulduğu HashMap nesnesi,
         iki farklı vector ile oluşturulmuştur.
