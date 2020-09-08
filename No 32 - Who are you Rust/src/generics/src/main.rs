@@ -41,6 +41,8 @@ fn main() {
     T'nin tanımlanmasında Add şeklinde başka bir ifade daha yer almaktadır. Buradaki Add bir Trait'tir.
     T tipinin sahip olması gereken bir davranışı(iki T nin toplanabilmesi özelliğini) belirtiyoruz.
     Eğer Add Trait'ini kullanmazsak T'nin T'ye eklenemeyeceğine dair bir hata mesajı alırız.
+    
+    Trait'leri traits isimli örnekte ele alıyoruz.
 */
 fn sum<T: Add<Output = T>>(x: T, y: T) -> T {
     return x + y;
