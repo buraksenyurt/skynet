@@ -91,6 +91,10 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - RUST_BACKTRACE=1 cargo run ile stacktrace benzeri hata detayına ulaşılabilir,
     - Error propagating, unwrap, expect,
     - ? operatörü ile Result<T,E> çıktılarını ele almak,
+- generics;
+    - kod tekrarının önüne geçmekte sıklıkla kullanılır,
+    - struct ve sturct'a uygulanan metotlar generic olabilirler,
+    - generic tip için Trait bildirimi yapmak gerekebilir,
 
 ## Çalışma Zamanı
 
