@@ -95,6 +95,9 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - kod tekrarının önüne geçmekte sıklıkla kullanılır,
     - struct ve sturct'a uygulanan metotlar generic olabilirler,
     - generic tip için Trait bildirimi yapmak gerekebilir,
+    - trait ile struct'lar için ortak davranış sözleşmeleri bildirebiliriz _(tam olarak interface değil, tam olarak abstract sınıf da değil. Değişik bir şey)_,
+    - trait'ler boyutsuzdu bu nedenle bir vector dizisi yapılmak istendiğinde box yapısına başvurmak gerekir,
+    - trait'ler fonksiyonlara parametre olarak geçirilebilir ve hatta döndürülebilir,
 
 ## Çalışma Zamanı
 
@@ -173,6 +176,10 @@ _errorhandling örneğinden Result<T,E> ile olayı kontrol altında tutmaya çal
 
 ![Screenshot_07.png](./assets/Screenshot_07.png)
 
+_traits örneğinde bir ekran görüntüsü_
+
+![Screenshot_08.png](./assets/Screenshot_08.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -191,6 +198,7 @@ _errorhandling örneğinden Result<T,E> ile olayı kontrol altında tutmaya çal
 - String'leri + operatörü ile birleştirirken neden & ile referans adresi kullanırız?
 - collections örneğinde a_bit_off_word değişkenine siyah isimli metindeki ilk karakteri almak ve panic durumunun oluşmasını engellemek için ne yapılabilir?
 - Unwinding kabiliyeti nasıl etkinleştirilir?
+- traits isimli örnekte yer alan Action içerisindeki initialize metodunun Hyperlink fonksiyonu için kullanılmasını istemezsek nasıl bir yol izlememiz gerekir
 
 ## Ödevler
 
