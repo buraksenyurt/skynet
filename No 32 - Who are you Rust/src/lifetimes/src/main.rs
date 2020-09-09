@@ -1,5 +1,7 @@
 /*
     Rust dilini diğerlerinden ayıran önemli özelliklerinden birisi referansların yaşam ömürlerinin olması ve bunun yönetimidir.
+    Genelde lifetime ile scope kavramları birbirine karıştırılır. Lakin aynı şey değillerdir.
+    Bir değişkenin hayatı oluşturulduğunda başlar ve yok edilene kadar(destroy) devam eder.
 */
 
 fn main() {

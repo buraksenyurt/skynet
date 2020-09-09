@@ -101,6 +101,7 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - built-in trait'leri yeniden programlayabiliriz _(operator overloading)_,
 - lifetimes;
     - Tüm referans türlerinin bir yaşam ömrü _(lifetime)_ vardır,
+    - _lifetime_ ve _scope_ kavramları birbirlerine benzer ama aynı şey değildirler,
 
 ## Çalışma Zamanı
 
