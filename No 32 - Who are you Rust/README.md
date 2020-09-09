@@ -99,6 +99,8 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - trait'ler boyutsuzdu bu nedenle bir vector dizisi yapılmak istendiğinde box yapısına başvurmak gerekir,
     - trait'ler fonksiyonlara parametre olarak geçirilebilir ve hatta döndürülebilir,
     - built-in trait'leri yeniden programlayabiliriz _(operator overloading)_,
+- lifetimes;
+    - Tüm referans türlerinin bir yaşam ömrü _(lifetime)_ vardır,
 
 ## Çalışma Zamanı
 
@@ -181,6 +183,10 @@ _traits örneğinden bir ekran görüntüsü_
 
 ![Screenshot_08.png](./assets/Screenshot_08.png)
 
+_lifetimes örneğinde derleme zamanı hatasının görüntüsü_
+
+![Screenshot_09.png](./assets/Screenshot_09.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -200,6 +206,7 @@ _traits örneğinden bir ekran görüntüsü_
 - collections örneğinde a_bit_off_word değişkenine siyah isimli metindeki ilk karakteri almak ve panic durumunun oluşmasını engellemek için ne yapılabilir?
 - Unwinding kabiliyeti nasıl etkinleştirilir?
 - traits isimli örnekte yer alan Action içerisindeki initialize metodunun Hyperlink fonksiyonu için kullanılmasını istemezsek nasıl bir yol izlememiz gerekir
+- _lifetimes_ isimli programdaki #1 örneğinde oluşan derleme zamanı hatasını nasıl düzeltebilirsiniz?
 
 ## Ödevler
 
