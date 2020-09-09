@@ -98,6 +98,7 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - trait ile struct'lar için ortak davranış sözleşmeleri bildirebiliriz _(tam olarak interface değil, tam olarak abstract sınıf da değil. Değişik bir şey)_,
     - trait'ler boyutsuzdu bu nedenle bir vector dizisi yapılmak istendiğinde box yapısına başvurmak gerekir,
     - trait'ler fonksiyonlara parametre olarak geçirilebilir ve hatta döndürülebilir,
+    - built-in trait'leri yeniden programlayabiliriz _(operator overloading)_,
 
 ## Çalışma Zamanı
 
@@ -176,7 +177,7 @@ _errorhandling örneğinden Result<T,E> ile olayı kontrol altında tutmaya çal
 
 ![Screenshot_07.png](./assets/Screenshot_07.png)
 
-_traits örneğinde bir ekran görüntüsü_
+_traits örneğinden bir ekran görüntüsü_
 
 ![Screenshot_08.png](./assets/Screenshot_08.png)
 
@@ -208,3 +209,4 @@ _traits örneğinde bir ekran görüntüsü_
 - mercury isimli kütüphaneyi başka bir rust uygulamasında kullanabilir misiniz? Nasıl?
 - Bir String içeriğini tersten yazdıracak fonksiyonu geliştiriniz? _(rev kullanmak yasak)_
 - error_handling örneğinde 69ncu satırda başlayan ifadede i32'ye dönüşemeyen vector değerlerini hariç tuttuk. Geçersiz olan değerleri de toplayıp ekrana yazdırabilir misiniz? _(ipucu : partition fonksiyonu)_
+- İki kompleks sayının eşit olup olmadığını kontrol eden trait'leri geliştiriniz
