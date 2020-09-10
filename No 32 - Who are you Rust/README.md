@@ -102,6 +102,8 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
 - lifetimes;
     - Tüm referans türlerinin bir yaşam ömrü _(lifetime)_ vardır,
     - _lifetime_ ve _scope_ kavramları birbirlerine benzer ama aynı şey değildirler,
+    - generic lifetime parametreleri _(' ile tanımlananlar)_,
+    - Bir fonksiyon lifetime referans ile dönüyorsa parametrelerinden en az birisinin de lifetime referans olması gerekir,
 
 ## Çalışma Zamanı
 
@@ -208,6 +210,7 @@ _lifetimes örneğinde derleme zamanı hatasının görüntüsü_
 - Unwinding kabiliyeti nasıl etkinleştirilir?
 - traits isimli örnekte yer alan Action içerisindeki initialize metodunun Hyperlink fonksiyonu için kullanılmasını istemezsek nasıl bir yol izlememiz gerekir
 - _lifetimes_ isimli programdaki #1 örneğinde oluşan derleme zamanı hatasını nasıl düzeltebilirsiniz?
+- Bir fonksiyon birden farklı generic lifetime parametreleri kullanabilir mi?
 
 ## Ödevler
 
