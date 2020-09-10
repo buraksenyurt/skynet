@@ -104,6 +104,7 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - _lifetime_ ve _scope_ kavramları birbirlerine benzer ama aynı şey değildirler,
     - generic lifetime parametreleri _(' ile tanımlananlar)_,
     - Bir fonksiyon lifetime referans ile dönüyorsa parametrelerinden en az birisinin de lifetime referans olması gerekir,
+    - struct yapılarında referans türlü alanlar varsa lifetime annotation kullanmak gerekir,
 
 ## Çalışma Zamanı
 

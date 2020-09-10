@@ -54,7 +54,7 @@ fn main() {
     /*
         #2 Aşağıda yine enteresan bir yaşam ömrü sorunsalı yer almaktadır.
         schumi ve race_winner iç scope dışında tanımlıdır. Toplam puanlara baktığımızda kazanan schumi'dir ve dolayısıyla,
-        #İlginç yazan yerde race_winner, schumi'nin referansını taşıyacağı için bir sorun olmaması beklenmektedir. 
+        #İlginç yazan yerde race_winner, schumi'nin referansını taşıyacağı için bir sorun olmaması beklenmektedir.
         Ne var ki find_winner fonksiyonu parametreleri ve geriye dönen Player referansı için aynı yaşam süresini beklemektedir.
         Koda göre #İlkÇıkış noktasında hakinen'in ömrü dolmaktadır. Yani schumi, hakinen ve kazanan için aynı yaşam döngüsü kuralı bozulmuştur.
         Bu nedenle derleyici aşağıdaki kod parçası için `hakinen` does not live long enough diyecektir.
@@ -72,4 +72,10 @@ fn main() {
         race_winner = find_winner(&schumi, &hakinen);
     } // #İlkÇıkış
     println!("Yarışın kazananı {}", race_winner.nick_name); // #İlginç
+}
+
+struct Game<'l> {
+    // color_name: &str, // struct türünde referans türlü alanlarda kullanabiliriz ancak bu şekilde değil. lifetime bildirimi ile kullanabiliriz
+    color_name: &'l str,
+    max_player: i32,
 }
