@@ -112,6 +112,7 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - assert! makrosunda teste ait detay bilgiler verilebilir,
     - panik fırlatmasını istediğimiz senaryolarda should_panic niteliği kullanılır,
     - ignore niteliği ile bir test vakasını atlatabiliriz
+    - fonksiyonlarda kendi yardım dokümanlarımızı da tanımlayabiliriz. /// kısımları içerisinde markdown kurallarına göre detaylı yardım sunabiliriz,
 
 ## Çalışma Zamanı
 
@@ -167,7 +168,15 @@ cargo test
 
 # Test vakalarından örneğin belli bir tanesini çalıştırmak istersek
 # testin adını parametre olarak vermemiz yeterli olur
+# Hatta bu kullanım şekli contains formatında çalışır.
+# Örneğin sadece adında calculate kelimesi geçen testleri çalıştırmak istersek
+# cargo test calculate dememiz yeterli olur
 cargo test should_calculated_player_score_positive
+
+# Fonksiyonlardan terminale basılan çıktıları test sırasında da görmek istiyorsak,
+# (ki normalde görünmezler) 
+# test komutunu aşağıdaki şeklinde kullanmamız gerekir.
+cargo test -- --show-output
 ```
 
 > factorial sonrası geliştirilen diğer örneklerde cargo aracından yararlanılmıştır.
@@ -218,6 +227,10 @@ _belli bir test maddesini çalıştırdığımız durum_
 
 ![Screenshot_12.png](./assets/Screenshot_12.png)
 
+_/// ile kullanım talimatlarını eklediğimizdeki durum_
+
+![Screenshot_13.png](./assets/Screenshot_13.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -251,3 +264,4 @@ _belli bir test maddesini çalıştırdığımız durum_
 - error_handling örneğinde 69ncu satırda başlayan ifadede i32'ye dönüşemeyen vector değerlerini hariç tuttuk. Geçersiz olan değerleri de toplayıp ekrana yazdırabilir misiniz? _(ipucu : partition fonksiyonu)_
 - İki kompleks sayının eşit olup olmadığını kontrol eden trait'leri geliştiriniz
 - Iterator trait'ini yeniden programlayarak Fibonnaci sayı dizisini belli bir üst limite kadar ekrana yazdırmayı deneyiniz
+- Fizz Buzz kod katasını Rust ile TDD odaklı geliştirin

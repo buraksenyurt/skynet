@@ -40,7 +40,30 @@ struct Person {
 }
 
 impl Person {
+    /// Person nesnesi üretme fonksiyonu
+    ///
+    /// Bir Person değişkenini, parametre olarak verilen
+    /// isim ve yaş bilgileri ile oluşturur.
+    ///
+    /// ## Examples
+    ///
+    /// ```
+    /// let p = Person::new(String::from("ben hur"), 19);
+    /// assert_eq!(p._name, "ben hur");
+    /// ```
+    ///
+    /// ## Panics
+    ///
+    /// Fonksiyona gelen _age parametresi 13 ile 18 aralığında değilse panic fırlatılır.
+    ///
     fn new(_name: String, _age: i8) -> Person {
+        /*
+            Aşağıdaki println çıktısı, cargo test ile testleri koşturduğumuzda ekrana çıktı olarak gelmez.
+            Fonksiyonlardan terminale basılan çıktıları test sırasında da görmek istiyorsak,
+            cargo test -- --show-output
+            şeklinde bir terminal komutu kullanmamız gerekir.
+        */
+        println!("Yeni bir personel oluşturulacak");
         if _age > 18 || _age < 13 {
             panic!(
                 "Bu oyun eğitim 13-18 yaş arası talebeler içindir. Girilen yaş `{}`",
@@ -95,7 +118,7 @@ mod tests {
     #[test]
     #[should_panic] // Beklediğimiz gibi panik ürettirirsek bu test OK cevabı alır. Aksine test panik ürettirmiyorsa Fail cevabını basar
     fn should_age_available_for_child() {
-        let ben_hur = Person::new(String::from("ben hur"), 19);
+        let ben_hur = Person::new(String::from("ben hur"), 19); // editörde mouse imlecini new fonksiyonu üstünde tutun
     }
 
     /*
