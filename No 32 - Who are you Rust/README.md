@@ -109,7 +109,9 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - bir kütüphane oluşturduğumuzda içerisine otomatik olarak test modülü eklenir
     - test modülü #[cfg(test)] niteliği _(attribute)_ ile test fonksiyonları da #[test] niteliği ile işaretlenir
     - assert!, assert_eq!(left, right) ve assert_ne!(left, right) makroları ile bağımsız kabul, eşitlik ve eşitsizlik kriterleri test edilebilir
-
+    - assert! makrosunda teste ait detay bilgiler verilebilir,
+    - panik fırlatmasını istediğimiz senaryolarda should_panic niteliği kullanılır,
+    - ignore niteliği ile bir test vakasını atlatabiliriz
 
 ## Çalışma Zamanı
 
@@ -237,6 +239,7 @@ _belli bir test maddesini çalıştırdığımız durum_
 - traits isimli örnekte yer alan Action içerisindeki initialize metodunun Hyperlink fonksiyonu için kullanılmasını istemezsek nasıl bir yol izlememiz gerekir
 - _lifetimes_ isimli programdaki #1 örneğinde oluşan derleme zamanı hatasını nasıl düzeltebilirsiniz?
 - Bir fonksiyon birden farklı generic lifetime parametreleri kullanabilir mi?
+- Bir test fonksiyonu sonuç dönebilir mi?
 
 ## Ödevler
 
