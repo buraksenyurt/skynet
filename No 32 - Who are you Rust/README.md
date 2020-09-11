@@ -105,6 +105,11 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - generic lifetime parametreleri _(' ile tanımlananlar)_,
     - Bir fonksiyon lifetime referans ile dönüyorsa parametrelerinden en az birisinin de lifetime referans olması gerekir,
     - struct yapılarında referans türlü alanlar varsa lifetime annotation kullanmak gerekir,
+- testing;
+    - bir kütüphane oluşturduğumuzda içerisine otomatik olarak test modülü eklenir
+    - test modülü #[cfg(test)] niteliği _(attribute)_ ile test fonksiyonları da #[test] niteliği ile işaretlenir
+    - assert!, assert_eq!(left, right) ve assert_ne!(left, right) makroları ile bağımsız kabul, eşitlik ve eşitsizlik kriterleri test edilebilir
+
 
 ## Çalışma Zamanı
 
@@ -153,6 +158,14 @@ touch libraries/mod.rs
 rustc client.rs && ./libraries/
 # sonrasında şu komutla uygulamayı çalıştırabiliriz
 ./client
+
+# Bir kütüphane oluştuğunda içerisinde test modülü otomatik olarak oluşur
+# Testleri çalıştırmak içinse aşağıdaki terminal komutunu kullanmak yeterlidir
+cargo test
+
+# Test vakalarından örneğin belli bir tanesini çalıştırmak istersek
+# testin adını parametre olarak vermemiz yeterli olur
+cargo test should_calculated_player_score_positive
 ```
 
 > factorial sonrası geliştirilen diğer örneklerde cargo aracından yararlanılmıştır.
@@ -190,6 +203,18 @@ _traits örneğinden bir ekran görüntüsü_
 _lifetimes örneğinde derleme zamanı hatasının görüntüsü_
 
 ![Screenshot_09.png](./assets/Screenshot_09.png)
+
+_testing isimli unit test kullanımı örneğinden görüntüler_
+
+![Screenshot_10.png](./assets/Screenshot_10.png)
+
+_testlerden biri başarılı diğeri değil durumu_
+
+![Screenshot_11.png](./assets/Screenshot_11.png)
+
+_belli bir test maddesini çalıştırdığımız durum_
+
+![Screenshot_12.png](./assets/Screenshot_12.png)
 
 ## Bomba Sorular
 
