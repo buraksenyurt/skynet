@@ -232,6 +232,10 @@ _/// ile kullanım talimatlarını eklediğimizdeki durum_
 
 ![Screenshot_13.png](./assets/Screenshot_13.png)
 
+_reader isimli dosya içeriğini parse edip ürün vektörüne dönüştüren uygulamadan bir hatıra_
+
+![Screenshot_14.png](./assets/Screenshot_14.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -266,3 +270,4 @@ _/// ile kullanım talimatlarını eklediğimizdeki durum_
 - İki kompleks sayının eşit olup olmadığını kontrol eden trait'leri geliştiriniz
 - Iterator trait'ini yeniden programlayarak Fibonnaci sayı dizisini belli bir üst limite kadar ekrana yazdırmayı deneyiniz
 - Fizz Buzz kod katasını Rust ile TDD odaklı geliştirin
+- reader uygulamasındaki akış kodlarını ayrı bir kütüphaneye alın
