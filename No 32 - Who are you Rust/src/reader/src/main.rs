@@ -1,10 +1,11 @@
 /*
-    Program komut satırından verilen dosyadaki satırları | ayracına göre ayırıp bir ürün koleksiyonunda toplamaktadır.
+    Program komut satırından verilen dosyadaki satırları | ayracına göre ayırıp bir ürün koleksiyonunda toplamak için geliştirilmektedir.
 */
 
 // Gerekli ortam kütüphaneleri
 use std::env; // argümanları okurken
 use std::error::Error;
+use std::fmt;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::process; // process'ten çıkartırken // Box trait'inden Error için
@@ -28,9 +29,14 @@ fn main() {
         prmtr.filename, prmtr.command
     );
 
-    if let Err(e) = read_lines(prmtr) {
+    // ürün listesini çekiyoruz
+    let products = read_product_lines(prmtr).unwrap_or_else(|e| {
         println!("Kritik hata: {}", e);
         process::exit(1);
+    });
+
+    for p in products {
+        println!("{}", p); // Product struct'ına Display trait'ini implemente ettiğimiz için bu ifade geçerlidir.
     }
 }
 
@@ -69,14 +75,49 @@ impl Parameter {
     Ne tür bir hata döneceğini bilemediğimiz için dynamic trait kullanılmıştır.
     ?'te panic yerine Ok veya Error durumlarını döndürmektedir.
 */
-fn read_lines(prmtr: Parameter) -> Result<(), Box<dyn Error>> {
+fn read_product_lines(prmtr: Parameter) -> Result<Vec<Product>, Box<dyn Error>> {
     let file = File::open(prmtr.filename)?;
     let reader = BufReader::new(file);
+    let mut products: Vec<Product> = Vec::new();
 
-    for (i, line) in reader.lines().enumerate() {
+    // buffer'a gelen satırlarda ileri yönlü hareket ediyoruz
+    for (_, line) in reader.lines().enumerate() {
         let row = line?;
-        println!("{}. {}", i + 1, row);
+        // println!("{}. {}", i + 1, row);
+        // pipe işaretine göre satırı parse edip bir sütunları bir vector'e alıyoruz
+        let columns: Vec<&str> = row.split("|").collect();
+
+        // yeni bir Product değişkeni oluşturup alanlarını atıyoruz
+        let prd = Product {
+            id: columns[0].parse::<i32>().unwrap(),
+            description: String::from(columns[1]),
+            price: columns[2].parse::<f32>().unwrap(),
+            quantity: columns[3].parse::<i32>().unwrap(),
+        };
+
+        // ve products isimli vector dizisine ekliyoruz
+        products.push(prd);
     }
 
-    Ok(())
+    Ok(products) // Buraya kadar sorunsuz geldiysek ürün listesini tutan vector'ü geriye dönüyoruz
+}
+
+struct Product {
+    id: i32,
+    description: String,
+    price: f32,
+    quantity: i32,
+}
+/*
+    Display trait'ini Product struct'ımız için uyguluyoruz.
+    Böylece println! makrosunda buradaki formatta ekrana bilgi yazdırılması mümkün.
+*/
+impl fmt::Display for Product {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(
+            f,
+            "[{}] - {}. Birim Fiyat {}. Stokta {} adet var.",
+            self.id, self.description, self.price, self.quantity
+        )
+    }
 }
