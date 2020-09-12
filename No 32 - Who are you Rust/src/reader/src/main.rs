@@ -6,9 +6,8 @@
 use std::env; // argümanları okurken
 use std::error::Error;
 use std::fmt;
-use std::fs::File;
-use std::io::{BufRead, BufReader};
-use std::process; // process'ten çıkartırken // Box trait'inden Error için
+use std::fs; 
+use std::process; 
 
 fn main() {
     let args: Vec<String> = env::args().collect(); // ekrandan girilen argümanları String türünden bir vector dizisine aldık
@@ -76,15 +75,12 @@ impl Parameter {
     ?'te panic yerine Ok veya Error durumlarını döndürmektedir.
 */
 fn read_product_lines(prmtr: Parameter) -> Result<Vec<Product>, Box<dyn Error>> {
-    let file = File::open(prmtr.filename)?;
-    let reader = BufReader::new(file);
+    let content = fs::read_to_string(prmtr.filename)?;
     let mut products: Vec<Product> = Vec::new();
 
-    // buffer'a gelen satırlarda ileri yönlü hareket ediyoruz
-    for (_, line) in reader.lines().enumerate() {
-        let row = line?;
-        // println!("{}. {}", i + 1, row);
-        // pipe işaretine göre satırı parse edip bir sütunları bir vector'e alıyoruz
+    // doğrudan content içeriğini lines fonksiyonu ile okuyoruz ve satır satır dolaşabiliyoruz
+    for row in content.lines() {
+        // pipe işaretine göre satırı parse edip sütunları bir vector içinde topluyoruz
         let columns: Vec<&str> = row.split("|").collect();
 
         // yeni bir Product değişkeni oluşturup alanlarını atıyoruz
