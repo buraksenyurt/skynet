@@ -1,0 +1,3 @@
+1000|A3 Kağıt (1000 Adet)|100|45
+1001|Sıtabilo 12li renkli kalem|150|50
+1002|Kareli bloknot|15|20

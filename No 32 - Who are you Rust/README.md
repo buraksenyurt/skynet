@@ -113,6 +113,7 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - panik fırlatmasını istediğimiz senaryolarda should_panic niteliği kullanılır,
     - ignore niteliği ile bir test vakasını atlatabiliriz
     - fonksiyonlarda kendi yardım dokümanlarımızı da tanımlayabiliriz. /// kısımları içerisinde markdown kurallarına göre detaylı yardım sunabiliriz,
+- reader _(csv tarzı dosya okuyan bir örnek)_
 
 ## Çalışma Zamanı
 
