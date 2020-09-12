@@ -5,7 +5,8 @@
 // Gerekli ortam kütüphaneleri
 use std::env; // argümanları okurken
 use std::error::Error;
-use std::fs; // dosya okuma işi yaparken
+use std::fs::File;
+use std::io::{BufRead, BufReader};
 use std::process; // process'ten çıkartırken // Box trait'inden Error için
 
 fn main() {
@@ -27,7 +28,7 @@ fn main() {
         prmtr.filename, prmtr.command
     );
 
-    if let Err(e) = read(prmtr) {
+    if let Err(e) = read_lines(prmtr) {
         println!("Kritik hata: {}", e);
         process::exit(1);
     }
@@ -62,14 +63,20 @@ impl Parameter {
 }
 
 /*
-    read fonksiyonu argümanların toplandığı Parameter struct'ını kullanır ve dosya içeriğini okur.
+    read_lines fonksiyonu argümanların toplandığı Parameter struct'ını kullanır ve dosya içeriğini satır satır okur.
     Bu fonksiyonda non-panic stilde yazılmıştır.
-    Geriye Ok veya hata durumuna göre Error trait'ini uygulayan bir hata referansı döner.
+    Geriye Ok veya hata durumuna göre Error trait'ini uygulayan hata referansları dönebilir.
     Ne tür bir hata döneceğini bilemediğimiz için dynamic trait kullanılmıştır.
     ?'te panic yerine Ok veya Error durumlarını döndürmektedir.
 */
-fn read(prmtr: Parameter) -> Result<(), Box<dyn Error>> {
-    let content = fs::read_to_string(prmtr.filename)?;
-    println!("{}", content);
+fn read_lines(prmtr: Parameter) -> Result<(), Box<dyn Error>> {
+    let file = File::open(prmtr.filename)?;
+    let reader = BufReader::new(file);
+
+    for (i, line) in reader.lines().enumerate() {
+        let row = line?;
+        println!("{}. {}", i + 1, row);
+    }
+
     Ok(())
 }
