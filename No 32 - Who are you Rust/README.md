@@ -240,6 +240,10 @@ _reader isimli dosya içeriğini parse edip ürün vektörüne dönüştüren uy
 
 ![Screenshot_14.png](./assets/Screenshot_14.png)
 
+_closures2 kodundan örnek LINQ sorgusuna ait ekran görüntüsü_
+
+![Screenshot_15.png](./assets/Screenshot_15.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -262,6 +266,7 @@ _reader isimli dosya içeriğini parse edip ürün vektörüne dönüştüren uy
 - _lifetimes_ isimli programdaki #1 örneğinde oluşan derleme zamanı hatasını nasıl düzeltebilirsiniz?
 - Bir fonksiyon birden farklı generic lifetime parametreleri kullanabilir mi?
 - Bir test fonksiyonu sonuç dönebilir mi?
+- Ne zaman normal fonksiyon ne zaman closure?
 
 ## Ödevler
 
@@ -275,3 +280,4 @@ _reader isimli dosya içeriğini parse edip ürün vektörüne dönüştüren uy
 - Iterator trait'ini yeniden programlayarak Fibonnaci sayı dizisini belli bir üst limite kadar ekrana yazdırmayı deneyiniz
 - Fizz Buzz kod katasını Rust ile TDD odaklı geliştirin
 - reader uygulamasındaki akış kodlarını ayrı bir kütüphaneye alın
+- .Netçiler!!! Birkaç LINQ sorgusunu closure'ları kullanarak icra etmeye çalışın
