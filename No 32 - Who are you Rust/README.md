@@ -114,6 +114,10 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - ignore niteliği ile bir test vakasını atlatabiliriz
     - fonksiyonlarda kendi yardım dokümanlarımızı da tanımlayabiliriz. /// kısımları içerisinde markdown kurallarına göre detaylı yardım sunabiliriz,
 - reader _(csv tarzı dosya okuyan bir örnek)_
+- closures,
+    - rust dili de fonksiyonel dil özelliklerini etkin bir şekilde kullanır,
+    - closure, iterator, pattern matching ve enum kavramları Rust'ın öne çıkan fonksiyonel dil yetenekleridir,
+    - closure'ları parametre olarak geçtiğimiz generic kurgularda FnOnce, FnMut ve Fn trait'lerinden en az birisi kulanılmalıdır,
 
 ## Çalışma Zamanı
 
