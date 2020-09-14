@@ -14,4 +14,18 @@ fn main() {
         //burada da elemanlar ileryi yönlü dolaşılmaya başlandı
         println!("{}", point);
     }
+
+    /*
+        iterator'lar standart kütüphanedeki Iterator isimli trait'i implemente ederler.
+        Bunun içerisindeki next fonksiyonunu uygularlar. next ile hep bir sonraki elemana gidilir ve hatta sona gelip gelinmediği de anlaşılır.
+
+        (Belki de kendi iterator'umuzu tanımlarken de bu trait'i uyarlamak yeterli olacaktır. İlerde göreceğim)
+    */
+    let mut iterator2 = average_points.iter(); // next ile hareket ederken iterator'un mutable olması gerekir
+    println!("1. {}", iterator2.next().unwrap());
+    println!("2. {}", iterator2.next().unwrap());
+    println!("3. {}", iterator2.next().unwrap());
+    println!("4. {}", iterator2.next().unwrap());
+    println!("5. {}", iterator2.next().unwrap());
+    //println!("6. {}", iterator2.next().unwrap()); // Upsss! Burada artık olmayan bir elemanı almaya çalışıyor. Panic! oluşur.
 }
