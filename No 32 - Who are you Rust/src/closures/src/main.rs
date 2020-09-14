@@ -59,6 +59,48 @@ fn main() {
 
     // blizard.medal_calculator = |p| (p + 10 / 2);
     // println!("{:?}", blizard.find_medal(16));
+
+    /*
+        Closure'ları fonksiyonlardan ayıran bir özellik de,
+        bulundukları kapsamdaki değişkenlere erişebiliyor olmalarıdır.
+        Aynen aşağıdaki örnekte olduğu gibi.
+        Tabii bu durumda closure'un çevreden çektiği değişkeni sahiplenmesi söz konusudur ki bu da bellekte bu değişkenler için yer ayırdığı anlamına gelir.
+        Performans açısından dikkat edilmesi gereken bir durum.
+    */
+    let some_number = 10;
+    let process_function = |n: i32| n + some_number; // isimsiz fonksiyon içerisinde yukarıda tanımlı (main scope'una dahil) some_number değişkenine erişilmiştir
+    let processed = process_function(5);
+    println!("{},{}", processed, some_number);
+
+    /*
+        Yukarıda closure ile yaptığımız şeyi aşağıdaki gibi yapamayız.
+        Derleyici "can't capture dynamic environment in a fn item" şeklinde hata verecektir
+    */
+    // let another_number=11;
+    // fn add(nbr: i32) -> i32 {
+    //     nbr + another_number
+    // };
+
+    /*
+        Bu arada process_function kullanımı ile ilgili olarak şunu da öğrendim gibi.
+        Closure'un çevre değişkenleri sahiplenmesi 3 Trait ile mümkün oluyor. Fn, FnMut ve FnOnce
+        process_function, some_number'ı sadece okuduğu için Fn Trait'ini uygular.
+        Ama kod bloğunda some_number'ı değiştirip kullanmak istersek aşağıdaki gibi bir yol izlememiz gerekir
+        ki bu durumda FnMut Trait'i devreye girer.(mut kullanımlarına dikkat)
+    */
+    let mut some_number2 = 10;
+    let mut process_function2 = |n: i32| {
+        some_number2 += 1;
+        n + some_number2
+    };
+    let processed2 = process_function2(5);
+    println!("{},{}", processed2, some_number2);
+
+    /*
+        Bir closure farklı bir thread'e alınırken sahiplendiği verinin de mutlak suretle taşınmasını istersek
+        move komutunu kullanabiliriz. Bu durum Concurrency konusunda değer kazanacak.
+    */
+
 }
 
 fn call<F>(closure: F, a: f32, b: f32)
