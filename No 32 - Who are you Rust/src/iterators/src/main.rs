@@ -28,4 +28,28 @@ fn main() {
     println!("4. {}", iterator2.next().unwrap());
     println!("5. {}", iterator2.next().unwrap());
     //println!("6. {}", iterator2.next().unwrap()); // Upsss! Burada artık olmayan bir elemanı almaya çalışıyor. Panic! oluşur.
+
+    /*
+        iter() arkasından kullanılabilecek farklı fonksiyonlar da vardır.
+    */
+    let iterator3 = average_points.iter();
+    let sum_of_points: f32 = iterator3.sum(); // bu noktanda sonra iterator3'ü yeniden kullanamayız. sum onun sahipliğini aldığı için.
+    println!("Total points {}", sum_of_points);
+    //let avg_of_points: f32 = iterator3.average();
+
+    /*
+        iter().map() fonksiyonu da oldukça kullanışlıdır.
+        map fonksiyonu closure kullanır. Dolayısıyla iterasyon sırasında her eleman için çalışacak isimsiz fonksiyonlar kullanabiliriz.
+        Aşağıdaki örnekte şehir adlarından toplam karakter sayısı 5in altında olanlar map ile tespit edilir,
+        kritere uyanlar collect ile yeni bir koleksiyonda toplanır (Bu nedenle founded türü Vec<_> şeklinde tanımlandı)
+    */
+    let cities = vec![
+        "istanbul", "izmir", "ankara", "new york", "chicago", "boston", "london", "tokyo", "van",
+        "rize", "lizbon", "denver", "dublin",
+    ];
+    let founded: Vec<_> = cities.iter().map(|c| c.len() < 5).collect();
+    println!(
+        "Adı 5 harften az olan şehirlerin sayısı, {}.",
+        founded.len()
+    );
 }
