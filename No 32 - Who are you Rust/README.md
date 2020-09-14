@@ -114,10 +114,11 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - ignore niteliği ile bir test vakasını atlatabiliriz
     - fonksiyonlarda kendi yardım dokümanlarımızı da tanımlayabiliriz. /// kısımları içerisinde markdown kurallarına göre detaylı yardım sunabiliriz,
 - reader _(csv tarzı dosya okuyan bir örnek)_
-- closures,
-    - rust dili de fonksiyonel dil özelliklerini etkin bir şekilde kullanır,
+- closures/closures2,
+    - rust dili de fonksiyonel dil özelliklerini _(fonksiyonları değişkene atama,parametre olarak geçme,fonksiyondan fonksiyon döndürme vb)_ etkin bir şekilde kullanır,
     - closure, iterator, pattern matching ve enum kavramları Rust'ın öne çıkan fonksiyonel dil yetenekleridir,
     - closure'ları parametre olarak geçtiğimiz generic kurgularda FnOnce, FnMut ve Fn trait'lerinden en az birisi kulanılmalıdır,
+    - bir closure bulunduğu ortamdaki değişkenleri sahiplenerek kullanabilir _(sahiplendiğini değiştirmesi gerekirse FnMut Trait olmalıdır)_
 
 ## Çalışma Zamanı
 
@@ -281,3 +282,4 @@ _closures2 kodundan örnek LINQ sorgusuna ait ekran görüntüsü_
 - Fizz Buzz kod katasını Rust ile TDD odaklı geliştirin
 - reader uygulamasındaki akış kodlarını ayrı bir kütüphaneye alın
 - .Netçiler!!! Birkaç LINQ sorgusunu closure'ları kullanarak icra etmeye çalışın
+- Closures örneğinde yer alan get_fn fonksiyonunu inceleyin. Sizde farklı bir senaryo düşünüp geriye koşula göre fonksiyon döndüren ama Fn yerine FnMut trait'ini ele alan bir kod parçası yazmayı deneyin.
