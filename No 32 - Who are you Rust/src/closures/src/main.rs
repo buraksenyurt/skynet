@@ -101,6 +101,41 @@ fn main() {
         move komutunu kullanabiliriz. Bu durum Concurrency konusunda değer kazanacak.
     */
 
+    /*
+        Fonksiyonlardan fonksiyon dönebileceğimizden de bahsetmiştik.
+        Aşağıda örnek bir kod yer alıyor.
+        get_fn fonksiyonu, parametre olarak gelen Enum türüne göre geriye Fn(i32,i32)->i32 türünden uygun fonksiyonu döndürüyor.
+        Eğer toplama işlemi yaptırmak istersek toplama, çarpma yaptırmak istersek de çarpma fonksiyonu gibi...
+    */
+    let now_what = get_fn(Process::Division);
+    println!("Division {}", now_what(16, 4));
+    let now_what = get_fn(Process::Extraction);
+    println!("Extraction {}", now_what(12, 6));
+}
+
+// Geriye fonksiyon döndüreceğimiz için impl Fn gibi tanım yaptık (FnMut, FnOnce da söz konusu olabilir tabii)
+fn get_fn(process: Process) -> impl Fn(i32, i32) -> i32 {
+    // match ile process enum durumlarına bakıyoruz
+    // ve uygun bir fonksiyonu geriye döndürüyoruz. Süper değil mi?
+    match process {
+        Process::Addition => |x, y| x + y,
+        Process::Multiplication => |x, y| x * y,
+        Process::Division => |x, y| {
+            if y == 0 {
+                panic!("Sıfıra bölme durumu");
+            } else {
+                x / y
+            }
+        },
+        Process::Extraction => |x, y| x - y,
+    }
+}
+
+enum Process {
+    Addition,
+    Multiplication,
+    Extraction,
+    Division,
 }
 
 fn call<F>(closure: F, a: f32, b: f32)
