@@ -50,11 +50,24 @@ fn main() {
         .iter()
         .map(|name| {
             if name.len() < 5 {
-                println!("{}", name);
+                println!("{}", name); // Ekrana yazdırmak yerine yeni bir koleksiyonda toplamayı denesek mi?
                 Ok(name)
             } else {
                 Err(())
             }
         })
         .collect();
+
+    // Lakin yukarıdaki map senaryosuna göre çok kullanışlı değil. filter fonksiyonu ne güne duruyor ;)
+    // çat diye parametre olarak gelen fonksiyondaki kriterlere uyanları yeni bir vector'e toplamış olduk
+    let foundedv2: Vec<_> = cities.iter().filter(|c| c.len() < 5).collect();
+    println!("{:?}", foundedv2);
+
+    // find ile iterasyon içinde bir şey olup olmadığına bakalım
+    // bakalım denver var mıymış.
+    let is_ankara_exist = cities.iter().find(|&&c| c == "denver");
+    match is_ankara_exist {
+        Some(_) => println!("Evet var"),
+        None => println!("Yokmuş"),
+    };
 }

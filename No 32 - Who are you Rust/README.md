@@ -119,6 +119,10 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - closure, iterator, pattern matching ve enum kavramları Rust'ın öne çıkan fonksiyonel dil yetenekleridir,
     - closure'ları parametre olarak geçtiğimiz generic kurgularda FnOnce, FnMut ve Fn trait'lerinden en az birisi kulanılmalıdır,
     - bir closure bulunduğu ortamdaki değişkenleri sahiplenerek kullanabilir _(sahiplendiğini değiştirmesi gerekirse FnMut Trait olmalıdır)_
+- iterators,
+    - itereator kalıbı bir nesne dizisinde ileri yönlü hareket ederken her bir dizi öğesi için bir fonksiyonelliği çalıştırmak gibi işlemlerde kullanılır,
+    - iterator'lar standart kütüphanedeki Iterator isimli Trait'i uygularlar,
+    - iter() arkasından gelen map, filter, for_each, find vb pek çok fonksiyon parametre olarak closure alır,
 
 ## Çalışma Zamanı
 
@@ -283,3 +287,4 @@ _closures2 kodundan örnek LINQ sorgusuna ait ekran görüntüsü_
 - reader uygulamasındaki akış kodlarını ayrı bir kütüphaneye alın
 - .Netçiler!!! Birkaç LINQ sorgusunu closure'ları kullanarak icra etmeye çalışın
 - Closures örneğinde yer alan get_fn fonksiyonunu inceleyin. Sizde farklı bir senaryo düşünüp geriye koşula göre fonksiyon döndüren ama Fn yerine FnMut trait'ini ele alan bir kod parçası yazmayı deneyin.
+- iter fonksiyonu üstünden örneğin 1den 100e kadar olan sayılardan sadece kendisi ve 1 ile bölünülebilenleri _(asal olanları)_ elde etmeye çalışın,
