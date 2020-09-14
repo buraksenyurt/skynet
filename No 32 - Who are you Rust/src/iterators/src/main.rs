@@ -40,16 +40,21 @@ fn main() {
     /*
         iter().map() fonksiyonu da oldukça kullanışlıdır.
         map fonksiyonu closure kullanır. Dolayısıyla iterasyon sırasında her eleman için çalışacak isimsiz fonksiyonlar kullanabiliriz.
-        Aşağıdaki örnekte şehir adlarından toplam karakter sayısı 5in altında olanlar map ile tespit edilir,
-        kritere uyanlar collect ile yeni bir koleksiyonda toplanır (Bu nedenle founded türü Vec<_> şeklinde tanımlandı)
+        Aşağıdaki örnekte şehir adlarından toplam karakter sayısı 5in altında olanlar map ile tespit edilip ekrana yazdırılıyor.
     */
     let cities = vec![
         "istanbul", "izmir", "ankara", "new york", "chicago", "boston", "london", "tokyo", "van",
         "rize", "lizbon", "denver", "dublin",
     ];
-    let founded: Vec<_> = cities.iter().map(|c| c.len() < 5).collect();
-    println!(
-        "Adı 5 harften az olan şehirlerin sayısı, {}.",
-        founded.len()
-    );
+    let founded: Vec<_> = cities
+        .iter()
+        .map(|name| {
+            if name.len() < 5 {
+                println!("{}", name);
+                Ok(name)
+            } else {
+                Err(())
+            }
+        })
+        .collect();
 }
