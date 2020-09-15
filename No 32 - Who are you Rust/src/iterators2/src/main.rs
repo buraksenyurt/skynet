@@ -31,7 +31,7 @@ enum Platform {
     Game türünden vector parametre olarak gelir, _year değerine göre filtreleme yapılır
     ve bu kritere uyan oyunlar geriye dönülür
 */
-fn less_than_year(games: Vec<Game>, _year: u16) -> Vec<Game> {
+fn before_year(games: Vec<Game>, _year: u16) -> Vec<Game> {
     games.into_iter().filter(|g| g.year <= _year).collect()
 }
 
@@ -116,10 +116,18 @@ fn load_samples() -> Vec<Game> {
     ]
 }
 
+/*
+    Test modülümüzü de ekleyelim.
+    Eklenen fonksiyonları test ederek ilerleriz
+*/
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    /*
+        Mesela veri setimize göre Atari5200 platformundan iki oyunun olduğu bir vector dizisi dönmeli
+    */
     #[test]
     fn should_games_include_two_atari5200_games() {
         let retro_games = load_samples();
@@ -143,6 +151,16 @@ mod tests {
                 },
             ]
         )
+    }
+
+    /*
+        1986 dahil öncesinde geliştirilen de 6 oyun olmalı
+    */
+    #[test]
+    fn should_return_six_for_games_before_1986() {
+        let retro_games = load_samples();
+        let finding = before_year(retro_games, 1986);
+        assert_eq!(finding.len(), 6);
     }
 }
 fn main() {}
