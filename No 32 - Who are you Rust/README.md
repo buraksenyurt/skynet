@@ -122,7 +122,8 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
 - iterators,
     - itereator kalıbı bir nesne dizisinde ileri yönlü hareket ederken her bir dizi öğesi için bir fonksiyonelliği çalıştırmak gibi işlemlerde kullanılır,
     - iterator'lar standart kütüphanedeki Iterator isimli Trait'i uygularlar,
-    - iter() arkasından gelen map, filter, for_each, find vb pek çok fonksiyon parametre olarak closure alır,
+    - iter() arkasından gelen map, filter, for_each, find vb pek çok fonksiyon _(ki bunlara iterator adaptor deniliyor)_ parametre olarak closure alır,
+    - filter, geriye bool döndüren bir adaptor'dür ve kendi nesne yapılarımızın filtrelenmesi gibi ihtiyaçlarda epeyce işe yaramaktadır
 
 ## Çalışma Zamanı
 
@@ -249,6 +250,10 @@ _closures2 kodundan örnek LINQ sorgusuna ait ekran görüntüsü_
 
 ![Screenshot_15.png](./assets/Screenshot_15.png)
 
+_iterators2 örneğindeki test sonuçlarına ait bir görüntü_
+
+![Screenshot_16.png](./assets/Screenshot_16.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -272,6 +277,7 @@ _closures2 kodundan örnek LINQ sorgusuna ait ekran görüntüsü_
 - Bir fonksiyon birden farklı generic lifetime parametreleri kullanabilir mi?
 - Bir test fonksiyonu sonuç dönebilir mi?
 - Ne zaman normal fonksiyon ne zaman closure?
+- iterators2 örneğinde yer alan Game struct'ı için neden #[derive(PartialEq, Debug)] niteliklerini uyguladık?
 
 ## Ödevler
 
