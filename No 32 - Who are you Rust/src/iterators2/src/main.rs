@@ -4,8 +4,9 @@
 */
 
 /*
-    Birkaç klasik oyun bilgisini tutacak bir struct
+    Birkaç klasik oyun bilgisini tutacak bir struct.
 */
+#[derive(PartialEq, Debug)]
 struct Game {
     name: String,
     year: u16,
@@ -18,7 +19,7 @@ struct Game {
     Oyunun hangi console'da oynandığı bilgisini de bir enum ile tutalım.
     Bu arada game_by_platform fonksiyonundaki == operatörünü kullanabilmek için PartialEq niteliğini kullanıyoruz
 */
-#[derive(PartialEq)]
+#[derive(PartialEq, Debug)]
 enum Platform {
     Commodore64,
     Atari2600,
@@ -115,4 +116,33 @@ fn load_samples() -> Vec<Game> {
     ]
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn should_games_include_two_atari5200_games() {
+        let retro_games = load_samples();
+        let finding = games_by_platform(retro_games, Platform::Atari5200);
+        assert_eq!(
+            finding,
+            vec![
+                Game {
+                    name: String::from("Gremlins"),
+                    year: 1986,
+                    publisher: String::from("Atari"),
+                    value: 2.75,
+                    platform: Platform::Atari5200,
+                },
+                Game {
+                    name: String::from("Mario Bros."),
+                    year: 1988,
+                    publisher: String::from("Nintendo"),
+                    value: 9.85,
+                    platform: Platform::Atari5200,
+                },
+            ]
+        )
+    }
+}
 fn main() {}
