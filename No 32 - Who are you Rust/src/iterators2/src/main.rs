@@ -15,8 +15,10 @@ struct Game {
 }
 
 /*
-    Oyunun hangi console'da oynandığı bilgisini de bir enum ile tutalım
+    Oyunun hangi console'da oynandığı bilgisini de bir enum ile tutalım.
+    Bu arada game_by_platform fonksiyonundaki == operatörünü kullanabilmek için PartialEq niteliğini kullanıyoruz
 */
+#[derive(PartialEq)]
 enum Platform {
     Commodore64,
     Atari2600,
@@ -24,12 +26,22 @@ enum Platform {
 }
 
 /*
-    Yıla göre oyunları döndüren bir fonksiyon.
+    Belli bir yıldan önceki oyunları döndüren bir fonksiyon.
     Game türünden vector parametre olarak gelir, _year değerine göre filtreleme yapılır
     ve bu kritere uyan oyunlar geriye dönülür
 */
-fn get_by_year(games: Vec<Game>, _year: u16) -> Vec<Game> {
-    games.into_iter().filter(|g| g.year == _year).collect()
+fn less_than_year(games: Vec<Game>, _year: u16) -> Vec<Game> {
+    games.into_iter().filter(|g| g.year <= _year).collect()
+}
+
+/*
+    Belli bir platform için yazılmış oyunların bulunması
+*/
+fn games_by_platform(games: Vec<Game>, _platform: Platform) -> Vec<Game> {
+    games
+        .into_iter()
+        .filter(|g| g.platform == _platform)
+        .collect()
 }
 
 /*
