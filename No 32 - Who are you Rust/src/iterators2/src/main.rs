@@ -29,7 +29,10 @@ enum Platform {
 /*
     Belli bir yıldan önceki oyunları döndüren bir fonksiyon.
     Game türünden vector parametre olarak gelir, _year değerine göre filtreleme yapılır
-    ve bu kritere uyan oyunlar geriye dönülür
+    ve bu kritere uyan oyunlar geriye dönülür.
+
+    Tüm arama fonksiyonlarında into_iter iterator'u kullanılıyor. Bu vector'ün sahipliğini üstlenen bir iterator oluşturmak için kullanılıyor.
+    Sahipliği almadığımız takdirde collect fonksiyonu derleme hatası verecektir.
 */
 fn before_year(games: Vec<Game>, _year: u16) -> Vec<Game> {
     games.into_iter().filter(|g| g.year <= _year).collect()
@@ -42,6 +45,16 @@ fn games_by_platform(games: Vec<Game>, _platform: Platform) -> Vec<Game> {
     games
         .into_iter()
         .filter(|g| g.platform == _platform)
+        .collect()
+}
+
+/*
+    İçinde parametre olarak gelen kelimeyi içeren oyunlar
+*/
+fn games_include_this(games: Vec<Game>, _word: String) -> Vec<Game> {
+    games
+        .into_iter()
+        .filter(|g| g.name.contains(&_word))
         .collect()
 }
 
@@ -161,6 +174,34 @@ mod tests {
         let retro_games = load_samples();
         let finding = before_year(retro_games, 1986);
         assert_eq!(finding.len(), 6);
+    }
+
+    /*
+        Adında II geçen oyunların testi.
+    */
+    #[test]
+    fn should_return_games_for_name_contains_two() {
+        let retro_games = load_samples();
+        let finding = games_include_this(retro_games, String::from("II"));
+        assert_eq!(
+            finding,
+            vec![
+                Game {
+                    name: String::from("Crazy Cars II"),
+                    year: 1988,
+                    publisher: String::from("Titus"),
+                    value: 1.5,
+                    platform: Platform::Commodore64,
+                },
+                Game {
+                    name: String::from("Pitstop II"),
+                    year: 1984,
+                    publisher: String::from("Epyx"),
+                    value: 0.55,
+                    platform: Platform::Commodore64,
+                },
+            ]
+        );
     }
 }
 fn main() {}
