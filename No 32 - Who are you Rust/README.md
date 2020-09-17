@@ -124,6 +124,8 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - iterator'lar standart kütüphanedeki Iterator isimli Trait'i uygularlar,
     - iter() arkasından gelen map, filter, for_each, find vb pek çok fonksiyon _(ki bunlara iterator adaptor deniliyor)_ parametre olarak closure alır,
     - filter, geriye bool döndüren bir adaptor'dür ve kendi nesne yapılarımızın filtrelenmesi gibi ihtiyaçlarda epeyce işe yaramaktadır
+    - Kendi veri yapılarımız _(genellikle struct'lar)_ veya diğer koleksiyon türleri için _(örneğin hash map)_ kendi iterator nesnelerimizi yazabiliriz,
+    - own_iterator örneğindeki lifetime kullanımının sebebi nedir?
 
 ## Çalışma Zamanı
 
@@ -253,6 +255,10 @@ _closures2 kodundan örnek LINQ sorgusuna ait ekran görüntüsü_
 _iterators2 örneğindeki test sonuçlarına ait bir görüntü_
 
 ![Screenshot_16.png](./assets/Screenshot_16.png)
+
+_Kendi struct türümüzdeki alanları for döngüsü ile gezebildiğimiz own<_>iterator uygulamasından bir görüntü_
+
+![Screenshot_17.png](./assets/Screenshot_17.png)
 
 ## Bomba Sorular
 
