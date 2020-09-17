@@ -20,23 +20,30 @@ struct Point {
     Sanırım amaç anlaşıldı. Bir öğrenicinin notlarını for döngüsü ile dönebilmek istiyorum.
     Bu iterasyon sırasında verinin haricinde verinin durumunu ve hangi konumda olduğumu da bilmem lazım.
     O nedenle position ve data isimli iki alanımız var.
+
+    İlk versiyonda points verisini olduğu gibi tutmuştuk. Lakin verinin referansını tutmamız yeterli.
+    Tabii Point referansını tutacağız ama Rust, Student veri yapısının taşıyacağı bu referans ile olan ilişkinin ömrünü bilemeyecek.
+    O nedenle <'a> ile lifetime ilişkisini eşitliyoruz.
 */
-struct Student {
+struct Student<'a> {
     fullname: String,
     school: String,
     position: i32,
-    points: Point,
+    points: &'a Point,
 }
 
-// ve iterator trait'inin uygulanması
-impl Iterator for Student {
+/*
+    iterator trait'inin uygulanması.
+    Eğer <'_> şeklinde isimsiz lifetime bildirimi yapmazsak 'implicit elided lifetime not allowed here' şeklinde hata alırız.
+    Bu nedenle <'_> şeklinde bir bildirim yapıp Rust derleyicisinden bu hatayı göz ardı etmesini rica ediyoruz.
+*/
+impl Iterator for Student<'_> {
     type Item = f32; // Point struct'tındaki türden olduğunda dikkat edelim
-    
-    /*
-        next sıradaki Item'ı yani puanı yani f32 türünden öğeyi döndürür. 
-        Kiminkini peki? Self ile ifade ettiğimize göre o anki Student nesnesininkini.
-    */
-    fn next(&mut self) -> Option<Self::Item> { 
+                     /*
+                         next sıradaki Item'ı yani puanı yani f32 türünden öğeyi döndürür.
+                         Kiminkini peki? Self ile ifade ettiğimize göre o anki Student nesnesininkini.
+                     */
+    fn next(&mut self) -> Option<Self::Item> {
         match self.position {
             0 => {
                 self.position += 1;
@@ -75,8 +82,8 @@ fn main() {
     let ant_man = Student {
         fullname: String::from("Ant-Man"),
         school: String::from("Mystery Forrest High School"),
-        points: some_points,
-        position: 0,
+        points: &some_points, // referans adresi verdiğimize dikkat edelim
+        position: 0, // Aslında bu atama ile iterator'un 0ncı konuma inmesini sağlıyoruz.
     };
 
     println!("{} ({})", ant_man.fullname, ant_man.school);
