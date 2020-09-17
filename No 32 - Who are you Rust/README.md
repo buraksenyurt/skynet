@@ -119,13 +119,15 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - closure, iterator, pattern matching ve enum kavramları Rust'ın öne çıkan fonksiyonel dil yetenekleridir,
     - closure'ları parametre olarak geçtiğimiz generic kurgularda FnOnce, FnMut ve Fn trait'lerinden en az birisi kulanılmalıdır,
     - bir closure bulunduğu ortamdaki değişkenleri sahiplenerek kullanabilir _(sahiplendiğini değiştirmesi gerekirse FnMut Trait olmalıdır)_
-- iterators,
+- iterators/iterators2/own_iterator,
     - itereator kalıbı bir nesne dizisinde ileri yönlü hareket ederken her bir dizi öğesi için bir fonksiyonelliği çalıştırmak gibi işlemlerde kullanılır,
     - iterator'lar standart kütüphanedeki Iterator isimli Trait'i uygularlar,
     - iter() arkasından gelen map, filter, for_each, find vb pek çok fonksiyon _(ki bunlara iterator adaptor deniliyor)_ parametre olarak closure alır,
     - filter, geriye bool döndüren bir adaptor'dür ve kendi nesne yapılarımızın filtrelenmesi gibi ihtiyaçlarda epeyce işe yaramaktadır
     - Kendi veri yapılarımız _(genellikle struct'lar)_ veya diğer koleksiyon türleri için _(örneğin hash map)_ kendi iterator nesnelerimizi yazabiliriz,
     - own_iterator örneğindeki lifetime kullanımının sebebi nedir?
+- hof,
+    - HOF : Oflamak puflamak sıkılmak anlamında değildir. Higher Order Function demektir.
 
 ## Çalışma Zamanı
 
@@ -300,3 +302,4 @@ _Kendi struct türümüzdeki alanları for döngüsü ile gezebildiğimiz own<_>
 - .Netçiler!!! Birkaç LINQ sorgusunu closure'ları kullanarak icra etmeye çalışın
 - Closures örneğinde yer alan get_fn fonksiyonunu inceleyin. Sizde farklı bir senaryo düşünüp geriye koşula göre fonksiyon döndüren ama Fn yerine FnMut trait'ini ele alan bir kod parçası yazmayı deneyin.
 - iter fonksiyonu üstünden örneğin 1den 100e kadar olan sayılardan sadece kendisi ve 1 ile bölünülebilenleri _(asal olanları)_ elde etmeye çalışın,
+- hof örneğinde 28nci satırdaki filter fonksiyonuna bakın. Burada calc fonksiyonunu çağırmadan aynı hesaplamayı yaptırın
