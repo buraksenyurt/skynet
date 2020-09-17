@@ -83,6 +83,16 @@ _ve çalışma zamanından iki görüntü_
 - Paket bağımlılıkları package.json içerisinde.
 - Proje geliştirildikten sonra Local Network başlattık, burası için benzersiz bir Canester ID ürettik ve başlatılan ağa kayıt ettik, projeyi build ettik, build olan projeyi bu ağa install ettik _(ki burada WebAssembly içerisinde deploy oluyormuş)_ sonrasında test edip çalıştırdık.
 
+Bu arada build işlemi sonrası eğer terminalden aşağıdaki komutu verirsek
+
+```bash
+ls -l .dfx/local/canisters/freedom/
+```
+
+WebAssembly oluşumlarını görebiliriz.
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
+
 ## Bomba Sorular
 
 > Konuya hakim olamadım ki bomba sorum olsun
