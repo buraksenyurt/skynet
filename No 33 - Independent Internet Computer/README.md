@@ -73,6 +73,16 @@ _ve çalışma zamanından iki görüntü_
 
 ![Screenshot_04.png](./assets/Screenshot_04.png)
 
+## Bazı Tespitler
+
+- Önyüz için Assets klasörü altındaki index.js'i kurcalamak lazım.
+- Önyüzün kullandığı fonksiyonlar main.mo altındaydı.
+- Local Network adres ve port için tanımlama dfx.json altındaydı.
+- Frontend tarafının entrypoint bilgisi ile main programlarının bildirimleri de dfx.json içerisinde.
+- Dağıtım tarafında webpack kullanılmış.
+- Paket bağımlılıkları package.json içerisinde.
+- Proje geliştirildikten sonra Local Network başlattık, burası için benzersiz bir Canester ID ürettik ve başlatılan ağa kayıt ettik, projeyi build ettik, build olan projeyi bu ağa install ettik _(ki burada WebAssembly içerisinde deploy oluyormuş)_ sonrasında test edip çalıştırdık.
+
 ## Bomba Sorular
 
 > Konuya hakim olamadım ki bomba sorum olsun
