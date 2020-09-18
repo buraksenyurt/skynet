@@ -128,6 +128,9 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - own_iterator örneğindeki lifetime kullanımının sebebi nedir?
 - hof,
     - HOF : Oflamak puflamak sıkılmak anlamında değildir. Higher Order Function demektir.
+- smart pointers,
+    - Verinin adresi dışında metadata bilgisi de taşıyan ve genellikle veriyi sahiplenen _(ownership)_ veri yapılarıdır,
+    - Reference Counting Smart Pointer veri yapısı ile bir veriyi sahiplenen n adet referans kullanmak mümkündür,
 
 ## Çalışma Zamanı
 
@@ -286,6 +289,7 @@ _Kendi struct türümüzdeki alanları for döngüsü ile gezebildiğimiz own<_>
 - Bir test fonksiyonu sonuç dönebilir mi?
 - Ne zaman normal fonksiyon ne zaman closure?
 - iterators2 örneğinde yer alan Game struct'ı için neden #[derive(PartialEq, Debug)] niteliklerini uyguladık?
+- cons list kullanmamızı gerektirecek bir durum düşünün ve tanıdığınız bir Rustacean'a bunu anlatın.
 
 ## Ödevler
 
