@@ -30,9 +30,10 @@ fn main() {
         Fonksiyonel dillerde rastlanan cons list gibi türler ise recursive özellik gösterirler ve tipin ne kadar yer tutacağı kestirilemez.
         cons Lisp kökenlidir ve iki argüman alan bir fonksiyondur. const list, cons fonksiyonunu recursive olarak çağıran bir elemanlar dizisidir.
         Son elemanda Nil görene kadar bu liste devam edebilir.
-
-
     */
+
+    let infinity_war = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil)))))); // Kafa karıştırıcı yahu
+   
 }
 
 /*
@@ -41,9 +42,14 @@ fn main() {
         Bunu bu haliyle bırakırsak derleme zamanı 'recursive type `ConsList` has infinite size' şeklinde hata döner.
         O yüzden ConsListV2 şeklinde tanımlayıp kullanmamız gerekiyor.
 */
-enum ConsList {
-    Cons(i32, ConsList),
+// enum ConsList {
+//     Cons(i32, ConsList),
+//     Nil,
+// }
+
+enum ConsListV2 {
+    Cons(i32, Box<ConsListV2>), // Box kullandığımız için artık veriyi Heap'ta tutacağımızı belirttik.
     Nil,
 }
 
-//use crate::ConsList::{Cons, Nil};
+use crate::ConsListV2::{Cons, Nil}; // Bu küfe bildirimini yapmazsak infinity_war kullanımında 'not found in this scope' hatası alırız
