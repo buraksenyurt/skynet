@@ -131,6 +131,8 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
 - smart pointers,
     - Verinin adresi dışında metadata bilgisi de taşıyan ve genellikle veriyi sahiplenen _(ownership)_ veri yapılarıdır,
     - Reference Counting Smart Pointer veri yapısı ile bir veriyi sahiplenen n adet referans kullanmak mümkündür,
+    - Kendi Smart Pointer'larımızı da yazabiliriz. 
+    - * _(Dereference)_ operatörünün kullanılabilmesi için Deref Trait'inin kendi smart pointer türümüz için de yazılması gerekir
 
 ## Çalışma Zamanı
 
