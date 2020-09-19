@@ -51,7 +51,40 @@ fn main() {
     let smart_pointer = Box::new(counter);
     assert_eq!(1, *smart_pointer);
     counter += 1; // Bu mümkündür çünkü smart pointer borrowing durumunu oluşturmamıştır
-    assert_eq!(2, *smart_pointer); // counter kendi başına artar. Smart Pointer onun değerini koypalayarak kullandığı için halen 1'e eşittir
+                  //assert_eq!(2, *smart_pointer); // counter kendi başına artar. Smart Pointer onun değerini koypalayarak kullandığı için halen 1'e eşittir
+
+    // Kendi smart pointer türümüzün kullanımı
+    let lucky_num = 2.777;
+    let magic_box = MagicBox::create(lucky_num);
+    assert_eq!(2.777, *magic_box);
+}
+
+/*
+    Kutsal Rustacean Kitabına göre Box yapısının referans türlerinden farkını anlamanı en iyi yolu kendi Smart Pointer türümüzü geliştirmekmiş.
+    Tabii herhangi bir türle çalışması isteneceğininde generic tanımlanıyor.
+    Tanımlayacağımız MagicBox yapısına create isimli bir fonksiyon da ekledik.(Box<T> türünün new fonksiyonu olarak düşünebiliriz)
+    
+    Ayrıca yukarıkdaki assert_eq!(2.777,*magic_box); satırında Deference operatörünün kullanımı söz konusu. 
+    Bunu da kendi Smart Pointer yapımıza öğretmemiz gerekiyor. Aksi durumda 'type `MagicBox<{float}>` cannot be dereferenced' şeklinde derleme
+    zamanı hatası alırız. Sonuçta oradaki kıyaslama için de * operatörü ile derefer ederek değeri almamız lazım.
+*/
+struct MagicBox<T>(T);
+
+impl<T> MagicBox<T> {
+    fn create(value: T) -> MagicBox<T> {
+        MagicBox(value) // MagicBox bir Tuple gibi tasarlandığından onu metoda parametre olarak gelen value değeri ile oluşturuyoruz
+    }
+}
+
+// Dereference için Deref Trait'inin uygulanması
+use std::ops::Deref;
+
+impl<T> Deref for MagicBox<T> {
+    type Target = T;
+
+    fn deref(&self) -> &T {
+        &self.0 //Kara karıştırmasın. Tuple'ın ilk elemanının değerini döndürüyor
+    }
 }
 
 /*
