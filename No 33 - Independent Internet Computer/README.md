@@ -82,6 +82,7 @@ _ve çalışma zamanından iki görüntü_
 - Dağıtım tarafında webpack kullanılmış.
 - Paket bağımlılıkları package.json içerisinde.
 - Proje geliştirildikten sonra Local Network başlattık, burası için benzersiz bir Canester ID ürettik ve başlatılan ağa kayıt ettik, projeyi build ettik, build olan projeyi bu ağa install ettik _(ki burada WebAssembly içerisinde deploy oluyormuş)_ sonrasında test edip çalıştırdık.
+- İkinci örnekte iki değer aralığındaki sayıları bulan bir fonksiyon kullanımı var. Sanki fazla yavaş çalışıyor gibi.
 
 Bu arada build işlemi sonrası eğer terminalden aşağıdaki komutu verirsek
 
@@ -92,6 +93,35 @@ ls -l .dfx/local/canisters/freedom/
 WebAssembly oluşumlarını görebiliriz.
 
 ![Screenshot_05.png](./assets/Screenshot_05.png)
+
+Bu arada örnekleri çoğaltmaya başlayıp Internet Computer Network'e yeni Canister'ler eklendikçe şöyle bir arabirimle de karşılaştım.
+
+![Screenshot_07.png](./assets/Screenshot_07.png)
+
+## İkinci Örnek
+
+Motoko'yu tanımak için bir örnek daha yapayım dedim. Bu sefer algebra isimli bir proje oluşturdum. main.mo yanına einstein isimli yeni bir actor ekledim ve dfx.json'dan main.mo yerine bunu kullanacağımı belirttim. einstein.mo içerisinde tek bir fonksiyon var. İki integer değer aralığındaki sayıların toplamını buluyor. Sonrasında uygulamayı aşağıdaki adımlardan geçirerek test ettim.
+
+```bash
+# Birinc terminalde (hepsi algebra klasörü altında yapılmalı)
+dfx start
+
+# Ağ başlatıldıktan sonra ikinci terminalde sırasıyla aşağıdaki işlemleri yaptım
+dfx canister create --all
+dfx build algebra
+dfx canister install algebra
+
+# ve komut satırından denememi yaptım
+dfx canister call algebra gauss_sum '(1,100)'
+```
+
+_1 ile 100 arasındaki sayıların toplamı_
+
+![Screenshot_06.png](./assets/Screenshot_06.png)
+
+CanisterId'yi kullanarak aynı uygulamayı otomatik olarak üretilen web sayfasıyla da test edebiliriz. Benim örneğimde bu adres <http://127.0.0.1:8000/candid?canisterId=75hes-oqbaa-aaaaa-aaaaa-aaaaa-aaaaa-aaaaa-q> şeklindeydi.
+
+![Screenshot_08.png](./assets/Screenshot_08.png)
 
 ## Bomba Sorular
 
