@@ -33,7 +33,25 @@ fn main() {
     */
 
     let infinity_war = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil)))))); // Kafa karıştırıcı yahu
-   
+
+    /*
+        Şimdi aşağıdaki kullanımlara bakalım.
+        Normalde bir değişkenin referansını almak için & operatörünü kullanırız. Referans üstünden değer okurken de *(Dereference) operatörü kullanılır.
+    */
+    let mut point = 23;
+    let pointer = &point;
+    assert_eq!(23, *pointer); // * operatörünü kullanmadan denersek 'no implementation for `{integer} == &{integer}`' şeklinde hata alırız
+                              // point = 25; // Bunu yapamayız. Çünkü borrowing söz konusudur. point, pointer tarafında referansla da olsa ödünç alınmıştır
+
+    /*
+       Yukarıdaki kullanımda pointer, point değerini referans eder.
+       Aşağıdaki kullanımda ise counter değerinin bir kopyası Heap'e alınırken stack bölgesinden referans edilir.
+    */
+    let mut counter = 1;
+    let smart_pointer = Box::new(counter);
+    assert_eq!(1, *smart_pointer);
+    counter += 1; // Bu mümkündür çünkü smart pointer borrowing durumunu oluşturmamıştır
+    assert_eq!(2, *smart_pointer); // counter kendi başına artar. Smart Pointer onun değerini koypalayarak kullandığı için halen 1'e eşittir
 }
 
 /*
