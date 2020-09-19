@@ -17,6 +17,12 @@ fn main() {
         Hem points2 hem points3 aynı listeyi(points1) paylaşıyorlar.
         Esasında paylaşamıyorlar. points3 kısmında derleme zamanı hatası oluşuyor.
         Bu nedenle Box<T> smart pointer türü yerine Rc<T> türünü kullanmak gerekiyor.
+
+        Bu arada hep bahsedilen referance count değerlerini görmek için strong_count fonksiyonunu nasıl kullandık bir bakalım.
+        points1 ilk oluştuğunda bu değer 1 dir. points2, points2 points1'i kullanarak oluştuğunda bu değer 2ye çıkar.
+        Sonrasında bir {} bloğu açıyoruz dikkat edilecek olursa. 
+        points3 devreye girdiğinde sayaç 3e çıkar çünkü 3 referans söz konusudur.
+        {} bloğundan sonra ise points3 scope dışı kalır ve dolayısıyla referance count 1 azalır.
     */
 
     // let points1 = Cons(7, Box::new(Cons(8, Box::new(Cons(9, Box::new(Nil)))))); //7->8->9->Nil şeklinde bir listemiz var
@@ -24,8 +30,14 @@ fn main() {
     // let points3 = Cons(3, Box::new(points1)); // Normalde bu şekilde kullanırsak, bir üst satırda points1'in sahipliği points2'ye geçtiği için use of moved value: `points1` derleme zamanı hatası alırız
 
     let points1 = Rc::new(Cons(7, Rc::new(Cons(8, Rc::new(Cons(9, Rc::new(Nil))))))); // Bir önceki kullanımdan farklı olarak Rc::new ile oluşturmaya başladığımıza dikkat edelim
+    println!("Reference Count {}", Rc::strong_count(&points1));
     let points2 = Cons(1, Rc::clone(&points1)); // clone fonksiyonunu kullanarak points1'in referansını geçiyoruz
-    let points3 = Cons(3, Rc::clone(&points1));
+    {
+        println!("Reference Count {}", Rc::strong_count(&points1));
+        let points3 = Cons(3, Rc::clone(&points1));
+        println!("Reference Count {}", Rc::strong_count(&points1));
+    }
+    println!("Reference Count {}", Rc::strong_count(&points1));
     // let points4 = Cons(10, points1.clone()); // Performans açısından tercih edilmez
     /*
         Bu arada Rc::clone(&points1) kullanımı yerine points1.clone() da tercih edilebilir ancak
