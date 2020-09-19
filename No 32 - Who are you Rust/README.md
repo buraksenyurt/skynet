@@ -25,7 +25,7 @@ touch WhoAreYouRust.rs
 
 ## Örneklerden Anahtar Notlar
 
-Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı kendime not olarak alayım.
+Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı kendime not olarak alayım. _(İlk boğum örnek uygulamanın adını işaret ediyor)_
 
 - factorial; 
     - mutable değişken tanımlama,
@@ -133,6 +133,12 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - Reference Counting Smart Pointer veri yapısı ile bir veriyi sahiplenen n adet referans kullanmak mümkündür,
     - Kendi Smart Pointer'larımızı da yazabiliriz. 
     - * _(Dereference)_ operatörünün kullanılabilmesi için Deref Trait'inin kendi smart pointer türümüz için de yazılması gerekir
+- reference_counting,
+    - Reference Counting, bir değerin birden fazla sahibi olması istenen durumlar için geçerli bir konudur
+    - Bu kabiliyet için Rc<T> yapısı kullanılır,
+    - Rc<T> aynı değeri işaret eden referansların muhasebecesi gibidir. Değeri işaret eden referans kalıp kalmadığını hesaplar, kalmamışsa değer temizlenir.
+    - Rc clone fonksiyonu Deep Copy yapmaz.
+    - Clone'lama olduğunda sayaç bir artar, scope dışına çıkıldığında ise bir azalır. Taa ki hiçbir referans kalmayana kadar.
 
 ## Çalışma Zamanı
 
@@ -292,6 +298,7 @@ _Kendi struct türümüzdeki alanları for döngüsü ile gezebildiğimiz own<_>
 - Ne zaman normal fonksiyon ne zaman closure?
 - iterators2 örneğinde yer alan Game struct'ı için neden #[derive(PartialEq, Debug)] niteliklerini uyguladık?
 - cons list kullanmamızı gerektirecek bir durum düşünün ve tanıdığınız bir Rustacean'a bunu anlatın.
+- Rc<T> kullanmamızı gerektirecek en az bir senaryo söyleyebilir misiniz?
 
 ## Ödevler
 
