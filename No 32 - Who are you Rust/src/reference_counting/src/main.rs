@@ -7,6 +7,7 @@
 */
 
 use crate::PointList::{Cons, Nil};
+use std::rc::Rc; // Rc<T> veri yapısını kullanabilmek için eklendi
 
 fn main() {
     /*
@@ -22,11 +23,24 @@ fn main() {
     // let points2 = Cons(1, Box::new(points1));
     // let points3 = Cons(3, Box::new(points1)); // Normalde bu şekilde kullanırsak, bir üst satırda points1'in sahipliği points2'ye geçtiği için use of moved value: `points1` derleme zamanı hatası alırız
 
-    
+    let points1 = Rc::new(Cons(7, Rc::new(Cons(8, Rc::new(Cons(9, Rc::new(Nil))))))); // Bir önceki kullanımdan farklı olarak Rc::new ile oluşturmaya başladığımıza dikkat edelim
+    let points2 = Cons(1, Rc::clone(&points1)); // clone fonksiyonunu kullanarak points1'in referansını geçiyoruz
+    let points3 = Cons(3, Rc::clone(&points1));
+    // let points4 = Cons(10, points1.clone()); // Performans açısından tercih edilmez
+    /*
+        Bu arada Rc::clone(&points1) kullanımı yerine points1.clone() da tercih edilebilir ancak
+        Rc::clone deep copy yapmadığından ve sadece referansmatiği (Counter diyelim) 1 artırdığından çok daha hızlı işlem görür.
+    */
 }
+
+// // Kobay cons list yapımız
+// enum PointList {
+//     Cons(i32, Box<PointList>),
+//     Nil,
+// }
 
 // Kobay cons list yapımız
 enum PointList {
-    Cons(i32, Box<PointList>),
+    Cons(i32, Rc<PointList>),
     Nil,
 }
