@@ -24,6 +24,21 @@ touch ports.js index.js
 
 ## Çalışma Zamanı
 
+Uygulamanın çalışma zamanı için aşağıdaki adımları takip edebiliriz.
+
+```bash
+# Mountebank server'ını ayağa kaldırmak için asgard klasörü altında aşağıdaki komutu vermek yeterli
+# bunun işletilmesi için package.json'a start komutunu ekledik.
+# Normal o src klasörü altındaki index.js dosyasını çalıştırıyor
+# Aşağıdaki komut sonrası sunucunun ayakta olup olmadığının sağlaması için
+# http://localhost:5500 adresine gidebiliriz(Bir JSON içeriği görmemiz lazım)
+npm start
+```
+
+_Mountebank server'ı npm start ile ayağa kaldırdığımızda 5500 portundan gelecek olan json içeriği_
+
+![Screenshot_01.png](./assets/Screenshot_01.png)
+
 ## Bomba Sorular
 
 ## Ödevler
