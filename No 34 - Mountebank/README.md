@@ -15,14 +15,20 @@ mkdir asgard
 cd asgard
 npm init --yes
 # Mountebank paketini npm aracı ile yüklüyoruz
-npm i --save mountebank
+# Birde yazacağımız mock servisleri Mountebank sunucusuna bildirmek için
+# node-fetch paketinden yararlanacağız. Dolayısıyla onu da ekliyoruz.
+npm i --save mountebank node-fetch
 
 mkdir src
 cd src
 # port bilgilerini tutacağımız bir konfigurasyon dosyası ile 
-# Bir Mountebank örneğini ayağa kaldırmaktan sorumlu index dosyasını oluşturuyoruz
+# Bir Mountebank sunucusunu ayağa kaldırmaktan sorumlu index dosyasını oluşturuyoruz
 # Bunlar src dizini altında konuşlanabilirler
 touch ports.js index.js
+
+# ve ilk Mock Service'imiz için aşağıdaki dosyayı kullanabiliriz
+# yine src altında olabilir
+touch ping-service.js
 
 ```
 
@@ -43,6 +49,14 @@ _Mountebank server'ı npm start ile ayağa kaldırdığımızda 5500 portundan g
 
 ![Screenshot_01.png](./assets/Screenshot_01.png)
 
+Mock Servis örneklerini ekledikçe, imposter sözleşmelerinde belirtilen route tanımlarına giderek kayıt edilen servislerin çalışıp çalışmadığı kontrol edilmelidir. Örneğin ping-service'i Mountebank'a ekledikten sonra <http://localhost:5501/ping> adresine talete bulunup, stub'ın response kısmında belirtiğimiz pong cevabını almamız gerekir.
+
+![Screenshot_02.png](./assets/Screenshot_02.png)
+
 ## Bomba Sorular
 
+- Mountebank uygulamasına bir mock servis sözleşmesini _(imposter)_ NodeJs harici bir uygulamadan da _(Örneğin bir .Net Core)_ yollayabilir miyiz?
+
 ## Ödevler
+
+- Eğer yukarıdaki bomba soruya cevabınız evetse, boşuna evet demiş olmayın. Bir örneğini yapın ;)
