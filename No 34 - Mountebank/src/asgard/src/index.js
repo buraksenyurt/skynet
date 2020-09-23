@@ -8,14 +8,16 @@ const ports = require('./ports');
     then fonksiyonuna odaklanın.
 */
 const pingService = require('./ping-service');
+const cityService = require('./city-service');
 
 // Yeni bir mountebank örneği oluşturuyoruz
-const server_instance = mb.create({
+mb.create({
     port: ports.server,
     pidfile: '../mb.pid',
-    logfile: '../mb.log',
+    logfile: '../mb.log', // Bir üst klasörde tutacağımız log dosyası bildirimi
     protofile: '../protofile.json',
     ipWhitelist: ['*']
 }).then(function () {
-    pingService.register();
+    pingService.register(); // pingService'i 
+    cityService.register(); // ve cityService'i register ediyoruz
 });
