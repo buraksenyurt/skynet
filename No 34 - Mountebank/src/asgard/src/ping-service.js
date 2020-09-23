@@ -55,6 +55,8 @@ function register() {
     */
     const url = `http://127.0.0.1:${ports.server}/imposters`;
 
+    //console.log(JSON.stringify(imposter));
+
     return fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
