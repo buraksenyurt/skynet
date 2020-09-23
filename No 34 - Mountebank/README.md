@@ -51,6 +51,7 @@ Uygulamanın çalışma zamanı için aşağıdaki adımları takip edebiliriz.
 # Normal o src klasörü altındaki index.js dosyasını çalıştırıyor
 # Aşağıdaki komut sonrası sunucunun ayakta olup olmadığının sağlaması için
 # http://localhost:5500 adresine gidebiliriz(Bir JSON içeriği görmemiz lazım)
+# Hatta gelen json'da belirtilen adreslere giderek yüklenen imposter'ları, servis hareketlerine ait log içeriklerini ve konfigurasyonu görebiliriz.
 npm start
 ```
 
@@ -66,9 +67,51 @@ Ayrıca birden fazla servisi Mountebank'a ekledikten sonra _(ister kod yoluyla i
 
 ![Screenshot_03.png](./assets/Screenshot_03.png)
 
+Mountebank uygulaması ayakta iken Postman veya muadili bir araçla aşağıdaki çıktıyı gönderdiğimizde söz konusu servisin imposter olarak eklendiğini de görürüz. Yani ille de uygulama içerisinde kodla servis yüklememiz şart değildir. Mountebank REST Api şeklinde bir arabirim sunduğunda ekleme, silme vb işlemleri doğru içerikten oluşan talepler ile sağlayabiliriz. Tabii mountebank sunucusu kapandığında bu mock servislerde ömürlerini tamamlayacaktır.
+
+```text
+Kullandığım adres : http://localhost:5500/imposters
+Http metodu : POST
+Body tipi : raw/json
+Body içeriği :
+
+{
+    "port": 5503,
+    "protocol": "http",
+    "stubs": [
+        {
+            "predicates": [
+                {
+                    "equals": {
+                        "method": "POST",
+                        "path": "/creditrisk/check/12345678"
+                    }
+                }
+            ],
+            "responses": [
+                {
+                    "is": {
+                        "statusCode": 200,
+                        "headers": {
+                            "Content-Type": "application/json"
+                        },
+                        "body": {"available":"no"}
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+```
+
+![Screenshot_04.png](./assets/Screenshot_04.png)
+
 ## Bomba Sorular
 
 - Mountebank uygulamasına bir mock servis sözleşmesini _(imposter)_ NodeJs harici bir uygulamadan da _(Örneğin bir .Net Core)_ yollayabilir miyiz?
+- Bir imposter dosyasına birden fazla stub yüklenebilir mi?
+- Eklenen bir imposter'ı nasıl silebiliriz?
 
 ## Ödevler
 
