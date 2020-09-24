@@ -107,13 +107,47 @@ Body içeriği :
 
 ![Screenshot_04.png](./assets/Screenshot_04.png)
 
+## Testler
+
+Mock servisleri yazdım. İyi güzel de bunları Nodejs tarafındaki testlerde nasıl kullanacağım peki. İşin içerisine Mocha ve Chai paketlerini katsam güzel olabilir. Hatta Mock servis çağrılarını gerçekleştirmek için axios ideal. asgard ile paralel yeni bir proje açıp devam edeyim.
+
+```bash
+# Asgard klasöründe önce gerekli test ve servis haberleşme paketlerimizi yükleyelim
+# Mocha : Belki en popüler test framework'lerinden birisi
+# Chai : Behavioral Driven Design'ın TDD üstünde başarılı bir uyarlaması
+# Axios : Mountebank servis çağrıları için kullanacağımız modül
+npm i --save axios mocha chai
+
+# Sonra yine asgard klasörü içerisindeyken test isimli bir klasör açalım.
+# ve içerisine test dosyamızı koyalım
+# Ayrıca asgard'a ait package.json içerisinde de gerekli test komutunu vermemiz gerekiyor
+mkdir test
+touch ./test/index.test.js
+```
+
+Test kodlarını tamamladıktan sonra yine iki terminal üzerinden örnekleri denemek lazım. İlk terminalde Mountebank sunucusunu ayağa kaldırıp mock servisleri devreye sokmamız gerekiyor. İkinci terminal ise yine asgard klasörü altında çalıştırılacak aşağıdaki komutu işletmeli.
+
+```bash
+npm test
+```
+
+_Yazılan iki testin de başarılı olma haline ait bir görüntü_
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
+
+_Mountebank servisleri ayakta değilkenki durum_
+
+![Screenshot_06.png](./assets/Screenshot_06.png)
+
 ## Bomba Sorular
 
 - Mountebank uygulamasına bir mock servis sözleşmesini _(imposter)_ NodeJs harici bir uygulamadan da _(Örneğin bir .Net Core)_ yollayabilir miyiz?
 - Bir imposter dosyasına birden fazla stub yüklenebilir mi?
+- Peki bir stub içerisinde n sayıda prediction ve response çifti tanımlanabilir mi?
 - Eklenen bir imposter'ı nasıl silebiliriz?
 
 ## Ödevler
 
 - Eğer yukarıdaki bomba soruya cevabınız evetse, boşuna evet demiş olmayın. Bir örneğini yapın ;)
 - Olmayan bir şehir id'si için HTTP 404 Not Found durumunu verecek örnek bir Mock Service'i Postman yardımıyla Mountebank sunucusuna kayıt ettirmeyi deneyiniz.
+- Test vakalarını içerisinde mock servisi gerçekten de kullanan fonksiyon çağrıları haline getirmeye çalışın.
