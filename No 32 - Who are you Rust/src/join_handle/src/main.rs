@@ -12,13 +12,24 @@ fn main() {
 
     // spawn geriye JoinHandle<T> nesnesi döndürür
     let wait_handle = std::thread::spawn(|| {
-        println!("1 başladı...");
+        println!("#1 başladı...");
         for _i in 1..7 {
             // Ekrana 10 defa Black yazacak
             println!("BLACK");
             thread::sleep(Duration::from_secs(2));
         }
-        println!("1 bitti...");
+        println!("#1 bitti...");
+    });
+
+    // başka bir thread daha
+    let another_wait_handle = std::thread::spawn(|| {
+        println!("#2 başladı...");
+        for _i in 1..7 {
+            // Ekrana 10 defa Black yazacak
+            println!("RED");
+            thread::sleep(Duration::from_secs(4));
+        }
+        println!("#2 bitti...");
     });
 
     println!("Ana thread başladı...");
@@ -30,6 +41,9 @@ fn main() {
 
     // Main Thread'e ilk thread'in tamamlanmasını beklemesini söylüyoruz
     wait_handle.join().unwrap();
+
+    // Diğer thread'i de bekle diyoruz
+    another_wait_handle.join().unwrap();
 
     match now.elapsed() {
         Ok(elapsed) => {
