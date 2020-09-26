@@ -33,7 +33,7 @@ fn main() {
     /*
         Bu ilk örnekte dikkat edilmesi gereken iki nokta var.
         A- example_one içerisinde thread'ler henüz bitmese de, yukarıdaki döngü bittiği için uygulama sonlanacak
-        ve diğer thread'ler de ölmüş olacaktır.
+        ve diğer thread'ler de ölmüş olacaktır. (join_handle örneğine bakın)
 
         B- Ayrıca main içerisindeki sıra nasıl olursa olsun (ki burada example_one içerisindeki thread'ler önce çalışmak üzere
         yazılmıştır) ilk olarak ana thread içerisindeki kod çalıştırılır. Bu sebepten diğer thread'ler başlamadan önce
