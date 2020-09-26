@@ -27,6 +27,8 @@ touch WhoAreYouRust.rs
 
 Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı kendime not olarak alayım. _(İlk boğum örnek uygulamanın adını işaret ediyor)_
 
+>Örnekler arttıkça takip etmek zorlaşabilir. Bu nedenle konuları aşağıdaki sırayla incelemenizde yarar var.
+
 - factorial; 
     - mutable değişken tanımlama,
     - recursive metot parametresi için match kullanımı,
@@ -139,6 +141,9 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - Rc<T> aynı değeri işaret eden referansların muhasebecesi gibidir. Değeri işaret eden referans kalıp kalmadığını hesaplar, kalmamışsa değer temizlenir.
     - Rc clone fonksiyonu Deep Copy yapmaz.
     - Clone'lama olduğunda sayaç bir artar, scope dışına çıkıldığında ise bir azalır. Taa ki hiçbir referans kalmayana kadar.
+- fearless_concurrency,
+    - Birbirinden bağımsız çalışan program parçaları için Concurrent, aynı anda çalışan program parçaları içinse Parallel terimlerini kullanıyoruz,
+    - Rust'ın ownership, borrowing, type system gibi güvenli bellek ve verimlilik odaklı kavramları eş zamanlı _(Concurrent)_ programlamada da etkisini gösteriyor. Çünkü diğer dillerde çalışma zamanında ortaya çıkabilecek Concurrency hataları Rust dilinde henüz derleme aşamasında ortaya çıkıyor. _(Bu yüzden Fearless Concurrency diye bir kavram oluşmuş)_
 
 ## Çalışma Zamanı
 
