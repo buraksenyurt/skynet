@@ -13,7 +13,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 | 35 	|                                                                                                              	|            	|        	|                     	|             	|       	|
 | 34 	| Mountebank ile Mock Servis Desteği Sunmak                                                                    	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 33 	| The Internet Computer _(Internetin Yeniden Keşfi)_ ve Motoko'yu Duyunca Ben                                  	| Tamamlandı 	|    S   	|       Heimdall      	|             	|       	|
-| 32 	| Stackoverflow Sevgi Anketinde Yıllardır Bir Numara Çıkan Programlama Dili Rust Kimdir?                       	| %9         	|   XL   	|       Heimdall      	|     Var     	|  Var  	|
+| 32 	| Stackoverflow Sevgi Anketinde Yıllardır Bir Numara Çıkan Programlama Dili Rust Kimdir?                       	| %10        	|   XL   	|       Heimdall      	|     Var     	|  Var  	|
 | 31 	| Spring Boot ile PostgreSQL Kullanan Basit Bir Web Uygulaması Geliştirmek                                     	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 30 	| Birden Fazla CSV İçeriğini Tek Bir JSON Dosyasına Alan İşi Spring ile Geliştirmek                            	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 29 	| BeeWare ile Linux Platformunda Desktop Uygulaması Geliştirmek ve Android Sürümünü Oluşturmak                 	| Tamamlandı 	|    S   	|       Heimdall      	|             	|  Var  	|
@@ -57,7 +57,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer #dart #future 
 #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon 
 #reactHooks #gin-gonic #java #apacheMaven #spring #django #beeWare #android #crossPlatform #Thymeleaf #rust
-#theInternetComputer #motoko
+#theInternetComputer #motoko #mounteBank
 ```
 ## Kolay Klasör Açma
 
