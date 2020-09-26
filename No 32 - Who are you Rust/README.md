@@ -141,9 +141,11 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - Rc<T> aynı değeri işaret eden referansların muhasebecesi gibidir. Değeri işaret eden referans kalıp kalmadığını hesaplar, kalmamışsa değer temizlenir.
     - Rc clone fonksiyonu Deep Copy yapmaz.
     - Clone'lama olduğunda sayaç bir artar, scope dışına çıkıldığında ise bir azalır. Taa ki hiçbir referans kalmayana kadar.
-- fearless_concurrency,
+- fearless_concurrency/join_handle, 
     - Birbirinden bağımsız çalışan program parçaları için Concurrent, aynı anda çalışan program parçaları içinse Parallel terimlerini kullanıyoruz,
     - Rust'ın ownership, borrowing, type system gibi güvenli bellek ve verimlilik odaklı kavramları eş zamanlı _(Concurrent)_ programlamada da etkisini gösteriyor. Çünkü diğer dillerde çalışma zamanında ortaya çıkabilecek Concurrency hataları Rust dilinde henüz derleme aşamasında ortaya çıkıyor. _(Bu yüzden Fearless Concurrency diye bir kavram oluşmuş)_
+    - Main thread önceden başlatılan başka thread'ler de olsa en öncelikli sırada çalışır,
+    - JoinHandle<T> ile bir thread'in işlerini bitirene kadar onun parent thread'inin beklemesini sağlayabiliriz,
 
 ## Çalışma Zamanı
 
@@ -278,6 +280,14 @@ _Kendi struct türümüzdeki alanları for döngüsü ile gezebildiğimiz own<_>
 
 ![Screenshot_17.png](./assets/Screenshot_17.png)
 
+_Fearless Concurrency örneğinin ilk çalışması(Ana thread sonlandığı için devam eden diğer thread'lerin de sonlandığı durum)_
+
+![Screenshot_18.png](./assets/Screenshot_18.png)
+
+_join<_>handle örneğinden bir görüntü. Ana thread'i devam eden thread için bekletiyoruz_
+
+![Screenshot_19.png](./assets/Screenshot_19.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -321,3 +331,4 @@ _Kendi struct türümüzdeki alanları for döngüsü ile gezebildiğimiz own<_>
 - Closures örneğinde yer alan get_fn fonksiyonunu inceleyin. Sizde farklı bir senaryo düşünüp geriye koşula göre fonksiyon döndüren ama Fn yerine FnMut trait'ini ele alan bir kod parçası yazmayı deneyin.
 - iter fonksiyonu üstünden örneğin 1den 100e kadar olan sayılardan sadece kendisi ve 1 ile bölünülebilenleri _(asal olanları)_ elde etmeye çalışın,
 - hof örneğinde 28nci satırdaki filter fonksiyonuna bakın. Burada calc fonksiyonunu çağırmadan aynı hesaplamayı yaptırın
+- M:N ve 1:1 thread modelleri nedir, araştırınız? Öğrendiklerinizi bir arkadaşınızla paylaşıp konuyu tartışarak pekiştiriniz.
