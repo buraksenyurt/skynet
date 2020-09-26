@@ -141,7 +141,7 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - Rc<T> aynı değeri işaret eden referansların muhasebecesi gibidir. Değeri işaret eden referans kalıp kalmadığını hesaplar, kalmamışsa değer temizlenir.
     - Rc clone fonksiyonu Deep Copy yapmaz.
     - Clone'lama olduğunda sayaç bir artar, scope dışına çıkıldığında ise bir azalır. Taa ki hiçbir referans kalmayana kadar.
-- fearless_concurrency/join_handle/multi_join, 
+- fearless_concurrency/join_handle/multi_join/counter, 
     - Birbirinden bağımsız çalışan program parçaları için Concurrent, aynı anda çalışan program parçaları içinse Parallel terimlerini kullanıyoruz,
     - Rust'ın ownership, borrowing, type system gibi güvenli bellek ve verimlilik odaklı kavramları eş zamanlı _(Concurrent)_ programlamada da etkisini gösteriyor. Çünkü diğer dillerde çalışma zamanında ortaya çıkabilecek Concurrency hataları Rust dilinde henüz derleme aşamasında ortaya çıkıyor. _(Bu yüzden Fearless Concurrency diye bir kavram oluşmuş)_
     - Main thread önceden başlatılan başka thread'ler de olsa en öncelikli sırada çalışır,
@@ -298,6 +298,10 @@ _multi join örneğinden bir kesit(move kullanımı var)_
 
 ![Screenshot_21.png](./assets/Screenshot_21.png)
 
+_counter uygulamasından bir ekran görüntüsü_
+
+![Screenshot_22.png](./assets/Screenshot_22.png)
+
 ## Bomba Sorular
 
 - Rust dilinde değişkenler neden varsayılan olarak immutable işaretlenir?
@@ -342,3 +346,4 @@ _multi join örneğinden bir kesit(move kullanımı var)_
 - iter fonksiyonu üstünden örneğin 1den 100e kadar olan sayılardan sadece kendisi ve 1 ile bölünülebilenleri _(asal olanları)_ elde etmeye çalışın,
 - hof örneğinde 28nci satırdaki filter fonksiyonuna bakın. Burada calc fonksiyonunu çağırmadan aynı hesaplamayı yaptırın
 - M:N ve 1:1 thread modelleri nedir, araştırınız? Öğrendiklerinizi bir arkadaşınızla paylaşıp konuyu tartışarak pekiştiriniz.
+- counter uygulamasını genişletelim. En az 20 paragraftan oluşan bir word dokümanı hazırlayın. Herbir paragraf için ayrı bir thread çalıştırın. Herbir thread ilgili paragrafta bizim söylediğimiz kelimelerden kaç tane geçtiğini case-sensitive veya case-insensitive olarak hesaplasın.
