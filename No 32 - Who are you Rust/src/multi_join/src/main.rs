@@ -27,15 +27,24 @@ fn main() {
                 thread::sleep(Duration::from_secs(1));
             }
 
-            println!("{} sonlandı", i);
+            return i; // thread'den geriye bir değer döndürüyoruz. Bu değeri aşağıdaki pattern matching kullanımında yakaladık
+
+            // println!("{} sonlandı", i);
         }));
     }
 
     // Bitmeyen thread'ler için Main bekletiliyor.
     for t in threads {
-        let _ = t.join();
+        let result = t.join();
+        match result {
+            Ok(r) => {
+                println!("#{} tamamlandı", r); // Tamamlanan thread'den dönen değeri r ile alabiliriz
+            }
+            Err(e) => {
+                println!("{:?}", e);
+            }
+        }
     }
-
     match now.elapsed() {
         Ok(elapsed) => {
             println!("Tüm işlemler için geçen toplam süre {}", elapsed.as_secs());
@@ -44,5 +53,4 @@ fn main() {
             println!("Hata oluştu: {:?}", e);
         }
     }
-
 }
