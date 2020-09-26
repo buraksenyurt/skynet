@@ -24,33 +24,43 @@ fn main() {
 
     // Burada da main thread'i içerisinde çalışan bir döngü var
     // Ekrana 10 kere Bar yazacak
+    println!("Ana thread başladı...");
     for _i in 1..5 {
         println!("Bar");
         thread::sleep(Duration::from_secs(1)); // ve bu ana thread'de 1er saniye gecikmeli çalışacak
     }
+    println!("Ana thread bitti...");
     /*
-        Bu ilk örnekte dikkat edilmesi gereken nokta şu.
-        example_one içerisinde thread'ler henüz bitmese de, yukarıdaki döngü bittiği için uygulama sonlanacak
+        Bu ilk örnekte dikkat edilmesi gereken iki nokta var.
+        A- example_one içerisinde thread'ler henüz bitmese de, yukarıdaki döngü bittiği için uygulama sonlanacak
         ve diğer thread'ler de ölmüş olacaktır.
+
+        B- Ayrıca main içerisindeki sıra nasıl olursa olsun (ki burada example_one içerisindeki thread'ler önce çalışmak üzere
+        yazılmıştır) ilk olarak ana thread içerisindeki kod çalıştırılır. Bu sebepten diğer thread'ler başlamadan önce
+        27nci satır mutlaka işletilir ve döngü derhal başlar. (Sanırım Main thread'in öncelikli olduğunu düşünebilirim)
     */
 }
 
 fn example_one() {
     // Bir thread açtık
     std::thread::spawn(|| {
+        println!("1 başladı...");
         for _i in 1..10 {
             // Ekrana 10 defa Foo yazacak
             println!("Foo");
             thread::sleep(Duration::from_secs(2)); // ve herbir yazma sonrası bu thread 2 saniye bekletilecek
         }
+        println!("1 bitti...");
     });
 
     // Burada da ikinci bir thread açtık
     // Bu kez bir vector'ün elemanları üzerinde işlem yaptığımızı varsayıyoruz
     std::thread::spawn(|| {
+        println!("2 başladı...");
         for color in vec!["red", "green", "blue"] {
             println!("{}", color);
             thread::sleep(Duration::from_secs(2)); // ve yine 2 saniyelik bir gecikme
         }
+        println!("2 bitti...");
     });
 }
