@@ -14,7 +14,7 @@ using SqlKata.Execution;
 namespace NorthwindApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
         private readonly ILogger<ProductController> _logger;
@@ -36,8 +36,8 @@ namespace NorthwindApi.Controllers
             products tablosunda discontinued olanların listesini çekmeye çalışıyoruz
             Geriye JSON içerik dönecektir
         */
-        [HttpGet("/discontinued")]
-        public IActionResult Get()
+        [HttpGet("Discontinued/")]
+        public IActionResult GetDiscontinuedProducts()
         {
             var products = _queryFactory
                 .Query("products") // products tablosu için sorgu hazırlanacak
