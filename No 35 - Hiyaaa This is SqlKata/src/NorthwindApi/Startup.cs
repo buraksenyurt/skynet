@@ -44,13 +44,13 @@ namespace NorthwindApi
                 return new QueryFactory
                 {
                     Compiler = new PostgresCompiler(),
-                    Connection = new NpgsqlConnection("Host=localhost;Username=username;Password=pass;Database=db name")
+                    // Varsayılan olarak Postgresql 5432 portunu kullanıyor. 
+                    // Ben docker-compose'da dışarıya 5433 portundan açtığım için farklı. 
+                    Connection = new NpgsqlConnection("Server=127.0.0.1;Port=5433;Username=scoth;Password=tiger;Database=northwind")
                 };
             });
         }
 
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
