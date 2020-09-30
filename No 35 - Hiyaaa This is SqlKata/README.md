@@ -1,4 +1,4 @@
-# .Net Core Tarafında SqlKata ile Sevimli SQL İşlemleri
+# .Net Core Web Api Tarafında SqlKata ile Sevimli SQL İşlemleri
 
 [SqlKata](https://sqlkata.com/), bir süredir sağda solda okuduğum makale ve github çalışmalarından dolayı merak edip kurcalamak istediğim bir kütüphaneydi. Öncelikle ismi çok hoş _(Code Kata'yı çağrıştırıyor bana)_ C# ile geliştirimiş paketin temel amacı SqlServer, PostgreSql, Firebird, MySql gibi veritabanları için kod tarafında ortak bir sorgu oluşturma/derleme arabirimi sunmak ama bunu LINQ sorgu metotları üzerinden SQL dilinin anlaşılır rahatlığında, injection yemeden _(Parameter Binding tekniğini kullandığ için)_ , cache gibi performans artırıcıları kullanarak sağlayabilmek. Tabii konuşmayı bir kenara bırakıp kod yazarak onu tanımaya çalışmak en doğrusu.
 

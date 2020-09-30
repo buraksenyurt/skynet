@@ -10,7 +10,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 35 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 36 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 35 	| .Net Core Web Api Tarafında SqlKata ile Sevimli SQL İşlemleri                                                	| %25        	|    S   	|       Heimdall      	|             	|       	|
 | 34 	| Mountebank ile Mock Servis Desteği Sunmak                                                                    	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 33 	| The Internet Computer _(Internetin Yeniden Keşfi)_ ve Motoko'yu Duyunca Ben                                  	| Tamamlandı 	|    S   	|       Heimdall      	|             	|       	|
 | 32 	| Stackoverflow Sevgi Anketinde Yıllardır Bir Numara Çıkan Programlama Dili Rust Kimdir?                       	| %10        	|   XL   	|       Heimdall      	|     Var     	|  Var  	|
@@ -57,7 +58,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer #dart #future 
 #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon 
 #reactHooks #gin-gonic #java #apacheMaven #spring #django #beeWare #android #crossPlatform #Thymeleaf #rust
-#theInternetComputer #motoko #mounteBank
+#theInternetComputer #motoko #mounteBank #sqlKata
 ```
 ## Kolay Klasör Açma
 
