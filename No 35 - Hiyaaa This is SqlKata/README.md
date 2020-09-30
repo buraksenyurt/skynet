@@ -1,6 +1,6 @@
 # .Net Core Tarafında SqlKata ile Sevimli SQL İşlemleri
 
-SqlKata, bir süredir sağda solda okuduğum makale ve github çalışmalarından dolayı merak edip kurcalamak istediğim bir kütüphaneydi. Öncelikle ismi çok hoş _(Code Kata'yı çağrıştırıyor bana)_ C# ile geliştirimiş paketin temel amacı SqlServer, PostgreSql, Firebird, MySql gibi veritabanları için kod tarafında ortak bir sorgu oluşturma/derleme arabirimi sunmak ama bunu LINQ sorgu metotları üzerinden SQL dilinin anlaşılır rahatlığında, injection yemeden _(Parameter Binding tekniğini kullandığ için)_ sağlayabilmek. Tabii konuşmayı bir kenara bırakıp kod yazarak onu tanımaya çalışmak en doğrusu.
+[SqlKata](https://sqlkata.com/), bir süredir sağda solda okuduğum makale ve github çalışmalarından dolayı merak edip kurcalamak istediğim bir kütüphaneydi. Öncelikle ismi çok hoş _(Code Kata'yı çağrıştırıyor bana)_ C# ile geliştirimiş paketin temel amacı SqlServer, PostgreSql, Firebird, MySql gibi veritabanları için kod tarafında ortak bir sorgu oluşturma/derleme arabirimi sunmak ama bunu LINQ sorgu metotları üzerinden SQL dilinin anlaşılır rahatlığında, injection yemeden _(Parameter Binding tekniğini kullandığ için)_ , cache gibi performans artırıcıları kullanarak sağlayabilmek. Tabii konuşmayı bir kenara bırakıp kod yazarak onu tanımaya çalışmak en doğrusu.
 
 ## Ön Hazırlıklar
 
@@ -23,14 +23,40 @@ Select category_name from categories;
 
 ![Screenshot_01.png](./assets/Screenshot_01.png)
 
-Aslında psql arabirimini veya pgAdmin benzeri bir aracı kullanmayacağız. Zaten amacım SqlKata ile bu Postgresql'e veritabanına bağlanıp bir takım işlemler yapabilmek.
+Aslında psql arabirimini veya pgAdmin benzeri bir aracı kullanmayacağız. Zaten amacım SqlKata ile bu Postgresql'e veritabanına bağlanıp bir takım işlemler yapabilmek. Denemeleri bir .net Core Web Api projesinde yapayım diyorum.
 
 ```bash
+# Önce src klasöründe bir api projesi açayım
+dotnet new webapi -o northwind-api
 
+# Gerekli paketleri yükleyelim
+# Postgresql için npsql ve SqlKata için SqlKata :)
+dotnet add package Npgsql
+dotnet add package SqlKata
+dotnet add package SqlKata.Execution
 ```
 
 ## Çalışma Zamanı
 
+Web api hizmetinin çalışmaya başlamasından önce tahmin edileceği üzere docker-compose ile Postgresql imajının ayakta olması gerekmektedir. Sonrasında aşağıdaki terminal komutu ile ilerleyebiliriz.
+
+```bash
+dotnet run watch
+```
+
+Gelelim deneme sonuçlarına
+
+```text
+# Yazdığım ilk sorgu discontinued değeri 1 olanları döndüren bir action idi
+https://localhost:5001/api/product/discontinued
+```
+
+![Screenshot_02.png](./assets/Screenshot_02.png)
+
 ## Bomba Sorular
 
+- Henüz yok
+
 ## Ödevler
+
+- Olacak
