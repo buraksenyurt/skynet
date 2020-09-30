@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="Npgsql" Version="4.1.5" />
+    <PackageReference Include="SqlKata" Version="2.2.0" />
+    <PackageReference Include="SqlKata.Execution" Version="2.2.0" />
   </ItemGroup>
 
 
