@@ -7,6 +7,9 @@ services:
       POSTGRES_DB: northwind
       POSTGRES_USER: scoth
       POSTGRES_PASSWORD: tiger
+    ports:
+        - "5433:5433"
     volumes:
       - ./dbdata:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: -p 5433
