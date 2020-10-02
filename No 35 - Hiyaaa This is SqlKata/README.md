@@ -70,6 +70,11 @@ https://localhost:5001/api/product/categories/
 
 ![Screenshot_05.png](./assets/Screenshot_05.png)
 
+```text
+Müşterilerin bulundukları şehre göre gruplanması.
+![Screenshot_06.png](./assets/Screenshot_06.png)
+```
+
 ## Bomba Sorular
 
 - localhost:5001/api/product/Beverages talebini göz önüne alalım. Beverages kategorisindeki ürünlerin listesini almayı bekliyoruz. Ancak kod tarafında yapacağımız minik bir değişiklik yüzünden aşağıdaki gibi connection string bilgisini görme ihtimalimiz var. Öncelikle bu nasıl oluşmuş olabilir, ikinci olarak bunun önüne nasıl geçilebilir.
