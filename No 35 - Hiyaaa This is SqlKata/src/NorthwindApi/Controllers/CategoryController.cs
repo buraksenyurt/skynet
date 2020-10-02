@@ -31,22 +31,31 @@ namespace NorthwindApi.Controllers
         /*
             Yeni bir kategori eklemek için kullanacağımız post action.
             Parametre olarak gelen JSON içeriğindeki alanları kullanıyor.
-            Insert metodu da kullanılabilir. InsertGetId, tabloda üretilen primary key değerini geriye veriyor.
+            Insert işlemi sonucuna göre de Ok veya 500 dönüyoruz.
         */
         [HttpPost]
         public IActionResult GetCustomerCountsByCity(Category category)
         {
-            var inserted_id = _queryFactory
-                .Query("categories")
-                .Insert(new {
-                    category_name=category.Name,
-                    description=category.Description
-                });
-
-            return Ok(inserted_id);
+            try
+            {
+                var inserted_id = _queryFactory
+                                .Query("categories")
+                                .Insert(new
+                                {
+                                    category_id = category.CategoryId,
+                                    category_name = category.Name,
+                                    description = category.Description
+                                });
+                return Ok(category);
+            }
+            catch (Exception exp)
+            {
+                _logger.LogError(exp.Message);
+                return StatusCode(500, "Kategori ekleme işlemi başarısız!");
+            }
         }
 
-                /*
+        /*
             Kategorileri listeleyen action
 
             https://localhost:5001/api/category
