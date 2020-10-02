@@ -44,7 +44,7 @@ Web api hizmetinin çalışmaya başlamasından önce tahmin edileceği üzere d
 dotnet run watch
 ```
 
-Gelelim deneme sonuçlarına
+Gelelim deneme sonuçlarına...
 
 ```text
 # Yazdığım ilk sorgu discontinued değeri 1 olanları döndüren bir action idi
@@ -55,7 +55,9 @@ https://localhost:5001/api/product/discontinued
 
 ## Bomba Sorular
 
-- Henüz yok
+- localhost:5001/api/product/Beverages talebini göz önüne alalım. Beverages kategorisindeki ürünlerin listesini almayı bekliyoruz. Ancak kod tarafında yapacağımız minik bir değişiklik yüzünden aşağıdaki gibi connection string bilgisini görme ihtimalimiz var. Öncelikle bu nasıl oluşmuş olabilir, ikinci olarak bunun önüne nasıl geçilebilir.
+
+![Screenshot_03.png](./assets/Screenshot_03.png)
 
 ## Ödevler
 
