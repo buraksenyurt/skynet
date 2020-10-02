@@ -72,8 +72,9 @@ https://localhost:5001/api/product/categories/
 
 ```text
 Müşterilerin bulundukları şehre göre gruplanması.
-![Screenshot_06.png](./assets/Screenshot_06.png)
 ```
+
+![Screenshot_06.png](./assets/Screenshot_06.png)
 
 ## Bomba Sorular
 
