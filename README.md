@@ -11,7 +11,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
 | 36 	|                                                                                                              	|            	|        	|                     	|             	|       	|
-| 35 	| .Net Core Web Api Tarafında SqlKata ile Sevimli SQL İşlemleri                                                	| %25        	|    S   	|       Heimdall      	|             	|       	|
+| 35 	| .Net Core Web Api Tarafında SqlKata ile Sevimli SQL İşlemleri                                                	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 34 	| Mountebank ile Mock Servis Desteği Sunmak                                                                    	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 33 	| The Internet Computer _(Internetin Yeniden Keşfi)_ ve Motoko'yu Duyunca Ben                                  	| Tamamlandı 	|    S   	|       Heimdall      	|             	|       	|
 | 32 	| Stackoverflow Sevgi Anketinde Yıllardır Bir Numara Çıkan Programlama Dili Rust Kimdir?                       	| %10        	|   XL   	|       Heimdall      	|     Var     	|  Var  	|

@@ -97,8 +97,8 @@ _Tabii aynı Id ile bir kategori eklemek istersek exception yönetimimize göre 
 ![Screenshot_08.png](./assets/Screenshot_08.png)
 
 ```text
-Örnek silme işlemi için.
-Bir kategori silmek için
+Örnek silme işlemi(Mesela bir kategori) silmek için
+
 Adres: https://localhost:5001/api/category/10
 Metot: HTTP Delete
 ```
@@ -113,3 +113,4 @@ Metot: HTTP Delete
 
 - Yazılan uygulamayı OData servise dönüştürmeye çalışın.
 - Postgresql yerine MySql sürücüsünü kullanmayı deneyin.
+- Son bir haftada verilen siparişlerin listesini çekeceğimiz bir fonksiyon ekleyin. Bunu OrderController isimli yeni bir Controller sınıfta icra edin
