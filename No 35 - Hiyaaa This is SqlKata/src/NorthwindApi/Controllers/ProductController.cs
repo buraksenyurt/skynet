@@ -41,13 +41,29 @@ namespace NorthwindApi.Controllers
         {
             var products = _queryFactory
                 .Query("products") // products tablosu için sorgu hazırlanacak
-                .Select("product_id","product_name","unit_price") // sadece bu alanlar getirilecek
+                .Select("product_id", "product_name", "unit_price") // sadece bu alanlar getirilecek
                 .Where("discontinued", 1) // discontinued değeri 1 olanlar çekilecek
                 .Get();
 
             //_logger.LogInformation($"{DateTime.UtcNow.ToLongTimeString()} - ProductController - GET");
 
             return Ok(products);
+        }
+
+        /*
+            Kategorileri listeleyen action
+
+            https://localhost:5001/api/product/categories/
+        */
+        [HttpGet("categories/")]
+        public IActionResult GetCategories()
+        {
+            var categories = _queryFactory
+                .Query("categories")
+                .OrderBy("category_name")
+                .Get();
+
+            return Ok(categories);
         }
     }
 }
