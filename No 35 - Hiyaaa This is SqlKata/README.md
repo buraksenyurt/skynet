@@ -47,11 +47,28 @@ dotnet run watch
 Gelelim deneme sonuçlarına...
 
 ```text
-# Yazdığım ilk sorgu discontinued değeri 1 olanları döndüren bir action idi
+Yazdığım ilk sorgu discontinued değeri 1 olanları döndüren bir action idi
+
 https://localhost:5001/api/product/discontinued
 ```
 
 ![Screenshot_02.png](./assets/Screenshot_02.png)
+
+```text
+Bir kategoriye ait ürünlerin birkaç bilgisini getiren ama bunu yaparken sayfalama tekniğini kullandığımız çalışma.
+Dikkat edileceği üzere 3ncü sayfadan itibaren ilk 5 kayıt getirilmiştir. 
+Verinin çok olduğu Web API kurgularında sayfalama oldukça önemlidir.
+https://localhost:5001/api/product/Beverages/3
+```
+
+![Screenshot_04.png](./assets/Screenshot_04.png)
+
+```text
+En basit operasyonlardan birisi de elbette kategorilerin getirilmesi
+https://localhost:5001/api/product/categories/
+```
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
 
 ## Bomba Sorular
 
@@ -61,4 +78,5 @@ https://localhost:5001/api/product/discontinued
 
 ## Ödevler
 
-- Olacak
+- Yazılan uygulamayı OData servise dönüştürmeye çalışın.
+- Postgresql yerine MySql sürücüsünü kullanmayı deneyin.
