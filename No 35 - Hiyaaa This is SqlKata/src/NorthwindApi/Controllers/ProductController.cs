@@ -51,22 +51,6 @@ namespace NorthwindApi.Controllers
         }
 
         /*
-            Kategorileri listeleyen action
-
-            https://localhost:5001/api/product/categories/
-        */
-        [HttpGet("categories/")]
-        public IActionResult GetCategories()
-        {
-            var categories = _queryFactory
-                .Query("categories")
-                .OrderBy("category_name")
-                .Get();
-
-            return Ok(categories);
-        }
-
-        /*
             Parametre olarak gelen kategori altındaki ürünleri sayfalayarak getiren action.
             Sayfalama için Limit ve Offset fonksiyonlarını kullanıyoruz.
             Route üstünden gelen page değerine göre bir konuma gidip o konumdan itibaren 5 kayıt gösteriyoruz.
@@ -88,6 +72,6 @@ namespace NorthwindApi.Controllers
 
             return Ok(products);
         }
-        
+
     }
 }
