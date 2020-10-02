@@ -65,5 +65,29 @@ namespace NorthwindApi.Controllers
 
             return Ok(categories);
         }
+
+        /*
+            Parametre olarak gelen kategori altındaki ürünleri sayfalayarak getiren action.
+            Sayfalama için Limit ve Offset fonksiyonlarını kullanıyoruz.
+            Route üstünden gelen page değerine göre bir konuma gidip o konumdan itibaren 5 kayıt gösteriyoruz.
+
+            Örnek sorgu -> https://localhost:5001/api/product/Beverages/3
+        */
+        [HttpGet("{categoryName}/{page}")]
+        public IActionResult GetProductsByCategory(string categoryName, int page)
+        {
+            var products = _queryFactory
+                .Query("products as p")
+                .Join("categories as c", "p.category_id", "c.category_id")
+                .Select(
+                    "c.category_name",
+                    "p.{product_id,product_name,unit_price,units_in_stock}")
+                .Limit(5)
+                .Offset((page - 1) * 5)
+                .Get();
+
+            return Ok(products);
+        }
+        
     }
 }
