@@ -39,8 +39,9 @@ namespace NorthwindApi.Controllers
             var report = _queryFactory
                 .Query("customers")
                 .Select("city")
-                .SelectRaw("count(customer_id) as count")
-                .GroupBy("city")
+                .SelectRaw("count(customer_id) as count") // aggregation yaptığımız yer
+                .GroupBy("city") // city alanına göre grupluyoruz
+                .HavingRaw("count(customer_id)>1") // toplam müşteri sayısı 1in üstünde olanlar için (having e bir bakayım demiştim)
                 .Get();
 
             return Ok(report);
