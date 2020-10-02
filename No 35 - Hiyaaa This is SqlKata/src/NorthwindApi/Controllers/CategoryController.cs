@@ -32,6 +32,15 @@ namespace NorthwindApi.Controllers
             Yeni bir kategori eklemek için kullanacağımız post action.
             Parametre olarak gelen JSON içeriğindeki alanları kullanıyor.
             Insert işlemi sonucuna göre de Ok veya 500 dönüyoruz.
+
+            Adres : https://localhost:5001/api/category
+            Metot : HTTP Post
+            Body : 
+            {
+                "CategoryId":10,
+                "Name": "Kitap",
+                "Description": "Kitap konulu ürünler"
+            }
         */
         [HttpPost]
         public IActionResult GetCustomerCountsByCity(Category category)
@@ -53,6 +62,20 @@ namespace NorthwindApi.Controllers
                 _logger.LogError(exp.Message);
                 return StatusCode(500, "Kategori ekleme işlemi başarısız!");
             }
+        }
+
+        /*
+            Denemeler sırasında categories tablosunu kirletecek yeni satırlar ekledim tabii :)
+            Silme operasyonu da lazım.
+
+            Örnek sorgu https://localhost:5001/api/category/10
+            Metot HTTP Delete
+        */
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            int deleted = _queryFactory.Query("categories").Where("category_id", id).Delete();
+            return Ok(deleted);
         }
 
         /*

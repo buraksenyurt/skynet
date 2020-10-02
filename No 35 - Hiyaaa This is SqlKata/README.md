@@ -96,6 +96,13 @@ _Tabii aynı Id ile bir kategori eklemek istersek exception yönetimimize göre 
 
 ![Screenshot_08.png](./assets/Screenshot_08.png)
 
+```text
+Örnek silme işlemi için.
+Bir kategori silmek için
+Adres: https://localhost:5001/api/category/10
+Metot: HTTP Delete
+```
+
 ## Bomba Sorular
 
 - localhost:5001/api/product/Beverages talebini göz önüne alalım. Beverages kategorisindeki ürünlerin listesini almayı bekliyoruz. Ancak kod tarafında yapacağımız minik bir değişiklik yüzünden aşağıdaki gibi connection string bilgisini görme ihtimalimiz var. Öncelikle bu nasıl oluşmuş olabilir, ikinci olarak bunun önüne nasıl geçilebilir.
