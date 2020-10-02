@@ -65,7 +65,7 @@ https://localhost:5001/api/product/Beverages/3
 
 ```text
 En basit operasyonlardan birisi de elbette kategorilerin getirilmesi
-https://localhost:5001/api/product/categories/
+https://localhost:5001/api/category
 ```
 
 ![Screenshot_05.png](./assets/Screenshot_05.png)
@@ -75,6 +75,26 @@ Müşterilerin bulundukları şehre göre gruplanması.
 ```
 
 ![Screenshot_06.png](./assets/Screenshot_06.png)
+
+```text
+Insert işlemini Postman ile denemek için kullanılabilecek örnek HTTP Post paketi
+
+Adres: https://localhost:5001/api/category
+Metod: HTTP Post
+Body: json
+Örnek İçerik:
+{
+    "CategoryId":10,
+    "Name": "Kitap",
+    "Description": "Kitap konulu ürünler"
+}
+```
+
+![Screenshot_07.png](./assets/Screenshot_07.png)
+
+_Tabii aynı Id ile bir kategori eklemek istersek exception yönetimimize göre aşağıdaki gibi çıktılar alırız_
+
+![Screenshot_08.png](./assets/Screenshot_08.png)
 
 ## Bomba Sorular
 
