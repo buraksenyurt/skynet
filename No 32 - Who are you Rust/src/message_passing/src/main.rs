@@ -57,9 +57,10 @@ fn main() {
     worker2.join().unwrap();
 
     /*
-        #2 Aşağıdaki kod bloğu safe concurency sebebiyle derlenmez.
-        Transmitter değişkeninin send metodu, outgoing referansının sahipliğini alır 
-        ve bu değişken gönderildikten sonra bu sahiplik receiver'a geçer. 
+        #2
+        Aşağıdaki kod bloğu safe concurency sebebiyle derlenmez.
+        Transmitter değişkeninin send metodu, outgoing referansının sahipliğini alır
+        ve bu değişken gönderildikten sonra bu sahiplik receiver'a geçer.
         Bu nedenle spawn bloğunda send çağrısı sonrası outgoing değişkeni artık kullanılamaz.
         Bunun sebebi bir thread'in kanala bıraktığı değeri sonradan kendisinin değiştirmesini engellemektir.
         Lakin gönderilen değişkenin gönderildiği haliyle receiver tarafından kullanılmasını isteriz.
@@ -72,4 +73,47 @@ fn main() {
     });
     let incoming = rx.recv().unwrap();
     println!("{}", incoming);
+
+    println!("");
+    /*
+        #3
+
+        Pek tabii en sık başvurulacak senaryolardan birisi de
+        n sayıda thread'den mesaj gönderip almak.
+        Yani Multiple Consumer Single Receiver olayı.
+        Burada önemli olan nokta transmitter'ın klonlanması.
+
+        Aşağıdaki örnek kod parçasında tx nesnesi klonlanmış ve
+        diğer thread'ler tarafında kullanılabilir hale gelmiştir.
+    */
+
+    let (tx, rx) = mpsc::channel();
+    let tx_kadikoy = mpsc::Sender::clone(&tx);
+    let tx_besiktas = mpsc::Sender::clone(&tx);
+    thread::spawn(move || {
+        let status = String::from("Üsküdar da hava açık ve 23 derece");
+        tx.send(status).unwrap();
+        thread::sleep(Duration::from_secs(3));
+    });
+    thread::spawn(move || {
+        let status = String::from("Kadıköy de hava açık ve 22,4 derece");
+        tx_kadikoy.send(status).unwrap();
+        thread::sleep(Duration::from_secs(1));
+    });
+    thread::spawn(move || {
+        let status = String::from("Beşiktaş da hava yer yer rüzgarlı ve 21 derece");
+        tx_besiktas.send(status).unwrap();
+        thread::sleep(Duration::from_secs(5));
+    });
+
+    let last_standing_man = thread::spawn(move || {
+        /*
+            tx, tx_kadikoy ve tx_besiktas transmitter'ları üstünde gelen mesajlar
+            rx nesnesi üstünden yakalanabilirler.
+        */
+        for current_status in rx {
+            println!("{}", current_status);
+        }
+    });
+    last_standing_man.join().unwrap();
 }
