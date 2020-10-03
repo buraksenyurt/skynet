@@ -151,6 +151,7 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - _Go'dan gelen bir felsefe => Hafızayı paylaşarak iletişim kurmayın; bunun yerine iletişim kurarak hafızayı paylaşın_
     - thread'ler arası güvenli haberleşme için channel kullanılır,
     - mpsc => multiple producer, single consumer _(Çoklu üretici, tek tüketici)_
+    - n sayıda transmitter kullanırken klonlamak gerekir,
 
 ## Çalışma Zamanı
 
@@ -308,6 +309,10 @@ _counter uygulamasından bir ekran görüntüsü_
 _message passing örneğindeki #1 kodunun çıktısı_
 
 ![Screenshot_23.png](./assets/Screenshot_23.png)
+
+_message passing örneğinde #3 kodunun eklenmesi sonrası çıktı_
+
+![Screenshot_24.png](./assets/Screenshot_24.png)
 
 ## Bomba Sorular
 
