@@ -56,6 +56,8 @@ fn main() {
     worker1.join().unwrap();
     worker2.join().unwrap();
 
+    println!();
+
     /*
         #2
         Aşağıdaki kod bloğu safe concurency sebebiyle derlenmez.
@@ -74,7 +76,7 @@ fn main() {
     let incoming = rx.recv().unwrap();
     println!("{}", incoming);
 
-    println!("");
+    println!();
     /*
         #3
 
@@ -116,4 +118,38 @@ fn main() {
         }
     });
     last_standing_man.join().unwrap();
+
+    println!();
+
+    /*
+        #4
+
+        Transmitter üstünden kanala n sayıda mesaj da bırakılabilir.
+        Aşağıdaki kod parçasında aynı thread içinden aralıklarla birkaç
+        mesaj yollanıyor. Bu mesajlar yine rx'i kullandığımız bir for döngüsü
+        ile alınıyorlar.
+
+        sleep'ler ile yaptığımız duraklatmalar mesaj yollandıkça dinleyici tarafından
+        alınır durumunu göstermek için.
+    */
+
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let value_1 = String::from("1 kilo un");
+        tx.send(value_1).unwrap();
+        thread::sleep(Duration::from_secs(1));
+
+        let value_2 = String::from("3 yumurta");
+        tx.send(value_2).unwrap();
+        thread::sleep(Duration::from_secs(3));
+
+        let value_3 = String::from("Yarım çay bardağı kadar şeker");
+        tx.send(value_3).unwrap();
+        thread::sleep(Duration::from_secs(2));
+    });
+
+    for received in rx {
+        println!("{}", received);
+    }
 }
