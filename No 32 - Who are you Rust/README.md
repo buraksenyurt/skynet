@@ -141,13 +141,16 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - Rc<T> aynı değeri işaret eden referansların muhasebecesi gibidir. Değeri işaret eden referans kalıp kalmadığını hesaplar, kalmamışsa değer temizlenir.
     - Rc clone fonksiyonu Deep Copy yapmaz.
     - Clone'lama olduğunda sayaç bir artar, scope dışına çıkıldığında ise bir azalır. Taa ki hiçbir referans kalmayana kadar.
-- fearless_concurrency/join_handle/multi_join/counter, 
+- fearless_concurrency/join_handle/multi_join/counter/message_passing, 
     - Birbirinden bağımsız çalışan program parçaları için Concurrent, aynı anda çalışan program parçaları içinse Parallel terimlerini kullanıyoruz,
     - Rust'ın ownership, borrowing, type system gibi güvenli bellek ve verimlilik odaklı kavramları eş zamanlı _(Concurrent)_ programlamada da etkisini gösteriyor. Çünkü diğer dillerde çalışma zamanında ortaya çıkabilecek Concurrency hataları Rust dilinde henüz derleme aşamasında ortaya çıkıyor. _(Bu yüzden Fearless Concurrency diye bir kavram oluşmuş)_
     - Main thread önceden başlatılan başka thread'ler de olsa en öncelikli sırada çalışır,
     - JoinHandle<T> ile bir thread'in işlerini bitirene kadar onun parent thread'inin beklemesini sağlayabiliriz,
     - thread'ler arası veri taşınması istenen durumlarda move closure'ından yararlanılır,
     - thread'den dönen değeri pattern matching ile JoinHandle<T> nesnesi üzerinden yakalayabiliriz,
+    - _Go'dan gelen bir felsefe => Hafızayı paylaşarak iletişim kurmayın; bunun yerine iletişim kurarak hafızayı paylaşın_
+    - thread'ler arası güvenli haberleşme için channel kullanılır,
+    - mpsc => multiple producer, single consumer _(Çoklu üretici, tek tüketici)_
 
 ## Çalışma Zamanı
 
@@ -301,6 +304,10 @@ _multi join örneğinden bir kesit(move kullanımı var)_
 _counter uygulamasından bir ekran görüntüsü_
 
 ![Screenshot_22.png](./assets/Screenshot_22.png)
+
+_message passing örneğindeki #1 kodunun çıktısı_
+
+![Screenshot_23.png](./assets/Screenshot_23.png)
 
 ## Bomba Sorular
 
