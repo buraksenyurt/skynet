@@ -141,7 +141,7 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - Rc<T> aynı değeri işaret eden referansların muhasebecesi gibidir. Değeri işaret eden referans kalıp kalmadığını hesaplar, kalmamışsa değer temizlenir.
     - Rc clone fonksiyonu Deep Copy yapmaz.
     - Clone'lama olduğunda sayaç bir artar, scope dışına çıkıldığında ise bir azalır. Taa ki hiçbir referans kalmayana kadar.
-- fearless_concurrency/join_handle/multi_join/counter/message_passing, 
+- fearless_concurrency/join_handle/multi_join/counter/message_passing/mutexes, 
     - Birbirinden bağımsız çalışan program parçaları için Concurrent, aynı anda çalışan program parçaları içinse Parallel terimlerini kullanıyoruz,
     - Rust'ın ownership, borrowing, type system gibi güvenli bellek ve verimlilik odaklı kavramları eş zamanlı _(Concurrent)_ programlamada da etkisini gösteriyor. Çünkü diğer dillerde çalışma zamanında ortaya çıkabilecek Concurrency hataları Rust dilinde henüz derleme aşamasında ortaya çıkıyor. _(Bu yüzden Fearless Concurrency diye bir kavram oluşmuş)_
     - Main thread önceden başlatılan başka thread'ler de olsa en öncelikli sırada çalışır,
@@ -152,6 +152,8 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - thread'ler arası güvenli haberleşme için channel kullanılır,
     - mpsc => multiple producer, single consumer _(Çoklu üretici, tek tüketici)_
     - n sayıda transmitter kullanırken klonlamak gerekir,
+    - Kanallar _(channels)_ tekil mülkiyet _(single ownership)_ Mutex ise çoklu mülkiyet _(multiple ownership)_ özelinde düşünülebilir,
+    - Mutex<T> ile eş zamanlı kullanılmak istenen veriye t anında sadece tek bir thread'in erişmesi garanti edilir _(Birden fazla thread söz konusu olduğunda Mutex'i Arc - Atmoic Reference Counting ile birlikte klonlayarak kullanırız)_
 
 ## Çalışma Zamanı
 
@@ -340,6 +342,7 @@ _message passing örneğinde #3 kodunun eklenmesi sonrası çıktı_
 - iterators2 örneğinde yer alan Game struct'ı için neden #[derive(PartialEq, Debug)] niteliklerini uyguladık?
 - cons list kullanmamızı gerektirecek bir durum düşünün ve tanıdığınız bir Rustacean'a bunu anlatın.
 - Rc<T> kullanmamızı gerektirecek en az bir senaryo söyleyebilir misiniz?
+- Arc<T> _(Atomic Reference Counting)_ tipi hangi amaçla kullanılır.
 
 ## Ödevler
 

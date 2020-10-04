@@ -14,7 +14,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 | 35 	| .Net Core Web Api Tarafında SqlKata ile Sevimli SQL İşlemleri                                                	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 34 	| Mountebank ile Mock Servis Desteği Sunmak                                                                    	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 33 	| The Internet Computer _(Internetin Yeniden Keşfi)_ ve Motoko'yu Duyunca Ben                                  	| Tamamlandı 	|    S   	|       Heimdall      	|             	|       	|
-| 32 	| Stackoverflow Sevgi Anketinde Yıllardır Bir Numara Çıkan Programlama Dili Rust Kimdir?                       	| %10        	|   XL   	|       Heimdall      	|     Var     	|  Var  	|
+| 32 	| Stackoverflow Sevgi Anketinde Yıllardır Bir Numara Çıkan Programlama Dili Rust Kimdir?                       	| %11        	|   XL   	|       Heimdall      	|     Var     	|  Var  	|
 | 31 	| Spring Boot ile PostgreSQL Kullanan Basit Bir Web Uygulaması Geliştirmek                                     	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 30 	| Birden Fazla CSV İçeriğini Tek Bir JSON Dosyasına Alan İşi Spring ile Geliştirmek                            	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 29 	| BeeWare ile Linux Platformunda Desktop Uygulaması Geliştirmek ve Android Sürümünü Oluşturmak                 	| Tamamlandı 	|    S   	|       Heimdall      	|             	|  Var  	|
