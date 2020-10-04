@@ -9,6 +9,14 @@ Ben örneği daha önceden de olduğu gibi Heimdall _(Ubuntu 20.04)_ üstünde g
 ```bash
 # İlk önce web api projesini oluşturalım
 cargo new musician-api
+
+# Gerekli Paketlerin Yüklenmesi
+# Tokio, Warp ve JSON serileştirme için gerekli Serde paketleri 
+# Cargo.toml içerisindeki Dependencies sekmesinde yer alıyorlar
+# Dolayısıyla sonrasında build işlemi yapmak lazım
+cd musician-api
+cargo build
+
 ```
 
 ## Çalışma Zamanı
