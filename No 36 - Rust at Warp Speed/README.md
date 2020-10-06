@@ -53,9 +53,23 @@ Metot : HTTP Get
 
 ![Screenshot_01.png](./assets/Screenshot_01.png)
 
+ve şimdi de belli bir id değerine göre ürün çekelim. İlk çağrıda bir ürün bilgisi beklerken ikinci denemede HTTP 404 almamız gerekiyor.
+
+```text
+Adres : http://localhost:5555/products/1
+Metot : Http Get
+
+Adres : http://localhost:5555/products/123456
+Metot : Http Get
+```
+
+![Screenshot_02.png](./assets/Screenshot_02.png)
+
+![Screenshot_03.png](./assets/Screenshot_03.png)
+
 ## Bomba Sorular
 
-- Henüz yok
+- router dosyasında setup fonksiyonu içerisinde yönlendirme bildirimleri yapılmaktadır. get_by_id(db.clone()).or(get_all(db)) şeklindeki çağrıyı get_all(db.clone()).or(get_by_id(db)) olarak kullanırsak ne gibi bir terslik olabilir, araştırınız.
 
 ## Ödevler
 
