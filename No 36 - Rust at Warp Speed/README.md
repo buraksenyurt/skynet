@@ -67,10 +67,34 @@ Metot : Http Get
 
 ![Screenshot_03.png](./assets/Screenshot_03.png)
 
+Yeni bir ürün eklemek için HTTP Post tipinden bir çağrı yapmamız gerekir.
+
+```text
+Adres : http://localhost:5555/products
+Metot : Post
+Type  : JSON
+Body  :
+        {
+            "id": "11",
+            "title": "Cheese - Le Cru Du Clocher",
+            "price": "€9,01"
+        }
+```
+
+![Screenshot_04.png](./assets/Screenshot_04.png)
+
+Pek tabii eklenen içeriği Get ile kontrol etmekte yarar var.
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
+
 ## Bomba Sorular
 
 - router dosyasında setup fonksiyonu içerisinde yönlendirme bildirimleri yapılmaktadır. get_by_id(db.clone()).or(get_all(db)) şeklindeki çağrıyı get_all(db.clone()).or(get_by_id(db)) olarak kullanırsak ne gibi bir terslik olabilir, araştırınız.
+- Router'daki setup fonksiyonunda ne yaparsak _borrow of moved value: "db"_ sorununun oluşmasına neden oluruz.
 
 ## Ödevler
 
-- Henüz yok
+- Router içerisinde tekrarlana kod parçalarını bulup tekilleştiriniz.
+- Aynı üründen bir tane daha eklenmesini önleyecek kod geliştirmesini yapınız.
+- Ürün silme ve güncelleme operasyonlarını ekleyiniz.
+- Yeni bir ürün eklerken Body içerisinden gönderilecek mesaj boyutunu kontrol altına alabilir miyiz? _(1 Megabyte'lık bir JSON içeriğini eklemeye çalışmak istemeyiz öyle değil mi? :D)_
