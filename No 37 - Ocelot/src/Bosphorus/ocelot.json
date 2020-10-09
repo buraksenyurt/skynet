@@ -44,5 +44,14 @@
                 }
             ]
         }
+    ],
+    "Aggregates": [
+        {
+            "RouteKeys": [
+                "Player",
+                "Product"
+            ],
+            "UpstreamPathTemplate": "/{id}"
+        }
     ]
 }
