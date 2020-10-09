@@ -1,0 +1,48 @@
+{
+    "Routes": [
+        {
+            "UpstreamPathTemplate": "/eagames/player/{id}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ],
+            "DownstreamPathTemplate": "/player/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 6501
+                }
+            ],
+            "Key": "Player"
+        },
+        {
+            "UpstreamPathTemplate": "/eagames/product/{id}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ],
+            "DownstreamPathTemplate": "/api/product/suggestions/{id}",            
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7501
+                }
+            ],
+            "Key": "Product"
+        },
+        {
+            "UpstreamPathTemplate": "/eagames/applypromo",
+            "UpstreamHttpMethod": [
+                "Post"
+            ],
+            "DownstreamPathTemplate": "/applier",            
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 8501
+                }
+            ]
+        }
+    ]
+}
