@@ -10,7 +10,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 37 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 38 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 37 	| Ocelot - .Net Core Tarafında Bir API Gateway Denemesi                                                        	| %75        	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 36 	| Rust Dilinde Warp, Tokio Küfelerini Kullanarak Asenkron Web Api Geliştirmek                                  	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 35 	| .Net Core Web Api Tarafında SqlKata ile Sevimli SQL İşlemleri                                                	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 34 	| Mountebank ile Mock Servis Desteği Sunmak                                                                    	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|

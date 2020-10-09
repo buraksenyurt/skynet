@@ -1,4 +1,4 @@
-# Ocelot - Bir API Gateway Denemesi
+# Ocelot - .Net Core Tarafında Bir API Gateway Denemesi
 
 Uzun süre önce bankada çalışırken nereye baksam servis görüyordum. Bir süre sonra ana bankacılık uygulaması dahil pek çok ürünün kullandığı sayısız servisin yönetimi zorlaşmaya başladı. Bir takım ortak işlerin daha kolay ve etkili yönetilmesi gerekiyordu. Müşterek bir kullanıcı doğrulama ve yetkilendirme kontrolü _(authentication & authorization)_, yük dengesi dağıtımı _(load balancing)_, birkaç servis talebinin birleştirilmesi ve hatta birkaç servis verisinin birleştirilerek döndürülmesi _(aggregation)_, servis verisinin örneğin XML'den JSON gibi farklı formata evrilmesi, servis geliş gidişlerinin loglanması, yönlendirmeler yapılması _(routing)_, performans için önbellekleme yapılması _(caching)_, servis hareketliliklerini izlenmesi _(tracing)_, servislerin kolayca keşfedilmesi _(discovery)_ , çağrı sayılarına sınırlandırma getirilmesi, bir takım güvenlik politikalarını entegre edilmesi, özelleştirilmiş delegeler yazılması _(custom handler/middleware)_ , tüm uygulamalar için ortak bir servis geçiş kanalının konuşlandırılması ve benzerleri. Sonunda Java tabanlı WSO2 isimli bir API Gateway kullanılmasına karar verildi. Geçtiğimiz günlerde de yine konuşma sırasında [Ocelot](https://github.com/ThreeMammals/Ocelot) isimli C# ile yazılmış açık kaynak bir ürünün adı geçti ve tabii ki bende bir merak uyandı. Kanımca hafif siklet mikroservis veya servis odaklı mimari çözümlerinde düşünülebilir. Ama önce denemem lazım.
 
@@ -38,6 +38,8 @@ touch ocelot.json
 ```
 
 ## Çalışma Zamanı
+
+### İlk Deneme (Aggregation ve Standart Routing)
 
 Öncelikle kobay servislerin ayağa kaldırılması lazım. GamerService, ProductService ve PromotionService isimli servisleri kendi klasörlerinde _dotnet run_ ile çalıştırabiliriz. Kobay servisler aşağıdaki adresten ayağa kalkacaktır.
 
@@ -133,12 +135,73 @@ PromotionService içerisinde de bir POST metodumuz vardı. Ocelot.JSON için yap
 ![Screenshot_04.png](./assets/Screenshot_04.png)
 
 
-_Load Balancer Örneği Eklenecek_
+### İkinci Deneme (Load Balancer)
+
+İkinci denemede Dockerize edilmiş bir Web API hizmetinden üç tanesini farklı portlarla ayağa kaldırıp Ocelot'un gelen talepleri bu adreslere dağıtmasını sağlamayı hedefledim. Temel amacım ocelot konfigurasyonunda gerekli dağıtım işleminin yapıldığını görmek. 
+
+```bash
+# Yine Services klasöründe RewardService isimli bir .Net Core Web API var
+dotnet new webapi -o RewardService
+
+cd RewardSercice
+
+# Dockerize edeceğimiz
+touch Dockerfile
+
+# bin ve obj klasörlerini dışarıda bırakmak için
+touch .dockerignore
+
+# Dockerize için
+docker build -t rewards .
+
+# Dockerize ettiğimiz servisi çalıştırırken de aşağıdaki komutu kullanabiliriz
+# Aynı servisin 3 farklı porttan çalışacak birer örneğini ayağa kaldırıyoruz
+docker run -d -p 5555:80 -p 5556:80 -p 5557:80 rewards
+```
+
+Bu sefer http://localhost:5555/Calculator , http://localhost:5556/Calculator ve http://localhost:5557/Calculator adreslerinden talep alan bir Web API servisimiz var. Load Balancer ayarlarını ocelot.json'a ekledikten sonrasına bakalım.
+
+```json
+{
+    "DownstreamPathTemplate": "/calculator",
+    "DownstreamScheme": "http",
+    "DownstreamHostAndPorts": [
+            {
+                "Host": "localhost",
+                "Port": 5555
+            },
+            {
+                "Host": "localhost",
+                "Port": 5556
+            },
+            {
+                "Host": "localhost",
+                "Port": 5557
+            }
+        ],
+    "UpstreamPathTemplate": "/eagames/rewards",
+    "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+    },
+    "UpstreamHttpMethod": [ "Get" ]
+}
+```
+
+Artık http://localhost:5000/eagames/rewards adresine geldiğimizde
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
+
+Talepler _LeastConnection_ seçimi nedeniyle her seferinde bir sonraki backend servisine yönlendirilecek.
+
+![Screenshot_06.png](./assets/Screenshot_06.png)
 
 ## Bomba Sorular
 
 - Gateway arkasında XML içerik döndüren bir servis metodu olduğunu düşünelim. Gateway'e bu servis için gelen çağrı karşılığında XML yerine JSON döndürmemiz mümkün olur mu? Bunu Ocelot üzerinde tanımlayabilir miyiz?
+- Dockerize ettiğimiz servisi üç farklı porttan ayağa kaldırdığımız bir container başlattık. Ocelot'un Load Balancer ayarları gereği eagames/rewards'a gelen talepler arkadaki port'lara seçilen stratejiye göre dağıtılıyor. Üç port'ta esas itibariyle aynı container'a _(80 portuna)_ iniyor. Sizce gerçek anlamda bir Load Balancing oldu mu? Arkadaşlarınızla tartışınız.
 
 ## Ödev
 
 - En az iki servisi daha farklı programlama dilleri ile senaryoya dahil ediniz _(NodeJs, Java, Rust, GO olabilir mesela)_
+- RewardService'in geriye döndürdüğü bedava ödüller listesinde bilgiler kendisini tekrar edebiliyor. Tekilleştirmek için gerekli kod düzenlemesini yapın, docker imajını yeniden build edip container'ları tekrardan ayağa kaldırın.
+- Load Balancer senaryolarında Stick Session dikkat edilmesi gereken bir konudur. Ocelot'ta Stick Session desteği var mıdır araştırınız?
