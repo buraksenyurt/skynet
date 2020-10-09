@@ -43,6 +43,29 @@
                     "Port": 8501
                 }
             ]
+        },
+        {
+            "DownstreamPathTemplate": "/calculator",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                    {
+                        "Host": "localhost",
+                        "Port": 5555
+                    },
+                    {
+                        "Host": "localhost",
+                        "Port": 5556
+                    },
+                    {
+                        "Host": "localhost",
+                        "Port": 5557
+                    }
+                ],
+            "UpstreamPathTemplate": "/eagames/rewards",
+            "LoadBalancerOptions": {
+                "Type": "LeastConnection"
+            },
+            "UpstreamHttpMethod": [ "Get" ]
         }
     ],
     "Aggregates": [
