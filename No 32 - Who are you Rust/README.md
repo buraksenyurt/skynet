@@ -154,6 +154,9 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - n sayıda transmitter kullanırken klonlamak gerekir,
     - Kanallar _(channels)_ tekil mülkiyet _(single ownership)_ Mutex ise çoklu mülkiyet _(multiple ownership)_ özelinde düşünülebilir,
     - Mutex<T> ile eş zamanlı kullanılmak istenen veriye t anında sadece tek bir thread'in erişmesi garanti edilir _(Birden fazla thread söz konusu olduğunda Mutex'i Arc - Atmoic Reference Counting ile birlikte klonlayarak kullanırız)_
+- patternsmatching
+    - if let, while let ile pattern matching uygulanabilir,
+    - enumarate ile for döngüsünde hareket edilirken de bir pattern matching söz konusudur,
 
 ## Çalışma Zamanı
 
