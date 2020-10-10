@@ -13,14 +13,17 @@
                     "Port": 6501
                 }
             ],
-            "Key": "Player"
+            "Key": "Player",
+            "DelegatingHandlers": [
+                "RequestInspector"
+            ]
         },
         {
             "UpstreamPathTemplate": "/eagames/product/{id}",
             "UpstreamHttpMethod": [
                 "Get"
             ],
-            "DownstreamPathTemplate": "/api/product/suggestions/{id}",            
+            "DownstreamPathTemplate": "/api/product/suggestions/{id}",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -35,7 +38,7 @@
             "UpstreamHttpMethod": [
                 "Post"
             ],
-            "DownstreamPathTemplate": "/applier",            
+            "DownstreamPathTemplate": "/applier",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -48,24 +51,26 @@
             "DownstreamPathTemplate": "/calculator",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
-                    {
-                        "Host": "localhost",
-                        "Port": 5555
-                    },
-                    {
-                        "Host": "localhost",
-                        "Port": 5556
-                    },
-                    {
-                        "Host": "localhost",
-                        "Port": 5557
-                    }
-                ],
+                {
+                    "Host": "localhost",
+                    "Port": 5555
+                },
+                {
+                    "Host": "localhost",
+                    "Port": 5556
+                },
+                {
+                    "Host": "localhost",
+                    "Port": 5557
+                }
+            ],
             "UpstreamPathTemplate": "/eagames/rewards",
             "LoadBalancerOptions": {
                 "Type": "LeastConnection"
             },
-            "UpstreamHttpMethod": [ "Get" ]
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
         }
     ],
     "Aggregates": [

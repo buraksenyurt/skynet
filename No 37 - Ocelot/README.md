@@ -195,6 +195,12 @@ Talepler _LeastConnection_ seçimi nedeniyle her seferinde bir sonraki backend s
 
 ![Screenshot_06.png](./assets/Screenshot_06.png)
 
+### Diğer Denemeler
+
+Mesela GamerService'e gelen taleplerde araya girmeyi denedim. Bunu bir DelegatingHandler türevli bir sınıf ile kolayca yapabiliriz. Sanırım bu sayede Ocelot'a gelen bir Http isteğine cevap dönmeden önce araya girip bir takım iş kurallarını işletmek mümkün olabilir.
+
+![Screenshot_07.png](./assets/Screenshot_07.png)
+
 ## Bomba Sorular
 
 - Gateway arkasında XML içerik döndüren bir servis metodu olduğunu düşünelim. Gateway'e bu servis için gelen çağrı karşılığında XML yerine JSON döndürmemiz mümkün olur mu? Bunu Ocelot üzerinde tanımlayabilir miyiz?
