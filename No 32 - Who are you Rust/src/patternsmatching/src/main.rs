@@ -80,6 +80,69 @@ fn main() {
     let location = (10, 20); //location bir pattern
     let (a, b) = move_left(&location, 5); // (a,b) de bir pattern
     println!("({}:{}) -> ({}:{})", location.0, location.1, a, b);
+
+    // Aşağıdaki kod parçasını açınca bir uyarı mesajı alınır. Sizce neden?
+    // if let value = 10 {
+    //     println!("{}", value);
+    // }
+
+    /*
+        Biraz da match kullanımlarına bakıp hatırlayalım.
+        match kullanımının belki de en basit hali aşağıdaki gibidir.
+        currency şablonunun match ifadesindeki durumlardan birisine uygunluğu kontrol edilir.
+        _ ile hiçbirisine uymayan durum söz konusudur
+    */
+    let currency = "TL";
+    match currency {
+        "TL" => println!("TL işlemi uygulanacak"),
+        "USA" => println!("Dolar işlemi uygulanacak"),
+        _ => println!("Hiç birisi uymadı"),
+    }
+
+    /*
+        Şimdi aşağıdaki match kullanımına odaklanalım.
+        value_a'nın sahip olduğu değeri kontrol ediyoruz.
+        Some(50) eşleşmesi çalışmayacak, çünkü value_a Some(100) değerine sahip.
+        Lakin ikinci Some kontrolü eşleşecek. Buradaki mutable value_b, value_a nın başlangıçtaki değerine sahip olur. Yani Some(100)'e.
+        Bu nedenle eşleşme kabul edilir ve blok içerisinde value_b değeri 1 artırılıp ekrana basılır ki bu değer 101 dir!!!
+        match sonrasında ekrana A ve B değerleri 100 ve 10 olarak basılacaktır.
+        Burada kafalar karışabilir. Some(mut value_b) eşleşmesi çalışmıştı ve orada value_b değerini 1 artırmıştık. Dolayısıyla value_b'nin 101 kalması gerekir diyebiliriz.
+        Ancak Some(mut value_b) value_a nın match ifadesinde kullanılmaktadır. Yani kendi bloğu içinde yeni bir değişkendir. Sadece value_a'nın başlangıç değerini almaktadır.
+        Bunu etraflıca düşünüp hazmetmeye çalışın :)
+    */
+    let value_a = Some(100);
+    let value_b = 10;
+
+    match value_a {
+        Some(50) => println!("Got 50"),
+        Some(mut value_b) => {
+            value_b = value_b + 1;
+            println!("{}", value_b);
+        }
+        _ => println!("Farklı bir koşul"),
+    }
+
+    println!("A değeri {:?}, B değeri = {:?}", value_a, value_b);
+
+    /*
+        Aşağıdaki match ifadesinde, şablonların veyalanarak ve bir aralık
+        belirtilerek kullanılması örneklenmektedir.
+        Veyalamak için | aralık belirtmek içinse ..=(Matching Range) operatörlerinden yararlanılır.
+        Matching Range sayı ve karakter veri tipi için kullanılabilir.
+    */
+    let order_no = 10;
+    match order_no {
+        1 | 2 | 3 => println!("İlk üçtesiniz. Sıranız * 3 puan verilir."),
+        4 | 5 | 6 => println!("Yine de 1 puan verilir"),
+        7..=10 => println!("7nci ve 10ncu arasındasınız. O zaman 0.5 puan verelim."),
+        _ => println!("Kontenjan dışı kaldınız :("),
+    }
+
+    let first_letter = 'l';
+    match first_letter {
+        'a'..='m' => println!("{} izin verilen listede",first_letter),
+        _ => println!("{} izin verilen listede değil",first_letter),
+    }
 }
 
 fn move_left(&(x, y): &(i32, i32), v: i32) -> (i32, i32) {

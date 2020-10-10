@@ -154,10 +154,12 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - n sayıda transmitter kullanırken klonlamak gerekir,
     - Kanallar _(channels)_ tekil mülkiyet _(single ownership)_ Mutex ise çoklu mülkiyet _(multiple ownership)_ özelinde düşünülebilir,
     - Mutex<T> ile eş zamanlı kullanılmak istenen veriye t anında sadece tek bir thread'in erişmesi garanti edilir _(Birden fazla thread söz konusu olduğunda Mutex'i Arc - Atmoic Reference Counting ile birlikte klonlayarak kullanırız)_
-- patternsmatching
+- patternsmatching,
     - let ile yapılan değişken atamalarında da aslında eşitliğin sağ tarafında ne olursa olsun eşitliğin solundaki pattern _(şablon)_ ile eşleştirilir _(matching)_ Yani _let pattern=matching;_ söz dizimi kuralı geçerlidir.
     - if let, while let ile şablon eşleştirme uygulanabilir,
     - enumarate ile for döngüsünde hareket edilirken de bir pattern matching _(şablon eşleştirme)_ söz konusudur,
+    - match ifadelerinde | ile n adet şablon veyalanarak _(or)_ kullanılabilir,
+    - match ifadelerinde sayısal veya karakter bazlı aralıklarda eşleştirme için kullanılabilir _(..=)_
 
 ## Çalışma Zamanı
 
