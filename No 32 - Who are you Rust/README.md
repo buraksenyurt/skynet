@@ -349,6 +349,7 @@ _message passing örneğinde #3 kodunun eklenmesi sonrası çıktı_
 - cons list kullanmamızı gerektirecek bir durum düşünün ve tanıdığınız bir Rustacean'a bunu anlatın.
 - Rc<T> kullanmamızı gerektirecek en az bir senaryo söyleyebilir misiniz?
 - Arc<T> _(Atomic Reference Counting)_ tipi hangi amaçla kullanılır.
+- Bir struct değişkenini match ifadesi ile kullanabilir miyiz?
 
 ## Ödevler
 

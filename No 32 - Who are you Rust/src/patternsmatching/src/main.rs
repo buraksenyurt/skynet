@@ -8,6 +8,9 @@
 
 fn main() {
     /*
+        #1
+        Önce pattern(şablon) konusuna bir bakalım.
+
         İlginç geldi ki aşağıdaki ifadelerde soldaki değişkenler birer pattern'dir.
         Sağ taraftan ne gelirse gelsin eşleştirdiğimiz birer aktördür.
 
@@ -87,6 +90,29 @@ fn main() {
     // }
 
     /*
+        Şablonları struct veri türünün değişkenlerini başka değişkenlere kolayca almak için de kullanabiliriz.
+        Buna Destructing demişler. Belki de parçalarını çekip çıkardığımız içindir.
+        Her neyse. Aşağıdaki kullanıma bakalım.
+        Bu kod parçasında bird içindeki id ve nick_name bilgilerini let pattern ile sol taraftaki number, player_name isimli
+        değişkenlere aldık(aynı isimli değişkenler de kullanabiliriz bu durumda : ile isim belirtmemize gerek yok)
+        ve bir sonraki satırda kullanabildik.
+    */
+    let bird = Player {
+        id: 33,
+        nick_name: String::from("Leri Böörd"),
+    };
+    let Player {
+        id: number,
+        nick_name: player_name,
+    } = bird;
+    println!(
+        "{} numaralı formasıyla '{}' geliyorrrr...",
+        number, player_name
+    );
+
+    /*
+        #2
+
         Biraz da match kullanımlarına bakıp hatırlayalım.
         match kullanımının belki de en basit hali aşağıdaki gibidir.
         currency şablonunun match ifadesindeki durumlardan birisine uygunluğu kontrol edilir.
@@ -140,11 +166,17 @@ fn main() {
 
     let first_letter = 'l';
     match first_letter {
-        'a'..='m' => println!("{} izin verilen listede",first_letter),
-        _ => println!("{} izin verilen listede değil",first_letter),
+        'a'..='m' => println!("{} izin verilen listede", first_letter),
+        _ => println!("{} izin verilen listede değil", first_letter),
     }
 }
 
 fn move_left(&(x, y): &(i32, i32), v: i32) -> (i32, i32) {
     (x + v, y + v)
+}
+
+// Destrcuting örnekleri için
+struct Player {
+    id: i32,
+    nick_name: String,
 }
