@@ -155,8 +155,9 @@ Dilin genel özellikleri ile ilgili dikkatimi çeken birkaç anahtar noktayı ke
     - Kanallar _(channels)_ tekil mülkiyet _(single ownership)_ Mutex ise çoklu mülkiyet _(multiple ownership)_ özelinde düşünülebilir,
     - Mutex<T> ile eş zamanlı kullanılmak istenen veriye t anında sadece tek bir thread'in erişmesi garanti edilir _(Birden fazla thread söz konusu olduğunda Mutex'i Arc - Atmoic Reference Counting ile birlikte klonlayarak kullanırız)_
 - patternsmatching
-    - if let, while let ile pattern matching uygulanabilir,
-    - enumarate ile for döngüsünde hareket edilirken de bir pattern matching söz konusudur,
+    - let ile yapılan değişken atamalarında da aslında eşitliğin sağ tarafında ne olursa olsun eşitliğin solundaki pattern _(şablon)_ ile eşleştirilir _(matching)_ Yani _let pattern=matching;_ söz dizimi kuralı geçerlidir.
+    - if let, while let ile şablon eşleştirme uygulanabilir,
+    - enumarate ile for döngüsünde hareket edilirken de bir pattern matching _(şablon eşleştirme)_ söz konusudur,
 
 ## Çalışma Zamanı
 
@@ -365,3 +366,4 @@ _message passing örneğinde #3 kodunun eklenmesi sonrası çıktı_
 - hof örneğinde 28nci satırdaki filter fonksiyonuna bakın. Burada calc fonksiyonunu çağırmadan aynı hesaplamayı yaptırın
 - M:N ve 1:1 thread modelleri nedir, araştırınız? Öğrendiklerinizi bir arkadaşınızla paylaşıp konuyu tartışarak pekiştiriniz.
 - counter uygulamasını genişletelim. En az 20 paragraftan oluşan bir word dokümanı hazırlayın. Herbir paragraf için ayrı bir thread çalıştırın. Herbir thread ilgili paragrafta bizim söylediğimiz kelimelerden kaç tane geçtiğini case-sensitive veya case-insensitive olarak hesaplasın.
+- _ ve .. operatörlerinin kullanım alanları nerelerdir, araştırıp deneyiniz.
