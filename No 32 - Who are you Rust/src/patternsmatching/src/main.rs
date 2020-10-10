@@ -91,7 +91,7 @@ fn main() {
 
     /*
         Şablonları struct veri türünün değişkenlerini başka değişkenlere kolayca almak için de kullanabiliriz.
-        Buna Destructing demişler. Belki de parçalarını çekip çıkardığımız içindir.
+        Buna Destructuring demişler. Belki de parçalarını çekip çıkardığımız içindir.
         Her neyse. Aşağıdaki kullanıma bakalım.
         Bu kod parçasında bird içindeki id ve nick_name bilgilerini let pattern ile sol taraftaki number, player_name isimli
         değişkenlere aldık(aynı isimli değişkenler de kullanabiliriz bu durumda : ile isim belirtmemize gerek yok)
@@ -108,6 +108,44 @@ fn main() {
     println!(
         "{} numaralı formasıyla '{}' geliyorrrr...",
         number, player_name
+    );
+
+    /*
+        Benzer senaryoyu(Destructuring) enum tipi için de uygulayabiliriz.
+        Bunu match ifadesi ile ele almak oldukça mantıklı.
+        eintesin bir enum değişkeni. İçinde bir tuple ve struct türlerine yer verdik.
+        match ifadesinde Person ve AddValues kısımlarında şablon eşleştirmeleri ile Destructuring işlemi uygulanmaktadır.
+    */
+    let einstein = Genius::Person {
+        level: 78,
+        name: String::from("Gauss"),
+    };
+
+    match einstein {
+        Genius::Person { level: l, name } => {
+            println!("{} {}", l, name);
+        }
+        Genius::AddValues(v1, v2) => println!("{} {}", v1, v2),
+        Genius::OnGame => println!("Oyunda"), // Burada sabit bir değer söz konusu olduğunda Destructuring olmaz
+    }
+
+    /*
+        şablonlar ile Destructuring'in bir arada kullanımı aşağıdaki gibi karmaşık kod ifadelerine de sebebiyet verebilir.
+        Eşitliğin sol tarafındaki şablonda origin_x, origin_y isimli değişkenlere sahip tuple ve Player struct'ını içeren
+        bir tuple tanımı var. Sağ taraftan da buna göre bir eşleşme yapılıyor.
+        Kısaca tuple ve struct içeren bir tuple'ın içeriği Destructuring ile değişkenlere alınıyor.
+        Hatta alınırken id değişkenini göz ardı ediyoruz(Eşitliğin solundaki _ kullanımına dikkat)
+    */
+    let ((origin_x, origin_y), Player { id: _, nick_name }) = (
+        (155, 179),
+        Player {
+            id: 11,
+            nick_name: String::from("Kayri Örving"),
+        },
+    );
+    println!(
+        "'{}' şimdi ({}:{}) konumuna geldi.",
+        nick_name, origin_x, origin_y
     );
 
     /*
@@ -179,4 +217,10 @@ fn move_left(&(x, y): &(i32, i32), v: i32) -> (i32, i32) {
 struct Player {
     id: i32,
     nick_name: String,
+}
+
+enum Genius {
+    AddValues(i32, i32),                 // iki eleman tutan Tuple
+    Person { level: i32, name: String }, // bir struct
+    OnGame,
 }
