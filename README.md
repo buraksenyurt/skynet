@@ -16,7 +16,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 38 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 39 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 38 	| .Net Core Tarafından RabbitMQ'ya Mesaj Göndermek ve Java Tarafından Dinlemek                                 	| %80        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 37 	| Ocelot - .Net Core Tarafında Bir API Gateway Denemesi                                                        	| %75        	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 36 	| Rust Dilinde Warp, Tokio Küfelerini Kullanarak Asenkron Web Api Geliştirmek                                  	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 35 	| .Net Core Web Api Tarafında SqlKata ile Sevimli SQL İşlemleri                                                	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
