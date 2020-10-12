@@ -54,6 +54,10 @@ Dikkat edileceği üzere Console uygulamasında iki kere gönderdiğimiz JSON me
 
 ![Screenshot_02.png](./assets/Screenshot_02.png)
 
+> Sonradan aklıma geldi. .Net Core tarafında Package sınıfına ait nesne örnekleri RabbitMQ'ya gönderilirken JSON formatına serileşiyor. Java tarafında da bu JSON'ı bir Java sınıfına ters serileştirmek şık olacaktı. Bu nedenle sonradan pom.xml'e com.fasterxml.jackson.core paketi için bir bağımlılık ekledim. Sonrasında PackageInfo.java isimli bir sınıf yazdım. JSON içeriğindeki nitelikleri karşılayacak alanları olan bir sınıf. Ardından EventListener içerisindeki onMessage metodunda ObjectMapper'dan yararlanarak kuyruktaki JSON mesajının ters serileştirilmesini sağladım. Çalışma zamanında istediğim gibi nesneyi kullanabildim.
+
+![Screenshot_03.png](./assets/Screenshot_03.png)
+
 ## Bomba Sorular
 
 - Varsayılan halde java uygulaması localhost sunucusuna ve standart Rabbit portuna gideceğini nereden biliyor?
