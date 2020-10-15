@@ -2,9 +2,6 @@ package com.bemewe.services;
 
 import org.springframework.stereotype.Component;
 
-import io.spring.guides.gs_producing_web_service.Size;
-import io.spring.guides.gs_producing_web_service.UsageSummary;
-
 /*
     Sembolik repository sınıfı. Bu bileşeni Service Endpoint sınıfı kullanıyor.
 */
