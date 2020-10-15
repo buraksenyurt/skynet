@@ -37,7 +37,7 @@ public class ServiceConfiguration extends WsConfigurerAdapter {
 		wsdl11Definition.setLocationUri("/stats");
 		wsdl11Definition.setTargetNamespace("http://bemewe.com/services");
 		wsdl11Definition.setSchema(serviceSchema);
-		wsdl11Definition.setCreateSoap12Binding(true); //SOAP 1.2 Binding oluşturmayı deneyeyim dedim
+		// wsdl11Definition.setCreateSoap12Binding(true); //SOAP 1.2 Binding oluşturmayı deneyeyim dedim
 		return wsdl11Definition;
 	}
 
