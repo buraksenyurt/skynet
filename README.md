@@ -16,7 +16,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 39 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 40 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 39 	| Spring Tarafında Eski Usül Soap Based Bir XML Web Service Yazmak Ne Kadar Zor Olabilir?                      	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 38 	| .Net Core Tarafından RabbitMQ'ya Mesaj Göndermek ve Java Tarafından Dinlemek                                 	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 37 	| Ocelot - .Net Core Tarafında Bir API Gateway Denemesi                                                        	| %75        	|    M   	|       Heimdall      	|     Var     	|  Var  	|
 | 36 	| Rust Dilinde Warp, Tokio Küfelerini Kullanarak Asenkron Web Api Geliştirmek                                  	| Tamamlandı 	|    M   	|       Heimdall      	|     Var     	|  Var  	|
