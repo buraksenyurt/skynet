@@ -30,9 +30,43 @@ podman -v
 Birkaç komutla Podman'i incelemeye başlayalım.
 
 ```bash
+# İlk ilgi çekici kısım bir pod oluşturmak ve
+# bu pod içerisine n sayıda container yerleştirmek
 
+# Önce pod'u oluşturalım (adı pod_race olsun)
+podman pod create --name pod_race
+
+# pod listesine bir bakalım
+podman pod list
+
+# Bu pod içinde bir tane alpine imajından container başlatalım
+podman run -d --pod pod_race alpine
+
+# Hadi bir tane de nginx imajından http server container'ı çalıştıralım (aynı pod içinde)
+podman run -d --pod pod_race nginx
+
+# Hatta bir tane de rabbitmq container'ı başlatalım. O da aynı pod içinde olsun.
+podman run -d --pod pod_race rabbitmq
+
+# Şimdi pod_race isimli pod'un içindeki container'lara bakabiliriz
+podman ps -a --pod
+
+# Aşağıdaki komutla yüklü olan image'lara da bakabiliriz
+podman images
+
+# Bir podu durdurabiliriz. Bu içindeki Container'ları da durduracaktır.
+podman pod stop pod_race
+
+# Pek tabi oluşturulan bir podu içerisindeki container'lar ile birlikte silebiliriz de
+podman pod rm pod_race
 ```
+
+![Screenshot_01.png](./assets/Screenshot_01.png)
 
 ## Bomba Sorular
 
+- pod_a ve pod_b iki ayrı pod olsunda. pod_a içindeki bir container pod_b içindeki bir container ile iletişim kurabilir mi? Örneğin pod_a'da ki bir .net web api, pod_b'deki mongodb container'ını kullanabilir mi?
+
 ## Ödevler
+
+- Podman benzeri OCI standartlarına uyan başka container teknolojileri var mı araştırınız?
