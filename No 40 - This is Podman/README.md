@@ -63,6 +63,48 @@ podman pod rm pod_race
 
 ![Screenshot_01.png](./assets/Screenshot_01.png)
 
+```bash
+# Podman ile uzak depolardaki imajları kolayca arayabiliriz
+
+# Mesela sevgili MariaDB imajlarını aradığımızı, 20 yıldız üstünde olup automated özellikli olanları bulmak istediğimizi düşünelim
+podman search mariadb --filter=stars=20 --filter=is-automated
+
+# ya da resmi bir imaj arayıp açıklamasınında tamamını(--no-trunc) istersek şunu kullanabiliriz
+podman search mariadb --no-trunc --filter=is-official
+
+# Hatta çıktı tablosundaki kolonlardan sadece istediklerimizi de mustache stilindeki parametrelerle değiştirebiliriz
+podman search --format "table {{.Name}} {{.Stars}}" mariadb --filter=stars=20
+
+# Uzak repolardaki kendi imajlarımızı da aratmak isteyebiliriz elbette.
+# Mesela Quay.io'da ki imajlarımızı aratmak istedik
+# Aşağıdaki komutla bunu yapabiliriz?
+# Lakin kuvvetle muhtemel öncesinde Quay.io için Login olmamız gerekebilir
+# Podman bunu da sağlar
+podman login quay.io
+podman search quay.io/
+
+# Uzak diyarlardaki imajları terminalden nasıl arayacağımızı gördük
+# Bazen belli bir imajın özelliklerine sisteme indirmeden detayda da bakmak isteyebiliriz
+# İşte bir örnek
+skopeo inspect docker://docker.io/alpine:latest
+```
+
+![Screenshot_02.png](./assets/Screenshot_02.png)
+
+> Varsayılan kurulumda image registery adresleri olarak docker ve quay kullanılır. Başka adresler eklemek istersek _(mesela private repo'lar)_  /etc/containers/registries.conf dosyasını düzenlemek gerekir.
+
+### Skopeo
+
+Podman ile ilgili bilgileri araştırırken yanında yardımcı başka araçları da görebiliyoruz. OCI ilkelerine göre imaj oluşturmayı kolaylaştıran Buildah _(Kanımca Build Yeaaa diye telafuz ediliyor)_ veya yukarıda bir imajın detay özelliklerini öğrenmek ve aynı zamanda depolar arası container transferlerini _(kendi deponuzdan docker.io veya quay.io gibi public registery noktalarına ya da tam tersi vb)_ kolaylaştıran skopeo gibi araçlar. Skopeo için []() adresinde işletim sistemine uygun adımlar takip edilebilir. Ben Heimdall için aşağıdaki adımları takip ettim.
+
+```bash
+. /etc/os-release
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/x${NAME}_${VERSION_ID}/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/x${NAME}_${VERSION_ID}/Release.key | sudo apt-key add -
+sudo apt-get -y update
+sudo apt-get -y install skopeo
+```
+
 ## Bomba Sorular
 
 - pod_a ve pod_b iki ayrı pod olsunda. pod_a içindeki bir container pod_b içindeki bir container ile iletişim kurabilir mi? Örneğin pod_a'da ki bir .net web api, pod_b'deki mongodb container'ını kullanabilir mi?
