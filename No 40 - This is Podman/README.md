@@ -93,6 +93,38 @@ skopeo inspect docker://docker.io/alpine:latest
 
 > Varsayılan kurulumda image registery adresleri olarak docker ve quay kullanılır. Başka adresler eklemek istersek _(mesela private repo'lar)_  /etc/containers/registries.conf dosyasını düzenlemek gerekir.
 
+```bash
+# Şimdi podman ile bir imaj hazırlayıp build etmeyi deneyelim
+# Önce kobay bir uygulama lazım. Basit bir Node.js uygulaması olabilir
+# ve Dockerfile tabii
+mkdir pingapi
+cd pingapi
+npm init -y
+touch index.js
+npm i express
+touch Dockerfile
+
+# Sonrasında Build işlemi yapılabilir
+podman build -t ping-api .
+
+# İmajın oluşup oluşmadığı kontrol edildikten sonra da
+# çalıştırıp api'den değer alıp alamadığımıza bakmak iyi olabilir ;)
+podman images
+podman run -p 5555:5555 ping-api
+podman ps -a
+curl http://localhost:5555/ping
+
+# Çalışmakta olan container'ı durdurmak içinse aşağıdaki komutu kullanabiliriz
+# (337f id değeri tabii ki siz denerken farklı olacaktır)
+podman stop 337f
+```
+
+![Screenshot_03.png](./assets/Screenshot_03.png)
+
+Aşağıdaki ekran görüntüsünü şöyle yorumlayabiliriz. stop ile ilgili container durduruldu. Container durduğu için servise gönderilen talep cevapsız kalmalıydı. İşte onun ispatı bir nevi ;)
+
+![Screenshot_04.png](./assets/Screenshot_04.png)
+
 ### Skopeo
 
 Podman ile ilgili bilgileri araştırırken yanında yardımcı başka araçları da görebiliyoruz. OCI ilkelerine göre imaj oluşturmayı kolaylaştıran Buildah _(Kanımca Build Yeaaa diye telafuz ediliyor)_ veya yukarıda bir imajın detay özelliklerini öğrenmek ve aynı zamanda depolar arası container transferlerini _(kendi deponuzdan docker.io veya quay.io gibi public registery noktalarına ya da tam tersi vb)_ kolaylaştıran skopeo gibi araçlar. Skopeo için []() adresinde işletim sistemine uygun adımlar takip edilebilir. Ben Heimdall için aşağıdaki adımları takip ettim.
@@ -112,3 +144,4 @@ sudo apt-get -y install skopeo
 ## Ödevler
 
 - Podman benzeri OCI standartlarına uyan başka container teknolojileri var mı araştırınız?
+- Bu çalışmada ben kobay bir NodeJs servisini Poderize _(Dockerize yerine bunu kullanayım dedim)_ ettim. Siz de bir .Net Core Web Api uygulamasını benzer şekilde podman ile imajını oluşturup ayağa kaldırmayı deneyin.
