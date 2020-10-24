@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>VueJs Bebek Adımları - 02</title>
+    <!-- CDN adresinden Vue.js'i kullanacağımızı söyledik-->
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <!--
+        HTML elementlerinin niteliklerini(attribute)'de veriye bağlamak isteyebiliriz.
+        Örneğin aşağıdaki HTML yapısından yer alan src ve altText niteliklerini, data nesnesinin sırasıyla coverPhoto ve alternativeText alanlarına bağlamak istediğimizi düşünelim.
+
+        Bu durumda v-bind isimli yönergeyi(directive) kullanmamız gerekir.
+
+        01 nolu örnekte olduğu gibi bu HTML'i açtıktan sonra tarayıcının Console penceresinde
+            app.coverPhoto="./images/book_2.jpeg"
+        yazın. Fotoğrafın hemen değiştiğini göreceksiniz. Yani v-bind direktifi ile bağlanan yerlerde veri değişikliğini anında yansıtır.
+
+    -->
+
+    <div id="app" style="text-align:center;">
+
+        <div id="book">
+            <h1>{{title}}</h1>
+            <p>{{description}}</p>
+        </div>
+
+        <div id="book-photo">
+            <!-- 
+                v-bind direktifini : operatörü ile daha kısa şekilde de kullanabiliriz.
+                Yani v-bind:src yerine :src yazılabilir.
+            -->
+            <img :src="coverPhoto" v-bind:altText="alternativeText" />
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        var app = new Vue(
+            {
+                el: '#app',
+                data: {
+                    title: "Rust Programming Cookbook",
+                    description: "Perfect book about programming with rust",
+                    coverPhoto: "./images/book_1.jpeg",
+                    alternativeText: "Rust Programming Cookbook Cover Photo"
+                }
+            }
+        )
+
+    </script>
+</body>
+
+</html>
