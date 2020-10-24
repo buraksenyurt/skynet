@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using showcaseapi.Data;
 
 namespace showcaseapi
 {
@@ -22,29 +24,45 @@ namespace showcaseapi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string conStr = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<WantItDbContext>(options => options.UseSqlite(conStr));
+            services.AddSpaStaticFiles(configuration: options => { options.RootPath = "wwwroot"; });
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("VueCorsPolicy", builder =>
+                {
+                    builder
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    .WithOrigins("https://localhost:5001");
+                });
+            });
+            services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WantItDbContext dbContext)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
+            app.UseCors("VueCorsPolicy");
+            dbContext.Database.EnsureCreated();
+            app.UseMvc();
             app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseSpaStaticFiles();
+            app.UseSpa(configuration: builder =>
             {
-                endpoints.MapControllers();
+                if (env.IsDevelopment())
+                {
+                    builder.UseProxyToSpaDevelopmentServer("http://localhost:8080");
+                }
             });
         }
     }
