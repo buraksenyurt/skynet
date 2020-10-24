@@ -14,6 +14,9 @@ touch vue_is_reactive.html
 
 # İkinci örnek attribute binding ile ilgili
 touch vue_attribute_binding.html
+
+# Üçüncü örnek akış kontrol ifadeleri ile ilgili
+touch vue_conditional_render.html
 ```
 
 ## Çalışma Zamanı
@@ -28,12 +31,21 @@ HTML sayfalarını bir tarayıcıda açmak yeterli. Sırasıyla örneklerden eld
 
 ### vue_attribute_binding Örneğine Ait Ekran Çıktıları
 
-![Screenshot_01.png](./assets/Screenshot_03.png)
+![Screenshot_03.png](./assets/Screenshot_03.png)
 
-![Screenshot_02.png](./assets/Screenshot_04.png)
+![Screenshot_04.png](./assets/Screenshot_04.png)
+
+### vue_conditional_render Örneğine Ait Ekran Çıktıları
+
+![Screenshot_05.png](./assets/Screenshot_05.png)
+
+![Screenshot_06.png](./assets/Screenshot_06.png)
 
 ## Bomba Sorular
+
+- Vue.js'te v-switch direktifi var mıdır? Yoksa bile kullanmanın bir yolu olabilir mi?
 
 ## Ödevler
 
 - vue_attribute_binding.html örneğinde kitap fotoğrafına bir link bağlayın _(a href)_ ve _href_ niteliğinin data nesnesindeki _url_ isimli özellikten beslenmesini sağlayın.
+- vue_conditional_render.html örneğinde, level değişkeninin Small, Medium, Large, XLarge olmasına göre sayfanın sağ üst köşesinde S,M,L,XL harflerinin şöyle janjanlı imajlar şeklinde görünmesini sağlayın.
