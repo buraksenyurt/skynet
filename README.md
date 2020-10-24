@@ -16,7 +16,8 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
-| 41 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 42 	|                                                                                                              	|            	|        	|                     	|             	|       	|
+| 41 	| Vue.js İçin Bebek Adımları                                                                                   	| %10        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 40 	| Docker Yerine Podman _(Pod Manager)_ Kullanmak                                                               	| %75        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 39 	| Spring Tarafında Eski Usül Soap Based Bir XML Web Service Yazmak Ne Kadar Zor Olabilir?                      	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 38 	| .Net Core Tarafından RabbitMQ'ya Mesaj Göndermek ve Java Tarafından Dinlemek                                 	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
@@ -69,7 +70,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 #genericRepository #dependencyInjection #async #await #curl #signalR #libman #hub #loadBalancer #dart #future 
 #asyncFor #pub #angelFramework #MediatR #CQRS #roslyn #dotnet-script #pointer #react #nextjs #nodemoon 
 #reactHooks #gin-gonic #java #apacheMaven #spring #django #beeWare #android #crossPlatform #Thymeleaf #rust
-#theInternetComputer #motoko #mounteBank #sqlKata #warp #tokio
+#theInternetComputer #motoko #mounteBank #sqlKata #warp #tokio #podman #vuejs
 ```
 ## Kolay Klasör Açma
 
