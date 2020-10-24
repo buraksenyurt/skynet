@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>VueJs Bebek Adımları - 01</title>
+    <!-- CDN adresinden Vue.js'i kullanacağımızı söyledik-->
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <!--
+        Vue'da DOM nesneler ile veri(data) birbirine bağlıdır ve sürekli etkileşim halindedir.
+    -->
+
+    <div id="appComponent" style="text-align:center;">
+        <h1>Şu An Çalıştığım Kitap</h1>
+        <p>{{bookName}}</p>
+        <p>{{startDate}}</p>
+        <!-- Javascript expression içerisinde aşağıdaki gibi fonksiyon çağrıları da yapılabilir-->
+        <p>{{bookName.split('').reverse().join('')}}</p>
+    </div>
+
+
+    <script type="text/javascript">
+        /*
+            app bir Vue uygulama nesnesidir. 
+            Parametre olarak çeşitli seçenekleri ihtiva eden bir JSON değişkeni alır.
+
+            el(element) niteliği uygulamdaki appComponent isimli div elementi ifade edilmektedir.
+
+            Vue yapıcı fonksiyonundaki JSON nesnesinin data özelliği içerisinde koyduğumuz alanlar, DOM içerisinde {{ }} ifadelerinin olduğu yerlerde kullanılır.
+            Mustache stilindeki {{ }} yerler javascript expression olarak adlandırılır. Vue bu ifadeleri gördüğünde, data özelliğindeki karşılıkları ile değiştirir.
+
+            Vue'nun nesne verileri(instance data) HTML'de referans edildikleri heryere bağlanır. 
+            Bunu daha iyi anlamak için HTML sayfasını açtıktan sonra F12 ile Developer bölgesine geçin ve Console'da 
+                app.bookName="Learning Vue"
+            yazın. HTML içeriğinde bookName olan heryerin anında değiştiğini göreceksiniz. İşte bu Reactive olma özelliğidir.
+        */
+        var app = new Vue(
+            {
+                el: '#appComponent',
+                data: {
+                    bookName: "Rust Programming Cookbook",
+                    startDate: "Today"
+                }
+            }
+        )
+
+    </script>
+</body>
+
+</html>
