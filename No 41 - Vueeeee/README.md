@@ -17,6 +17,9 @@ touch vue_attribute_binding.html
 
 # Üçüncü örnek akış kontrol ifadeleri ile ilgili
 touch vue_conditional_render.html
+
+# Dördüncü örnek bir listenin döngüsel olarak ele alınması
+touch vue_for_loop.html
 ```
 
 ## Çalışma Zamanı
@@ -41,6 +44,12 @@ HTML sayfalarını bir tarayıcıda açmak yeterli. Sırasıyla örneklerden eld
 
 ![Screenshot_06.png](./assets/Screenshot_06.png)
 
+### vue_for_loop Örneğine Ait Ekran Çıktıları
+
+![Screenshot_07.png](./assets/Screenshot_07.png)
+
+![Screenshot_08.png](./assets/Screenshot_08.png)
+
 ## Bomba Sorular
 
 - Vue.js'te v-switch direktifi var mıdır? Yoksa bile kullanmanın bir yolu olabilir mi?
@@ -49,3 +58,4 @@ HTML sayfalarını bir tarayıcıda açmak yeterli. Sırasıyla örneklerden eld
 
 - vue_attribute_binding.html örneğinde kitap fotoğrafına bir link bağlayın _(a href)_ ve _href_ niteliğinin data nesnesindeki _url_ isimli özellikten beslenmesini sağlayın.
 - vue_conditional_render.html örneğinde, level değişkeninin Small, Medium, Large, XLarge olmasına göre sayfanın sağ üst köşesinde S,M,L,XL harflerinin şöyle janjanlı imajlar şeklinde görünmesini sağlayın.
+- vue_for_loop örneğinde yer alan level değerini kullanarak kitap fontlarını renklendirmeyi deneyin. 100 için farklı bir renk, 300 için farklı bir renk vb

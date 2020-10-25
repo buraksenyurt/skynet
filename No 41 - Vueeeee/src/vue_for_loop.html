@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>VueJs Bebek Adımları - 04</title>
+    <!-- CDN adresinden Vue.js'i kullanacağımızı söyledik-->
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <!--
+       app nesnesinin data özelliği ile gelen JSON içeriğinde bir liste olduğunu düşünelim. 
+       Örnekte kitap kategorisindeki birkaç ürün bilgisine yer veriliyor.
+       Bu listeyi sıralı bir şekilde HTML' e yazdırmak için v-for direktifinden yararlanılabilir.
+
+       Çalışma zamanında yine Chrome Console'a girilmiş ve anlık olarak books array'indeki değerlerle oynanmıştır.
+    -->
+
+    <div id="app" style="text-align:center;">
+
+        <div id="book">
+            <h1>'{{category}}' Kategorisindeki Ürünler</h1>
+
+            <!--
+                data özelliğindeki books dizisinin herbir elemanı book olarak isimlendirilmiştir.
+                {{ }} notasyonu ile book üstünden id, title, publisher ve level özelliklerine erişililir.
+
+                Döngülerde Render edilen elementlerin tekil bir anahtar ile işaretlenmesi önerilir. 
+                Bunun için :key direktifi kullanlır.
+
+                Örnekte <p> elementlerinin id isimli özellik değeri ile tekil(unique) olması sağlanır.
+            -->
+            <div v-for="book in books" :key="book.id">
+                <p>{{book.title}} <i>({{book.publisher}}) - ${{book.listPrice}}</i></p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        /*
+            data özelliği bir JSON nesnesi alabildiğinden içerisinde n elemanlı array'ler de barındırabilir.
+        */
+        var app = new Vue(
+            {
+                el: '#app',
+                data: {
+                    category: "Kitap",
+                    books: [
+                        { id: 1, title: "Programming C# for Beginners", publisher: "Wrox", listPrice: 19.95, level: 100 },
+                        { id: 2, title: "Patterns of Enterprise Application Architecture", publisher: "Addison Wesley", listPrice: 34.50, level: 300 },
+                        { id: 3, title: "Game Engine Architecture", publisher: "Gregory", listPrice: 45.50, level: 300 },
+                    ]
+                }
+            }
+        )
+
+    </script>
+</body>
+
+</html>
