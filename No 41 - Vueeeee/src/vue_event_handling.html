@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>VueJs Bebek Adımları - 05</title>
+    <!-- CDN adresinden Vue.js'i kullanacağımızı söyledik-->
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <!--
+        Sayfadaki olaylar v-on direktifi kontrollere bağlanabilir.
+        Örnekte kitap fiyatını artırmak ve azaltmak için iki button ve click olayları kullanılmaktadır.
+    -->
+
+    <div id="app" style="text-align:center;">
+
+        <h1>'{{category}}' Kategorisindeki Ürünler</h1>
+
+        <div v-for="book in books" :key="book.id">
+            <p>
+                {{book.title}}
+                <i>({{book.publisher}}) - ${{book.listPrice}}</i>
+                <!--
+                    Fiyat artırma işini üstlenen click olayı gerçekleştiğinde ifade içerisindeki kod çalışır. Bulunulan book nesnesinin listPrice değeri 1 artar.
+                -->
+                <button v-on:click="book.listPrice+=1">+</button>
+                <!--
+                    Ancak olayları aşağıdaki gibi fonksiyonlara devrederek kullanmak daha doğrudur.
+                    Bu kez button click olayı gerçekleştiğinde book.id değerini alan decreasePrice metodu çağrılır.
+                    Bu metod Vue nesnesinin opsiyonel parametrelerinden olan methods içerisinde tanımlanır.
+                -->
+                <button v-on:click="decreasePrice(book.id)">-</button>
+            </p>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        var app = new Vue(
+            {
+                el: '#app',
+                data: {
+                    category: "Kitap",
+                    books: [
+                        { id: 0, title: "Programming C# for Beginners", publisher: "Wrox", listPrice: 19.95, level: 100 },
+                        { id: 1, title: "Patterns of Enterprise Application Architecture", publisher: "Addison Wesley", listPrice: 34.50, level: 300 },
+                        { id: 2, title: "Game Engine Architecture", publisher: "Gregory", listPrice: 45.50, level: 300 },
+                    ]
+                },
+                methods: {
+                    /*
+                        button click olayı gerçekleştiğinde çalıştırılan metot.
+                    */
+                    decreasePrice(id) {
+                        console.log(id, ". eleman için 1 dolar indirim");
+                        this.books[id].listPrice -= 1;
+                    }
+                }
+            }
+        )
+
+    </script>
+</body>
+
+</html>

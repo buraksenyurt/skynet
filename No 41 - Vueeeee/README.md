@@ -1,4 +1,4 @@
-# Vue.js İçin Bebek Adımları
+# Vue.js İçin Bebek Adımları _(Vue 2 Tabanlı)_
 
 Frontend tarafındaki javascript çatıları _(Framework)_ söz konusu olduğunda gerçekten çok cahilim. Evet şirkette .Net Core Web API servislerini kullanan Vue.js uygulamaları söz konusu ve bunların üstünde geliştirmeler yapıyoruz ama temelleri öğrenmek adına başa dönüp bebek adımlarını atmam gerektiğini düşünüyorum. Vue'nun resmi dokümanı bu anlamda işimi görecektir.
 
@@ -20,6 +20,9 @@ touch vue_conditional_render.html
 
 # Dördüncü örnek bir listenin döngüsel olarak ele alınması
 touch vue_for_loop.html
+
+# Beşinci örnekte olay(Event) aksiyonlarına bakıyoruz
+touch vue_event_handling.html
 ```
 
 ## Çalışma Zamanı
@@ -50,12 +53,18 @@ HTML sayfalarını bir tarayıcıda açmak yeterli. Sırasıyla örneklerden eld
 
 ![Screenshot_08.png](./assets/Screenshot_08.png)
 
+### vue_event_handling Örneğine Ait Ekran Çıktısı
+
+![Screenshot_09.png](./assets/Screenshot_09.png)
+
 ## Bomba Sorular
 
 - Vue.js'te v-switch direktifi var mıdır? Yoksa bile kullanmanın bir yolu olabilir mi?
+- vue_event_handling örneğinde tek bir karakter ekleyerek oluşacak bug'ı bulun.
 
 ## Ödevler
 
 - vue_attribute_binding.html örneğinde kitap fotoğrafına bir link bağlayın _(a href)_ ve _href_ niteliğinin data nesnesindeki _url_ isimli özellikten beslenmesini sağlayın.
 - vue_conditional_render.html örneğinde, level değişkeninin Small, Medium, Large, XLarge olmasına göre sayfanın sağ üst köşesinde S,M,L,XL harflerinin şöyle janjanlı imajlar şeklinde görünmesini sağlayın.
 - vue_for_loop örneğinde yer alan level değerini kullanarak kitap fontlarını renklendirmeyi deneyin. 100 için farklı bir renk, 300 için farklı bir renk vb
+- vue_event_handling örneğinde fiyat azaltmada 0 ve eksi değere geçilmesini önleyin. Ayrıca her ürün fiyatı için bir üst artırma limit olsu ve artışlar bu değeri geçemesin.
