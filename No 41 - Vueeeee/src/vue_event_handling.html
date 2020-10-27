@@ -18,6 +18,11 @@
 
         <div v-for="book in books" :key="book.id">
             <p>
+                <!-- 
+                    CSS stillerini de veriye bağlayabiliriz.
+                    span elementinin arkaplan rengini belirleyen backgrounColor değeri o anki book nesnesinin color özelliğine bağlanmıştır.
+                -->
+                <span :style="{backgroundColor: book.color}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 {{book.title}}
                 <i>({{book.publisher}}) - ${{book.listPrice}}</i>
                 <!--
@@ -28,8 +33,13 @@
                     Ancak olayları aşağıdaki gibi fonksiyonlara devrederek kullanmak daha doğrudur.
                     Bu kez button click olayı gerçekleştiğinde book.id değerini alan decreasePrice metodu çağrılır.
                     Bu metod Vue nesnesinin opsiyonel parametrelerinden olan methods içerisinde tanımlanır.
+
+                    v-on direktifi aşağıdaki gibi @ ifadesi ile daha kısa şekilde yazılabilir.
+
+                    Örnekte disabled niteliği de indirim yapılıp yapılmayacağını belirten incAvailable düğmesine bağlanmıştır.
+                    Mesela 2 numaralı ürün için indirim uygulanamaz.
                 -->
-                <button v-on:click="decreasePrice(book.id)">-</button>
+                <button @click="decreasePrice(book.id)" :disabled="!book.incAvailable">-</button>
             </p>
         </div>
 
@@ -44,9 +54,9 @@
                 data: {
                     category: "Kitap",
                     books: [
-                        { id: 0, title: "Programming C# for Beginners", publisher: "Wrox", listPrice: 19.95, level: 100 },
-                        { id: 1, title: "Patterns of Enterprise Application Architecture", publisher: "Addison Wesley", listPrice: 34.50, level: 300 },
-                        { id: 2, title: "Game Engine Architecture", publisher: "Gregory", listPrice: 45.50, level: 300 },
+                        { id: 0, title: "Programming C# for Beginners", publisher: "Wrox", listPrice: 19.95, level: 100, incAvailable: true, color: "blue" },
+                        { id: 1, title: "Patterns of Enterprise Application Architecture", publisher: "Addison Wesley", listPrice: 34.50, level: 300, incAvailable: true, color: "red" },
+                        { id: 2, title: "Game Engine Architecture", publisher: "Gregory", listPrice: 45.50, level: 300, incAvailable: false, color: "red" },
                     ]
                 },
                 methods: {

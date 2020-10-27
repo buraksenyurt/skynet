@@ -57,6 +57,12 @@ HTML sayfalarını bir tarayıcıda açmak yeterli. Sırasıyla örneklerden eld
 
 ![Screenshot_09.png](./assets/Screenshot_09.png)
 
+_Sonradan örnek bir css niteliğini book nesnesinin color özelliğine bağladım_
+
+![Screenshot_10.png](./assets/Screenshot_10.png)
+
+![Screenshot_11.png](./assets/Screenshot_11.png)
+
 ## Bomba Sorular
 
 - Vue.js'te v-switch direktifi var mıdır? Yoksa bile kullanmanın bir yolu olabilir mi?
