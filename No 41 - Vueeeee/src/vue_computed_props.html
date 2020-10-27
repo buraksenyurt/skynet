@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>VueJs Bebek Adımları - 06</title>
+    <!-- CDN adresinden Vue.js'i kullanacağımızı söyledik-->
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+
+    <div id="app" style="text-align:center;">
+
+        <h1>'{{category}}' Kategorisindeki Ürünler</h1>
+
+        <!--
+            div üzerinde mouse bir kitaba denk geldiğinde bu kitabın indis değeri markIndex isimli fonksiyona gönderilir.
+            markIndex fonksiyonu gelen bu indis değerini data elementindeki selectedBookIndex'e set eder.
+            Buna göre computed içerisinde hangi kitap için işlem yapacağımızı anlayabiliriz.
+        -->
+        <div v-for="(book,index) in books" :key="book.id" @mouseover="markIndex(index)">
+            <p>
+                {{book.title}} <i>${{book.listPrice}}</i>
+            </p>
+        </div>
+        <h3>Güncel kurdan fiyatı {{local_price}} liradır.</h3>
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        /*
+            Computed Properties.
+
+            app nesnesinin computed özelliğinde local_price isimli bir fonksiyon bulunmaktadır.
+            Bu fonksiyon selectedBookIndex değerine işaret eden ürünün liste fiyatını güncel döviz kuru ile çarpıp geriye döndürür.
+            Döndürülen değer HTML içerisinde for döngüsünün dışındaki bir h3 elementine basılır.
+        */
+        var app = new Vue(
+            {
+                el: '#app',
+                data: {
+                    category: "Kitap",
+                    books: [
+                        { id: 0, title: "Programming C# for Beginners", publisher: "Wrox", listPrice: 19.95 },
+                        { id: 1, title: "Patterns of Enterprise Application Architecture", publisher: "Addison Wesley", listPrice: 34.50 },
+                        { id: 2, title: "Game Engine Architecture", publisher: "Gregory", listPrice: 45.50 },
+                    ],
+                    selectedBookIndex: 0,
+                },
+                methods: {
+                    markIndex(index) {
+                        this.selectedBookIndex = index;
+                        //console.log(index);
+                    }
+                },
+                computed: {
+                    /*
+                        Computed Property'ler hesaplamaya dahil ettikleri veriler değişmediği sürece cache üzerinde tutulurlar. 
+                    */
+                    local_price() {
+                        //console.log(this.selectedBookIndex);
+                        return this.books[this.selectedBookIndex].listPrice * 8.15;
+                    }
+                }
+            }
+        )
+
+    </script>
+</body>
+
+</html>

@@ -23,6 +23,9 @@ touch vue_for_loop.html
 
 # Beşinci örnekte olay(Event) aksiyonlarına bakıyoruz
 touch vue_event_handling.html
+
+# Altıncı örnek verinin depolanması yerine hesaplanılmasına odaklanır
+touch vue_computed_props.html
 ```
 
 ## Çalışma Zamanı
@@ -63,6 +66,12 @@ _Sonradan örnek bir css niteliğini book nesnesinin color özelliğine bağlad�
 
 ![Screenshot_11.png](./assets/Screenshot_11.png)
 
+### vue_computed_props Örneğine Ait Ekran Çıktısı
+
+_Mouse bir kitap üstüne geldikçe ürün fiyatının güncel kurdan karşılığı alt tarafa yansıtılır.
+
+![Screenshot_12.png](./assets/Screenshot_12.png)
+
 ## Bomba Sorular
 
 - Vue.js'te v-switch direktifi var mıdır? Yoksa bile kullanmanın bir yolu olabilir mi?
@@ -73,4 +82,5 @@ _Sonradan örnek bir css niteliğini book nesnesinin color özelliğine bağlad�
 - vue_attribute_binding.html örneğinde kitap fotoğrafına bir link bağlayın _(a href)_ ve _href_ niteliğinin data nesnesindeki _url_ isimli özellikten beslenmesini sağlayın.
 - vue_conditional_render.html örneğinde, level değişkeninin Small, Medium, Large, XLarge olmasına göre sayfanın sağ üst köşesinde S,M,L,XL harflerinin şöyle janjanlı imajlar şeklinde görünmesini sağlayın.
 - vue_for_loop örneğinde yer alan level değerini kullanarak kitap fontlarını renklendirmeyi deneyin. 100 için farklı bir renk, 300 için farklı bir renk vb
-- vue_event_handling örneğinde fiyat azaltmada 0 ve eksi değere geçilmesini önleyin. Ayrıca her ürün fiyatı için bir üst artırma limit olsu ve artışlar bu değeri geçemesin.
+- vue_event_handling örneğinde fiyat azaltmada 0 ve eksi değere geçilmesini önleyin. Ayrıca her ürün fiyatı için bir üst artırma limit olsun ve artışlar bu değeri geçemesin.
+- Vue antrenmanı yaptığınız herhangi bir sayfada, yine ürünleri listeleyin. Ancak bir ürün adının üstüne geldiğinizde ürünün fotoğrafını olduğu bir div aktif hale gelsin. Yani ürün adı üstüne gelince fotoğraf gösterilmesini yapmayı deneyin. Popup ile uğraşmayın, sayfadaki bir div alanı görünür hale gelsin yeterli. 
