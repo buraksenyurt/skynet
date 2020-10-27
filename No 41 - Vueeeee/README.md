@@ -26,6 +26,9 @@ touch vue_event_handling.html
 
 # Altıncı örnek verinin depolanması yerine hesaplanılmasına odaklanır
 touch vue_computed_props.html
+
+# Yedinci örnek kalabalıklaşan app nesne özellikleri sebebiyle component kullanımını ele alır
+touch vue_components.html
 ```
 
 ## Çalışma Zamanı
@@ -56,7 +59,7 @@ HTML sayfalarını bir tarayıcıda açmak yeterli. Sırasıyla örneklerden eld
 
 ![Screenshot_08.png](./assets/Screenshot_08.png)
 
-### vue_event_handling Örneğine Ait Ekran Çıktısı
+### vue_event_handling Örneğine Ait Ekran Çıktıları
 
 ![Screenshot_09.png](./assets/Screenshot_09.png)
 
@@ -72,10 +75,21 @@ _Mouse bir kitap üstüne geldikçe ürün fiyatının güncel kurdan karşılı
 
 ![Screenshot_12.png](./assets/Screenshot_12.png)
 
+### vue_components Örneğine Ait Ekran Çıktıları
+
+_Tasarımın şiddetine takılmayın :D_
+
+![Screenshot_13.png](./assets/Screenshot_13.png)
+
+![Screenshot_14.png](./assets/Screenshot_14.png)
+
 ## Bomba Sorular
 
 - Vue.js'te v-switch direktifi var mıdır? Yoksa bile kullanmanın bir yolu olabilir mi?
 - vue_event_handling örneğinde tek bir karakter ekleyerek oluşacak bug'ı bulun.
+- Vue.component ile bileşen tanımlanırken computed, methods özelliklerini kullanabilir miyiz?
+- vue_components.html örneğinde yer alan data neden bir fonksiyon şeklinde tanımlanmıştır?
+- _"Props'lar üst bileşenden alt bileşene veri aktarımında kullanılırlar"_ ifadesi doğru mudur?
 
 ## Ödevler
 
@@ -84,3 +98,4 @@ _Mouse bir kitap üstüne geldikçe ürün fiyatının güncel kurdan karşılı
 - vue_for_loop örneğinde yer alan level değerini kullanarak kitap fontlarını renklendirmeyi deneyin. 100 için farklı bir renk, 300 için farklı bir renk vb
 - vue_event_handling örneğinde fiyat azaltmada 0 ve eksi değere geçilmesini önleyin. Ayrıca her ürün fiyatı için bir üst artırma limit olsun ve artışlar bu değeri geçemesin.
 - Vue antrenmanı yaptığınız herhangi bir sayfada, yine ürünleri listeleyin. Ancak bir ürün adının üstüne geldiğinizde ürünün fotoğrafını olduğu bir div aktif hale gelsin. Yani ürün adı üstüne gelince fotoğraf gösterilmesini yapmayı deneyin. Popup ile uğraşmayın, sayfadaki bir div alanı görünür hale gelsin yeterli. 
+- Okduğunuz son beş kitabın sadece başlıklarını listeleyen bir bileşen tasarlayın. Bu bileşende her başlık yanında "Detay" isimli bir Button olsun. Bu düğmeye basınca kitapla ilgili detayları içeren başak bir bileşen başlığın hemen altında görünür hale gelsin.

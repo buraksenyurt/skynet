@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <title>VueJs Bebek Adımları - 07</title>
+    <!-- CDN adresinden Vue.js'i kullanacağımızı söyledik-->
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+
+    <div id="app" style="text-align:left;color:white">
+        <sportnews></sportnews>
+        <!--
+            Bileşenleri aşağıdaki gibi de kullanabiliriz. book isimli bileşenin verisi app bileşenindeki data içerisinde yer alan json dizisidir.
+            book elementi içerisinde :property_name şeklindeki tanımlamalar ile döngünün dolaştığı book nesnesinin değerleri bileşen içerisine aktarılır.
+            :property_name bilgileri book bileşeninin props özelliğinde tanımlanmıştır.
+        -->
+        <div v-for="b in books" :key="b.id">
+            <book :book_title="b.title" :book_summary="b.description" :book_authors="b.authors"
+                :book_list_price="b.listPrice">
+            </book>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        /*
+            Bu örneğe kadar dikkat edileceği üzere app nesnesinin data, computed, methods gibi özelliklerinin kalabalıklaşmaya başladığını gördük.
+            Yönetilebilir ve modüler yapıdaki bir Vue sayfası için bileşenler(component) kullanmak doğru bir yaklaşımdır.
+            Yani ana sayfadaki component'in alt bileşenlerden oluştuğunu düşünebiliriz.
+            Örnekte iki component tanımlanmış ve app isimli div içerisinde kullanılmıştır.
+            
+            sportnews isimli bileşen oldukça sıradandır. Kendi verisini kullanır.
+
+            book isimli bileşen ise app bileşenindeki data içeriğini kullanır.
+            
+            Bileşenler component fonksiyonu ile tanımlanır.
+            Her bileşen bir template kullanmalıdır. 
+            template özelliği bir container döndürmelidir(div gibi)
+        */
+        Vue.component('sportnews', {
+            template:
+                `
+                <div class='sportnews' style='text-align:left;backgroundColor:purple;'>
+                    <h2>Günün Öne Çıkan Spor Haberi</h2>
+                    <p><h3>{{title}}</h3></p>
+                    <p>{{summary}}</p>
+                </div>
+            `,
+            data() {
+                return {
+                    title: "Shane Larkin Milli Takıma Çağırıldı",
+                    summary: "Bir süredir ülkesi ABD'de olan Shane Larkin, Anadolu Efes kampına döndükten sonra doğrudan milli takıma çağırıldı."
+                }
+            }
+        });
+
+        Vue.component('book', {
+            template:
+                `
+                <div class='book' style='text-align:right;backgroundColor:gold;color:purple'>
+                    <p><h3>{{book_title}}</h3></p>
+                    <p>{{book_summary}}, {{book_authors}}<br/>{{book_list_price}} TL</p>
+                </div>
+            `,
+            props: {
+                book_title: {
+                    type: String,
+                    required: true
+                },
+                book_summary: {
+                    type: String,
+                    required: true
+                },
+                book_authors: {
+                    type: String,
+                    required: true
+                },
+                book_list_price: {
+                    type: Number,
+                    required: true
+                },
+            }
+        });
+
+        var app = new Vue(
+            {
+                el: '#app',
+                data: {
+                    books: [
+                        {
+                            title: "Veba",
+                            description: "Alber Camus'un en önemli eserlerinden birisi olan Veba'da yazar....",
+                            authors: "Albert Camus",
+                            listPrice: 34
+                        },
+                        {
+                            title: "Mahur Beste",
+                            description: "Ahmet Hamdi Tanpınar'ın ölümsüz eserlerinden olan Mahur Beste...",
+                            authors: "Ahmet Hamdi Tanpınar",
+                            listPrice: 23
+                        },
+                    ]
+                }
+            }
+        );
+
+    </script>
+</body>
+
+</html>
