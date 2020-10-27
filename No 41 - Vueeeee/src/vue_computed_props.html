@@ -11,6 +11,10 @@
     <div id="app" style="text-align:center;">
 
         <h1>'{{category}}' Kategorisindeki Ürünler</h1>
+        <!--
+            book_count, bir computed property'dir.
+        -->
+        <p><i>{{book_count}} adedi satışta</i></p>
 
         <!--
             div üzerinde mouse bir kitaba denk geldiğinde bu kitabın indis değeri markIndex isimli fonksiyona gönderilir.
@@ -42,9 +46,9 @@
                 data: {
                     category: "Kitap",
                     books: [
-                        { id: 0, title: "Programming C# for Beginners", publisher: "Wrox", listPrice: 19.95 },
-                        { id: 1, title: "Patterns of Enterprise Application Architecture", publisher: "Addison Wesley", listPrice: 34.50 },
-                        { id: 2, title: "Game Engine Architecture", publisher: "Gregory", listPrice: 45.50 },
+                        { id: 0, title: "Programming C# for Beginners", publisher: "Wrox", listPrice: 19.95, onSale: true },
+                        { id: 1, title: "Patterns of Enterprise Application Architecture", publisher: "Addison Wesley", listPrice: 34.50, onSale: true },
+                        { id: 2, title: "Game Engine Architecture", publisher: "Gregory", listPrice: 45.50, onSale: false },
                     ],
                     selectedBookIndex: 0,
                 },
@@ -56,11 +60,21 @@
                 },
                 computed: {
                     /*
-                        Computed Property'ler hesaplamaya dahil ettikleri veriler değişmediği sürece cache üzerinde tutulurlar. 
+                        Computed Property'ler hesaplamaya dahil ettikleri veriler değişmediği sürece cache üzerinde tutulurlar.
+                        local_price, mouseover hareketine göre üzerinde durulan kitabı alıp liste fiyatını bir işlemden geçirir ve geriye bir değer döner.
+                        book_count ise satışta olan kitapların adedini bulur ve geriye döner. 
                     */
                     local_price() {
                         //console.log(this.selectedBookIndex);
                         return this.books[this.selectedBookIndex].listPrice * 8.15;
+                    },
+                    book_count() {
+                        count = 0;
+                        for (i = 0; i < this.books.length; i++) {
+                            if (this.books[i].onSale)
+                                count++;
+                        }
+                        return count;
                     }
                 }
             }
