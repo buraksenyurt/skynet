@@ -21,10 +21,12 @@
             Bunun için book bileşeninde düğmeye basıldığında, üst bileşene bunu bildirecek şekilde bir mesaj göndermek gerekir.
             Bu mesaj $emit fonksiyonu ile yollanabilir(book içerisindeki iLikeIt metoduna bakın)
             @i-like-it niteliğinde belirtilen updateLikeCount fonksiyonu ise alt bileşenlerden birisi i-like-it mesajını yukarı fırlattığında çağırılır.
+
+            Bu arada hangi book bileşenine basıldığını anlamak için (b,index) çiftindeki index değerini updateLikeCount metoduna parametre olarak verebiliriz.
         -->
-        <div v-for="b in books" :key="b.id">
+        <div v-for="(b,index) in books" :key="b.id">
             <book :book_title="b.title" :book_summary="b.description" :book_authors="b.authors"
-                :book_list_price="b.listPrice" @i-like-it="updateLikeCount">
+                :book_list_price="b.listPrice" @i-like-it="updateLikeCount(index)">
             </book>
         </div>
         <p style="color: purple;">Toplamda {{likeCount}} kere beğen düğmelerine bastınız!</p>
@@ -108,24 +110,42 @@
                     likeCount: 0, // Alt bileşenlerdeki düğmeye basıldığında bu değeri artırıyoruz
                     books: [
                         {
+                            id:1001,
                             title: "Veba",
-                            description: "Alber Camus'un en önemli eserlerinden birisi olan Veba'da yazar....",
+                            description: "Camus adı çoğu okur için Yabancı romanıyla özdeşleşir. Ancak yazarın en önemli yapıtı aslında Veba'dır...",
                             authors: "Albert Camus",
                             listPrice: 34
                         },
                         {
+                            id:1002,
                             title: "Mahur Beste",
-                            description: "Ahmet Hamdi Tanpınar'ın ölümsüz eserlerinden olan Mahur Beste...",
+                            description: "Mahur Beste'de Tanpınar'ın Huzur ve Sahnenin Dışındakiler adlı romanlarında önemli bir motif olan 'Mahur Beste' teması önemli yer tutar. Mahur Beste, acı bir aşk hikayesinin klasik musiki kalıplarıyla soyutlanmasıdır...",
                             authors: "Ahmet Hamdi Tanpınar",
                             listPrice: 23
                         },
+                        {
+                            id:1003,
+                            title: "1Q84",
+                            description: "Sarsıcı bir yolculuğa hazır mısınız? Öyleyse kemerlerinizi bağlayın. Erkekleri, titizlikle geliştirdiği bir yöntemle öteki dünyaya gönderen genç bir kadınla tanışacaksınız. Ve amansız bir takiple onun peşine düşen fanatik bir cemaatin müritleriyle…",
+                            authors: "Haruki Murakami",
+                            listPrice: 23
+                        },
+                        {
+                            id:1004,
+                            title: "Beden Kayıt Tutar",
+                            description: "Ne yazık ki şimdiki psikiyatri anlayışı, yakınmalarınızı anlatmanız ve hekimin de bu yakınmaları düzeltecek bir ilaç önermesi üzerine kurulu. Ancak 'Hiç bir ilaç, kötü geçmiş bir çocukluğu düzeltmiyor'...",
+                            authors: "Bessel A. van der Kolk",
+                            listPrice: 41,
+                        }
                     ]
                 },
                 methods: {
                     /*
                         Alt bileşenin emit ile gönderdiği mesaj sonrası tetiklenen metot
                     */
-                    updateLikeCount() {
+                    updateLikeCount(index) {
+                        selected_title = this.books[index].title;
+                        console.log("`", selected_title, "` isimli kitabı beğendin");
                         console.log('Üst bileşen(app) için updateLikeCount olayı çağırıldı');
                         this.likeCount += 1;
                     }
