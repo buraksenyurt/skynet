@@ -17,7 +17,7 @@ Projelerdeki zorluk seviyelerini T-Shirt Size ile belirtmeye çalıştım. Beni 
 | No 	| Konu                                                                                                         	| İlerleme   	| Seviye 	|        Ortam        	| Bomba Soru? 	| Ödev? 	|
 |----	|--------------------------------------------------------------------------------------------------------------	|------------	|:------:	|:-------------------:	|:-----------:	|:-----:	|
 | 42 	|                                                                                                              	|            	|        	|                     	|             	|       	|
-| 41 	| Vue.js İçin Bebek Adımları                                                                                   	| %10        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
+| 41 	| Vue.js İçin Bebek Adımları                                                                                   	| %75        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 40 	| Docker Yerine Podman _(Pod Manager)_ Kullanmak                                                               	| %75        	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 39 	| Spring Tarafında Eski Usül Soap Based Bir XML Web Service Yazmak Ne Kadar Zor Olabilir?                      	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|
 | 38 	| .Net Core Tarafından RabbitMQ'ya Mesaj Göndermek ve Java Tarafından Dinlemek                                 	| Tamamlandı 	|    S   	|       Heimdall      	|     Var     	|  Var  	|

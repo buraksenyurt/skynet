@@ -14,12 +14,20 @@
             Bileşenleri aşağıdaki gibi de kullanabiliriz. book isimli bileşenin verisi app bileşenindeki data içerisinde yer alan json dizisidir.
             book elementi içerisinde :property_name şeklindeki tanımlamalar ile döngünün dolaştığı book nesnesinin değerleri bileşen içerisine aktarılır.
             :property_name bilgileri book bileşeninin props özelliğinde tanımlanmıştır.
+
+            
+            Ek: Alt bileşenden üst bileşene bildirim yollamak.
+            Amaç bir kitabın "Beğendim" butonuna basıldığında app bileşenindeki(üst component) toplam beğeni sayısını artırmak.
+            Bunun için book bileşeninde düğmeye basıldığında, üst bileşene bunu bildirecek şekilde bir mesaj göndermek gerekir.
+            Bu mesaj $emit fonksiyonu ile yollanabilir(book içerisindeki iLikeIt metoduna bakın)
+            @i-like-it niteliğinde belirtilen updateLikeCount fonksiyonu ise alt bileşenlerden birisi i-like-it mesajını yukarı fırlattığında çağırılır.
         -->
         <div v-for="b in books" :key="b.id">
             <book :book_title="b.title" :book_summary="b.description" :book_authors="b.authors"
-                :book_list_price="b.listPrice">
+                :book_list_price="b.listPrice" @i-like-it="updateLikeCount">
             </book>
         </div>
+        <p style="color: purple;">Toplamda {{likeCount}} kere beğen düğmelerine bastınız!</p>
     </div>
 
 
@@ -61,8 +69,18 @@
                 <div class='book' style='text-align:right;backgroundColor:gold;color:purple'>
                     <p><h3>{{book_title}}</h3></p>
                     <p>{{book_summary}}, {{book_authors}}<br/>{{book_list_price}} TL</p>
+                    <button v-on:click="iLikeIt">Beğendim</button>
                 </div>
             `,
+            methods: {
+                iLikeIt() {
+                    console.log('book bileşeninin iLikeIt olayı çağrıldı');
+                    /*
+                        $emit ile button click olayı tetiklendiğinde üst bileşene i-like-it olayı gerçekleşti şeklinde bir bilgi yollanır.
+                    */
+                    this.$emit('i-like-it');
+                }
+            },
             props: {
                 book_title: {
                     type: String,
@@ -87,6 +105,7 @@
             {
                 el: '#app',
                 data: {
+                    likeCount: 0, // Alt bileşenlerdeki düğmeye basıldığında bu değeri artırıyoruz
                     books: [
                         {
                             title: "Veba",
@@ -101,6 +120,15 @@
                             listPrice: 23
                         },
                     ]
+                },
+                methods: {
+                    /*
+                        Alt bileşenin emit ile gönderdiği mesaj sonrası tetiklenen metot
+                    */
+                    updateLikeCount() {
+                        console.log('Üst bileşen(app) için updateLikeCount olayı çağırıldı');
+                        this.likeCount += 1;
+                    }
                 }
             }
         );

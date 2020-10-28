@@ -83,6 +83,9 @@ _Tasarımın şiddetine takılmayın :D_
 
 ![Screenshot_14.png](./assets/Screenshot_14.png)
 
+_Alt bileşenden üst bileşene mesaj gönderip bir olayın işletilmesi_
+![Screenshot_15.png](./assets/Screenshot_15.png)
+
 ## Bomba Sorular
 
 - Vue.js'te v-switch direktifi var mıdır? Yoksa bile kullanmanın bir yolu olabilir mi?
