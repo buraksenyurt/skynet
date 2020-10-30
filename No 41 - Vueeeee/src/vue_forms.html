@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <title>VueJs Bebek Adımları - 08</title>
+    <!-- CDN adresinden Vue.js'i kullanacağımızı söyledik-->
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+
+    <div id="app" style="text-align:left">
+
+        <!--
+            @new-book-created, book-form bileşeninin onSubmit olayı içerisinden yapılan bildirimin adıdır.
+            Bu bildirim gerçekleştiğinde üst bileşen yeni bir kitap üretildiğini anlayabilir ve bu nesneyi kendi data nesnesindeki books isimli diziye ekleyebilir.
+            Bunun için addBookToList metodu kullanılır.
+        -->
+        <book-form @new-book-created="addBookToList"></book-form>
+
+        <div v-for="(b,index) in books" :key="b.id">
+            <p>
+            <h2>{{b.title}} ({{b.like}} beğeni)</h2>
+            </p>
+            <p>{{b.summary}}</p>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        /*
+            Örnekte bir form kullanılarak Submit işlemi ele alınıyor.
+            input, textarea, select gibi girdi elemanları v-model direktifi yardımıyla data fonksiyonundan döndürülen alanlara bağlanırlar.
+
+            select kontrolünde kullanılan .number, option içeriğinin integer olarak dönüştürülmesini sağlar.
+
+            Submit işlemi gerçekleştiğinde @submit.prevent ile belirtilen onSubmit metodu tetiklenir.
+        */
+        Vue.component('book-form', {
+            template:
+                `
+                <div class='book'>
+                    <form class="new-book-form" @submit.prevent="onSubmit">
+                        <p>
+                            <label for="title">Kitabın adı nedir?</label>
+                            <input id="title" v-model="title" placeholder="title">
+                        </p>                    
+                        <p>
+                            <label for="summary">Düşüncelerin neler?</label>      
+                            <textarea id="summary" v-model="summary"></textarea>
+                        </p>                        
+                        <p>
+                            <label for="like">Ne kadar beğendin?</label>                        
+                            <select id="like" v-model.number="like">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </p>                            
+                        <p>
+                            <input type="submit" value="Ekle">  
+                        </p>                        
+                    </form>
+                </div>
+            `,
+            data() {
+                return {
+                    title: null,
+                    summary: null,
+                    like: null
+                }
+            },
+            methods: {
+                onSubmit() {
+                    /* 
+                        Submit düğmesine basılınca tetiklenir.
+                        this ile bu bileşenden gelen name, summary, like gibi alanlar ele alınabilir.
+                        Bu değerler kullanılarak yeni bir nesne oluşturulur.
+                    */
+                    let newBook = {
+                        title: this.title,
+                        summary: this.summary,
+                        like: this.like
+                    }
+                    /*
+                        Üst bileşene yeni bir girdi oluşturulduğuna dair bilgiyi yine $emit ile gönderebiliriz.
+                        İkinci parametre ile oluşturulan nesne örneği üst bileşene yollanır.
+                    */
+                    this.$emit('new-book-created', newBook)
+                    /*
+                        newBook örneklendikten sonra bu bileşenin verisi temizlenir ve yeni veri girişine uygun hale getirilir.
+                    */
+                    this.title = null
+                    this.summary = null
+                    this.like = null
+                }
+            }
+        });
+
+        var app = new Vue(
+            {
+                el: '#app',
+                data: {
+                    books: []
+                },
+                methods: {
+                    addBookToList(book) {
+                        /*
+                            book-form bileşeninde Submit işlemi ile bir eleman eklendiğinde @new-book-created bildirimine göre bu metot çağrılır.
+                            book parametresi ile gelen nesne, push fonksiyonu ile books dizisine eklenir.
+                        */
+                        this.books.push(book)
+                    }
+                }
+            }
+        );
+
+    </script>
+</body>
+
+</html>

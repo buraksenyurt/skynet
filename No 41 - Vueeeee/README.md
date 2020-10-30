@@ -29,6 +29,9 @@ touch vue_computed_props.html
 
 # Yedinci örnek kalabalıklaşan app nesne özellikleri sebebiyle component kullanımını ele alır
 touch vue_components.html
+
+# Sekizinci örnek form ile veri ekleme konusunu ele alır
+touch vue_forms.html
 ```
 
 ## Çalışma Zamanı
@@ -86,6 +89,10 @@ _Tasarımın şiddetine takılmayın :D_
 _Alt bileşenden üst bileşene mesaj gönderip bir olayın işletilmesi_
 ![Screenshot_15.png](./assets/Screenshot_15.png)
 
+### vue_forms Örneğine Ait Ekran Çıktısı
+
+![Screenshot_16.png](./assets/Screenshot_16.png)
+
 ## Bomba Sorular
 
 - Vue.js'te v-switch direktifi var mıdır? Yoksa bile kullanmanın bir yolu olabilir mi?
@@ -102,3 +109,4 @@ _Alt bileşenden üst bileşene mesaj gönderip bir olayın işletilmesi_
 - vue_event_handling örneğinde fiyat azaltmada 0 ve eksi değere geçilmesini önleyin. Ayrıca her ürün fiyatı için bir üst artırma limit olsun ve artışlar bu değeri geçemesin.
 - Vue antrenmanı yaptığınız herhangi bir sayfada, yine ürünleri listeleyin. Ancak bir ürün adının üstüne geldiğinizde ürünün fotoğrafını olduğu bir div aktif hale gelsin. Yani ürün adı üstüne gelince fotoğraf gösterilmesini yapmayı deneyin. Popup ile uğraşmayın, sayfadaki bir div alanı görünür hale gelsin yeterli. 
 - Okduğunuz son beş kitabın sadece başlıklarını listeleyen bir bileşen tasarlayın. Bu bileşende her başlık yanında "Detay" isimli bir Button olsun. Bu düğmeye basınca kitapla ilgili detayları içeren başak bir bileşen başlığın hemen altında görünür hale gelsin.
+- Vue_forms.html örneğinde kitap ekledikçe ekrana listeliyoruz. for döngüsünde book isimli bir bileşen kullanmayı deneyiniz?
