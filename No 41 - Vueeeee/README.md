@@ -89,9 +89,13 @@ _Tasarımın şiddetine takılmayın :D_
 _Alt bileşenden üst bileşene mesaj gönderip bir olayın işletilmesi_
 ![Screenshot_15.png](./assets/Screenshot_15.png)
 
-### vue_forms Örneğine Ait Ekran Çıktısı
+### vue_forms Örneğine Ait Ekran Çıktıları
 
 ![Screenshot_16.png](./assets/Screenshot_16.png)
+
+![Screenshot_17.png](./assets/Screenshot_17.png)
+
+![Screenshot_18.png](./assets/Screenshot_18.png)
 
 ## Bomba Sorular
 
@@ -110,3 +114,4 @@ _Alt bileşenden üst bileşene mesaj gönderip bir olayın işletilmesi_
 - Vue antrenmanı yaptığınız herhangi bir sayfada, yine ürünleri listeleyin. Ancak bir ürün adının üstüne geldiğinizde ürünün fotoğrafını olduğu bir div aktif hale gelsin. Yani ürün adı üstüne gelince fotoğraf gösterilmesini yapmayı deneyin. Popup ile uğraşmayın, sayfadaki bir div alanı görünür hale gelsin yeterli. 
 - Okduğunuz son beş kitabın sadece başlıklarını listeleyen bir bileşen tasarlayın. Bu bileşende her başlık yanında "Detay" isimli bir Button olsun. Bu düğmeye basınca kitapla ilgili detayları içeren başak bir bileşen başlığın hemen altında görünür hale gelsin.
 - Vue_forms.html örneğinde kitap ekledikçe ekrana listeliyoruz. for döngüsünde book isimli bir bileşen kullanmayı deneyiniz?
+- Vue_forms.html'de title ve summary alanlarını zorunlu tuttuk. Bunlara ek olarak summary için maksimum 250 karakter girilmesine izin verecek şekilde doğrulama fonksiyonelliğini geliştirin.

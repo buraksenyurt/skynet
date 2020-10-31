@@ -23,6 +23,7 @@
             </p>
             <p>{{b.summary}}</p>
         </div>
+
     </div>
 
 
@@ -35,6 +36,9 @@
             select kontrolünde kullanılan .number, option içeriğinin integer olarak dönüştürülmesini sağlar.
 
             Submit işlemi gerçekleştiğinde @submit.prevent ile belirtilen onSubmit metodu tetiklenir.
+
+            Form Validation için onSubmit metodunda bir takım tedbirler aldık. 
+            Bu arada HTML 5 için required ifadesi ile elementlerin zorunlu hale getirilebileceğini de belirtelim.
         */
         Vue.component('book-form', {
             template:
@@ -61,40 +65,57 @@
                         </p>                            
                         <p>
                             <input type="submit" value="Ekle">  
-                        </p>                        
-                    </form>
+                        </p>            
+                        <p v-if="errors.length" style="color:red;">
+                            <b>Hata : </b>
+                            <ul>
+                                <li v-for="err in errors">{{ err }}</li>
+                            </ul>
+                        </p>            
+                    </form>                    
                 </div>
             `,
             data() {
                 return {
                     title: null,
                     summary: null,
-                    like: null
+                    like: null,
+                    errors: []  // Form doğrulama hatalarını tutmak için eklendi
                 }
             },
             methods: {
+                /* 
+                    Submit düğmesine basılınca tetiklenir.
+                    this ile bu bileşenden gelen name, summary, like gibi alanlar ele alınabilir.
+                    Bu değerler kullanılarak yeni bir nesne oluşturulur.
+                */
                 onSubmit() {
-                    /* 
-                        Submit düğmesine basılınca tetiklenir.
-                        this ile bu bileşenden gelen name, summary, like gibi alanlar ele alınabilir.
-                        Bu değerler kullanılarak yeni bir nesne oluşturulur.
-                    */
-                    let newBook = {
-                        title: this.title,
-                        summary: this.summary,
-                        like: this.like
+                    this.errors = [];
+                    if (this.title && this.summary) {
+                        let newBook = {
+                            title: this.title,
+                            summary: this.summary,
+                            like: this.like
+                        }
+                        /*
+                            Üst bileşene yeni bir girdi oluşturulduğuna dair bilgiyi yine $emit ile gönderebiliriz.
+                            İkinci parametre ile oluşturulan nesne örneği üst bileşene yollanır.
+                        */
+                        this.$emit('new-book-created', newBook)
+                        /*
+                            newBook örneklendikten sonra bu bileşenin verisi temizlenir ve yeni veri girişine uygun hale getirilir.
+                        */
+                        this.title = null
+                        this.summary = null
+                        this.like = null
+                    } else {
+                        /*
+                            Doğrulama için koyduğumuz kısım.
+                            Eğer başlık veya özet girilmemişse bunla ilgili olarak bu bileşenin errors dizisine bilgi ekliyoruz.
+                        */
+                        if (!this.title) this.errors.push("Kitap başlığı girilmeli.")
+                        if (!this.summary) this.errors.push("Kitap için geri bildirim eklenmeli.")
                     }
-                    /*
-                        Üst bileşene yeni bir girdi oluşturulduğuna dair bilgiyi yine $emit ile gönderebiliriz.
-                        İkinci parametre ile oluşturulan nesne örneği üst bileşene yollanır.
-                    */
-                    this.$emit('new-book-created', newBook)
-                    /*
-                        newBook örneklendikten sonra bu bileşenin verisi temizlenir ve yeni veri girişine uygun hale getirilir.
-                    */
-                    this.title = null
-                    this.summary = null
-                    this.like = null
                 }
             }
         });
