@@ -15,7 +15,7 @@ services:
             - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
             - discovery.type=single-node
         networks:
-            - elastics
+            - elastic
 
     kibana:
         container_name: kibana
