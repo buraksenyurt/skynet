@@ -8,7 +8,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.3",
-    "mongoose": "^5.9.26",
+    "mongoose": "^5.13.15",
     "typescript": "^3.9.7"
   },
   "devDependencies": {
